@@ -1,6 +1,6 @@
 {
   "name": "@21epub/epub-form-components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "epub-form-components",
   "author": "dxsixpc",
   "license": "MIT",
@@ -55,17 +55,20 @@
   },
   "peerDependencies": {
     "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react-dom": "^16.14.0",
+    "antd": "^4.9.2",
+    "react-sortablejs": "^1.5.1",
+    "sortablejs": "^1.12.0",
+    "@types/sortablejs": "^1.10.6"
   },
   "dependencies": {
-    "@21epub/create-storybook-react-library": "^0.3.0",
-    "@types/lodash": "^4.14.165",
     "@types/sortablejs": "^1.10.6",
+    "@types/lodash": "^4.14.165",
     "antd": "^4.9.2",
     "core-js": "^3.8.1",
     "lodash": "^4.17.20",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-sortablejs": "^1.5.1",
     "sortablejs": "^1.12.0"
   },
@@ -105,7 +108,7 @@
     "less-loader": "^7.1.0",
     "lint-staged": "^10.0.0",
     "microbundle-crl": "^0.13.11",
-    "npm-install-peers": "1.2.1",
+    "npm-install-peers": "^1.2.1",
     "npm-run-all": "4.1.5",
     "postcss-modules": "3.2.2",
     "prettier": "2.1.2",
