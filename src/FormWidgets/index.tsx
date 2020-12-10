@@ -4,6 +4,7 @@ import SelectWidget from './Select/Select'
 import DatePickerWidget from './DatePicker/DatePicker'
 import OptionsWidget from './Options/Options'
 import ValidateWidget from './Validate/Validate'
+import 'antd/dist/antd.css'
 
 const getWidget = (widgetType: string) => {
   const widgetMap = {

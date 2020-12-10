@@ -29,7 +29,14 @@ const Option: React.FC<OptionProps> = (props) => {
     onCheckedChange
   } = props
   return (
-    <div className={styles.optionItem}>
+    <div
+      className={styles.optionItem}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.5)'
+      }}
+    >
       <Input
         defaultValue={option.label}
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {

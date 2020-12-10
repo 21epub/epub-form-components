@@ -4,7 +4,7 @@ import { CheckboxGroupProps } from 'antd/lib/checkbox'
 import { CheckboxValueType } from 'antd/lib/checkbox/Group'
 import styles from './FormCheckbox.module.less'
 import { uniqueId } from 'lodash'
-
+console.log(styles)
 export interface Options {
   label: string
   value: CheckboxValueType
@@ -19,7 +19,7 @@ export interface OptionsConfig {
 }
 
 export interface CheckboxWidgetProps extends CheckboxGroupProps {
-  readOnly?: false
+  readOnly?: boolean
   size: 'large' | 'middle' | 'small'
   optionsConfig: OptionsConfig
   onChange: (value: CheckboxValueType[]) => void
@@ -53,6 +53,7 @@ const FormCheckbox: React.FC<CheckboxWidgetProps> = (props) => {
         value={propsValue}
         disabled={readOnly}
         onChange={onRadioChange}
+        style={{ width: '100%' }}
       >
         {optionsConfig?.options?.map((option: Options) => {
           return (

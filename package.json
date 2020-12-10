@@ -1,6 +1,6 @@
 {
   "name": "@21epub/epub-form-components",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "epub-form-components",
   "author": "dxsixpc",
   "license": "MIT",
@@ -62,15 +62,13 @@
     "@types/sortablejs": "^1.10.6"
   },
   "dependencies": {
-    "@types/sortablejs": "^1.10.6",
     "@types/lodash": "^4.14.165",
-    "antd": "^4.9.2",
     "core-js": "^3.8.1",
+    "css-loader": "^4.2.2",
+    "less-loader": "^5.0.0",
     "lodash": "^4.17.20",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-sortablejs": "^1.5.1",
-    "sortablejs": "^1.12.0"
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^0.23.1"
   },
   "devDependencies": {
     "@babel/core": "7.11.6",
@@ -105,7 +103,6 @@
     "husky": "4.3.0",
     "jest": "26.4.2",
     "less": "^3.12.2",
-    "less-loader": "^7.1.0",
     "lint-staged": "^10.0.0",
     "microbundle-crl": "^0.13.11",
     "npm-install-peers": "^1.2.1",

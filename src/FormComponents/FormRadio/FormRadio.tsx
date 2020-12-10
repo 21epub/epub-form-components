@@ -3,7 +3,6 @@ import { Radio, List } from 'antd'
 import { RadioProps, RadioChangeEvent } from 'antd/lib/radio'
 import styles from './FormRadio.module.less'
 import { uniqueId } from 'lodash'
-
 export interface Options {
   label: string
   value: string
@@ -18,7 +17,7 @@ export interface OptionsConfig {
 }
 
 export interface RadioWidgetProps extends RadioProps {
-  readOnly: false
+  readOnly?: boolean
   size: 'large' | 'middle' | 'small'
   optionsConfig: OptionsConfig
   onChange: (value: RadioChangeEvent) => void
@@ -53,6 +52,7 @@ const FormRadio: React.FC<RadioWidgetProps> = (props) => {
         value={propsValue}
         disabled={readOnly}
         onChange={onRadioChange}
+        style={{ width: '100%' }}
       >
         {optionsConfig?.options?.map((option: Options) => {
           return (

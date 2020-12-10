@@ -6,6 +6,7 @@ import FormRadio from './FormRadio/FormRadio'
 import FormTextArea from './FormTextArea/FormTextArea'
 import FormSelect from './FormSelect/FormSelect'
 import Mask from './Mask/Mask'
+import 'antd/dist/antd.css'
 
 const getComponents = (widgetType: string) => {
   // 根据组件的widgetType，返回对应的通用组件名称(若widgetType和通用组件名相同，则不同在此处写)

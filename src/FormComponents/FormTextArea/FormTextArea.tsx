@@ -3,7 +3,7 @@ import { Input } from 'antd'
 import { TextAreaProps } from 'antd/lib/input'
 
 interface FormTextAreaProps extends TextAreaProps {
-  readOnly: false
+  readOnly?: boolean
 }
 
 const FormInput: React.FC<FormTextAreaProps> = (props) => {
