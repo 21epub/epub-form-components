@@ -143,7 +143,6 @@ export const OptionsConfigWidget: React.FC<OptionsConfigWidgetProps> = (
     (visible || null) && (
       <ReactSortable
         className={styles.canvasStyle}
-        style={{ width: '100%', backgroundColor: '#fff' }}
         options={{
           group: {
             name: `options`

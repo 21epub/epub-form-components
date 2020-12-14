@@ -53,7 +53,7 @@ const FormCheckbox: React.FC<CheckboxWidgetProps> = (props) => {
         value={propsValue}
         disabled={readOnly}
         onChange={onRadioChange}
-        style={{ width: '100%' }}
+        // style={{ width: '100%' }}
       >
         {optionsConfig?.options?.map((option: Options) => {
           return (

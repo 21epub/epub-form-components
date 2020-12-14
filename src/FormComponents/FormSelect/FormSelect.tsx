@@ -51,7 +51,6 @@ const FormSelect: React.FC<SelectWidgetProps<string>> = (props) => {
       placeholder={placeholder}
       disabled={readOnly}
       onChange={onSelectChange}
-      style={{ width: '100%' }}
     >
       {optionsConfig?.options?.map((option: Options) => {
         return (

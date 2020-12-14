@@ -40,7 +40,6 @@ const SelectWidget: React.FC<SelectWidgetProps<string> | OptionProps> = (
       value={propsValue}
       placeholder={placeholder}
       onChange={onChange}
-      style={{ width: '100%' }}
     >
       {optionsConfig?.options?.map((option: Options, index: number) => {
         return (
