@@ -19,14 +19,14 @@ interface ValidateProps {
   value: ValidateValue
   widgetType: string
   validateList: ValidateList[]
-  onChange: (value: ValidateValue | {}) => void
+  onChange?: (value: ValidateValue | {}) => void
 }
 
 const ValidateWidget: React.FC<ValidateProps> = (props) => {
   const { value, widgetType, validateList, onChange } = props
 
   const onValidateValueChange = (validateValue: ValidateValue) => {
-    onChange(Object.assign({}, value, validateValue))
+    onChange && onChange(Object.assign({}, value, validateValue))
   }
 
   return (

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Input } from 'antd'
 import { TextAreaProps } from 'antd/lib/input'
+import Wrapper from '../styledComponents'
+import store from '../store/store'
 
 interface FormTextAreaProps extends TextAreaProps {
   readOnly?: boolean
@@ -8,15 +10,18 @@ interface FormTextAreaProps extends TextAreaProps {
 
 const FormInput: React.FC<FormTextAreaProps> = (props) => {
   const { value, placeholder, size, readOnly, onChange } = props
+  const [state] = store.useRxjsStore()
   return (
-    <Input.TextArea
-      value={value}
-      placeholder={placeholder}
-      size={size ?? 'middle'}
-      disabled={readOnly}
-      autoSize={{ minRows: 4, maxRows: 4 }}
-      onChange={onChange}
-    />
+    <Wrapper styled={state.styled}>
+      <Input.TextArea
+        value={value}
+        placeholder={placeholder}
+        size={size ?? 'middle'}
+        disabled={readOnly}
+        autoSize={{ minRows: 4, maxRows: 4 }}
+        onChange={onChange}
+      />
+    </Wrapper>
   )
 }
 

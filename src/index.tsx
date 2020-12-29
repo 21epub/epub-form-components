@@ -1,14 +1,15 @@
 // 表单组件
 export {
   default as getComponents,
+  setGlobalStyled,
+  Wrapper,
   FormButton,
   FormTextArea,
   FormSelect,
   FormRadio,
   FormInputNumber,
   FormInput,
-  FormCheckbox,
-  Mask
+  FormCheckbox
 } from './FormComponents'
 
 // widget组件

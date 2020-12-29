@@ -5,7 +5,7 @@ import FormInputNumber from './FormInputNumber/FormInputNumber'
 import FormRadio from './FormRadio/FormRadio'
 import FormTextArea from './FormTextArea/FormTextArea'
 import FormSelect from './FormSelect/FormSelect'
-import Mask from './Mask/Mask'
+import Wrapper, { setGlobalStyled } from './styledComponents'
 import 'antd/dist/antd.css'
 
 const getComponents = (widgetType: string) => {
@@ -34,8 +34,7 @@ const getComponents = (widgetType: string) => {
     InputNumber: FormInputNumber,
     Radio: FormRadio,
     Select: FormSelect,
-    TextArea: FormTextArea,
-    Mask: Mask
+    TextArea: FormTextArea
   }
 
   return Reflect.get(widgetMap, getComponentType(widgetType)) ?? FormInput
@@ -43,12 +42,13 @@ const getComponents = (widgetType: string) => {
 
 export default getComponents
 export {
+  setGlobalStyled,
+  Wrapper,
   FormButton,
   FormCheckbox,
   FormInput,
   FormInputNumber,
   FormRadio,
   FormSelect,
-  FormTextArea,
-  Mask
+  FormTextArea
 }

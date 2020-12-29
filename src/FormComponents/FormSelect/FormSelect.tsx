@@ -3,7 +3,8 @@ import { Select } from 'antd'
 import { SelectProps } from 'antd/lib/select'
 import styles from './FormSelect.module.less'
 import { uniqueId } from 'lodash'
-
+import Wrapper from '../styledComponents'
+import store from '../store/store'
 export interface Options {
   label: string
   value: string
@@ -25,6 +26,7 @@ export interface SelectWidgetProps<T> extends SelectProps<T> {
 
 const FormSelect: React.FC<SelectWidgetProps<string>> = (props) => {
   const { value, optionsConfig, placeholder, readOnly, onChange } = props
+  const [state] = store.useRxjsStore()
   const [defaultValue, setDefaultValue] = useState(
     optionsConfig?.defaultValue ?? undefined
   )
@@ -44,22 +46,24 @@ const FormSelect: React.FC<SelectWidgetProps<string>> = (props) => {
   }, [optionsConfig])
 
   return (
-    <Select
-      className={styles.select}
-      defaultValue={defaultValue}
-      value={propsValue}
-      placeholder={placeholder}
-      disabled={readOnly}
-      onChange={onSelectChange}
-    >
-      {optionsConfig?.options?.map((option: Options) => {
-        return (
-          <Select.Option key={uniqueId()} value={option.value}>
-            {option.label}
-          </Select.Option>
-        )
-      })}
-    </Select>
+    <Wrapper styled={state.styled}>
+      <Select
+        className={styles.select}
+        defaultValue={defaultValue}
+        value={propsValue}
+        placeholder={placeholder}
+        disabled={readOnly}
+        onChange={onSelectChange}
+      >
+        {optionsConfig?.options?.map((option: Options) => {
+          return (
+            <Select.Option key={uniqueId()} value={option.value}>
+              {option.label}
+            </Select.Option>
+          )
+        })}
+      </Select>
+    </Wrapper>
   )
 }
 
