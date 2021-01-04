@@ -2,11 +2,11 @@ import React from 'react'
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0'
 
-import { FormCheckbox } from './index'
+import { FormRadio } from './index'
 
 export default {
   title: 'epub-form-Component',
-  component: FormCheckbox,
+  component: FormRadio,
   argTypes: {
     text: {
       name: '文本',
@@ -20,7 +20,7 @@ const Template: Story<{
   size: 'large' | 'middle' | 'small'
   readOnly: boolean
   onChange: (value: any) => void
-}> = (args) => <FormCheckbox {...args} />
+}> = (args) => <FormRadio {...args} />
 
 export const PrimaryText = Template.bind({})
 PrimaryText.args = {
@@ -28,7 +28,13 @@ PrimaryText.args = {
     type: 'Radio',
     defaultValue: ['middle'],
     options: [
-      { label: '大', value: 'large', checked: false, index: 0 },
+      {
+        label:
+          '大家好，这是表单名称长度测试sdsdfga显示阿斯利康黑咖喱看到过拉胯话大概行安徽两个卡就离开的发生的',
+        value: 'large',
+        checked: false,
+        index: 0
+      },
       { label: '中', value: 'middle', checked: true, index: 1 },
       { label: '小', value: 'small', checked: false, index: 2 }
     ]
