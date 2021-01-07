@@ -4,6 +4,7 @@ import SelectWidget from './Select/Select'
 import DatePickerWidget from './DatePicker/DatePicker'
 import OptionsWidget from './Options/Options'
 import ValidateWidget from './Validate/Validate'
+import StyledWidget from './Styled/Styled'
 import 'antd/dist/antd.css'
 
 const getWidget = (widgetType: string) => {
@@ -13,7 +14,8 @@ const getWidget = (widgetType: string) => {
     Select: SelectWidget,
     DatePicker: DatePickerWidget,
     Options: OptionsWidget,
-    Validate: ValidateWidget
+    Validate: ValidateWidget,
+    Styled: StyledWidget
   }
 
   return Reflect.get(widgetMap, widgetType) ?? InputWidget
@@ -26,5 +28,6 @@ export {
   SelectWidget,
   DatePickerWidget,
   OptionsWidget,
-  ValidateWidget
+  ValidateWidget,
+  StyledWidget
 }

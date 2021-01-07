@@ -14,6 +14,7 @@ export interface OptionsConfig {
 }
 
 export interface OptionsConfigWidgetProps {
+  fieldId?: string
   value?: OptionsConfig
   optionsConfig: OptionsConfig
   onChange: (optionsConfig: OptionsConfig) => void
@@ -22,7 +23,7 @@ export interface OptionsConfigWidgetProps {
 export const OptionsConfigWidget: React.FC<OptionsConfigWidgetProps> = (
   props
 ) => {
-  const { value, onChange } = props
+  const { value, fieldId, onChange } = props
   const [optionsConfig, setOptionsConfig] = useState<OptionsConfig>(
     value ?? props.optionsConfig
   )
@@ -137,7 +138,7 @@ export const OptionsConfigWidget: React.FC<OptionsConfigWidgetProps> = (
     setTimeout(() => {
       setVisible(true)
     })
-  }, [])
+  }, [fieldId])
 
   return (
     (visible || null) && (

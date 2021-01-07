@@ -20,5 +20,6 @@ export {
   OptionsWidget,
   SelectWidget,
   TextAreaWidget,
-  ValidateWidget
+  ValidateWidget,
+  StyledWidget
 } from './FormWidgets'
