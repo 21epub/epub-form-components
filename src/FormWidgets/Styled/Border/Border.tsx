@@ -31,6 +31,7 @@ const Color: React.FC<ColorProps> = (props) => {
   let borderColor: string = styledValue?.borderColor ?? defaultValue.borderColor
 
   const options: Option[] = [
+    { label: '默认边框', value: 'unset' },
     { label: '实线边框', value: 'solid' },
     { label: '点线边框', value: 'dotted' },
     { label: '虚线边框', value: 'dashed' },
@@ -44,8 +45,8 @@ const Color: React.FC<ColorProps> = (props) => {
 
   // 边框样式改变时触发更新
   const onSelectChange = (value: string) => {
-    borderStyle = value
-    onBorderChange(value, borderColor)
+    borderStyle = value ?? borderStyle
+    onBorderChange(borderStyle, borderColor)
   }
 
   // 点击时控制颜色选择面板显示或隐藏

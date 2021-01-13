@@ -1,6 +1,6 @@
 {
   "name": "@21epub/epub-form-components",
-  "version": "0.0.13",
+  "version": "0.0.16",
   "description": "epub-form-components",
   "author": "dxsixpc",
   "license": "MIT",
@@ -59,12 +59,12 @@
     "antd": "^4.9.2"
   },
   "dependencies": {
+    "@21epub/react-rxjs-store": "^0.2.0",
     "lodash": "^4.17.20",
+    "react-color": "^2.19.3",
     "react-sortablejs": "^1.5.1",
     "sortablejs": "^1.12.0",
-    "styled-components": "^5.2.1",
-    "react-color": "^2.19.3",
-    "@21epub/react-rxjs-store": "^0.2.0"
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@babel/core": "7.11.6",

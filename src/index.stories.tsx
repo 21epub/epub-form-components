@@ -2,11 +2,11 @@ import React from 'react'
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0'
 
-import { FormRadio } from './index'
+import { FormCheckbox } from './index'
 
 export default {
   title: 'epub-form-Component',
-  component: FormRadio,
+  component: FormCheckbox,
   argTypes: {
     text: {
       name: '文本',
@@ -20,7 +20,7 @@ const Template: Story<{
   size: 'large' | 'middle' | 'small'
   readOnly: boolean
   onChange: (value: any) => void
-}> = (args) => <FormRadio {...args} />
+}> = (args) => <FormCheckbox {...args} />
 
 export const PrimaryText = Template.bind({})
 PrimaryText.args = {

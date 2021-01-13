@@ -21,7 +21,7 @@ const FontSize: React.FC<FontSizeProps> = (props) => {
 
   // 字号变化时触发
   const onSelectChange = (value: string) => {
-    onChange({ fontSize: value, fontWeight: fontWeight })
+    onChange({ fontSize: value ?? fontSize, fontWeight: fontWeight })
   }
 
   // 字体加粗时触发
