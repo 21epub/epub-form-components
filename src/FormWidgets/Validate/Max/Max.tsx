@@ -19,7 +19,7 @@ const Max: React.FC<MaxProps> = (props) => {
     onChange({ max: e.target.checked ? validateValue?.min ?? 0 : undefined })
   }
 
-  const onNumberChange = (value: number | string | undefined) => {
+  const onNumberChange = (value: number | string | null | undefined) => {
     onChange({ max: Number(value) })
   }
 
@@ -61,7 +61,9 @@ const Max: React.FC<MaxProps> = (props) => {
         className={styles.inputNumber}
         min={validateValue?.min}
         value={validateValue?.max}
-        parser={(value) => String(value).replace(/[^0-9]/gi, '')}
+        parser={(value: string | undefined) =>
+          String(value).replace(/[^0-9]/gi, '')
+        }
         onChange={onNumberChange}
       />
       <span>{setEndTip(widgetType)}</span>

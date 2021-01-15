@@ -18,7 +18,7 @@ const Precision: React.FC<PrecisionProps> = (props) => {
     onChange({ precision: e.target.checked ? 1 : undefined })
   }
 
-  const onNumberChange = (value: number | string | undefined) => {
+  const onNumberChange = (value: number | string | null | undefined) => {
     onChange({ precision: Number(value) })
   }
 
@@ -32,6 +32,7 @@ const Precision: React.FC<PrecisionProps> = (props) => {
       <InputNumber
         className={styles.inputNumber}
         value={validateValue?.precision}
+        min={0}
         parser={(value) => String(value).replace(/[^0-9]/gi, '')}
         onChange={onNumberChange}
       />

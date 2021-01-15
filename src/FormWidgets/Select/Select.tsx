@@ -29,8 +29,8 @@ const SelectWidget: React.FC<SelectWidgetProps<string> | OptionProps> = (
     const checkedOption = optionsConfig?.options.find(
       (option: Options) => option.checked
     )
-    defaultValue = checkedOption.value
-    propsValue = checkedOption.value
+    defaultValue = checkedOption?.value
+    propsValue = checkedOption?.value
   }, [optionsConfig])
 
   return (

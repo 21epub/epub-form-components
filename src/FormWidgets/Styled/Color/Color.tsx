@@ -29,8 +29,8 @@ const Color: React.FC<ColorProps> = (props) => {
     '#7BDCB5',
     '#8ED1FC',
     '#0693E3',
-    '#9900EF',
-    '#999999'
+    '#9901EF',
+    '#989898'
   ]
 
   // onChange触发更新

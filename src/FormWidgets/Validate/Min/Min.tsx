@@ -19,7 +19,7 @@ const Min: React.FC<MinProps> = (props) => {
     onChange({ min: e.target.checked ? 0 : undefined })
   }
 
-  const onNumberChange = (value: number | string | undefined) => {
+  const onNumberChange = (value: number | string | null | undefined) => {
     onChange({ min: Number(String(value).replace(/[^0-9]/gi, '')) })
   }
 
@@ -59,9 +59,11 @@ const Min: React.FC<MinProps> = (props) => {
       <span>{setStartTip(widgetType)}</span>
       <InputNumber
         className={styles.inputNumber}
-        min={validateValue?.min}
+        min={0}
         value={validateValue?.min}
-        parser={(value) => String(value).replace(/[^0-9]/gi, '')}
+        parser={(value: string | undefined) =>
+          String(value).replace(/[^0-9]/gi, '')
+        }
         onChange={onNumberChange}
       />
       <span>{setEndTip(widgetType)}</span>
