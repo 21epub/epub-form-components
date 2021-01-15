@@ -28,7 +28,7 @@ const FormSelect: React.FC<SelectWidgetProps<string>> = (props) => {
   const { value, optionsConfig, placeholder, readOnly, onChange } = props
   const [state] = store.useRxjsStore()
   const [defaultValue, setDefaultValue] = useState(
-    optionsConfig?.defaultValue ?? undefined
+    optionsConfig?.defaultValue ? optionsConfig?.defaultValue : undefined
   )
   const [propsValue, setPropsValue] = useState(value ? value[0] : defaultValue)
 
@@ -49,8 +49,8 @@ const FormSelect: React.FC<SelectWidgetProps<string>> = (props) => {
     <Wrapper styled={state.styled}>
       <Select
         className={styles.select}
-        defaultValue={defaultValue}
-        value={propsValue}
+        defaultValue={defaultValue || undefined}
+        value={propsValue || undefined}
         placeholder={placeholder}
         disabled={readOnly}
         onChange={onSelectChange}

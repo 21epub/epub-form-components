@@ -31,7 +31,6 @@ const Color: React.FC<ColorProps> = (props) => {
   let borderColor: string = styledValue?.borderColor ?? defaultValue.borderColor
 
   const options: Option[] = [
-    { label: '默认边框', value: 'unset' },
     { label: '实线边框', value: 'solid' },
     { label: '点线边框', value: 'dotted' },
     { label: '虚线边框', value: 'dashed' },

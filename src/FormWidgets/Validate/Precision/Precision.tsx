@@ -33,7 +33,9 @@ const Precision: React.FC<PrecisionProps> = (props) => {
         className={styles.inputNumber}
         value={validateValue?.precision}
         min={0}
-        parser={(value) => String(value).replace(/[^0-9]/gi, '')}
+        parser={(value: string | undefined) =>
+          String(value).replace(/[^0-9]/gi, '')
+        }
         onChange={onNumberChange}
       />
       <span>位小数</span>
