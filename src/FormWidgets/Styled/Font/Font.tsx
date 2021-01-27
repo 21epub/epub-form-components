@@ -35,7 +35,7 @@ const FontSize: React.FC<FontSizeProps> = (props) => {
   }
 
   // 循环添加下拉选项
-  for (let i = 10; i < 36; i++) {
+  for (let i = 12; i < 36; i++) {
     children.push(
       <Select.Option key={i} value={i + 'px'}>
         {i}px

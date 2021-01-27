@@ -24,7 +24,6 @@ interface ValidateProps {
 
 const ValidateWidget: React.FC<ValidateProps> = (props) => {
   const { value, widgetType, validateList, onChange } = props
-  console.log(props)
 
   const onValidateValueChange = (validateValue: ValidateValue) => {
     onChange && onChange(Object.assign({}, value, validateValue))
