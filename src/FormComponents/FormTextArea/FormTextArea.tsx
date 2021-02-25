@@ -8,7 +8,7 @@ interface FormTextAreaProps extends TextAreaProps {
   readOnly?: boolean
 }
 
-const FormInput: React.FC<FormTextAreaProps> = (props) => {
+const FormTextArea: React.FC<FormTextAreaProps> = (props) => {
   const { value, placeholder, size, readOnly, onChange } = props
   const [state] = store.useRxjsStore()
   return (
@@ -25,4 +25,4 @@ const FormInput: React.FC<FormTextAreaProps> = (props) => {
   )
 }
 
-export default FormInput
+export default FormTextArea
