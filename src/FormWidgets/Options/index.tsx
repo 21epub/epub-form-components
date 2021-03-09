@@ -4,7 +4,7 @@ import { PlusOutlined } from '@ant-design/icons'
 import { SortableEvent } from 'sortablejs'
 import ReactSortable from 'react-sortablejs'
 import Option, { Options } from './Option'
-import styles from './Options.module.less'
+import styles from './index.module.less'
 import produce from 'immer'
 
 export interface OptionsConfig {

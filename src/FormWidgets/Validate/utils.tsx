@@ -1,8 +1,8 @@
-import ReadOnly from './ReadOnly/ReadOnly'
-import IsRequired from './IsRequired/IsRequired'
-import Max from './Max/Max'
-import Min from './Min/Min'
-import Precision from './Precision/Precision'
+import ReadOnly from './ReadOnly'
+import IsRequired from './IsRequired'
+import Max from './Max'
+import Min from './Min'
+import Precision from './Precision'
 
 export const getValidate = (ValidateType: string) => {
   const validateMap = {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Select, Button } from 'antd'
-import { StyledValue } from '../Styled'
-import styles from './Font.module.less'
+import { StyledValue } from '..'
+import styles from './index.module.less'
 
 interface FontSizeProps {
   label: string
@@ -23,7 +23,6 @@ const FontSize: React.FC<FontSizeProps> = (props) => {
   const onSelectChange = (value: string) => {
     onChange({ fontSize: value ?? fontSize, fontWeight: fontWeight })
   }
-
   // 字体加粗时触发
   const onWeigthChange = () => {
     if (fontWeight === 'normal') {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Select } from 'antd'
-import { StyledValue } from '../Styled'
+import { StyledValue } from '..'
 import { TwitterPicker, ColorResult } from 'react-color'
-import styles from './Border.module.less'
+import styles from './index.module.less'
 
 export interface ReturnValue {
   [styled: string]: string

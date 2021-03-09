@@ -2,9 +2,9 @@ import React from 'react'
 import { Checkbox, Tooltip, InputNumber } from 'antd'
 import { CheckboxChangeEvent } from 'antd/es/checkbox'
 import { QuestionCircleFilled } from '@ant-design/icons'
-import { ValidateValue } from '../Validate'
+import { ValidateValue } from '..'
 import { isNumber } from 'lodash'
-import styles from './Precision.module.less'
+import styles from './index.module.less'
 
 interface PrecisionProps {
   validateValue: ValidateValue

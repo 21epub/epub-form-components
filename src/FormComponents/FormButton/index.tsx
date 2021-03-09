@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from 'antd'
 import { ButtonProps } from 'antd/lib/button'
 import Wrapper from '../styledComponents'
-import store from '../store/store'
+import store from '../store'
 
 interface FormButtonProps extends ButtonProps {
   buttonText: string

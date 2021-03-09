@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Radio, List } from 'antd'
 import { RadioProps, RadioChangeEvent } from 'antd/lib/radio'
-import styles from './FormRadio.module.less'
+import styles from './index.module.less'
 import { uniqueId } from 'lodash'
 import Wrapper from '../styledComponents'
-import store from '../store/store'
+import store from '../store'
 export interface Options {
   label: string
   value: string

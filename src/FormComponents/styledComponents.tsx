@@ -1,13 +1,13 @@
 import styled from 'styled-components'
-import store from './store/store'
+import store from './store'
 
 export interface StyledProps {
   styled?: string
 }
 
 // 设置全局样式保存到store中
-const setGlobalStyled = (styled: string) => {
-  store.reducers.updateGlobalStyled(styled)
+const setGlobalStyled = (styledValue: string) => {
+  store.reducers.updateGlobalStyled(styledValue)
 }
 
 // 示例，直接传less格式的style字符串

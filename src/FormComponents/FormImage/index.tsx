@@ -4,7 +4,7 @@ import { UploadOutlined } from '@ant-design/icons'
 import { UploadFile } from 'antd/lib/upload/interface'
 import { useToggle } from 'react-use'
 import Wrapper from '../styledComponents'
-import store from '../store/store'
+import store from '../store'
 import { checkUploadFileFormat } from '../utils'
 import fileApis from './fileApis'
 

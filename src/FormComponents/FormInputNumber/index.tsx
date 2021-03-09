@@ -1,22 +1,22 @@
 import React from 'react'
-import { Input } from 'antd'
-import { InputProps } from 'antd/lib/input'
+import { InputNumber } from 'antd'
+import { InputNumberProps } from 'antd/lib/input-number'
 import Wrapper from '../styledComponents'
-import store from '../store/store'
-interface FormInputProps extends InputProps {
+import store from '../store'
+interface FormInputNumberProps extends InputNumberProps {
   readOnly?: false
 }
 
-const FormInput: React.FC<FormInputProps> = (props) => {
-  const { value, placeholder, size, readOnly, onChange } = props
+const FormInput: React.FC<FormInputNumberProps> = (props) => {
+  const { value, placeholder, size, step, readOnly, onChange } = props
   const [state] = store.useRxjsStore()
   return (
     <Wrapper styled={state.styled}>
-      <Input
-        type='text'
+      <InputNumber
         value={value}
         placeholder={placeholder}
         size={size ?? 'middle'}
+        step={step ?? 1}
         disabled={readOnly}
         onChange={onChange}
       />

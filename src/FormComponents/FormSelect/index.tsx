@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Select } from 'antd'
 import { SelectProps } from 'antd/lib/select'
-import styles from './FormSelect.module.less'
+import styles from './index.module.less'
 import { uniqueId } from 'lodash'
 import Wrapper from '../styledComponents'
-import store from '../store/store'
+import store from '../store'
 export interface Options {
   label: string
   value: string

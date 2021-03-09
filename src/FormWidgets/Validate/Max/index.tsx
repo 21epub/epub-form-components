@@ -2,38 +2,38 @@ import React from 'react'
 import { Checkbox, Tooltip, InputNumber } from 'antd'
 import { CheckboxChangeEvent } from 'antd/es/checkbox'
 import { QuestionCircleFilled } from '@ant-design/icons'
-import { ValidateValue } from '../Validate'
+import { ValidateValue } from '..'
 import { isNumber } from 'lodash'
-import styles from './Min.module.less'
+import styles from './index.module.less'
 
-interface MinProps {
+interface MaxProps {
   widgetType: string
   validateValue: ValidateValue
-  onChange: (value: { min: number | undefined }) => void
+  onChange: (value: { max: number | undefined }) => void
 }
 
-const Min: React.FC<MinProps> = (props) => {
+const Max: React.FC<MaxProps> = (props) => {
   const { widgetType, validateValue, onChange } = props
 
   const onCheckedChange = (e: CheckboxChangeEvent) => {
-    onChange({ min: e.target.checked ? 0 : undefined })
+    onChange({ max: e.target.checked ? validateValue?.min ?? 0 : undefined })
   }
 
   const onNumberChange = (value: number | string | null | undefined) => {
-    onChange({ min: Number(String(value).replace(/[^0-9]/gi, '')) })
+    onChange({ max: Number(value) })
   }
 
   const setStartTip = (widgetType: string) => {
     switch (widgetType) {
       case 'Text':
-        return '最小'
+        return '最大'
       case 'Checkbox':
-        return '最少选'
+        return '最多选'
       case 'InputNumber':
       case 'FloatNumber':
-        return '最小值'
+        return '最大值'
       default:
-        return '最小为'
+        return '最大为'
     }
   }
   const setEndTip = (widgetType: string) => {
@@ -53,25 +53,25 @@ const Min: React.FC<MinProps> = (props) => {
   return (
     <div className={styles.flexBox}>
       <Checkbox
-        checked={isNumber(validateValue?.min)}
+        checked={isNumber(validateValue?.max)}
         onChange={onCheckedChange}
       />
       <span>{setStartTip(widgetType)}</span>
       <InputNumber
         className={styles.inputNumber}
-        min={0}
-        value={validateValue?.min}
+        min={validateValue?.min}
+        value={validateValue?.max}
         parser={(value: string | undefined) =>
           String(value).replace(/[^0-9]/gi, '')
         }
         onChange={onNumberChange}
       />
       <span>{setEndTip(widgetType)}</span>
-      <Tooltip title='设置最小'>
+      <Tooltip title='设置最大'>
         <QuestionCircleFilled style={{ marginLeft: '5px' }} />
       </Tooltip>
     </div>
   )
 }
 
-export default Min
+export default Max

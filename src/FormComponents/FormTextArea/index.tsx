@@ -2,7 +2,7 @@ import React from 'react'
 import { Input } from 'antd'
 import { TextAreaProps } from 'antd/lib/input'
 import Wrapper from '../styledComponents'
-import store from '../store/store'
+import store from '../store'
 
 interface FormTextAreaProps extends TextAreaProps {
   readOnly?: boolean

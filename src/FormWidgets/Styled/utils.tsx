@@ -1,6 +1,6 @@
-import Border from './Border/Border'
-import Color from './Color/Color'
-import Font from './Font/Font'
+import Border from './Border'
+import Color from './Color'
+import Font from './Font'
 
 export const getStyled = (StyledType: string) => {
   const styledMap = {

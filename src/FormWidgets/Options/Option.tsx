@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input, Radio, Checkbox, Space, Tooltip } from 'antd'
 import { CloseCircleOutlined, MenuOutlined } from '@ant-design/icons'
-import styles from './Options.module.less'
+import styles from './index.module.less'
 
 export interface Options {
   label: string

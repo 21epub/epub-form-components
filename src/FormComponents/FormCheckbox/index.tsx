@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Checkbox, List } from 'antd'
 import { CheckboxGroupProps } from 'antd/lib/checkbox'
 import { CheckboxValueType } from 'antd/lib/checkbox/Group'
-import styles from './FormCheckbox.module.less'
+import styles from './index.module.less'
 import { uniqueId } from 'lodash'
 import Wrapper from '../styledComponents'
-import store from '../store/store'
+import store from '../store'
 
 export interface Options {
   label: string
@@ -36,10 +36,10 @@ const FormCheckbox: React.FC<CheckboxWidgetProps> = (props) => {
   )
   const [propsValue, setPropsValue] = useState(value ?? defaultValue)
 
-  const onRadioChange = (value: CheckboxValueType[]) => {
-    setPropsValue(value)
+  const onRadioChange = (RadioChangeValue: CheckboxValueType[]) => {
+    setPropsValue(RadioChangeValue)
     if (typeof onChange === 'function') {
-      onChange(value)
+      onChange(RadioChangeValue)
     }
   }
 

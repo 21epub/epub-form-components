@@ -3,7 +3,7 @@ import { Button, message, Upload } from 'antd'
 import { UploadOutlined } from '@ant-design/icons'
 import { UploadFile } from 'antd/lib/upload/interface'
 import Wrapper from '../styledComponents'
-import store from '../store/store'
+import store from '../store'
 import { checkUploadFileFormat } from '../utils'
 import fileApis from './fileApis'
 

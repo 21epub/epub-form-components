@@ -1,13 +1,13 @@
-import InputWidget from './Input/Input'
-import TextAreaWidget from './TextArea/TextArea'
-import SelectWidget from './Select/Select'
-import DatePickerWidget from './DatePicker/DatePicker'
-import OptionsWidget from './Options/Options'
-import ValidateWidget from './Validate/Validate'
-import StyledWidget from './Styled/Styled'
+import InputWidget from './Input'
+import TextAreaWidget from './TextArea'
+import SelectWidget from './Select'
+import DatePickerWidget from './DatePicker'
+import OptionsWidget from './Options'
+import ValidateWidget from './Validate'
+import StyledWidget from './Styled'
 import 'antd/dist/antd.css'
 
-const getWidget = (widgetType: string) => {
+export const getWidget = (widgetType: string) => {
   const widgetMap = {
     Input: InputWidget,
     TextArea: TextAreaWidget,
@@ -21,7 +21,6 @@ const getWidget = (widgetType: string) => {
   return Reflect.get(widgetMap, widgetType) ?? InputWidget
 }
 
-export default getWidget
 export {
   InputWidget,
   TextAreaWidget,

@@ -1,6 +1,6 @@
 import React from 'react'
 import { getStyled } from './utils'
-import styles from './Styled.module.less'
+import styles from './index.module.less'
 
 export interface ReturnValue {
   [styled: string]: string

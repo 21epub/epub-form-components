@@ -1,6 +1,6 @@
 import React from 'react'
 import { getValidate } from './utils'
-import styles from './Validate.module.less'
+import styles from './index.module.less'
 
 export interface ValidateValue {
   readOnly: boolean

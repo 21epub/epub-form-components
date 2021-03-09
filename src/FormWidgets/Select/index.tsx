@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Select } from 'antd'
 import { SelectProps, OptionProps } from 'antd/lib/select'
-import styles from './Select.module.less'
+import styles from './index.module.less'
 
 export interface Options {
   label: string

@@ -2,8 +2,8 @@ import React from 'react'
 import { Checkbox, Tooltip } from 'antd'
 import { CheckboxChangeEvent } from 'antd/es/checkbox'
 import { QuestionCircleFilled } from '@ant-design/icons'
-import { ValidateValue } from '../Validate'
-import styles from './IsRequired.module.less'
+import { ValidateValue } from '..'
+import styles from './index.module.less'
 
 interface IsRequiredProps {
   validateValue: ValidateValue

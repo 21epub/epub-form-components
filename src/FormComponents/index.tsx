@@ -1,16 +1,16 @@
-import FormCheckbox from './FormCheckbox/FormCheckbox'
-import FormButton from './FormButton/FormButton'
-import FormInput from './FormInput/FormInput'
-import FormInputNumber from './FormInputNumber/FormInputNumber'
-import FormRadio from './FormRadio/FormRadio'
-import FormTextArea from './FormTextArea/FormTextArea'
-import FormSelect from './FormSelect/FormSelect'
+import FormCheckbox from './FormCheckbox'
+import FormButton from './FormButton'
+import FormInput from './FormInput'
+import FormInputNumber from './FormInputNumber'
+import FormRadio from './FormRadio'
+import FormTextArea from './FormTextArea'
+import FormSelect from './FormSelect'
 import Wrapper, { setGlobalStyled } from './styledComponents'
 import 'antd/dist/antd.css'
 
-const getComponents = (widgetType: string) => {
+export const getComponents = (widgetType: string) => {
   // 根据组件的widgetType，返回对应的通用组件名称(若widgetType和通用组件名相同，则不同在此处写)
-  const getComponentType = (widgetType: string) => {
+  const getComponentType = () => {
     switch (widgetType) {
       case 'Name':
       case 'Phone':
@@ -37,10 +37,9 @@ const getComponents = (widgetType: string) => {
     TextArea: FormTextArea
   }
 
-  return Reflect.get(widgetMap, getComponentType(widgetType)) ?? FormInput
+  return Reflect.get(widgetMap, getComponentType()) ?? FormInput
 }
 
-export default getComponents
 export {
   setGlobalStyled,
   Wrapper,
