@@ -1,17 +1,16 @@
-import React from 'react'
-import { Input } from 'antd'
-import { InputProps } from 'antd/lib/input'
-import Wrapper from '../styledComponents'
-import store from '../store'
-interface FormInputProps extends InputProps {
-  readOnly?: false
+import React from 'react';
+import { Input } from 'antd';
+import { InputProps } from 'antd/lib/input';
+import { Wrapper } from './Styled';
+
+export interface FormInputProps extends InputProps {
+  readOnly?: boolean;
 }
 
 const FormInput: React.FC<FormInputProps> = (props) => {
-  const { value, placeholder, size, readOnly, onChange } = props
-  const [state] = store.useRxjsStore()
+  const { value, placeholder, size, readOnly, onChange } = props;
   return (
-    <Wrapper styled={state.styled}>
+    <Wrapper>
       <Input
         type='text'
         value={value}
@@ -21,7 +20,7 @@ const FormInput: React.FC<FormInputProps> = (props) => {
         onChange={onChange}
       />
     </Wrapper>
-  )
-}
+  );
+};
 
-export default FormInput
+export default FormInput;

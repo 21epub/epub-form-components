@@ -1,32 +1,17 @@
-import InputWidget from './Input'
-import TextAreaWidget from './TextArea'
-import SelectWidget from './Select'
-import DatePickerWidget from './DatePicker'
-import OptionsWidget from './Options'
-import ValidateWidget from './Validate'
-import StyledWidget from './Styled'
-import 'antd/dist/antd.css'
+// * 这里导出定制化的widget组件
+import { FormInput } from '../FormComponents';
+import OptionsWidget from './OptionsWidget';
+import ValidateWidget from './ValidateWidget';
+import StyledWidget from './StyledWidget';
 
 export const getWidget = (widgetType: string) => {
   const widgetMap = {
-    Input: InputWidget,
-    TextArea: TextAreaWidget,
-    Select: SelectWidget,
-    DatePicker: DatePickerWidget,
     Options: OptionsWidget,
     Validate: ValidateWidget,
     Styled: StyledWidget
-  }
+  };
 
-  return Reflect.get(widgetMap, widgetType) ?? InputWidget
-}
+  return Reflect.get(widgetMap, widgetType) ?? FormInput;
+};
 
-export {
-  InputWidget,
-  TextAreaWidget,
-  SelectWidget,
-  DatePickerWidget,
-  OptionsWidget,
-  ValidateWidget,
-  StyledWidget
-}
+export { OptionsWidget, ValidateWidget, StyledWidget };

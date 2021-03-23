@@ -1,18 +1,16 @@
-import React from 'react'
-import { Input } from 'antd'
-import { TextAreaProps } from 'antd/lib/input'
-import Wrapper from '../styledComponents'
-import store from '../store'
+import React from 'react';
+import { Input } from 'antd';
+import { TextAreaProps } from 'antd/lib/input';
+import { Wrapper } from './Styled';
 
-interface FormTextAreaProps extends TextAreaProps {
-  readOnly?: boolean
+export interface FormTextAreaProps extends TextAreaProps {
+  readOnly?: boolean;
 }
 
 const FormTextArea: React.FC<FormTextAreaProps> = (props) => {
-  const { value, placeholder, size, readOnly, onChange } = props
-  const [state] = store.useRxjsStore()
+  const { value, placeholder, size, readOnly, onChange } = props;
   return (
-    <Wrapper styled={state.styled}>
+    <Wrapper>
       <Input.TextArea
         value={value}
         placeholder={placeholder}
@@ -22,7 +20,7 @@ const FormTextArea: React.FC<FormTextAreaProps> = (props) => {
         onChange={onChange}
       />
     </Wrapper>
-  )
-}
+  );
+};
 
-export default FormTextArea
+export default FormTextArea;

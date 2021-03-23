@@ -1,58 +1,42 @@
-import React, { useEffect, useState } from 'react'
-import { Checkbox, List } from 'antd'
-import { CheckboxGroupProps } from 'antd/lib/checkbox'
-import { CheckboxValueType } from 'antd/lib/checkbox/Group'
-import styles from './index.module.less'
-import { uniqueId } from 'lodash'
-import Wrapper from '../styledComponents'
-import store from '../store'
+import React, { useEffect, useState } from 'react';
+import { Checkbox, List } from 'antd';
+import { CheckboxGroupProps } from 'antd/lib/checkbox';
+import { CheckboxValueType } from 'antd/lib/checkbox/Group';
+import { uniqueId } from 'lodash';
+import { Wrapper } from './Styled';
+import { OptionsConfig, Options } from '../type';
 
-export interface Options {
-  label: string
-  value: CheckboxValueType
-  checked: boolean
-  index: number
+export interface FormCheckboxProps extends CheckboxGroupProps {
+  readOnly?: boolean;
+  size?: 'large' | 'middle' | 'small';
+  optionsConfig: OptionsConfig;
+  onChange?: (value: CheckboxValueType[]) => void;
 }
 
-export interface OptionsConfig {
-  type: string
-  defaultValue: CheckboxValueType[]
-  options: Options[]
-}
-
-export interface CheckboxWidgetProps extends CheckboxGroupProps {
-  readOnly?: boolean
-  size: 'large' | 'middle' | 'small'
-  optionsConfig: OptionsConfig
-  onChange?: (value: CheckboxValueType[]) => void
-}
-
-const FormCheckbox: React.FC<CheckboxWidgetProps> = (props) => {
-  const { value, optionsConfig, readOnly, size, onChange } = props
-  const listSize = size === 'middle' ? 'default' : size
-  const [state] = store.useRxjsStore()
+export const FormCheckbox: React.FC<FormCheckboxProps> = (props) => {
+  const { value, optionsConfig, readOnly, size, onChange } = props;
+  const listSize = size === 'middle' ? 'default' : size;
   const [defaultValue, setDefaultValue] = useState<CheckboxValueType[]>(
-    optionsConfig?.defaultValue ?? undefined
-  )
-  const [propsValue, setPropsValue] = useState(value ?? defaultValue)
+    (optionsConfig?.defaultValue as CheckboxValueType[]) ?? undefined
+  );
+  const [propsValue, setPropsValue] = useState(value ?? defaultValue);
 
   const onRadioChange = (RadioChangeValue: CheckboxValueType[]) => {
-    setPropsValue(RadioChangeValue)
+    setPropsValue(RadioChangeValue);
     if (typeof onChange === 'function') {
-      onChange(RadioChangeValue)
+      onChange(RadioChangeValue);
     }
-  }
+  };
 
   useEffect(() => {
-    setDefaultValue(optionsConfig?.defaultValue)
-    setPropsValue(optionsConfig?.defaultValue)
-  }, [optionsConfig])
+    setDefaultValue(optionsConfig?.defaultValue as CheckboxValueType[]);
+    setPropsValue(optionsConfig?.defaultValue as CheckboxValueType[]);
+  }, [optionsConfig]);
 
   return (
-    <Wrapper styled={state.styled}>
+    <Wrapper>
       <List bordered itemLayout='vertical' size={listSize}>
         <Checkbox.Group
-          className={styles.CheckboxGroup}
           defaultValue={defaultValue}
           value={propsValue}
           disabled={readOnly}
@@ -63,12 +47,12 @@ const FormCheckbox: React.FC<CheckboxWidgetProps> = (props) => {
               <List.Item key={uniqueId()}>
                 <Checkbox value={option.value}>{option.label}</Checkbox>
               </List.Item>
-            )
+            );
           })}
         </Checkbox.Group>
       </List>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default FormCheckbox
+export default FormCheckbox;

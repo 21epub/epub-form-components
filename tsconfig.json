@@ -14,6 +14,7 @@
   },
   "include": [
     "./src/**/*",
-    "../../epub360/staticfs/common/js/core/Form/FormWidgets/Validate"
+    "../../epub360/staticfs/common/js/core/Form/FormWidgets/Validate",
+    "../../test/FormInputNumber.stories.tsx"
   ]
 }

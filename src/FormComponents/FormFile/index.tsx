@@ -1,11 +1,10 @@
-import React, { useCallback, useRef } from 'react'
-import { Button, message, Upload } from 'antd'
-import { UploadOutlined } from '@ant-design/icons'
-import { UploadFile } from 'antd/lib/upload/interface'
-import Wrapper from '../styledComponents'
-import store from '../store'
-import { checkUploadFileFormat } from '../utils'
-import fileApis from './fileApis'
+import React, { useCallback, useRef } from 'react';
+import { Button, message, Upload } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import { UploadFile } from 'antd/lib/upload/interface';
+import { Wrapper } from './Styled';
+import { checkUploadFileFormat } from '../utils';
+import fileApis from './fileApis';
 
 export type FileAcceptTypes =
   | '.jpg'
@@ -15,51 +14,50 @@ export type FileAcceptTypes =
   | '.pdg'
   | '.docx'
   | '.xlsx'
-  | '.pptx'
+  | '.pptx';
 
 export type FileFieldProps = {
-  label: string
-  variables?: string
-  value?: string | null
-  onChange?: (value: string | null) => void
+  label: string;
+  variables?: string;
+  value?: string | null;
+  onChange?: (value: string | null) => void;
 } & {
-  placeholder: string
-  accept: []
+  placeholder: string;
+  accept: [];
   validate: {
-    editable: string
-    required: string
-    viewable: string
-  }
-}
+    editable: string;
+    required: string;
+    viewable: string;
+  };
+};
 
 const FormFile: React.FC<FileFieldProps> = (props) => {
-  const { value, placeholder, accept, validate, onChange } = props
-  const [state] = store.useRxjsStore()
-  const ref = useRef<string | null>(null)
+  const { value, placeholder, accept, validate, onChange } = props;
+  const ref = useRef<string | null>(null);
 
-  let _file: UploadFile | null = null
+  let _file: UploadFile | null = null;
   try {
-    _file = JSON.parse(value ?? '') as UploadFile
+    _file = JSON.parse(value ?? '') as UploadFile;
   } catch (e) {}
 
   const uploadFile = useCallback(
     async (options) => {
-      const { file } = options
+      const { file } = options;
       if (!checkUploadFileFormat(file.name, accept ?? [])) {
-        message.error('文件格式不正确，请重新选择')
-        return false
+        message.error('文件格式不正确，请重新选择');
+        return false;
       }
       // 检测图片大小
       if (file.size > 2 * 1024 * 1024) {
-        message.error('上传附件大小不能超过2M')
-        return false
+        message.error('上传附件大小不能超过2M');
+        return false;
       }
 
-      const formData = new FormData()
-      formData.append('file', file)
-      formData.append('uploadType', 'attachment')
-      formData.append('acceptFileTypes', (accept ?? []).toString())
-      ref.current = value ?? null
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('uploadType', 'attachment');
+      formData.append('acceptFileTypes', (accept ?? []).toString());
+      ref.current = value ?? null;
       onChange &&
         onChange(
           JSON.stringify({
@@ -68,10 +66,10 @@ const FormFile: React.FC<FileFieldProps> = (props) => {
             status: 'uploading',
             type: 'TODO'
           })
-        )
+        );
 
       try {
-        const result = await fileApis.uploadFile(formData)
+        const result = await fileApis.uploadFile(formData);
         onChange &&
           onChange(
             JSON.stringify({
@@ -81,23 +79,23 @@ const FormFile: React.FC<FileFieldProps> = (props) => {
               thumbUrl: result.thumbnailUrl,
               type: 'image'
             })
-          )
+          );
       } catch (e) {
-        onChange && onChange(ref.current)
-        ref.current = null
-        message.error('图片上传失败，请稍后再试')
+        onChange && onChange(ref.current);
+        ref.current = null;
+        message.error('图片上传失败，请稍后再试');
       }
-      return true
+      return true;
     },
     [accept, onChange, value]
-  )
+  );
 
   const handleRemove = () => {
-    onChange && onChange(null)
-  }
+    onChange && onChange(null);
+  };
 
   return (
-    <Wrapper styled={state.styled}>
+    <Wrapper>
       <Upload
         accept={(accept ?? []).join()}
         fileList={_file ? [_file] : []}
@@ -117,7 +115,7 @@ const FormFile: React.FC<FileFieldProps> = (props) => {
         </Button>
       </Upload>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default FormFile
+export default FormFile;

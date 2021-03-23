@@ -1,19 +1,20 @@
-import React from 'react'
-import { Button } from 'antd'
-import { ButtonProps } from 'antd/lib/button'
-import Wrapper from '../styledComponents'
-import store from '../store'
+import React from 'react';
+import { Button } from 'antd';
+import { ButtonProps } from 'antd/lib/button';
+import { Wrapper } from './Styled';
 
-interface FormButtonProps extends ButtonProps {
-  buttonText: string
+export interface FormButtonProps extends ButtonProps {
+  buttonText: string;
+  type?: ButtonProps['type'];
 }
 
 const FormButton: React.FC<FormButtonProps> = (props) => {
-  const { type, size, buttonText, onClick } = props
-  const [state] = store.useRxjsStore()
+  const { type, size, buttonText, style, onClick } = props;
+
   return (
-    <Wrapper styled={state.styled}>
+    <Wrapper>
       <Button
+        style={style}
         type={type ?? 'primary'}
         size={size ?? 'middle'}
         onClick={onClick}
@@ -21,7 +22,7 @@ const FormButton: React.FC<FormButtonProps> = (props) => {
         {buttonText}
       </Button>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default FormButton
+export default FormButton;
