@@ -3,42 +3,42 @@
  * will be overridden with file-specific definitions by rollup
  */
 declare module '*.css' {
-  const content: { [className: string]: string }
-  export default content
+  const content: { [className: string]: string };
+  export default content;
 }
 declare module '*.scss' {
-  const content: { [className: string]: string }
-  export default content
+  const content: { [className: string]: string };
+  export default content;
 }
 declare module '*.less' {
-  const content: { [className: string]: string }
-  export default content
+  const content: { [className: string]: string };
+  export default content;
 }
 
 interface SvgrComponent
   extends React.StatelessComponent<React.SVGAttributes<SVGElement>> {}
 
 declare module '*.svg' {
-  const svgUrl: string
-  const svgComponent: SvgrComponent
-  export default svgUrl
-  export { svgComponent as ReactComponent }
+  const svgUrl: string;
+  const svgComponent: SvgrComponent;
+  export default svgUrl;
+  export { svgComponent as ReactComponent };
 }
 
 declare module 'react-sortablejs' {
-  import React from 'react'
-  import Sortable from 'sortablejs'
+  import React from 'react';
+  import Sortable from 'sortablejs';
 
   export interface SortableProps<ItemData, ListProps> {
-    options?: Sortable.Options
+    options?: Sortable.Options;
     onChange?: (
       list: ItemData[],
       sortable: Sortable,
       event: Sortable.SortableEvent
-    ) => void
-    tag?: string | React.ComponentType<ListProps>
-    style?: React.CSSProperties
-    className?: string
+    ) => void;
+    tag?: string | React.ComponentType<ListProps>;
+    style?: React.CSSProperties;
+    className?: string;
   }
   export default class SortableComponent<
     ItemData,

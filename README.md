@@ -23,14 +23,14 @@ npm install --save @21epub/epub-form-components
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import { getComponents } from '@21epub/epub-form-components'
+import { getComponents } from '@21epub/epub-form-components';
 
 class Example extends Component {
-  Component = getComponents(widget_type)
+  Component = getComponents(widget_type);
   render() {
-    return <Component />
+    return <Component />;
   }
 }
 ```

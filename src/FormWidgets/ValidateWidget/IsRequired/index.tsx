@@ -2,7 +2,7 @@ import React from 'react';
 import { Checkbox, Tooltip } from 'antd';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { QuestionCircleFilled } from '@ant-design/icons';
-import { ValidateValue } from '..';
+import { ValidateValue } from '../type';
 import { FlexBox } from './Styled';
 
 export interface IsRequiredProps {

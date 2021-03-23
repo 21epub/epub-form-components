@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyledValue } from '../index';
 import { TwitterPicker, ColorResult } from 'react-color';
 import { FlexBox, Swatch, Popover } from './styled';
-import { FormSelect } from '../../../index';
+import FormSelect from '../../../FormComponents/FormSelect';
 
 export interface ReturnValue {
   [styled: string]: string;

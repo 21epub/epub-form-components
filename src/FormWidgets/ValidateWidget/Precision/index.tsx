@@ -2,8 +2,8 @@ import React from 'react';
 import { Checkbox, Tooltip } from 'antd';
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { QuestionCircleFilled } from '@ant-design/icons';
-import { ValidateValue } from '../index';
-import { FormInputNumber } from '../../../index';
+import { ValidateValue } from '../type';
+import FormInputNumber from '../../../FormComponents/FormInputNumber';
 import { isNumber } from 'lodash';
 import { FlexBox } from './Styled';
 

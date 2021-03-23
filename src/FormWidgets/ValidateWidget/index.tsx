@@ -1,15 +1,7 @@
 import React from 'react';
 import { getValidate } from './utils';
 import { Wrapper } from './Styled';
-
-export interface ValidateValue {
-  readOnly: boolean;
-  isRequired: boolean;
-  min: number;
-  max: number;
-  precision: number;
-  [key: string]: boolean | number;
-}
+import { ValidateValue } from './type';
 
 interface ValidateList {
   type: string;
