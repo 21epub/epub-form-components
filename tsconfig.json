@@ -12,9 +12,5 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "./src/**/*",
-    "../../epub360/staticfs/common/js/core/Form/FormWidgets/Validate",
-    "../../test/FormInputNumber.stories.tsx"
-  ]
+  "include": ["./src/**/*"]
 }

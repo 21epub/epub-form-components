@@ -1,11 +1,11 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import FormInput from '../../FormComponents/FormInput';
-import type { FormInputProps } from '../../FormComponents/FormInput';
+import FormSwitch from '../../FormComponents/FormSwitch';
+import type { FormSwitchProps } from '../../FormComponents/FormSwitch';
 
 export default {
-  title: 'FormComponents/FormInput',
-  component: FormInput,
+  title: 'FormComponents/FormSwitch',
+  component: FormSwitch,
   argTypes: {
     size: {
       control: { type: 'inline-radio', options: ['large', 'middle', 'small'] }
@@ -13,13 +13,10 @@ export default {
   }
 } as Meta;
 
-const Template: Story<FormInputProps> = (args) => <FormInput {...args} />;
+const Template: Story<FormSwitchProps> = (args) => <FormSwitch {...args} />;
 
-export const Input = Template.bind({});
+export const Switch = Template.bind({});
 
-Input.args = {
-  value: '这是文本输入框',
-  readOnly: false,
-  size: 'middle',
-  placeholder: '请输入文本'
+Switch.args = {
+  value: true
 };

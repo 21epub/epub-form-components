@@ -1,6 +1,6 @@
 {
   "name": "@21epub/epub-form-components",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "epub-form-components",
   "author": "dxsixpc",
   "license": "MIT",
@@ -91,7 +91,7 @@
     "@types/sortablejs": "^1.10.6",
     "@types/styled-components": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "4.0.1",
-    "@typescript-eslint/parser": "^4.0.1",
+    "@typescript-eslint/parser": "4.0.1",
     "autoprefixer": "9.8.6",
     "babel-jest": "26.3.0",
     "babel-loader": "8.2.2",

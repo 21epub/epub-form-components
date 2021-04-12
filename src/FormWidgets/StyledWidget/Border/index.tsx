@@ -3,6 +3,7 @@ import { StyledValue } from '../index';
 import { TwitterPicker, ColorResult } from 'react-color';
 import { FlexBox, Swatch, Popover } from './styled';
 import FormSelect from '../../../FormComponents/FormSelect';
+import type { OptionsConfigType } from '../../../FormComponents';
 
 export interface ReturnValue {
   [styled: string]: string;
@@ -31,7 +32,7 @@ const Border: React.FC<BorderProps> = (props) => {
   let borderColor: string =
     styledValue?.borderColor ?? defaultValue.borderColor;
 
-  const optionsConfig = {
+  const optionsConfig: OptionsConfigType = {
     type: 'Radio',
     defaultValue: 'solid',
     options: [
