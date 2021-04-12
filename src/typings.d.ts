@@ -45,3 +45,11 @@ declare module 'react-sortablejs' {
     ListProps
   > extends React.Component<SortableProps<ItemData, ListProps>> {}
 }
+
+// eslint-disable-next-line
+declare interface AnyObject {
+  [key: string]: any;
+}
+
+// eslint-disable-next-line
+declare type Any = any;

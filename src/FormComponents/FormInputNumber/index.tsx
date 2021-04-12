@@ -3,24 +3,17 @@ import { InputNumber } from 'antd';
 import { InputNumberProps } from 'antd/lib/input-number';
 import { Wrapper } from './Styled';
 
-export interface FormInputNumberProps extends InputNumberProps {
-  readOnly?: false;
-}
+export interface FormInputNumberProps extends InputNumberProps {}
 
 const FormInput: React.FC<FormInputNumberProps> = (props) => {
-  const { value, placeholder, size, step, readOnly, onChange } = props;
+  const { ...rest } = props;
   return (
     <Wrapper>
       <InputNumber
-        value={value}
-        placeholder={placeholder}
-        size={size ?? 'middle'}
-        step={step ?? 1}
-        disabled={readOnly}
         parser={(value: string | undefined) =>
           Number(String(value).replace(/[^0-9]/gi, ''))
         }
-        onChange={onChange}
+        {...rest}
       />
     </Wrapper>
   );

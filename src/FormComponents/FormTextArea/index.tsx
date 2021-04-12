@@ -3,22 +3,13 @@ import { Input } from 'antd';
 import { TextAreaProps } from 'antd/lib/input';
 import { Wrapper } from './Styled';
 
-export interface FormTextAreaProps extends TextAreaProps {
-  readOnly?: boolean;
-}
+export interface FormTextAreaProps extends TextAreaProps {}
 
 const FormTextArea: React.FC<FormTextAreaProps> = (props) => {
-  const { value, placeholder, size, readOnly, onChange } = props;
+  const { ...rest } = props;
   return (
     <Wrapper>
-      <Input.TextArea
-        value={value}
-        placeholder={placeholder}
-        size={size ?? 'middle'}
-        disabled={readOnly}
-        autoSize={{ minRows: 4, maxRows: 4 }}
-        onChange={onChange}
-      />
+      <Input.TextArea autoSize={{ minRows: 4, maxRows: 4 }} {...rest} />
     </Wrapper>
   );
 };

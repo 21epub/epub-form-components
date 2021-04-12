@@ -3,22 +3,13 @@ import { Input } from 'antd';
 import { InputProps } from 'antd/lib/input';
 import { Wrapper } from './Styled';
 
-export interface FormInputProps extends InputProps {
-  readOnly?: boolean;
-}
+export interface FormInputProps extends InputProps {}
 
 const FormInput: React.FC<FormInputProps> = (props) => {
-  const { value, placeholder, size, readOnly, onChange } = props;
+  const { ...rest } = props;
   return (
     <Wrapper>
-      <Input
-        type='text'
-        value={value}
-        placeholder={placeholder}
-        size={size ?? 'middle'}
-        disabled={readOnly}
-        onChange={onChange}
-      />
+      <Input {...rest} />
     </Wrapper>
   );
 };

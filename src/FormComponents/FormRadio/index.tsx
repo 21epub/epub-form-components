@@ -3,21 +3,18 @@ import { Radio, List } from 'antd';
 import { RadioProps, RadioChangeEvent } from 'antd/lib/radio';
 import { uniqueId } from 'lodash';
 import { Wrapper } from './Styled';
-import { OptionsConfig, Options } from '../type';
+import { OptionsConfigType, OptionType } from '../type';
 
 export interface FormRadioProps extends RadioProps {
-  readOnly?: boolean;
   size?: 'large' | 'middle' | 'small';
-  optionsConfig: OptionsConfig;
+  optionsConfig: OptionsConfigType;
   onChange: (value: RadioChangeEvent) => void;
 }
 
 const FormRadio: React.FC<FormRadioProps> = (props) => {
-  const { value, optionsConfig, readOnly, size, onChange } = props;
+  const { value, optionsConfig, size, onChange, ...rest } = props;
   const listSize = size === 'middle' ? 'default' : size;
-  const [defaultValue, setDefaultValue] = useState(
-    optionsConfig?.defaultValue ?? undefined
-  );
+  const defaultValue = optionsConfig?.defaultValue ?? undefined;
   const [propsValue, setPropsValue] = useState(value ?? defaultValue);
 
   const onRadioChange = (e: RadioChangeEvent) => {
@@ -29,20 +26,14 @@ const FormRadio: React.FC<FormRadioProps> = (props) => {
 
   useEffect(() => {
     // 设置初始选中的值
-    setDefaultValue(optionsConfig?.defaultValue);
     setPropsValue(optionsConfig?.defaultValue);
   }, [optionsConfig]);
 
   return (
     <Wrapper>
       <List bordered itemLayout='vertical' size={listSize}>
-        <Radio.Group
-          defaultValue={defaultValue}
-          value={propsValue}
-          disabled={readOnly}
-          onChange={onRadioChange}
-        >
-          {optionsConfig?.options?.map((option: Options) => {
+        <Radio.Group value={propsValue} onChange={onRadioChange} {...rest}>
+          {optionsConfig?.options?.map((option: OptionType) => {
             return (
               <List.Item key={uniqueId()}>
                 <Radio value={option.value}>{option.label}</Radio>

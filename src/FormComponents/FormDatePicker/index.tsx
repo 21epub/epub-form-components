@@ -4,6 +4,7 @@ import { DatePickerProps } from 'antd/lib/date-picker';
 import { Wrapper } from './Styled';
 import 'moment/locale/zh-cn';
 import moment, { Moment } from 'moment';
+import locale from 'antd/lib/date-picker/locale/zh_CN';
 moment.locale('zh-cn');
 
 export type FormDatePickerProps = DatePickerProps & {
@@ -12,26 +13,23 @@ export type FormDatePickerProps = DatePickerProps & {
 
 // 日期选择框
 const FormDatePicker: React.FC<FormDatePickerProps> = (props) => {
-  const { value, size, picker, placeholder, onChange } = props;
+  const { value, picker, onChange, ...rest } = props;
 
-  const onValueChange = (momentValue: Moment | null, dateString: string) => {
-    if (onChange) {
-      onChange(dateString);
-    }
+  const onValueChange = (_momentValue: Moment | null, dateString: string) => {
+    onChange(dateString);
   };
 
   return (
     <Wrapper>
       <DatePicker
         allowClear
+        locale={locale}
         picker={picker}
-        size={size ?? 'middle'}
         value={value ? moment(value, 'YYYY-MM-DD HH:mm') : null}
         showTime={{ format: 'HH:mm' }}
         format='YYYY-MM-DD HH:mm'
-        placeholder={placeholder}
-        style={{ width: '100%' }}
         onChange={onValueChange}
+        {...rest}
       />
     </Wrapper>
   );

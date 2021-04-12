@@ -5,22 +5,14 @@ import { Wrapper } from './Styled';
 
 export interface FormButtonProps extends ButtonProps {
   buttonText: string;
-  type?: ButtonProps['type'];
 }
 
 const FormButton: React.FC<FormButtonProps> = (props) => {
-  const { type, size, buttonText, style, onClick } = props;
+  const { buttonText, ...rest } = props;
 
   return (
     <Wrapper>
-      <Button
-        style={style}
-        type={type ?? 'primary'}
-        size={size ?? 'middle'}
-        onClick={onClick}
-      >
-        {buttonText}
-      </Button>
+      <Button {...rest}>{buttonText}</Button>
     </Wrapper>
   );
 };

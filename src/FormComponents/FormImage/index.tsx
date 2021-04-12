@@ -1,33 +1,28 @@
 import React, { useCallback, useRef } from 'react';
 import { Button, message, Modal, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import { UploadFile } from 'antd/lib/upload/interface';
-import { useToggle } from 'react-use';
+import { UploadFile, UploadProps } from 'antd/lib/upload/interface';
+import { useToggle } from 'ahooks';
 import { Wrapper } from './Styled';
 import { checkUploadFileFormat } from '../utils';
 import fileApis from './fileApis';
 
-export type ImageAcceptTypes = '.jpg' | '.jepg' | '.png' | '.gif';
+// 可上传图片类型
+export type ImageAcceptTypes = '.jpg' | '.jpeg' | '.png' | '.gif';
 
-export type ImageFieldProps = {
-  label: string;
-  variables?: string;
-  value?: string | null;
-  onChange?: (value: string | null) => void;
-} & {
+// 图片组件参数
+export type FormImageProps = UploadProps & {
+  value?: string;
+  accept?: string[];
   placeholder: string;
-  accept: [];
-  validate: {
-    editable: string;
-    required: string;
-    viewable: string;
-  };
+  onChange?: (value?: string) => void;
 };
 
-const FormImage: React.FC<ImageFieldProps> = (props) => {
-  const { value, placeholder, accept, validate, onChange } = props;
+// 上传图片组件
+const FormImage: React.FC<FormImageProps> = (props) => {
+  const { value, placeholder, accept, onChange, ...rest } = props;
   const ref = useRef<string | null>(null);
-  const [visible, toggle] = useToggle(false);
+  const [visible, { toggle }] = useToggle(false);
 
   let _image: UploadFile | null = null;
   try {
@@ -36,6 +31,7 @@ const FormImage: React.FC<ImageFieldProps> = (props) => {
 
   const uploadImage = useCallback(
     async (options) => {
+      console.log(options);
       const { file } = options;
       if (!checkUploadFileFormat(file.name, accept ?? [])) {
         message.error('图片格式不正确，请重新选择');
@@ -110,7 +106,9 @@ const FormImage: React.FC<ImageFieldProps> = (props) => {
   };
 
   const handleRemove = () => {
-    onChange && onChange(null);
+    // 删除
+    console.log('remove');
+    onChange && onChange();
   };
 
   return (
@@ -118,7 +116,6 @@ const FormImage: React.FC<ImageFieldProps> = (props) => {
       <Upload
         accept={(accept ?? []).join()}
         fileList={_image ? [_image] : []}
-        disabled={!validate?.editable}
         listType='picture'
         customRequest={uploadImage}
         onRemove={handleRemove}
@@ -130,10 +127,9 @@ const FormImage: React.FC<ImageFieldProps> = (props) => {
           uploadError: '上传失败',
           uploading: '上传中。。。'
         }}
+        {...rest}
       >
-        <Button icon={<UploadOutlined />} disabled={!validate?.editable}>
-          {placeholder}
-        </Button>
+        <Button icon={<UploadOutlined />}>{placeholder}</Button>
       </Upload>
       <Modal
         visible={visible}
