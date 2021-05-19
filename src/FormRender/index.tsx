@@ -4,14 +4,14 @@ import { getFormComponent } from '../FormComponents';
 import { DataType, ComponentType } from './type';
 import { Wrapper } from './styled';
 
-interface FormRenderProps {
+export interface FormRenderProps {
   initialValues?: DataType;
   componentList: ComponentType[];
   onValuesChange: (changedValues: DataType, values: DataType) => void;
 }
 
 // 通用表单渲染
-const FormRender: FC<FormRenderProps> = (props) => {
+export const FormRender: FC<FormRenderProps> = (props) => {
   const { componentList = [], initialValues, onValuesChange } = props;
   const [form] = Form.useForm();
 
@@ -40,5 +40,3 @@ const FormRender: FC<FormRenderProps> = (props) => {
     </Wrapper>
   );
 };
-
-export default FormRender;
