@@ -1,6 +1,6 @@
 {
   "name": "@21epub/epub-form-components",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "epub-form-components",
   "author": "dxsixpc",
   "license": "MIT",
@@ -11,7 +11,7 @@
   },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
-  "source": "src/index.tsx",
+  "source": "src/index.ts",
   "engines": {
     "node": ">=10"
   },
@@ -76,10 +76,10 @@
     "@babel/preset-env": "7.11.5",
     "@babel/preset-react": "7.10.4",
     "@babel/preset-typescript": "7.10.4",
-    "@storybook/addon-actions": "~6.2.7",
-    "@storybook/addon-essentials": "~6.2.7",
-    "@storybook/addon-links": "~6.2.7",
-    "@storybook/react": "~6.2.7",
+    "@storybook/addon-actions": "~6.2.9",
+    "@storybook/addon-essentials": "~6.2.9",
+    "@storybook/addon-links": "~6.2.9",
+    "@storybook/react": "^6.2.9",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -107,6 +107,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-standard": "^4.0.1",
+    "file-loader": "^6.2.0",
     "husky": "4.3.0",
     "jest": "26.4.2",
     "less": "^3.12.2",
@@ -127,7 +128,8 @@
     "stylelint-config-rational-order": "0.1.2",
     "stylelint-config-standard": "20.0.0",
     "stylelint-declaration-block-no-ignored-properties": "2.3.0",
-    "typescript": "4.0.3"
+    "typescript": "4.0.3",
+    "url-loader": "^4.1.1"
   },
   "files": [
     "dist"

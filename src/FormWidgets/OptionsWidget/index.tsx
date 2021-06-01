@@ -30,7 +30,7 @@ export const OptionsWidget: React.FC<OptionsWidgetProps> = (props) => {
   const setChangeValue = (newOptions: Options[]) => {
     if (optionsConfig.type === 'Radio') {
       let defaultValue: string = '';
-      newOptions.map((option: Options) => {
+      newOptions.forEach((option: Options) => {
         if (option.checked) {
           defaultValue = option.value;
         }
@@ -39,7 +39,7 @@ export const OptionsWidget: React.FC<OptionsWidgetProps> = (props) => {
       onChange({ ...optionsConfig, defaultValue, options: newOptions });
     } else if (optionsConfig.type === 'Checkbox') {
       const defaultValue: string[] = [];
-      newOptions.map((option: Options) => {
+      newOptions.forEach((option: Options) => {
         if (option.checked) {
           defaultValue.push(option.value);
         }

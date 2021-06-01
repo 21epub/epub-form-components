@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -9,35 +9,41 @@ module.exports = {
     // 'PRODUCTION' is used when building the static version of storybook.
 
     // Make whatever fine-grained changes you need
-    config.module.rules.push({
-      test: /\.(less)$/,
-      loaders: [
-        require.resolve('style-loader'),
-        {
-          loader: require.resolve('css-loader'),
-          options: {
-            importLoaders: 1,
-            modules: {
-              mode: 'local',
-              localIdentName: '[path][name]__[local]--[hash:base64:5]',
-              // localIdentName: '[sha1:hash:hex:4]',
-              context: path.resolve(__dirname, 'src'),
-              hashPrefix: 'custom'
+    config.module.rules.push(
+      {
+        test: /\.(less)$/,
+        loaders: [
+          require.resolve('style-loader'),
+          {
+            loader: require.resolve('css-loader'),
+            options: {
+              importLoaders: 1,
+              modules: {
+                mode: 'local',
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                // localIdentName: '[sha1:hash:hex:4]',
+                context: path.resolve(__dirname, 'src'),
+                hashPrefix: 'custom'
+              }
+            }
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                javascriptEnabled: true
+              }
             }
           }
-        },
-        {
-          loader: 'less-loader',
-          options: {
-            lessOptions: {
-              javascriptEnabled: true
-            }
-          }
-        }
-      ]
-    })
+        ]
+      },
+      {
+        test: /\.(eot|ttf|TTF|woff|woff2|svg|png|jpg|gif)$/i,
+        use: ['url-loader']
+      }
+    );
 
     // Return the altered config
-    return config
+    return config;
   }
-}
+};
