@@ -1,6 +1,6 @@
 import React from 'react';
 import { DatePicker } from 'antd';
-import { DatePickerProps } from 'antd/lib/date-picker';
+import type { DatePickerProps } from 'antd/lib/date-picker';
 import { Wrapper } from './Styled';
 import 'moment/locale/zh-cn';
 import moment, { Moment } from 'moment';
@@ -22,7 +22,6 @@ const FormDatePicker: React.FC<FormDatePickerProps> = (props) => {
   return (
     <Wrapper>
       <DatePicker
-        allowClear
         locale={locale}
         picker={picker}
         value={value ? moment(value, 'YYYY-MM-DD HH:mm') : null}

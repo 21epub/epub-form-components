@@ -13,7 +13,7 @@ export type FormRangePickerProps = RangePickerProps & {
 
 // 日期选择框
 const FormRangePicker: React.FC<FormRangePickerProps> = (props) => {
-  const { value, onChange } = props;
+  const { value, picker, onChange, ...rest } = props;
   const { RangePicker } = DatePicker;
 
   const onValueChange = (_values: Any, formatString: [string, string]) => {
@@ -23,8 +23,8 @@ const FormRangePicker: React.FC<FormRangePickerProps> = (props) => {
   return (
     <Wrapper>
       <RangePicker
-        allowClear
         locale={locale}
+        picker={picker}
         value={[
           moment(value?.[0], 'YYYY-MM-DD HH:mm'),
           moment(value?.[1], 'YYYY-MM-DD HH:mm')
@@ -32,6 +32,7 @@ const FormRangePicker: React.FC<FormRangePickerProps> = (props) => {
         showTime={{ format: 'HH:mm' }}
         format='YYYY-MM-DD HH:mm'
         onChange={onValueChange}
+        {...rest}
       />
     </Wrapper>
   );
