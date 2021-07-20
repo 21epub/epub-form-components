@@ -30,7 +30,7 @@ export const ColorPickerContainer = styled.div`
   display: flex;
   justify-content: center;
   position: fixed;
-  z-index: 1;
+  z-index: 99999;
   background-color: white;
   top: ${({ y }: ColorPickerContainerProps) =>
     y === undefined ? 'unset' : `${y}px`};

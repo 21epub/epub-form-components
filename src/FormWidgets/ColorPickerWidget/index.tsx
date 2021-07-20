@@ -20,24 +20,24 @@ const obj2rgb = ({ r, g, b, a }: RGBColor) => `rgba(${r},${g},${b},${a ?? 1})`;
  */
 export interface ColorPickerWidgetProps
   extends Omit<SketchPickerProps, 'onChange' | 'onChangeComplete'> {
-  color?: string;
+  value?: string;
   onChange?: (color: string) => void;
   onChangeComplete?: (color: string) => void;
 }
 
 const ColorPickerWidget: FC<ColorPickerWidgetProps> = ({
-  color = '#000000',
+  value = '#000000',
   onChange,
   onChangeComplete,
   ...props
 }) => {
   const [pickerVisible, setPickerVisible] = useState(false);
-  const [currColor, setCurrColor] = useState(color);
+  const [currColor, setCurrColor] = useState(value);
   const [position, setPosition] = useState<{ x: number; y: number }>();
   const ref = useRef<HTMLDivElement>(null);
 
   // eslint-disable-next-line
-  const initColor = useMemo(() => color, [pickerVisible]);
+  const initColor = useMemo(() => value, [pickerVisible]);
 
   useEffect(() => {
     const hidingPicker = (e: MouseEvent) => {
@@ -68,7 +68,7 @@ const ColorPickerWidget: FC<ColorPickerWidgetProps> = ({
           e.stopPropagation();
         }}
       >
-        <ColorCube color={color} />
+        <ColorCube color={value} />
       </ColorCubeContainer>
       {pickerVisible && (
         <ColorPickerContainer ref={ref} x={position?.x} y={position?.y}>
@@ -79,7 +79,7 @@ const ColorPickerWidget: FC<ColorPickerWidgetProps> = ({
                 color: { display: 'none' }
               }
             }}
-            color={color}
+            color={value}
             width='250px'
             onChange={onColorChange}
             onChangeComplete={onColorChange}

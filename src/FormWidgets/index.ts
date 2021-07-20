@@ -3,7 +3,7 @@ import ColorPickerWidget from './ColorPickerWidget';
 import OptionsWidget from './OptionsWidget';
 import ValidateWidget from './ValidateWidget';
 import StyledWidget from './StyledWidget';
-export { OptionsWidget, ValidateWidget, StyledWidget };
+export { ColorPickerWidget, OptionsWidget, ValidateWidget, StyledWidget };
 
 // 获取通用定制化组件
 export const getWidget = (widgetType: string) => {
