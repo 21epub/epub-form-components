@@ -1,6 +1,6 @@
 {
   "name": "@21epub/epub-form-components",
-  "version": "0.2.0",
+  "version": "0.3.2",
   "description": "epub-form-components",
   "author": "dxsixpc",
   "license": "MIT",
@@ -65,7 +65,9 @@
     "braft-editor": "^2.3.9",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
+    "monaco-editor": "^0.26.1",
     "react-color": "^2.19.3",
+    "react-monaco-editor": "^0.44.0",
     "react-sortablejs": "^1.5.1",
     "react-use": "^17.2.1",
     "sortablejs": "^1.12.0",
