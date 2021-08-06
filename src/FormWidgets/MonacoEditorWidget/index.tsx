@@ -11,7 +11,7 @@ const MonacoEditorWidget: React.FC<MonacoEditorProps> = (props) => {
     value = '',
     width = '100%',
     height = '350px',
-    language = 'typescript',
+    language = 'json',
     theme = 'vs-dark',
     options = { selectOnLineNumbers: true },
     ...rest
