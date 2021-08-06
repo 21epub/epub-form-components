@@ -1,4 +1,5 @@
 const path = require('path');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -42,6 +43,8 @@ module.exports = {
         use: ['url-loader']
       }
     );
+
+    config.plugins.push(new MonacoWebpackPlugin());
 
     // Return the altered config
     return config;
