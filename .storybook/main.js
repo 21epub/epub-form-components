@@ -1,5 +1,6 @@
 const path = require('path');
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+// const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+const MonacoWebpackPlugin = require('monaco-editor-esm-webpack-plugin');
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -41,7 +42,13 @@ module.exports = {
       {
         test: /\.(eot|ttf|TTF|woff|woff2|svg|png|jpg|gif)$/i,
         use: ['url-loader']
-      }
+      },
+      {
+				test: /\.js/,
+				enforce: 'pre',
+				include: /node_modules[\\\/]monaco-editor[\\\/]esm/,
+				use: MonacoWebpackPlugin.loader
+			},
     );
 
     config.plugins.push(new MonacoWebpackPlugin());
