@@ -6,7 +6,9 @@ import MonacoEditor from 'react-monaco-editor';
 import type { MonacoEditorProps } from 'react-monaco-editor';
 import { Wrapper } from './Styled';
 
-const MonacoEditorWidget: React.FC<MonacoEditorProps> = (props) => {
+export interface MonacoEditorWidgetProps extends MonacoEditorProps {}
+
+const MonacoEditorWidget: React.FC<MonacoEditorWidgetProps> = (props) => {
   const {
     value = '',
     width = '100%',

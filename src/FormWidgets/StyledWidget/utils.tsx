@@ -10,5 +10,5 @@ export const getStyled = (StyledType: string) => {
     Font: Font
   };
 
-  return Reflect.get(styledMap, StyledType) ?? Color;
+  return Reflect.get(styledMap, StyledType) || Color;
 };

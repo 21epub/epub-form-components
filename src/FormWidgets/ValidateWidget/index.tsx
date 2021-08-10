@@ -29,7 +29,7 @@ const ValidateWidget: React.FC<ValidateWidgetProps> = (props) => {
           <Validate
             key={index}
             widgetType={widgetType}
-            validateValue={value ?? undefined}
+            validateValue={value || undefined}
             onChange={onValidateValueChange}
           />
         );

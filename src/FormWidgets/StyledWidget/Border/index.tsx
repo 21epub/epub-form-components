@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyledValue } from '../index';
 import { TwitterPicker, ColorResult } from 'react-color';
-import { FlexBox, Swatch, Popover } from './styled';
+import { FlexBox, Swatch, Popover } from './Styled';
 import FormSelect from '../../../FormComponents/FormSelect';
 import type { OptionsConfigType } from '../../../FormComponents';
 
@@ -28,9 +28,9 @@ const Border: React.FC<BorderProps> = (props) => {
   const { label, defaultValue, styledValue, onChange } = props;
   const [displayColorPicker, setDisplayColorPicker] = useState<boolean>(false);
   let borderStyle: string =
-    styledValue?.borderStyle ?? defaultValue.borderStyle;
+    styledValue?.borderStyle || defaultValue.borderStyle;
   let borderColor: string =
-    styledValue?.borderColor ?? defaultValue.borderColor;
+    styledValue?.borderColor || defaultValue.borderColor;
 
   const optionsConfig: OptionsConfigType = {
     type: 'Radio',
@@ -56,7 +56,7 @@ const Border: React.FC<BorderProps> = (props) => {
 
   // 边框样式改变时触发更新
   const onSelectChange = (value: string) => {
-    borderStyle = value ?? borderStyle;
+    borderStyle = value || borderStyle;
     onBorderChange(borderStyle, borderColor);
   };
 

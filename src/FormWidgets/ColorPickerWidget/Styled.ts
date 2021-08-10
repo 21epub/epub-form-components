@@ -15,8 +15,8 @@ interface ColorCubeProps {
 }
 
 export const ColorCube = styled.div`
-  width: ${({ width }: ColorCubeProps) => width ?? '16px'};
-  height: ${({ height }) => height ?? '16px'};
+  width: ${({ width }: ColorCubeProps) => width || '16px'};
+  height: ${({ height }) => height || '16px'};
   background-blend-mode: difference;
   background-color: ${({ color }) => color};
 `;

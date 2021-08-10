@@ -18,7 +18,7 @@ export interface ColorProps {
 const Color: React.FC<ColorProps> = (props) => {
   const { label, name, defaultValue, styledValue, onChange } = props;
   const [displayColorPicker, setDisplayColorPicker] = useState<boolean>(false);
-  let color: string = styledValue?.[name] ?? defaultValue;
+  let color: string = styledValue?.[name] || defaultValue;
 
   const colors: string[] = [
     '#EB144C',
@@ -36,7 +36,7 @@ const Color: React.FC<ColorProps> = (props) => {
   // onChange触发更新
   const onColorChange = (colorChange: string) => {
     const value: ReturnValue = {};
-    value[name] = colorChange ?? defaultValue;
+    value[name] = colorChange || defaultValue;
     onChange(value);
   };
 

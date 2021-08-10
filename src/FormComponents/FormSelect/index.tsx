@@ -14,7 +14,7 @@ const FormSelect: React.FC<FormSelectProps<string>> = (props) => {
   const { value, optionsConfig, onChange, ...rest } = props;
   const defaultValue = optionsConfig?.defaultValue;
   const [propsValue, setPropsValue] = useState<string>(
-    value ?? (defaultValue as string)
+    value || (defaultValue as string)
   );
 
   const onSelectChange = (changeValue: string) => {

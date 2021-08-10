@@ -13,5 +13,5 @@ export const getValidate = (ValidateType: string) => {
     precision: Precision
   };
 
-  return Reflect.get(validateMap, ValidateType) ?? IsRequired;
+  return Reflect.get(validateMap, ValidateType) || IsRequired;
 };

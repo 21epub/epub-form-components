@@ -11,7 +11,7 @@ const FormSwitch: React.FC<FormSwitchProps> = (props) => {
   const { value, checked, ...rest } = props;
   return (
     <Wrapper>
-      <Switch checked={value ?? checked} {...rest} />
+      <Switch checked={value || checked} {...rest} />
     </Wrapper>
   );
 };

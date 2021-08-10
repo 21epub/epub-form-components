@@ -17,7 +17,7 @@ const Max: React.FC<MaxProps> = (props) => {
   const { widgetType, validateValue, onChange } = props;
 
   const onCheckedChange = (e: CheckboxChangeEvent) => {
-    onChange({ max: e.target.checked ? validateValue?.min ?? 0 : undefined });
+    onChange({ max: e.target.checked ? validateValue?.min || 0 : undefined });
   };
 
   const onNumberChange = (value: number | string | null | undefined) => {

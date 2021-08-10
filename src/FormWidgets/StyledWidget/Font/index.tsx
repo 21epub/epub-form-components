@@ -16,12 +16,12 @@ export interface FontProps {
 const Font: React.FC<FontProps> = (props) => {
   const { label, defaultValue, styledValue, onChange } = props;
   const children = [];
-  const fontSize: string = styledValue?.fontSize ?? defaultValue.fontSize;
-  let fontWeight: string = styledValue?.fontWeight ?? defaultValue.fontWeight;
+  const fontSize: string = styledValue?.fontSize || defaultValue.fontSize;
+  let fontWeight: string = styledValue?.fontWeight || defaultValue.fontWeight;
 
   // 字号变化时触发
   const onSelectChange = (value: string) => {
-    onChange({ fontSize: value ?? fontSize, fontWeight: fontWeight });
+    onChange({ fontSize: value || fontSize, fontWeight: fontWeight });
   };
   // 字体加粗时触发
   const onWeigthChange = () => {

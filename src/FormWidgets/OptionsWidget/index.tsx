@@ -23,7 +23,7 @@ export interface OptionsWidgetProps {
 export const OptionsWidget: React.FC<OptionsWidgetProps> = (props) => {
   const { value, fieldId, onChange } = props;
   const [optionsConfig, setOptionsConfig] = useState<OptionsConfig>(
-    value ?? props.optionsConfig
+    value || props.optionsConfig
   );
   const [visible, setVisible] = useState(true);
 
@@ -130,7 +130,7 @@ export const OptionsWidget: React.FC<OptionsWidgetProps> = (props) => {
   };
 
   useEffect(() => {
-    setOptionsConfig(value ?? props.optionsConfig);
+    setOptionsConfig(value || props.optionsConfig);
   }, [props]);
 
   useEffect(() => {

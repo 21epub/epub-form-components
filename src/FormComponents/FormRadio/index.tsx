@@ -14,8 +14,8 @@ export interface FormRadioProps extends RadioProps {
 const FormRadio: React.FC<FormRadioProps> = (props) => {
   const { value, optionsConfig, size, onChange, ...rest } = props;
   const listSize = size === 'middle' ? 'default' : size;
-  const defaultValue = optionsConfig?.defaultValue ?? undefined;
-  const [propsValue, setPropsValue] = useState(value ?? defaultValue);
+  const defaultValue = optionsConfig?.defaultValue || undefined;
+  const [propsValue, setPropsValue] = useState(value || defaultValue);
 
   const onRadioChange = (e: RadioChangeEvent) => {
     setPropsValue(e.target.value);

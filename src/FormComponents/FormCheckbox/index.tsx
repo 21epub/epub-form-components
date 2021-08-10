@@ -15,9 +15,8 @@ export interface FormCheckboxProps extends CheckboxGroupProps {
 export const FormCheckbox: React.FC<FormCheckboxProps> = (props) => {
   const { value, optionsConfig, size, onChange, ...rest } = props;
   const listSize = size === 'middle' ? 'default' : size;
-  const defaultValue =
-    (optionsConfig?.defaultValue as CheckboxValueType[]) ?? undefined;
-  const [propsValue, setPropsValue] = useState(value ?? defaultValue);
+  const defaultValue = optionsConfig?.defaultValue || undefined;
+  const [propsValue, setPropsValue] = useState(value || defaultValue);
 
   const onRadioChange = (RadioChangeValue: CheckboxValueType[]) => {
     setPropsValue(RadioChangeValue);

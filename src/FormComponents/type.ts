@@ -1,4 +1,4 @@
-import { CheckboxValueType } from 'antd/lib/checkbox/Group';
+import type { CheckboxValueType } from 'antd/lib/checkbox/Group';
 
 // 每个选项配置项
 export interface OptionType {
@@ -17,7 +17,7 @@ export interface OptionsConfigType {
   // 选项的类型，单选或多选
   type: 'Radio' | 'Checkbox';
   // 选项组件的默认值
-  defaultValue: CheckboxValueType[] | string | number;
+  defaultValue: CheckboxValueType[] | any;
   // 选项组件的配选项配置
   options: OptionType[];
 }
