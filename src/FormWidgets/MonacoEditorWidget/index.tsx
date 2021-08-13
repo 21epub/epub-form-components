@@ -12,7 +12,7 @@ const MonacoEditorWidget: React.FC<MonacoEditorWidgetProps> = (props) => {
   const {
     value = '',
     width = '100%',
-    height = '350px',
+    height = '100%',
     language = 'json',
     theme = 'vs-dark',
     options = { selectOnLineNumbers: true },

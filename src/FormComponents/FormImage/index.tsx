@@ -71,12 +71,12 @@ const FormImage: React.FC<FormImageProps> = (props) => {
               })
             );
         } else {
-          onChange && onChange(ref.current);
+          onChange && onChange(ref.current || '');
           ref.current = null;
           message.error('图片上传失败，请稍后再试');
         }
       } catch (e) {
-        onChange && onChange(ref.current);
+        onChange && onChange(ref.current || '');
         ref.current = null;
         message.error('图片上传失败，请稍后再试');
       }

@@ -2,6 +2,41 @@
 # yarn lockfile v1
 
 
+"@21epub/epub-form-components@^0.3.7":
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/@21epub/epub-form-components/-/epub-form-components-0.3.7.tgz#63b35c6d164a7247bd1d3027dd18d9d1ae7ebe31"
+  integrity sha512-zzUv3Tc4jTE9QPFLJUAkJ/waKZ819ig/sbbpE+ELV3QReUvTfYmud7ULEArRHiEXDPBkiI2rQW4+Lz908QZi9Q==
+  dependencies:
+    "@21epub/react-rxjs-store" "^0.2.0"
+    ahooks "^2.10.0"
+    axios "^0.21.1"
+    braft-editor "^2.3.9"
+    install-peers "^1.0.3"
+    lodash "^4.17.20"
+    moment "^2.29.1"
+    monaco-editor-nls "^2.0.0"
+    react-color "^2.19.3"
+    react-monaco-editor "^0.44.0"
+    react-sortablejs "^1.5.1"
+    react-use "^17.2.1"
+    sortablejs "^1.12.0"
+    styled-components "^5.2.1"
+    stylelint-order "^4.1.0"
+
+"@21epub/epub-json-panel@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@21epub/epub-json-panel/-/epub-json-panel-0.0.5.tgz#78e0096d50605f873eb297071e180de869b29c09"
+  integrity sha512-quMNzpt7J1+X4HAw/m03go8BrVfzvmjfSh1TSj3+hL4LnIn4vkHvXW2CFkFlxX2CYLtjaTA5dlMlqSc0NlZWUw==
+  dependencies:
+    "@21epub/epub-form-components" "^0.3.7"
+    ahooks "^2.10.0"
+    axios "^0.21.1"
+    install-peers "^1.0.3"
+    lodash "^4.17.20"
+    monaco-editor-webpack-plugin "^4.1.1"
+    react-use "^17.2.1"
+    styled-components "^5.2.1"
+
 "@21epub/react-rxjs-store@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@21epub/react-rxjs-store/-/react-rxjs-store-0.2.0.tgz#81de7287e59dad9077af70a6b1676b6b2502cb2c"
@@ -11283,12 +11318,22 @@ moment@^2.29.1:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
-monaco-editor-webpack-plugin@1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/monaco-editor-webpack-plugin/-/monaco-editor-webpack-plugin-1.9.0.tgz#5b547281b9f404057dc5d8c5722390df9ac90be6"
-  integrity sha512-tOiiToc94E1sb50BgZ8q8WK/bxus77SRrwCqIpAB5er3cpX78SULbEBY4YPOB8kDolOzKRt30WIHG/D6gz69Ww==
+monaco-editor-esm-webpack-plugin@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/monaco-editor-esm-webpack-plugin/-/monaco-editor-esm-webpack-plugin-2.0.0.tgz#e750999abfedea2255eaaaaee03fc775a1baf776"
+  integrity sha512-vpReewx94mdeql5J4/3pDZJGg8cTPlETKZLFkwLOQOWUArJ2PdHO6p0TwF51Ixb1lJ1Oj+fSBkXC8SfDG/ecAQ==
+
+monaco-editor-nls@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/monaco-editor-nls/-/monaco-editor-nls-2.0.0.tgz#2643f44b3b2309ef83b17836dca5d200a81a9713"
+  integrity sha512-gQy0LxyUkvmGFRfjRaFHFDdv3UjCX2DfjoL4Dy6mhcq94r6pu2mzcCWIxJz+y7FCrQwpj+xXXUpy0ynOrmONoQ==
+
+monaco-editor-webpack-plugin@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/monaco-editor-webpack-plugin/-/monaco-editor-webpack-plugin-4.1.1.tgz#b44127910c8f4a29bde72859a1c4107c2960a939"
+  integrity sha512-daa+k3rytb7Jf8bcSSsbrnMsCPR7+kiHUGt08Bvqxdws3tGMPMzsiiRgCyckpKY4XChIXWoasDav3idHhrooEQ==
   dependencies:
-    loader-utils "^1.2.3"
+    loader-utils "^2.0.0"
 
 monaco-editor@^0.26.1:
   version "0.26.1"

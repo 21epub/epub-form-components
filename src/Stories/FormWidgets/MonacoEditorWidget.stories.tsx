@@ -14,4 +14,6 @@ const Template: Story<MonacoEditorWidgetProps> = (args) => (
 
 export const MonacoEditor = Template.bind({});
 
-MonacoEditor.args = {};
+MonacoEditor.args = {
+  height: '500px'
+};
