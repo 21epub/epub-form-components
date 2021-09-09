@@ -59,12 +59,37 @@ const ColorPickerWidget: FC<ColorPickerWidgetProps> = ({
     onChangeComplete && onChangeComplete(value);
   };
 
+  // 配置定位的值，确保颜色弹框保持在浏览器内
+  const setPositionValue = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    // 鼠标点击位置坐标
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+    // 颜色选择弹框最终定位
+    const clientPosition = { x: clientX, y: clientY };
+    // 浏览器可视区域宽高
+    const clientWidth = document.documentElement.clientWidth;
+    const clientHeight = document.documentElement.clientHeight;
+
+    // 颜色选择弹框宽高为 328 346
+    // 若点击处距离浏览器右边宽度不足以显示颜色弹框时。
+    if (clientWidth - clientX < 328) {
+      clientPosition.x = clientWidth - 330;
+    }
+    // 若点击处距离浏览器下方高度不足以显示颜色弹框时
+    if (clientHeight - clientY < 348) {
+      clientPosition.y = clientHeight - 350;
+    }
+    setPosition(clientPosition);
+  };
+
   return (
     <div>
       <ColorCubeContainer
         onClick={(e) => {
           setPickerVisible(!pickerVisible);
-          setPosition({ x: e.clientX, y: e.clientY });
+          setPositionValue(e);
           e.stopPropagation();
         }}
       >
