@@ -19,18 +19,11 @@ export const Checkbox = Template.bind({});
 
 Checkbox.args = {
   size: 'middle',
-  readOnly: false,
   optionsConfig: {
-    type: 'Radio',
+    type: 'Checkbox',
     defaultValue: ['middle'],
     options: [
-      {
-        label:
-          '大家好，这是表单名称长度测试显示阿斯利康黑咖喱看到过拉胯话大概行安徽两个卡就离开的发生的',
-        value: 'large',
-        checked: false,
-        index: 0
-      },
+      { label: '大', value: 'large', checked: false, index: 0 },
       { label: '中', value: 'middle', checked: true, index: 1 },
       { label: '小', value: 'small', checked: false, index: 2 }
     ]

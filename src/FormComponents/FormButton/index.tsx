@@ -4,11 +4,11 @@ import { ButtonProps } from 'antd/lib/button';
 import { Wrapper } from './Styled';
 
 export interface FormButtonProps extends ButtonProps {
-  buttonText: string;
+  buttonText?: string;
 }
 
 const FormButton: FC<FormButtonProps> = (props) => {
-  const { buttonText, ...rest } = props;
+  const { buttonText = '按钮', ...rest } = props;
 
   return (
     <Wrapper>

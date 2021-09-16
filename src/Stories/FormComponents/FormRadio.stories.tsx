@@ -19,7 +19,6 @@ export const Radio = Template.bind({});
 
 Radio.args = {
   size: 'middle',
-  readOnly: false,
   optionsConfig: {
     type: 'Radio',
     defaultValue: 'middle',

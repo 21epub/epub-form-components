@@ -16,19 +16,16 @@ const obj2rgb = ({ r, g, b, a }: RGBColor) => `rgba(${r},${g},${b},${a || 1})`;
 /**
  * @param color 需要透明度时请传入 rgba 格式的颜色数值
  * @param onChange 颜色值修改时回调
- * @param onChangeComplete 颜色值修改完成时回调
  */
 export interface ColorPickerWidgetProps
-  extends Omit<SketchPickerProps, 'onChange' | 'onChangeComplete'> {
+  extends Omit<SketchPickerProps, 'onChange'> {
   value?: string;
   onChange?: (color: string) => void;
-  onChangeComplete?: (color: string) => void;
 }
 
 const ColorPickerWidget: FC<ColorPickerWidgetProps> = ({
   value = '#000000',
   onChange,
-  onChangeComplete,
   ...props
 }) => {
   const [pickerVisible, setPickerVisible] = useState(false);
@@ -56,7 +53,6 @@ const ColorPickerWidget: FC<ColorPickerWidgetProps> = ({
 
   const onButtonClick = (value: string) => {
     onChange && onChange(value);
-    onChangeComplete && onChangeComplete(value);
   };
 
   // 配置定位的值，确保颜色弹框保持在浏览器内
