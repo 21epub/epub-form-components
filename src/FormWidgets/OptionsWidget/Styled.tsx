@@ -9,4 +9,5 @@ export const OptionItem = styled.div`
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  max-width: 342px;
 `;
