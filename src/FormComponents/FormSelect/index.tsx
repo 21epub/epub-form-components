@@ -7,7 +7,7 @@ import { OptionsConfigType, OptionType } from '../type';
 
 export interface FormSelectProps<T> extends SelectProps<T> {
   optionsConfig: OptionsConfigType;
-  onChange: (value: T) => void;
+  onChange?: (value: T) => void;
 }
 
 const FormSelect: React.FC<FormSelectProps<string>> = (props) => {
@@ -24,7 +24,7 @@ const FormSelect: React.FC<FormSelectProps<string>> = (props) => {
 
   useEffect(() => {
     // 设置初始选中的值
-    onChange(propsValue);
+    onChange && onChange(propsValue);
   }, []);
 
   return (

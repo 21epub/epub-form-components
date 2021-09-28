@@ -1,6 +1,5 @@
 const path = require('path');
-// const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
-const MonacoWebpackPlugin = require('monaco-editor-esm-webpack-plugin');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],

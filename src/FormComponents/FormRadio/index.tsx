@@ -19,15 +19,13 @@ const FormRadio: React.FC<FormRadioProps> = (props) => {
 
   const onRadioChange = (e: RadioChangeEvent) => {
     setPropsValue(e.target.value);
-    if (typeof onChange === 'function') {
-      onChange(e.target.value);
-    }
+    onChange && onChange(e.target.value);
   };
 
   useEffect(() => {
     // 设置初始选中的值
-    setPropsValue(optionsConfig?.defaultValue);
-  }, [optionsConfig]);
+    onChange && onChange(propsValue);
+  }, []);
 
   return (
     <Wrapper>

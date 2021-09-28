@@ -1,7 +1,4 @@
 import React from 'react';
-// import { setLocaleData } from 'monaco-editor-nls';
-// import zh_CN from 'monaco-editor-nls/locale/zh-hans';
-// setLocaleData(zh_CN);
 import MonacoEditor from 'react-monaco-editor';
 import type { MonacoEditorProps } from 'react-monaco-editor';
 import { Wrapper } from './Styled';
