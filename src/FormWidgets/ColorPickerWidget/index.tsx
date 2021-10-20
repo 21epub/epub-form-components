@@ -11,7 +11,7 @@ import {
   ColorPickerContainer
 } from './Styled';
 
-const obj2rgb = ({ r, g, b, a }: RGBColor) => `rgba(${r},${g},${b},${a || 1})`;
+const obj2rgb = ({ r, g, b, a }: RGBColor) => `rgba(${r},${g},${b},${a ?? 1})`;
 
 /**
  * @param color 需要透明度时请传入 rgba 格式的颜色数值
