@@ -63,7 +63,7 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
       // 重新给数据添加key用于表格组件渲染，序号
       dataSourceValue[index].key = index + 1;
       // 为没有id的组件添加唯一id，用于删除时找到对应的内容
-      if (!item.id) dataSourceValue[index].id = uniqueId();
+      if (!item.id) dataSourceValue[index].id = uniqueId() + index;
     });
     setDataSource(dataSourceValue);
     onChange && onChange(dataSourceValue);
@@ -119,6 +119,8 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
   const onOpenModal = (type: 'add' | 'editor', value?: RecordType) => {
     // 设置弹出框类型
     setTableModalType(type);
+    // 打开弹框时，清空上个修改的值；
+    setChangesValues({});
     // 打开添加弹出框时，设置弹出框需显示的数据
     if (type === 'add') setModalValues({});
     if (type === 'editor') setModalValues(value || {});
