@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Table, Button, Modal, Space } from 'antd';
 import type { TableProps, ColumnsType } from 'antd/lib/table';
 import type { ModalProps } from 'antd/lib/modal';
-import { uniqueId } from 'lodash';
+import { isEmpty, uniqueId } from 'lodash';
 import { Wrapper, GlobalStyle } from './Styled';
 import { ComponentsRender } from '@21epub/epub-json-panel';
 import type { ComponentType } from '@21epub/epub-json-panel';
@@ -20,6 +20,8 @@ export interface TableWidgetProps {
   columns?: ColumnsType<RecordType>;
   // 弹出框表单组件列表
   componentList?: ComponentType[];
+  // 弹出框表单组件，自定义组件
+  componentMap?: AnyObject;
   // 是否开启只读
   readonly?: boolean;
   // 内置表格组件参数
@@ -36,6 +38,7 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
     value = [],
     columns = [],
     componentList,
+    componentMap,
     readonly,
     TableFCProps = {},
     ModalFCProps = {},
@@ -104,6 +107,8 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
   const onModalSubmit = () => {
     // 关闭弹出框
     setVisibleModal(false);
+    // 若数据为空，则不做处理
+    if (isEmpty(changesValues)) return;
     // 添加数据
     if (tableModalType === 'add') onAdd(changesValues);
     // 编辑数据
@@ -195,6 +200,7 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
           <ComponentsRender
             initialValues={modalValues}
             componentList={componentList || ([] as ComponentType[])}
+            componentMap={componentMap || {}}
             onValuesChange={onValuesChange}
           />
         </Modal>
