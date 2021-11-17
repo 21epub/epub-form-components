@@ -4,8 +4,8 @@ import type { TableProps, ColumnsType } from 'antd/lib/table';
 import type { ModalProps } from 'antd/lib/modal';
 import { isEmpty, uniqueId } from 'lodash';
 import { Wrapper, GlobalStyle } from './Styled';
-import { ComponentsRender } from '@21epub/epub-json-panel';
-import type { ComponentType } from '@21epub/epub-json-panel';
+import { ComponentsRender } from '../../FormJsonPanel';
+import type { ComponentType } from '../../FormJsonPanel';
 
 export interface RecordType {
   key?: number;
