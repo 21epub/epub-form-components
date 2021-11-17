@@ -1,4 +1,4 @@
-import { OptionsConfigType } from '@21epub/epub-form-components';
+import { OptionsConfigType } from '../../FormComponents/type';
 
 // 可嵌套的条件表达式
 export interface Expresssion {
@@ -55,14 +55,14 @@ export interface ComponentType {
     // 选项组件的配置
     optionsConfig?: OptionsConfigType;
     // 自定义属性
-    [key: string]: Any;
+    [key: string]: any;
   };
   // 条件表达式
   condition?: string;
   // 可嵌套的子组件
   children?: ComponentType[];
   // 自定义属性
-  [key: string]: Any;
+  [key: string]: any;
 }
 
 // 配置面板json子节点接口
