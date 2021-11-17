@@ -61,6 +61,8 @@ export interface ComponentType {
   condition?: string;
   // 可嵌套的子组件
   children?: ComponentType[];
+  // 自定义属性
+  [key: string]: Any;
 }
 
 // 配置面板json子节点接口
