@@ -43,16 +43,19 @@ module.exports = {
         use: ['url-loader']
       },
       {
-				test: /\.js/,
-				enforce: 'pre',
-				include: /node_modules[\\\/]monaco-editor[\\\/]esm/,
-				use: MonacoWebpackPlugin.loader
-			},
+        test: /\.js/,
+        enforce: 'pre',
+        include: /node_modules[\\\/]monaco-editor[\\\/]esm/,
+        use: MonacoWebpackPlugin.loader
+      }
     );
 
     config.plugins.push(new MonacoWebpackPlugin());
 
     // Return the altered config
     return config;
+  },
+  features: {
+    postcss: false
   }
 };

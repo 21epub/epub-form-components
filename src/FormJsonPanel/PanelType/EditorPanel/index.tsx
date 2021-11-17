@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import 'antd/dist/antd.css';
-import { MonacoEditorWidget } from '@21epub/epub-form-components';
+import { MonacoEditorWidget } from '../../../FormWidgets';
 import type { PanelBaseProps, PanelConfigType } from '../../type';
 import SettingPanel from '../SettingPanel';
 import { formatJson, toJson } from './util';
