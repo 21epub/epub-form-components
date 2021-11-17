@@ -1,4 +1,4 @@
-import { getFormComponent, FormInput } from '../../FormComponents';
+import { getFormComponent, FormInput } from '../../FormComponents/';
 import { getWidget } from '../../FormWidgets';
 
 // 传入组件类型，返回对应组件

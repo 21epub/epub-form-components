@@ -4,8 +4,8 @@ import type { TableProps, ColumnsType } from 'antd/lib/table';
 import type { ModalProps } from 'antd/lib/modal';
 import { isEmpty, uniqueId } from 'lodash';
 import { Wrapper, GlobalStyle } from './Styled';
-import { ComponentsRender } from '../../FormJsonPanel';
-import type { ComponentType } from '../../FormJsonPanel';
+import { ComponentsRender } from '../../FormJsonPanel/ComponentsRender/';
+import type { ComponentType } from '../../FormJsonPanel/type';
 
 export interface RecordType {
   key?: number;
