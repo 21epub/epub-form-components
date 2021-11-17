@@ -40,5 +40,5 @@ export const MonacoEditor = Template.bind({});
 
 MonacoEditor.args = {
   height: '690px',
-  language: 'javascript'
+  language: 'css'
 };

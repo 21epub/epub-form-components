@@ -1,4 +1,4 @@
-import { PanelConfigType } from '../JsonPanel';
+import { PanelConfigType } from '../index';
 
 export const jsonPanelSetting: PanelConfigType = {
   id: 'Tabs',
@@ -22,7 +22,6 @@ export const jsonPanelSetting: PanelConfigType = {
           label: '活动规则说明',
           name: 'rules',
           type: 'FormRichText',
-
           props: {
             placeholder: '请输入活动规则'
           }
