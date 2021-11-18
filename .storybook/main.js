@@ -1,5 +1,4 @@
 const path = require('path');
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -21,7 +20,6 @@ module.exports = {
               modules: {
                 mode: 'local',
                 localIdentName: '[path][name]__[local]--[hash:base64:5]',
-                // localIdentName: '[sha1:hash:hex:4]',
                 context: path.resolve(__dirname, 'src'),
                 hashPrefix: 'custom'
               }
@@ -42,8 +40,6 @@ module.exports = {
         use: ['url-loader']
       }
     );
-    // 加载monaco-editor插件
-    config.plugins.push(new MonacoWebpackPlugin());
     // Return the altered config
     return config;
   },

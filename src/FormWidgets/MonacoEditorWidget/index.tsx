@@ -1,28 +1,26 @@
 import React from 'react';
-import MonacoEditor from 'react-monaco-editor';
-import type { MonacoEditorProps } from 'react-monaco-editor';
+import Editor from '@monaco-editor/react';
+import type { EditorProps } from '@monaco-editor/react';
 import { Wrapper } from './Styled';
 
-const MonacoEditorWidget: React.FC<MonacoEditorProps> = (props) => {
+const MonacoEditorWidget: React.FC<EditorProps> = (props) => {
   const {
     value = '',
     width = '100%',
-    height = '100%',
-    language = 'json',
+    height = '500px',
+    defaultLanguage = 'javascript',
     theme = 'vs-dark',
-    options = { selectOnLineNumbers: true },
     ...rest
   } = props;
 
   return (
     <Wrapper className='MonacoEditorWidget'>
-      <MonacoEditor
+      <Editor
         width={width}
         height={height}
-        language={language}
+        defaultLanguage={defaultLanguage}
         theme={theme}
         defaultValue={value || ''}
-        options={options}
         {...rest}
       />
     </Wrapper>

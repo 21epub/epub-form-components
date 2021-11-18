@@ -33,7 +33,7 @@ const EditorPanel: FC<EditorPanelProps> = (props) => {
     setInitialValues({ ...initialValues, ...changedValues });
   };
 
-  const onMonacoChange = (value: string) => {
+  const onMonacoChange = (value?: string) => {
     onEditorChange(toJson(value));
     setEditorValue(toJson(value));
   };
@@ -42,7 +42,7 @@ const EditorPanel: FC<EditorPanelProps> = (props) => {
     <Wrapper>
       <MonacoEditorWidget
         height='100%'
-        language={monacoLanguage}
+        defaultLanguage={monacoLanguage}
         value={formatJson(JSON.stringify(editorValue))}
         onChange={onMonacoChange}
       />
