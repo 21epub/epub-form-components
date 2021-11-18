@@ -15,7 +15,7 @@ const EditorPanel: FC<EditorPanelProps> = (props) => {
   const {
     panelData,
     panelConfig,
-    monacoLanguage,
+    monacoLanguage = 'json',
     componentMap,
     onEditorChange
   } = props;

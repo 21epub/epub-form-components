@@ -48,5 +48,6 @@ JsonPanelFC.args = {
     panelData: {},
     panelConfig: jsonPanelSetting,
     onChange: onChange
-  }
+  },
+  monacoLanguage: 'json'
 };
