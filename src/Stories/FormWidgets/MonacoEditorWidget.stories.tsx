@@ -14,7 +14,14 @@ const Template: Story<MonacoEditorWidgetProps> = (args) => (
 
 export const MonacoEditor = Template.bind({});
 
+const onChange = (value?: string, ev?: any) => {
+  console.log('change', value);
+  // console.log('changeEv', ev);
+};
+
 MonacoEditor.args = {
-  height: '690px',
-  language: 'css'
+  debounceOptions: { wait: 300 },
+  height: '500px',
+  defaultLanguage: 'css',
+  onChange
 };
