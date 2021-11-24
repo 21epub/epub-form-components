@@ -48,7 +48,7 @@ const EditorPanel: FC<EditorPanelProps> = (props) => {
       />
       <SettingPanel
         panelData={initialValues}
-        panelConfig={toJson(formatJson(JSON.stringify(editorValue)))}
+        panelConfig={editorValue}
         componentMap={componentMap}
         onSettingChange={onValuesChange}
       />

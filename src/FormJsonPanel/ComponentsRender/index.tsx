@@ -36,12 +36,10 @@ export const ComponentsRender: FC<ComponentsRenderProps> = (props) => {
         <Fragment key={component.id}>
           <Form.Item
             key={component.id}
-            name={component.name}
-            label={component.label}
-            tooltip={component.tooltip}
             className={count ? 'FormItemRender' : ''}
             initialValue={initialValues?.[component.name]}
             style={{ position: 'relative', marginLeft: `${count * 50}px` }}
+            {...component}
           >
             {Component && (
               <Component
