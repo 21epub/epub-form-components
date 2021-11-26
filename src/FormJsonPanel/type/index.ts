@@ -1,4 +1,4 @@
-import { OptionsConfigType } from '../../FormComponents/type';
+import type { OptionsConfigType } from '../../FormComponents/type';
 import type { FormItemProps } from 'antd/lib/form';
 // 可嵌套的条件表达式
 export interface Expresssion {

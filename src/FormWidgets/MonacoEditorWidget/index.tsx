@@ -18,7 +18,7 @@ export interface MonacoEditorWidgetProps extends EditorProps {
 
 const MonacoEditorWidget: React.FC<MonacoEditorWidgetProps> = (props) => {
   const {
-    debounceOptions = { wait: 300 },
+    debounceOptions = { wait: 100 },
     value = '',
     defaultLanguage = 'javascript',
     theme = 'vs-dark',

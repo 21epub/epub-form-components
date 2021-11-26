@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import { MonacoEditorWidget } from '../../../FormWidgets';
 import type { PanelBaseProps, PanelConfigType } from '../../type';
@@ -11,7 +11,7 @@ export interface EditorPanelProps extends PanelBaseProps {
 }
 
 // 配置面板
-const EditorPanel: FC<EditorPanelProps> = (props) => {
+const EditorPanel: React.FC<EditorPanelProps> = (props) => {
   const {
     panelData,
     panelConfig,
@@ -19,18 +19,16 @@ const EditorPanel: FC<EditorPanelProps> = (props) => {
     componentMap,
     onEditorChange
   } = props;
-  const [returnValue, setReturnValue] = useState<AnyObject>();
   const [editorValue, setEditorValue] = useState<PanelConfigType | string>(
     panelConfig || ''
   );
-  const [initialValues, setInitialValues] = useState<AnyObject>(
-    panelData || {}
-  );
+  let initialValues: AnyObject = panelData || {};
+  let returnValue: AnyObject = {};
 
   // 每次组件改变时，格式化数据
-  const onValuesChange = (changedValues: AnyObject, _values: AnyObject) => {
-    setReturnValue({ ...returnValue, ...changedValues });
-    setInitialValues({ ...initialValues, ...changedValues });
+  const onValuesChange = (changedValues: AnyObject) => {
+    returnValue = { ...returnValue, ...changedValues };
+    initialValues = { ...initialValues, ...changedValues };
   };
 
   const onMonacoChange = (value?: string) => {

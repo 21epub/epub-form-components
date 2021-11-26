@@ -1,6 +1,6 @@
 {
   "name": "@21epub/epub-form-components",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "epub-form-components",
   "author": "dxsixpc",
   "license": "MIT",
@@ -54,20 +54,18 @@
       "pre-commit": "lint-staged"
     }
   },
-  "peerDependencies": {
-    "antd": "^4.8.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
-  },
   "dependencies": {
     "@21epub/react-rxjs-store": "^0.2.0",
     "@monaco-editor/react": "^4.3.1",
     "ahooks": "^2.10.0",
+    "antd": "^4.17.1",
     "axios": "^0.21.1",
     "braft-editor": "^2.3.9",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
+    "react": "^16.14.0",
     "react-color": "^2.19.3",
+    "react-dom": "^16.14.0",
     "react-sortablejs": "^1.5.1",
     "react-use": "^17.2.1",
     "sortablejs": "^1.12.0",

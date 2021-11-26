@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Form } from 'antd';
 import type { ComponentMapType, ComponentType } from '../type';
 import { getComponent } from '../components';
@@ -12,7 +12,7 @@ interface ComponentsRenderProps {
 }
 
 // 渲染组件
-export const ComponentsRender: FC<ComponentsRenderProps> = (props) => {
+export const ComponentsRender: React.FC<ComponentsRenderProps> = (props) => {
   const {
     componentList,
     initialValues = {},
