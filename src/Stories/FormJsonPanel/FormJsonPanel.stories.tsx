@@ -45,7 +45,7 @@ const onChange = (value: any) => {
 JsonPanelFC.args = {
   panelType: 'EditorPanel',
   panelProps: {
-    panelData: {},
+    panelData: { need_user_info: true, name: '姓名' },
     panelConfig: jsonPanelSetting,
     onChange: onChange
   },
