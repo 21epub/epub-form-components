@@ -1,5 +1,6 @@
 // * 导出组件通用类型及方法
 // * 导出最小单位的通用form组件
+import FormAlert from './FormAlert';
 import FormButton from './FormButton';
 import FormCheckbox from './FormCheckbox';
 import FormDatePicker from './FormDatePicker';
@@ -15,6 +16,7 @@ export * from './type';
 export * from './utils';
 
 export {
+  FormAlert,
   FormButton,
   FormCheckbox,
   FormDatePicker,
@@ -32,6 +34,7 @@ export {
 export const getFormComponent = (componentType: string) => {
   // 通用表单组件列表
   const FormComponentMap = {
+    FormAlert,
     FormButton,
     FormCheckbox,
     FormDatePicker,

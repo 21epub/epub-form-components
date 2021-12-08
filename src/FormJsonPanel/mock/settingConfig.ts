@@ -10,6 +10,17 @@ export const jsonPanelSetting: PanelConfigType = {
       tabsName: '基本设置',
       componentList: [
         {
+          id: 'rules',
+          label: '',
+          name: 'warning',
+          type: 'FormAlert',
+          props: {
+            message: '这里是一条警告提示信息',
+            type: 'warning',
+            showIcon: true
+          }
+        },
+        {
           id: 'title',
           label: '活动标题',
           name: 'title',
