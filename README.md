@@ -2,7 +2,7 @@
 
 > Made with create-storybook-react-library
 
-[![NPM](https://img.shields.io/npm/v/epub-form-components.svg)](https://www.npmjs.com/package/epub-form-components) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Build Status](https://img.shields.io/travis/com/dxsixpc/epub-form-components)](https://travis-ci.com/github/dxsixpc/epub-form-components) [![Codecov](https://img.shields.io/codecov/c/github/dxsixpc/epub-form-components)](https://codecov.io/gh/dxsixpc/epub-form-components)
+[![NPM](https://img.shields.io/npm/v/@21epub/epub-form-components.svg)](https://www.npmjs.com/package/@21epub/epub-form-components) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Build Status](https://img.shields.io/travis/com/dxsixpc/epub-form-components)](https://travis-ci.com/github/dxsixpc/epub-form-components) [![Codecov](https://img.shields.io/codecov/c/github/dxsixpc/epub-form-components)](https://codecov.io/gh/dxsixpc/epub-form-components)
 
 ## Intro
 
