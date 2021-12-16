@@ -1,6 +1,6 @@
 {
   "name": "@21epub/epub-form-components",
-  "version": "0.4.10",
+  "version": "0.4.13",
   "description": "epub-form-components",
   "author": "dxsixpc",
   "license": "MIT",
@@ -56,6 +56,8 @@
   },
   "dependencies": {
     "@21epub/react-rxjs-store": "^0.2.0",
+    "@dnd-kit/core": "^4.0.3",
+    "@dnd-kit/sortable": "^5.1.0",
     "@monaco-editor/react": "^4.3.1",
     "ahooks": "^2.10.0",
     "antd": "^4.17.1",
@@ -66,9 +68,7 @@
     "react": "^16.14.0",
     "react-color": "^2.19.3",
     "react-dom": "^16.14.0",
-    "react-sortablejs": "^1.5.1",
     "react-use": "^17.2.1",
-    "sortablejs": "^1.12.0",
     "styled-components": "^5.2.1",
     "stylelint-order": "^4.1.0"
   },

@@ -57,7 +57,7 @@ export const ComponentsRender: React.FC<ComponentsRenderProps> = (props) => {
             {Component && (
               <Component
                 slug={initialValues?.slug || initialValues?.id}
-                picture={initialValues?.picture}
+                {...initialValues}
                 {...component.props}
               />
             )}

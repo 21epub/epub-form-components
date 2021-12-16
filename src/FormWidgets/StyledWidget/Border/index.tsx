@@ -3,7 +3,7 @@ import { StyledValue } from '../index';
 import { TwitterPicker, ColorResult } from 'react-color';
 import { FlexBox, Swatch, Popover } from './Styled';
 import FormSelect from '../../../FormComponents/FormSelect';
-import type { OptionsConfigType } from '../../../FormComponents';
+import type { OptionsConfigType } from '../../../type';
 
 export interface ReturnValue {
   [styled: string]: string;
@@ -32,14 +32,14 @@ const Border: React.FC<BorderProps> = (props) => {
   let borderColor: string =
     styledValue?.borderColor || defaultValue.borderColor;
 
-  const optionsConfig: OptionsConfigType = {
+  const optionsConfig: OptionsConfigType<'Radio'> = {
     type: 'Radio',
     defaultValue: 'solid',
     options: [
-      { label: '实线边框', value: 'solid', checked: false, index: 0 },
-      { label: '点线边框', value: 'dotted', checked: false, index: 1 },
-      { label: '虚线边框', value: 'dashed', checked: true, index: 2 },
-      { label: '双层边框', value: 'double', checked: false, index: 3 }
+      { label: '实线边框', value: 'solid', checked: false, id: '0' },
+      { label: '点线边框', value: 'dotted', checked: false, id: '1' },
+      { label: '虚线边框', value: 'dashed', checked: true, id: '2' },
+      { label: '双层边框', value: 'double', checked: false, id: '3' }
     ]
   };
 

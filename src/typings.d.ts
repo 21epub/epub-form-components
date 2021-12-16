@@ -55,27 +55,6 @@ declare module '*.svg' {
   export { svgComponent as ReactComponent };
 }
 
-declare module 'react-sortablejs' {
-  import React from 'react';
-  import Sortable from 'sortablejs';
-
-  export interface SortableProps<ItemData, ListProps> {
-    options?: Sortable.Options;
-    onChange?: (
-      list: ItemData[],
-      sortable: Sortable,
-      event: Sortable.SortableEvent
-    ) => void;
-    tag?: string | React.ComponentType<ListProps>;
-    style?: React.CSSProperties;
-    className?: string;
-  }
-  export default class SortableComponent<
-    ItemData,
-    ListProps
-  > extends React.Component<SortableProps<ItemData, ListProps>> {}
-}
-
 // eslint-disable-next-line
 declare interface AnyObject {
   [key: string]: any;

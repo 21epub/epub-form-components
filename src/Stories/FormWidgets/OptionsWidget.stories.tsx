@@ -20,14 +20,14 @@ Options.args = {
     defaultValue: ['middle'],
     options: [
       {
+        id: '0',
         label:
           '大家好，这是表单名称长度测试显示阿斯利康黑咖喱看到过拉胯话大概行安徽两个卡就离开的发生的',
         value: 'large',
-        checked: false,
-        index: 0
+        checked: false
       },
-      { label: '中', value: 'middle', checked: true, index: 1 },
-      { label: '小', value: 'small', checked: false, index: 2 }
+      { id: '1', label: '中', value: 'middle', checked: true },
+      { id: '2', label: '小', value: 'small', checked: false }
     ]
   }
 };

@@ -5,3 +5,5 @@ export * from './FormComponents';
 export * from './FormWidgets';
 // json配置面板
 export * from './FormJsonPanel';
+// type类型
+export * from './type';

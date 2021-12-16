@@ -3,19 +3,17 @@ import { Select } from 'antd';
 import { SelectProps } from 'antd/lib/select';
 import { uniqueId } from 'lodash';
 import { Wrapper } from './Styled';
-import { OptionsConfigType, OptionType } from '../type';
+import { OptionsConfigType, OptionType } from '../../type';
 
 export interface FormSelectProps<T> extends SelectProps<T> {
-  optionsConfig: OptionsConfigType;
+  optionsConfig: OptionsConfigType<'Radio'>;
   onChange?: (value: T) => void;
 }
 
 const FormSelect: React.FC<FormSelectProps<string>> = (props) => {
   const { value, optionsConfig, onChange, ...rest } = props;
   const defaultValue = optionsConfig?.defaultValue;
-  const [propsValue, setPropsValue] = useState<string>(
-    value || (defaultValue as string)
-  );
+  const [propsValue, setPropsValue] = useState<string>(value || defaultValue);
 
   const onSelectChange = (changeValue: string) => {
     setPropsValue(changeValue);
