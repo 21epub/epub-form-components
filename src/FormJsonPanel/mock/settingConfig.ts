@@ -10,10 +10,10 @@ export const jsonPanelSetting: PanelConfigType = {
       tabsName: '基本设置',
       componentList: [
         {
-          id: 'rules',
+          id: 'warning',
           label: '',
           name: 'warning',
-          type: 'FormAlert',
+          type: 'AlertWidget',
           props: {
             message: '这里是一条警告提示信息',
             type: 'warning',
@@ -71,13 +71,13 @@ export const jsonPanelSetting: PanelConfigType = {
                   label: '总计',
                   value: 'total',
                   checked: false,
-                  index: 0
+                  id: '0'
                 },
                 {
                   label: '每天',
                   value: 'everyday',
                   checked: false,
-                  index: 1
+                  id: '1'
                 }
               ]
             }
@@ -94,16 +94,16 @@ export const jsonPanelSetting: PanelConfigType = {
               type: 'Radio',
               defaultValue: 'null',
               options: [
-                { label: '1', value: '1', checked: false, index: 0 },
-                { label: '2', value: '2', checked: false, index: 1 },
-                { label: '3', value: '3', checked: false, index: 2 },
-                { label: '4', value: '4', checked: false, index: 3 },
-                { label: '5', value: '5', checked: false, index: 4 },
+                { label: '1', value: '1', checked: false, id: '0' },
+                { label: '2', value: '2', checked: false, id: '1' },
+                { label: '3', value: '3', checked: false, id: '2' },
+                { label: '4', value: '4', checked: false, id: '3' },
+                { label: '5', value: '5', checked: false, id: '4' },
                 {
                   label: '不限',
                   value: 'null',
                   checked: false,
-                  index: 5
+                  id: '5'
                 }
               ]
             }
@@ -143,8 +143,8 @@ export const jsonPanelSetting: PanelConfigType = {
                   type: 'Radio',
                   defaultValue: '0',
                   options: [
-                    { label: '男', value: '0', checked: false, index: 0 },
-                    { label: '女', value: '1', checked: false, index: 1 }
+                    { label: '男', value: '0', checked: false, id: '0' },
+                    { label: '女', value: '1', checked: false, id: '1' }
                   ]
                 }
               }
@@ -167,7 +167,7 @@ export const jsonPanelSetting: PanelConfigType = {
           id: 'CommonTable',
           label: '奖项列表',
           name: 'Table',
-          type: 'Table',
+          type: 'TableWidget',
           props: {
             columns: [
               {

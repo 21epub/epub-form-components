@@ -4,7 +4,7 @@ import ButtonWidget from '../../FormWidgets/ButtonWidget';
 import type { ButtonWidgetProps } from '../../FormWidgets/ButtonWidget';
 
 export default {
-  title: 'Widgets/ButtonWidget',
+  title: 'FormWidgets/ButtonWidget',
   component: ButtonWidget,
   argTypes: {
     size: {

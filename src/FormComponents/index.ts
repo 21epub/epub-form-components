@@ -31,6 +31,7 @@ export const getFormComponent = (componentType: string) => {
   const FormComponentMap = {
     FormCheckbox,
     FormDatePicker,
+    FormInput,
     FormInputNumber,
     FormRangePicker,
     FormRadio,

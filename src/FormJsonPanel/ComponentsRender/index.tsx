@@ -42,7 +42,7 @@ export const ComponentsRender: React.FC<ComponentsRenderProps> = (props) => {
     count: number
   ): React.ReactNode => {
     return components?.map((component: ComponentType) => {
-      const Component =
+      const JsonPanelComponent =
         Reflect.get(componentMap, component.type) ||
         getComponent(component.type);
       return (
@@ -54,13 +54,12 @@ export const ComponentsRender: React.FC<ComponentsRenderProps> = (props) => {
             style={{ position: 'relative', marginLeft: `${count * 50}px` }}
             {...component}
           >
-            {Component && (
-              <Component
-                slug={initialValues?.slug || initialValues?.id}
-                {...initialValues}
-                {...component.props}
-              />
-            )}
+            <JsonPanelComponent
+              slug={initialValues?.slug || initialValues?.id}
+              componentProps={component}
+              {...initialValues}
+              {...component.props}
+            />
           </Form.Item>
           {component.children &&
             isBoolean(formValues?.[component.name]) &&
