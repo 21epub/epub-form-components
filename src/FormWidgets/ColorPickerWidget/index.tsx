@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import type { ColorResult, RGBColor, SketchPickerProps } from 'react-color';
 import { Button } from 'antd';
 import { SketchPicker } from 'react-color';
@@ -23,7 +23,7 @@ export interface ColorPickerWidgetProps
   onChange?: (color: string) => void;
 }
 
-const ColorPickerWidget: FC<ColorPickerWidgetProps> = ({
+const ColorPickerWidget: React.FC<ColorPickerWidgetProps> = ({
   value = '#000000',
   onChange,
   ...props
@@ -60,13 +60,13 @@ const ColorPickerWidget: FC<ColorPickerWidgetProps> = ({
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     // 鼠标点击位置坐标
-    const clientX = e.clientX;
-    const clientY = e.clientY;
+    const { clientX } = e;
+    const { clientY } = e;
     // 颜色选择弹框最终定位
     const clientPosition = { x: clientX, y: clientY };
     // 浏览器可视区域宽高
-    const clientWidth = document.documentElement.clientWidth;
-    const clientHeight = document.documentElement.clientHeight;
+    const { clientWidth } = document.documentElement;
+    const { clientHeight } = document.documentElement;
 
     // 颜色选择弹框宽高为 328 346
     // 若点击处距离浏览器右边宽度不足以显示颜色弹框时。

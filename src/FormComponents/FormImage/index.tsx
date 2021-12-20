@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import { Button, message, Modal, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import { UploadFile, UploadProps } from 'antd/lib/upload/interface';
+import type { UploadFile, UploadProps } from 'antd/lib/upload/interface';
 import { useToggle } from 'ahooks';
 import { Wrapper } from './Styled';
 import { checkUploadFileFormat } from '../utils';
@@ -27,11 +27,12 @@ const FormImage: React.FC<FormImageProps> = (props) => {
   let _image: UploadFile | null = null;
   try {
     _image = JSON.parse(value ?? '') as UploadFile;
-  } catch (e) {}
+  } catch (e) {
+    // empty
+  }
 
   const uploadImage = useCallback(
     async (options) => {
-      console.log(options);
       const { file } = options;
       if (!checkUploadFileFormat(file.name, accept ?? [])) {
         message.error('图片格式不正确，请重新选择');
@@ -92,7 +93,9 @@ const FormImage: React.FC<FormImageProps> = (props) => {
       let height;
       img.src = file.thumbUrl || '';
       img.onload = () => {
+        // eslint-disable-next-line prefer-destructuring
         width = img.width;
+        // eslint-disable-next-line prefer-destructuring
         height = img.height;
         resolve({ width, height });
       };
@@ -107,7 +110,6 @@ const FormImage: React.FC<FormImageProps> = (props) => {
 
   const handleRemove = () => {
     // 删除
-    console.log('remove');
     onChange && onChange();
   };
 

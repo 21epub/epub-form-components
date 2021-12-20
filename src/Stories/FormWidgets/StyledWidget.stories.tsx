@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { Story, Meta } from '@storybook/react';
 import StyledWidget from '../../FormWidgets/StyledWidget';
 import type { StyledWidgetProps } from '../../FormWidgets/StyledWidget';
 import Font from '../../FormWidgets/StyledWidget/Font';

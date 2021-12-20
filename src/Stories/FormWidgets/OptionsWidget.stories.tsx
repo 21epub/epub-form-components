@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { Story, Meta } from '@storybook/react';
 import OptionsWidget from '../../FormWidgets/OptionsWidget';
 import type { OptionsWidgetProps } from '../../FormWidgets/OptionsWidget';
 

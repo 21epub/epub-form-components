@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { Story, Meta } from '@storybook/react';
 import FormRichText from '../../FormComponents/FormRichText';
 import type { FormRichTextProps } from '../../FormComponents/FormRichText';
 

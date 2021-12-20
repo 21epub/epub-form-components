@@ -1,5 +1,54 @@
-import type { OptionsConfigType } from '../../type';
 import type { FormItemProps } from 'antd/lib/form';
+import type { OptionsConfigType } from '../../type';
+import type {
+  FormType,
+  FormCheckboxProps,
+  FormDatePickerProps,
+  FormInputNumberProps,
+  FormInputProps,
+  FormRadioProps,
+  FormRangePickerProps,
+  FormRichTextProps,
+  FormSelectProps,
+  FormSwitchProps,
+  FormTextAreaProps
+} from '../../FormComponents';
+import type {
+  WidgetType,
+  AlertWidgetProps,
+  ButtonWidgetProps,
+  ColorPickerWidgetProps,
+  MonacoEditorWidgetProps,
+  OptionsWidgetProps,
+  StyledWidgetProps,
+  TableWidgetProps,
+  ValidateWidgetProps
+} from '../../FormWidgets/';
+
+// 所有的可渲染组件类型
+export type FormWidgetType = FormType | WidgetType;
+
+// 所有组件的props类型
+export interface FormWidgetPropsType {
+  FormCheckbox: FormCheckboxProps;
+  FormDatePicker: FormDatePickerProps;
+  FormInputNumber: FormInputNumberProps;
+  FormInput: FormInputProps;
+  FormRadio: FormRadioProps;
+  FormRangePicker: FormRangePickerProps;
+  FormRichText: FormRichTextProps;
+  FormSelect: FormSelectProps<'Radio'>;
+  FormSwitch: FormSwitchProps;
+  FormTextArea: FormTextAreaProps;
+  AlertWidget: AlertWidgetProps;
+  ButtonWidget: ButtonWidgetProps;
+  ColorPickerWidget: ColorPickerWidgetProps;
+  MonacoEditorWidget: MonacoEditorWidgetProps;
+  OptionsWidget: OptionsWidgetProps;
+  StyledWidget: StyledWidgetProps;
+  TableWidget: TableWidgetProps;
+  ValidateWidget: ValidateWidgetProps;
+}
 
 // 可嵌套的条件表达式
 export interface Expresssion {
@@ -33,23 +82,23 @@ export interface ImageType {
   [key: string]: any;
 }
 
+export interface ComponentPropsType {
+  // 选项组件的配置
+  optionsConfig?: OptionsConfigType<'allType'>;
+  // 自定义属性
+  [key: string]: any;
+}
+
 // 每个组件的类型Í
 export interface ComponentType extends FormItemProps {
   // 每个组件的唯一标识id
   id: string;
   // 组件对应的name，单个表单中的区分组件的唯一标识，语义化,与接口对应属性字段相同
   name: string;
-  // 组件的类型+值的类型
-  type: string;
+  // 组件的类型
+  type: FormType | WidgetType;
   // 组件的参数集合，props里的内容会传到组件里
-  props?: {
-    // 占位提示语
-    placeholder?: string;
-    // 选项组件的配置
-    optionsConfig?: OptionsConfigType<'allType'>;
-    // 自定义属性
-    [key: string]: any;
-  };
+  props?: ComponentPropsType & FormWidgetPropsType[ComponentType['type']];
   // 可嵌套的子组件
   children?: ComponentType[];
   // 自定义属性

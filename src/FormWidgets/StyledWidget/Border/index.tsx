@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { StyledValue } from '../index';
-import { TwitterPicker, ColorResult } from 'react-color';
+import type { StyledValue } from '../index';
+import type { ColorResult } from 'react-color';
+import { TwitterPicker } from 'react-color';
 import { FlexBox, Swatch, Popover } from './Styled';
 import FormSelect from '../../../FormComponents/FormSelect';
 import type { OptionsConfigType } from '../../../type';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { Story, Meta } from '@storybook/react';
 import MonacoEditorWidget from '../../FormWidgets/MonacoEditorWidget';
 import type { MonacoEditorWidgetProps } from '../../FormWidgets/MonacoEditorWidget';
 
@@ -16,7 +16,7 @@ export const MonacoEditor = Template.bind({});
 
 const onChange = (value?: string, ev?: any) => {
   console.log('change', value);
-  // console.log('changeEv', ev);
+  console.log('changeEv', ev);
 };
 
 MonacoEditor.args = {

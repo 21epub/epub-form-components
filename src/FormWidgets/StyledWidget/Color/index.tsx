@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { StyledValue } from '..';
-import { TwitterPicker, ColorResult } from 'react-color';
+import type { StyledValue } from '..';
+import type { ColorResult } from 'react-color';
+import { TwitterPicker } from 'react-color';
 import { FlexBox, Swatch, Popover } from './Styled';
 
 export interface ReturnValue {

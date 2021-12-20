@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { Story, Meta } from '@storybook/react';
 import ButtonWidget from '../../FormWidgets/ButtonWidget';
 import type { ButtonWidgetProps } from '../../FormWidgets/ButtonWidget';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { Story, Meta } from '@storybook/react';
 import moment from 'moment';
 import FormRangePicker from '../../FormComponents/FormRangePicker';
 import type { FormRangePickerProps } from '../../FormComponents/FormRangePicker';

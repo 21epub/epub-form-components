@@ -1,7 +1,7 @@
 import React from 'react';
 import { getValidate } from './utils';
 import { Wrapper } from './Styled';
-import { ValidateValue } from './type';
+import type { ValidateValue } from './type';
 
 interface ValidateList {
   type: string;
@@ -11,7 +11,7 @@ export interface ValidateWidgetProps {
   value: ValidateValue;
   widgetType: string;
   validateList: ValidateList[];
-  onChange?: (value: ValidateValue | {}) => void;
+  onChange?: (value: ValidateValue) => void;
 }
 
 const ValidateWidget: React.FC<ValidateWidgetProps> = (props) => {

@@ -1,3 +1,4 @@
+import React from 'react';
 import type { DragEndEvent } from '@dnd-kit/core';
 import {
   closestCenter,
@@ -11,7 +12,6 @@ import {
   SortableContext,
   verticalListSortingStrategy
 } from '@dnd-kit/sortable';
-import React from 'react';
 import type { OptionsConfigType, OptionType } from '../../type';
 import Option from './Option';
 import { sortOptions } from './utils';

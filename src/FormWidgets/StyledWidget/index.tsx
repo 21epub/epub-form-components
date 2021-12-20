@@ -25,7 +25,7 @@ export interface StyledValue {
 export interface StyledWidgetProps {
   value: StyledValue;
   styledList: StyledList[];
-  onChange?: (value: StyledValue | {}) => void;
+  onChange?: (value: StyledValue) => void;
 }
 
 const StyledWidget: React.FC<StyledWidgetProps> = (props) => {

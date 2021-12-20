@@ -1,8 +1,8 @@
 import React from 'react';
 import { Checkbox, Tooltip } from 'antd';
-import { CheckboxChangeEvent } from 'antd/es/checkbox';
+import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { QuestionCircleFilled } from '@ant-design/icons';
-import { ValidateValue } from '../type';
+import type { ValidateValue } from '../type';
 import { FlexBox } from './Styled';
 
 export interface IsRequiredProps {

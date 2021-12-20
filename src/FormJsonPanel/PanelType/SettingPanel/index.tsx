@@ -1,7 +1,12 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 import { Tabs } from 'antd';
 import { ComponentsRender } from '../../ComponentsRender';
-import { PanelBaseProps, PanelTabsType, PanelConfigType } from '../../type';
+import type {
+  PanelBaseProps,
+  PanelTabsType,
+  PanelConfigType
+} from '../../type';
 import { Wrapper } from './Styled';
 
 export interface SettingPanelProps extends PanelBaseProps {

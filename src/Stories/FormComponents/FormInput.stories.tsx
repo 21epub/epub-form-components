@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { Story, Meta } from '@storybook/react';
 import FormInput from '../../FormComponents/FormInput';
 import type { FormInputProps } from '../../FormComponents/FormInput';
 

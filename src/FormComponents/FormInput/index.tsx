@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input } from 'antd';
-import { InputProps } from 'antd/lib/input';
+import type { InputProps } from 'antd/lib/input';
 import { Wrapper } from './Styled';
 
 export interface FormInputProps extends InputProps {}

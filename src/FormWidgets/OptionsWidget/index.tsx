@@ -12,7 +12,7 @@ export interface OptionsWidgetProps {
   onChange: (optionsConfig: OptionsConfigType<'allType'>) => void;
 }
 
-export const OptionsWidget: React.FC<OptionsWidgetProps> = (props) => {
+const OptionsWidget: React.FC<OptionsWidgetProps> = (props) => {
   const { value, onChange } = props;
   const [optionsConfig, setOptionsConfig] = useState<
     OptionsConfigType<'allType'>

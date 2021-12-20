@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input } from 'antd';
-import { TextAreaProps } from 'antd/lib/input';
+import type { TextAreaProps } from 'antd/lib/input';
 import { Wrapper } from './Styled';
 
 export interface FormTextAreaProps extends TextAreaProps {}

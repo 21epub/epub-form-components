@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { Story, Meta } from '@storybook/react';
 import { JsonPanel } from '../../FormJsonPanel';
 import type { JsonPanelProps } from '../../FormJsonPanel';
 import { jsonPanelSetting } from '../../FormJsonPanel/mock/settingConfig';
@@ -47,7 +47,7 @@ JsonPanelFC.args = {
   panelProps: {
     panelData: { need_user_info: true, name: '姓名' },
     panelConfig: jsonPanelSetting,
-    onChange: onChange
+    onChange
   },
   monacoLanguage: 'json'
 };

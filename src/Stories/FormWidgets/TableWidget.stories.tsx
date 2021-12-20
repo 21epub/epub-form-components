@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { Story, Meta } from '@storybook/react';
 import TableWidget from '../../FormWidgets/TableWidget';
 import type { TableWidgetProps } from '../../FormWidgets/TableWidget';
 

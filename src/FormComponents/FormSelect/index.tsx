@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Select } from 'antd';
-import { SelectProps } from 'antd/lib/select';
+import type { SelectProps } from 'antd/lib/select';
 import { uniqueId } from 'lodash';
 import { Wrapper } from './Styled';
-import { OptionsConfigType, OptionType } from '../../type';
+import type { OptionsConfigType, OptionType } from '../../type';
 
 export interface FormSelectProps<T> extends SelectProps<T> {
   optionsConfig: OptionsConfigType<'Radio'>;
@@ -23,6 +23,7 @@ const FormSelect: React.FC<FormSelectProps<string>> = (props) => {
   useEffect(() => {
     // 设置初始选中的值
     onChange && onChange(propsValue);
+    // eslint-disable-next-line
   }, []);
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Select, Button } from 'antd';
-import { StyledValue } from '..';
+import type { StyledValue } from '..';
 import { FlexBox } from './Styled';
 
 export interface FontProps {
@@ -21,7 +21,7 @@ const Font: React.FC<FontProps> = (props) => {
 
   // 字号变化时触发
   const onSelectChange = (value: string) => {
-    onChange({ fontSize: value || fontSize, fontWeight: fontWeight });
+    onChange({ fontSize: value || fontSize, fontWeight });
   };
   // 字体加粗时触发
   const onWeigthChange = () => {
@@ -30,7 +30,7 @@ const Font: React.FC<FontProps> = (props) => {
     } else {
       fontWeight = 'normal';
     }
-    onChange({ fontSize: fontSize, fontWeight: fontWeight });
+    onChange({ fontSize, fontWeight });
   };
 
   // 循环添加下拉选项
