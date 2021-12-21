@@ -11,8 +11,8 @@ export interface ErrorAlertWidgetProps extends AlertProps {
 // 错误提示。当JsonPanel不能正确渲染组件时，用此组件替代，并提示组件渲染错误
 const ErrorAlertWidget: React.FC<ErrorAlertWidgetProps> = (props) => {
   const { componentProps } = props;
-  const label = componentProps.label ? `“${componentProps.label}”` : '';
-  const type = componentProps.type ? `(${componentProps.type})` : '';
+  const label = componentProps?.label ? `“${componentProps.label}”` : '';
+  const type = componentProps?.type ? `(${componentProps.type})` : '';
   return (
     <Wrapper>
       <Alert

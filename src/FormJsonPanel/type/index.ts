@@ -1,7 +1,6 @@
 import type { FormItemProps } from 'antd/lib/form';
 import type { OptionsConfigType } from '../../type';
 import type {
-  FormType,
   FormCheckboxProps,
   FormDatePickerProps,
   FormInputNumberProps,
@@ -14,7 +13,6 @@ import type {
   FormTextAreaProps
 } from '../../FormComponents';
 import type {
-  WidgetType,
   AlertWidgetProps,
   ButtonWidgetProps,
   ColorPickerWidgetProps,
@@ -26,7 +24,25 @@ import type {
 } from '../../FormWidgets/';
 
 // 所有的可渲染组件类型
-export type FormWidgetType = FormType | WidgetType;
+export type FormWidgetType =
+  | 'FormCheckbox'
+  | 'FormDatePicker'
+  | 'FormInput'
+  | 'FormInputNumber'
+  | 'FormRadio'
+  | 'FormRangePicker'
+  | 'FormRichText'
+  | 'FormSelect'
+  | 'FormSwitch'
+  | 'FormTextArea'
+  | 'AlertWidget'
+  | 'ButtonWidget'
+  | 'ColorPickerWidget'
+  | 'MonacoEditorWidget'
+  | 'OptionsWidget'
+  | 'StyledWidget'
+  | 'TableWidget'
+  | 'ValidateWidget';
 
 // 所有组件的props类型
 export interface FormWidgetPropsType {
@@ -96,7 +112,7 @@ export interface ComponentType extends FormItemProps {
   // 组件对应的name，单个表单中的区分组件的唯一标识，语义化,与接口对应属性字段相同
   name: string;
   // 组件的类型
-  type: FormType | WidgetType;
+  type: FormWidgetType;
   // 组件的参数集合，props里的内容会传到组件里
   props?: ComponentPropsType & FormWidgetPropsType[ComponentType['type']];
   // 可嵌套的子组件

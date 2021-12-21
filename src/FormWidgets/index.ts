@@ -39,16 +39,6 @@ export type {
   ValidateWidgetProps
 };
 
-export type WidgetType =
-  | 'AlertWidget'
-  | 'ButtonWidget'
-  | 'ColorPickerWidget'
-  | 'MonacoEditorWidget'
-  | 'OptionsWidget'
-  | 'StyledWidget'
-  | 'TableWidget'
-  | 'ValidateWidget';
-
 // 获取通用定制化组件
 export const getWidget = (widgetType: string) => {
   const widgetMap = {

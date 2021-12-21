@@ -48,18 +48,6 @@ export type {
   FormTextAreaProps
 };
 
-export type FormType =
-  | 'FormCheckbox'
-  | 'FormDatePicker'
-  | 'FormInput'
-  | 'FormInputNumber'
-  | 'FormRadio'
-  | 'FormRangePicker'
-  | 'FormRichText'
-  | 'FormSelect'
-  | 'FormSwitch'
-  | 'FormTextArea';
-
 // 通过组件类型选择组件
 export const getFormComponent = (componentType: string) => {
   // 通用表单组件列表
