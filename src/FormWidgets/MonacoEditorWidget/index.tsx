@@ -1,8 +1,14 @@
 import React from 'react';
-import Editor from '@monaco-editor/react';
+import Editor, { loader } from '@monaco-editor/react';
 import type { EditorProps, OnChange } from '@monaco-editor/react';
 import { useDebounceFn } from 'ahooks';
 import { Wrapper } from './Styled';
+
+loader.config({
+  paths: {
+    vs: `https://unpkg.creatby.com/monaco-editor@0.28.1/min/vs`
+  }
+});
 
 // 防抖配置类型
 export interface DebounceOptions {
