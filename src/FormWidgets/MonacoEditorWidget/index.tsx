@@ -1,5 +1,5 @@
 import React from 'react';
-import Editor, { loader } from '@monaco-editor/react';
+import MonacoEditor, { loader } from '@monaco-editor/react';
 import type { EditorProps, OnChange } from '@monaco-editor/react';
 import { useDebounceFn } from 'ahooks';
 import { Wrapper } from './Styled';
@@ -42,7 +42,7 @@ const MonacoEditorWidget: React.FC<MonacoEditorWidgetProps> = (props) => {
 
   return (
     <Wrapper className='MonacoEditorWidget'>
-      <Editor
+      <MonacoEditor
         defaultLanguage={defaultLanguage}
         theme={theme}
         defaultValue={value || ''}

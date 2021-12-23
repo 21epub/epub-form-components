@@ -28,10 +28,11 @@ Table.args = {
   ],
   componentList: [
     {
-      id: 'congratulatory_message',
+      id: 'message',
       label: '贺词内容',
-      name: 'congratulatory_message',
-      type: 'FormTextArea'
+      name: 'message',
+      type: 'FormTextArea',
+      rules: [{ required: true, message: '不能为空' }]
     }
   ]
 };

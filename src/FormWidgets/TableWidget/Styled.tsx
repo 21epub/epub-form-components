@@ -8,6 +8,9 @@ export const GlobalStyle = createGlobalStyle`
         overflow-y: scroll;
       }
     }
+    .ant-message {
+      z-index:1050;
+    }
   }
 `;
 

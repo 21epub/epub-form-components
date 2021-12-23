@@ -19,29 +19,24 @@ const defaultOptionsConfig: OptionsConfigType<'Radio'> = {
 };
 
 export interface OptionsWidgetProps {
-  value?: OptionsConfigType<'allType'>;
-  optionsConfig: OptionsConfigType<'allType'>;
-  onChange: (optionsConfig: OptionsConfigType<'allType'>) => void;
+  value?: OptionsConfigType;
+  optionsConfig: OptionsConfigType;
+  onChange: (optionsConfig: OptionsConfigType) => void;
 }
 
 const OptionsWidget: React.FC<OptionsWidgetProps> = (props) => {
   const { value, onChange } = props;
-  const [optionsConfig, setOptionsConfig] = useState<
-    OptionsConfigType<'allType'>
-  >(value || props.optionsConfig || defaultOptionsConfig);
+  const [optionsConfig, setOptionsConfig] = useState<OptionsConfigType>(
+    value || props.optionsConfig || defaultOptionsConfig
+  );
 
-  const onOptionsConfigChange = (
-    newOptionsConfig: OptionsConfigType<'allType'>
-  ) => {
+  const onOptionsConfigChange = (newOptionsConfig: OptionsConfigType) => {
     const { options } = newOptionsConfig;
     // 设置选中的默认值
     let defaultValue: any = optionsConfig.type === 'Checkbox' ? [] : '';
     options.forEach((option: OptionType) => {
       if (option.checked) {
-        if (
-          optionsConfig.type === 'Radio' ||
-          optionsConfig.type === 'trueFalse'
-        ) {
+        if (optionsConfig.type === 'Radio') {
           defaultValue = option.value;
         } else if (optionsConfig.type === 'Checkbox') {
           defaultValue.push(option.value);

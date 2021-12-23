@@ -1,29 +1,31 @@
 import React, { Fragment, useState } from 'react';
-import { Table, Button, Modal, Space } from 'antd';
+import { Table, Button, Modal } from 'antd';
+import type { ButtonProps, FormInstance } from 'antd';
 import type { TableProps, ColumnsType } from 'antd/lib/table';
 import type { ModalProps } from 'antd/lib/modal';
 import { isEmpty, uniqueId } from 'lodash';
 import { Wrapper, GlobalStyle } from './Styled';
 import { ComponentsRender } from '../../FormJsonPanel/ComponentsRender/';
-import type { ComponentType } from '../../FormJsonPanel/type';
-
-export interface RecordType {
-  key?: number;
-  id?: string;
-  [key: string]: any;
-}
+import type { ComponentType, FieldErrorType } from '../../FormJsonPanel/type';
+import { validatePanelValue } from '../../FormJsonPanel/utils';
+import type { RecordType } from './type';
+import ActionRender from './ActionRender';
 
 export interface TableWidgetProps {
   // 表格每行的数据列表
   value?: RecordType[];
+  // 按钮文案
+  buttonText?: string;
   // 表格字段
   columns?: ColumnsType<RecordType>;
   // 弹出框表单组件列表
   componentList?: ComponentType[];
   // 弹出框表单组件，自定义组件
   componentMap?: AnyObject;
-  // 是否开启只读
+  // 是否开启只读(不允许编辑与删除)
   readonly?: boolean;
+  // 内置按钮组件参数
+  ButtonFCProps?: ButtonProps;
   // 内置表格组件参数
   TableFCProps?: TableProps<RecordType>;
   // 内置弹出框组件参数
@@ -36,10 +38,12 @@ export interface TableWidgetProps {
 const TableWidget: React.FC<TableWidgetProps> = (props) => {
   const {
     value = [],
+    buttonText = '添加',
     columns = [],
     componentList,
     componentMap,
-    readonly,
+    readonly = false,
+    ButtonFCProps = {},
     TableFCProps = {},
     ModalFCProps = {},
     onChange
@@ -53,7 +57,9 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
   // 弹出框的类型：新增或编辑
   const [tableModalType, setTableModalType] = useState<'add' | 'editor'>('add');
   // 保存表单修改后的数据
-  const [changesValues, setChangesValues] = useState<RecordType>({});
+  let changesValues: RecordType = {};
+  // 校验报错信息
+  let formFieldsError: FieldErrorType;
 
   // 更新表格数据
   const update = (dataList: RecordType[]) => {
@@ -71,8 +77,21 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
   };
 
   // 弹框表单数据改变时，保存到state中
-  const onValuesChange = (_changedValues: RecordType, values: RecordType) => {
-    setChangesValues(values);
+  const onValuesChange = (
+    _changedValues: RecordType,
+    values: RecordType,
+    form: FormInstance<any>
+  ) => {
+    // 需稍微延迟一下，才能获取到最新的验证情况。
+    setTimeout(() => {
+      const newFormFieldsError = {} as FieldErrorType;
+      // eslint-disable-next-line no-unused-expressions
+      form.getFieldsError()?.forEach((item) => {
+        if (item?.name?.[0]) newFormFieldsError[item.name[0]] = item;
+      });
+      formFieldsError = { ...formFieldsError, ...newFormFieldsError };
+    });
+    changesValues = { ...changesValues, ...values };
   };
 
   //  打开编辑当前奖项面板
@@ -87,7 +106,6 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
     const newDeleteSource = dataSource.filter(
       (item) => item.id !== deleteValue.id
     );
-
     // 更新表格数据
     update([...newDeleteSource]);
   };
@@ -105,6 +123,8 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
 
   // 处理弹框返回值
   const onModalSubmit = () => {
+    // 关闭弹出框之前，检查数据是否通过校验
+    if (!validatePanelValue(formFieldsError, null, componentList)) return;
     // 关闭弹出框
     setVisibleModal(false);
     // 若数据为空，则不做处理
@@ -120,7 +140,7 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
     // 设置弹出框类型
     setTableModalType(type);
     // 打开弹框时，清空上个修改的值；
-    setChangesValues({});
+    changesValues = {};
     // 打开添加弹出框时，设置弹出框需显示的数据
     if (type === 'add') setModalValues({});
     if (type === 'editor') setModalValues(value || {});
@@ -128,45 +148,14 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
     setVisibleModal(true);
   };
 
-  // 关闭弹出框
-  const onCloseModal = () => {
-    setVisibleModal(false);
-  };
-
   // 获取columns，并添加编辑，删除操作属性
   const getColumns = () => {
-    // 判断columns是否已有action操作属性
-    const haveAction = columns?.some((item) => item.key === 'action');
-    // columns中没有操作属性字段，也没有开启只读状态，则增加操作属性
-    const actionRender: ColumnsType<RecordType> =
-      !haveAction && !readonly
-        ? [
-            {
-              title: '操作',
-              key: 'action',
-              align: 'center',
-              width: '100px',
-              render: (record: RecordType) => (
-                <Space size='small' direction='horizontal'>
-                  <Button
-                    type='link'
-                    size='small'
-                    onClick={() => onOpenModal('editor', record)}
-                  >
-                    编辑
-                  </Button>
-                  <Button
-                    type='link'
-                    size='small'
-                    onClick={() => onDelete(record)}
-                  >
-                    删除
-                  </Button>
-                </Space>
-              )
-            }
-          ]
-        : [];
+    const actionRender: ColumnsType<RecordType> = ActionRender(
+      columns,
+      readonly,
+      onOpenModal,
+      onDelete
+    );
     return [...columns, ...actionRender];
   };
 
@@ -178,8 +167,9 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
           className='AddButton'
           type='primary'
           onClick={() => onOpenModal('add')}
+          {...ButtonFCProps}
         >
-          添加任务
+          {buttonText}
         </Button>
         <Table
           columns={readonly ? columns : getColumns() || []}
@@ -195,7 +185,7 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
           zIndex={1040}
           visible={visibleModal}
           onOk={onModalSubmit}
-          onCancel={onCloseModal}
+          onCancel={() => setVisibleModal(false)}
           destroyOnClose
           {...ModalFCProps}
         >
