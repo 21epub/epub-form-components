@@ -3,68 +3,74 @@ import type { FieldError } from 'rc-field-form/es/interface';
 import type { OptionsConfigType } from '../../type';
 import type {
   FormCheckboxProps,
+  FormColorPickerProps,
   FormDatePickerProps,
-  FormInputNumberProps,
   FormInputProps,
+  FormInputNumberProps,
+  FormMonacoEditorProps,
+  FormOptionsProps,
   FormRadioProps,
   FormRangePickerProps,
   FormRichTextProps,
   FormSelectProps,
+  FormStyledProps,
   FormSwitchProps,
-  FormTextAreaProps
+  FormTextAreaProps,
+  FormValidateProps
 } from '../../FormComponents';
 import type {
   AlertWidgetProps,
   ButtonWidgetProps,
-  ColorPickerWidgetProps,
-  MonacoEditorWidgetProps,
-  OptionsWidgetProps,
-  StyledWidgetProps,
-  TableWidgetProps,
-  ValidateWidgetProps
+  ColWidgetProps,
+  RowWidgetProps,
+  TableWidgetProps
 } from '../../FormWidgets/';
 
 // 所有的可渲染组件类型
 export type FormWidgetType =
   | 'FormCheckbox'
+  | 'FormColorPicker'
   | 'FormDatePicker'
   | 'FormInput'
   | 'FormInputNumber'
+  | 'FormMonacoEditor'
+  | 'FormOptions'
   | 'FormRadio'
   | 'FormRangePicker'
   | 'FormRichText'
   | 'FormSelect'
+  | 'FormStyled'
   | 'FormSwitch'
   | 'FormTextArea'
+  | 'FormValidate'
   | 'AlertWidget'
   | 'ButtonWidget'
-  | 'ColorPickerWidget'
-  | 'MonacoEditorWidget'
-  | 'OptionsWidget'
-  | 'StyledWidget'
-  | 'TableWidget'
-  | 'ValidateWidget';
+  | 'ColWidget'
+  | 'RowWidget'
+  | 'TableWidget';
 
 // 所有组件的props类型
 export interface FormWidgetPropsType {
   FormCheckbox: FormCheckboxProps;
+  FormColorPicker: FormColorPickerProps;
   FormDatePicker: FormDatePickerProps;
-  FormInputNumber: FormInputNumberProps;
   FormInput: FormInputProps;
+  FormInputNumber: FormInputNumberProps;
+  FormMonacoEditorWidget: FormMonacoEditorProps;
+  FormOptionsWidget: FormOptionsProps;
   FormRadio: FormRadioProps;
   FormRangePicker: FormRangePickerProps;
   FormRichText: FormRichTextProps;
   FormSelect: FormSelectProps<'Radio'>;
+  FormStyledWidget: FormStyledProps;
   FormSwitch: FormSwitchProps;
   FormTextArea: FormTextAreaProps;
+  FormValidateWidget: FormValidateProps;
   AlertWidget: AlertWidgetProps;
   ButtonWidget: ButtonWidgetProps;
-  ColorPickerWidget: ColorPickerWidgetProps;
-  MonacoEditorWidget: MonacoEditorWidgetProps;
-  OptionsWidget: OptionsWidgetProps;
-  StyledWidget: StyledWidgetProps;
+  ColWidget: ColWidgetProps;
+  RowWidget: RowWidgetProps;
   TableWidget: TableWidgetProps;
-  ValidateWidget: ValidateWidgetProps;
   [type: string]: any;
 }
 
