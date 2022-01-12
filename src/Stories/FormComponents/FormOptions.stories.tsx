@@ -1,16 +1,14 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import OptionsWidget from '../../FormWidgets/OptionsWidget';
-import type { OptionsWidgetProps } from '../../FormWidgets/OptionsWidget';
+import FormOptions from '../../FormComponents/FormOptions';
+import type { FormOptionsProps } from '../../FormComponents/FormOptions';
 
 export default {
-  title: 'FormWidgets/OptionsWidget',
-  component: OptionsWidget
+  title: 'FormComponents/FormOptions',
+  component: FormOptions
 } as Meta;
 
-const Template: Story<OptionsWidgetProps> = (args) => (
-  <OptionsWidget {...args} />
-);
+const Template: Story<FormOptionsProps> = (args) => <FormOptions {...args} />;
 
 export const Options = Template.bind({});
 

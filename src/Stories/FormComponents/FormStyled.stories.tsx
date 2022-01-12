@@ -1,20 +1,20 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import StyledWidget from '../../FormWidgets/StyledWidget';
-import type { StyledWidgetProps } from '../../FormWidgets/StyledWidget';
-import Font from '../../FormWidgets/StyledWidget/Font';
-import type { FontProps } from '../../FormWidgets/StyledWidget/Font';
-import Color from '../../FormWidgets/StyledWidget/Color';
-import type { ColorProps } from '../../FormWidgets/StyledWidget/Color';
-import Border from '../../FormWidgets/StyledWidget/Border';
-import type { BorderProps } from '../../FormWidgets/StyledWidget/Border';
+import FormStyled from '../../FormComponents/FormStyled';
+import type { FormStyledProps } from '../../FormComponents/FormStyled';
+import Font from '../../FormComponents/FormStyled/Font';
+import type { FontProps } from '../../FormComponents/FormStyled/Font';
+import Color from '../../FormComponents/FormStyled/Color';
+import type { ColorProps } from '../../FormComponents/FormStyled/Color';
+import Border from '../../FormComponents/FormStyled/Border';
+import type { BorderProps } from '../../FormComponents/FormStyled/Border';
 
 export default {
-  title: 'FormWidgets/StyledWidget',
-  component: StyledWidget
+  title: 'FormComponents/FormStyled',
+  component: FormStyled
 } as Meta;
 
-const Template: Story<StyledWidgetProps> = (args) => <StyledWidget {...args} />;
+const Template: Story<FormStyledProps> = (args) => <FormStyled {...args} />;
 
 export const Styled = Template.bind({});
 

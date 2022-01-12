@@ -7,14 +7,14 @@ interface ValidateList {
   type: string;
 }
 
-export interface ValidateWidgetProps {
+export interface FormValidateProps {
   value: ValidateValue;
   widgetType: string;
   validateList: ValidateList[];
   onChange?: (value: ValidateValue) => void;
 }
 
-const ValidateWidget: React.FC<ValidateWidgetProps> = (props) => {
+const FormValidate: React.FC<FormValidateProps> = (props) => {
   const { value, widgetType, validateList, onChange } = props;
 
   const onValidateValueChange = (validateValue: ValidateValue) => {
@@ -38,4 +38,4 @@ const ValidateWidget: React.FC<ValidateWidgetProps> = (props) => {
   );
 };
 
-export default ValidateWidget;
+export default FormValidate;

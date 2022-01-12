@@ -22,13 +22,13 @@ export interface StyledValue {
   [key: string]: string | undefined;
 }
 
-export interface StyledWidgetProps {
+export interface FormStyledProps {
   value: StyledValue;
   styledList: StyledList[];
   onChange?: (value: StyledValue) => void;
 }
 
-const StyledWidget: React.FC<StyledWidgetProps> = (props) => {
+const FormStyled: React.FC<FormStyledProps> = (props) => {
   const { value, styledList, onChange } = props;
 
   const onStyledValueChange = (styledValue: StyledValue) => {
@@ -55,4 +55,4 @@ const StyledWidget: React.FC<StyledWidgetProps> = (props) => {
   );
 };
 
-export default StyledWidget;
+export default FormStyled;

@@ -17,13 +17,13 @@ const obj2rgb = ({ r, g, b, a }: RGBColor) => `rgba(${r},${g},${b},${a ?? 1})`;
  * @param color 需要透明度时请传入 rgba 格式的颜色数值
  * @param onChange 颜色值修改时回调
  */
-export interface ColorPickerWidgetProps
+export interface FormColorPickerProps
   extends Omit<SketchPickerProps, 'onChange'> {
   value?: string;
   onChange?: (color: string) => void;
 }
 
-const ColorPickerWidget: React.FC<ColorPickerWidgetProps> = ({
+const FormColorPicker: React.FC<FormColorPickerProps> = ({
   value = '#000000',
   onChange,
   ...props
@@ -164,4 +164,4 @@ const ColorPickerWidget: React.FC<ColorPickerWidgetProps> = ({
   );
 };
 
-export default ColorPickerWidget;
+export default FormColorPicker;

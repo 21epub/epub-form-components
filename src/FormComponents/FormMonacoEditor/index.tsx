@@ -17,12 +17,12 @@ export interface DebounceOptions {
   trailing?: boolean;
 }
 
-export interface MonacoEditorWidgetProps extends EditorProps {
+export interface FormMonacoEditorProps extends EditorProps {
   // 防抖延迟时间（毫秒）
   debounceOptions?: DebounceOptions;
 }
 
-const MonacoEditorWidget: React.FC<MonacoEditorWidgetProps> = (props) => {
+const FormMonacoEditor: React.FC<FormMonacoEditorProps> = (props) => {
   const {
     debounceOptions = { wait: 100 },
     value = '',
@@ -41,7 +41,7 @@ const MonacoEditorWidget: React.FC<MonacoEditorWidgetProps> = (props) => {
   const { run } = useDebounceFn(onChange || onEditorChange, debounceOptions);
 
   return (
-    <Wrapper className='MonacoEditorWidget'>
+    <Wrapper className='FormMonacoEditor'>
       <MonacoEditor
         defaultLanguage={defaultLanguage}
         theme={theme}
@@ -53,4 +53,4 @@ const MonacoEditorWidget: React.FC<MonacoEditorWidgetProps> = (props) => {
   );
 };
 
-export default MonacoEditorWidget;
+export default FormMonacoEditor;

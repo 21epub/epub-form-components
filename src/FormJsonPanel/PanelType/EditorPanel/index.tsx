@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'antd/dist/antd.css';
-import { MonacoEditorWidget } from '../../../FormWidgets';
+import FormMonacoEditor from '../../../FormComponents/FormMonacoEditor';
 import type { PanelBaseProps, PanelConfigType } from '../../type';
 import SettingPanel from '../SettingPanel';
 import { toJson } from './util';
@@ -36,7 +36,7 @@ const EditorPanel: React.FC<EditorPanelProps> = (props) => {
 
   return (
     <Wrapper>
-      <MonacoEditorWidget
+      <FormMonacoEditor
         height='100%'
         defaultLanguage={monacoLanguage}
         value={JSON.stringify(editorValue, null, 2)}

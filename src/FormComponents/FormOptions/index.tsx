@@ -18,13 +18,13 @@ const defaultOptionsConfig: OptionsConfigType<'Radio'> = {
   ]
 };
 
-export interface OptionsWidgetProps {
+export interface FormOptionsProps {
   value?: OptionsConfigType;
   optionsConfig: OptionsConfigType;
   onChange: (optionsConfig: OptionsConfigType) => void;
 }
 
-const OptionsWidget: React.FC<OptionsWidgetProps> = (props) => {
+const FormOptions: React.FC<FormOptionsProps> = (props) => {
   const { value, onChange } = props;
   const [optionsConfig, setOptionsConfig] = useState<OptionsConfigType>(
     value || props.optionsConfig || defaultOptionsConfig
@@ -74,4 +74,4 @@ const OptionsWidget: React.FC<OptionsWidgetProps> = (props) => {
   );
 };
 
-export default OptionsWidget;
+export default FormOptions;

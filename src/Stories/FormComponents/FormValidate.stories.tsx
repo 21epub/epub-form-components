@@ -1,26 +1,24 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import ValidateWidget from '../../FormWidgets/ValidateWidget';
-import type { ValidateWidgetProps } from '../../FormWidgets/ValidateWidget';
-import IsRequired from '../../FormWidgets/ValidateWidget/IsRequired';
-import type { IsRequiredProps } from '../../FormWidgets/ValidateWidget/IsRequired';
-import Max from '../../FormWidgets/ValidateWidget/Max';
-import type { MaxProps } from '../../FormWidgets/ValidateWidget/Max';
-import Min from '../../FormWidgets/ValidateWidget/Min';
-import type { MinProps } from '../../FormWidgets/ValidateWidget/Min';
-import Precision from '../../FormWidgets/ValidateWidget/Precision';
-import type { PrecisionProps } from '../../FormWidgets/ValidateWidget/Precision';
-import ReadOnly from '../../FormWidgets/ValidateWidget/ReadOnly';
-import type { ReadOnlyProps } from '../../FormWidgets/ValidateWidget/ReadOnly';
+import FormValidate from '../../FormComponents/FormValidate';
+import type { FormValidateProps } from '../../FormComponents/FormValidate';
+import IsRequired from '../../FormComponents/FormValidate/IsRequired';
+import type { IsRequiredProps } from '../../FormComponents/FormValidate/IsRequired';
+import Max from '../../FormComponents/FormValidate/Max';
+import type { MaxProps } from '../../FormComponents/FormValidate/Max';
+import Min from '../../FormComponents/FormValidate/Min';
+import type { MinProps } from '../../FormComponents/FormValidate/Min';
+import Precision from '../../FormComponents/FormValidate/Precision';
+import type { PrecisionProps } from '../../FormComponents/FormValidate/Precision';
+import ReadOnly from '../../FormComponents/FormValidate/ReadOnly';
+import type { ReadOnlyProps } from '../../FormComponents/FormValidate/ReadOnly';
 
 export default {
-  title: 'FormWidgets/ValidateWidget',
-  component: ValidateWidget
+  title: 'FormComponents/FormValidate',
+  component: FormValidate
 } as Meta;
 
-const Template: Story<ValidateWidgetProps> = (args) => (
-  <ValidateWidget {...args} />
-);
+const Template: Story<FormValidateProps> = (args) => <FormValidate {...args} />;
 export const Validate = Template.bind({});
 Validate.args = {
   value: {

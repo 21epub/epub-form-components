@@ -3,7 +3,7 @@ import { Checkbox, Tooltip } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { QuestionCircleFilled } from '@ant-design/icons';
 import type { ValidateValue } from '../type';
-import FormInputNumber from '../../../FormComponents/FormInputNumber';
+import FormInputNumber from '../../FormInputNumber';
 import { isNumber } from 'lodash';
 import { FlexBox } from './Styled';
 

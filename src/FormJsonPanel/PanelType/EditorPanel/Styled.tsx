@@ -4,15 +4,15 @@ export const Wrapper = styled.div`
   height: 100%;
   position: relative;
   min-height: 500px;
-  .SettingPanel {
+  .FormMonacoEditor {
     position: absolute;
-    right: 0;
+    left: 0;
     width: 50%;
     height: 100%;
   }
-  .MonacoEditorWidget {
+  .SettingPanel {
     position: absolute;
-    left: 0;
+    right: 0;
     width: 50%;
     height: 100%;
   }

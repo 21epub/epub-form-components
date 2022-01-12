@@ -3,7 +3,7 @@ import type { StyledValue } from '../index';
 import type { ColorResult } from 'react-color';
 import { TwitterPicker } from 'react-color';
 import { FlexBox, Swatch, Popover } from './Styled';
-import FormSelect from '../../../FormComponents/FormSelect';
+import FormSelect from '../../FormSelect';
 import type { OptionsConfigType } from '../../../type';
 
 export interface ReturnValue {

@@ -1,11 +1,11 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import ColorPickerWidget from '../../FormWidgets/ColorPickerWidget';
-import type { ColorPickerWidgetProps } from '../../FormWidgets/ColorPickerWidget';
+import FormColorPicker from '../../FormComponents/FormColorPicker';
+import type { FormColorPickerProps } from '../../FormComponents/FormColorPicker';
 
 export default {
-  title: 'FormWidgets/ColorPicker',
-  component: ColorPickerWidget,
+  title: 'FormComponents/FormColorPicker',
+  component: FormColorPicker,
   argTypes: {
     value: {
       description: '设置颜色',
@@ -17,8 +17,8 @@ export default {
   }
 } as Meta;
 
-const Template: Story<ColorPickerWidgetProps> = (args) => (
-  <ColorPickerWidget {...args} />
+const Template: Story<FormColorPickerProps> = (args) => (
+  <FormColorPicker {...args} />
 );
 
 export const ColorPicker = Template.bind({});

@@ -1,15 +1,15 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import MonacoEditorWidget from '../../FormWidgets/MonacoEditorWidget';
-import type { MonacoEditorWidgetProps } from '../../FormWidgets/MonacoEditorWidget';
+import FormMonacoEditor from '../../FormComponents/FormMonacoEditor';
+import type { FormMonacoEditorProps } from '../../FormComponents/FormMonacoEditor';
 
 export default {
-  title: 'FormWidgets/MonacoEditor',
-  component: MonacoEditorWidget
+  title: 'FormComponents/FormMonacoEditor',
+  component: FormMonacoEditor
 } as Meta;
 
-const Template: Story<MonacoEditorWidgetProps> = (args) => (
-  <MonacoEditorWidget {...args} />
+const Template: Story<FormMonacoEditorProps> = (args) => (
+  <FormMonacoEditor {...args} />
 );
 
 export const MonacoEditor = Template.bind({});
