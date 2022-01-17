@@ -41,7 +41,13 @@ export const ComponentsRender: React.FC<ComponentsRenderProps> = (props) => {
   return (
     <Wrapper>
       <Form form={form} layout='vertical' onValuesChange={onFormValuesChange}>
-        {loopRender(componentList, 0, componentMap, initialValues, formValues)}
+        {loopRender({
+          componentList,
+          count: 0,
+          componentMap,
+          initialValues,
+          formValues
+        })}
       </Form>
     </Wrapper>
   );

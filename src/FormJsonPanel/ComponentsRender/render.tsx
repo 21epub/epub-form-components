@@ -5,8 +5,23 @@ import type { ComponentMapType, ComponentType } from '../type';
 import { getComponent } from '../components';
 import { formatProps, styledToString } from './utils';
 
+// 渲染组件列表参数
+export interface RenderPropsType {
+  componentList?: ComponentType[];
+  count: number;
+  componentMap?: ComponentMapType;
+  initialValues?: AnyObject;
+  formValues?: AnyObject;
+}
+
+// 渲染单个组件参数
+export interface RenderItemPropsType extends RenderPropsType {
+  component: ComponentType;
+}
+
 // 渲染行
-export const rowRender = (component: ComponentType, count: number) => {
+export const rowRender = (props: RenderItemPropsType) => {
+  const { component, count, componentMap, initialValues, formValues } = props;
   if (!component?.children) return;
   const RowWidget = getComponent('RowWidget');
   return (
@@ -15,13 +30,20 @@ export const rowRender = (component: ComponentType, count: number) => {
       {...component.props}
       styled={styledToString(component?.props?.styled)}
     >
-      {loopRender(component.children, count)}
+      {loopRender({
+        componentList: component.children,
+        count,
+        componentMap,
+        initialValues,
+        formValues
+      })}
     </RowWidget>
   );
 };
 
 // 渲染列
-export const colRender = (component: ComponentType, count: number) => {
+export const colRender = (props: RenderItemPropsType) => {
+  const { component, count, componentMap, initialValues, formValues } = props;
   if (!component?.children) return;
   const ColWidget = getComponent('ColWidget');
   return (
@@ -30,22 +52,20 @@ export const colRender = (component: ComponentType, count: number) => {
       {...component.props}
       styled={styledToString(component?.props?.styled)}
     >
-      {loopRender(component.children, count)}
+      {loopRender({
+        componentList: component.children,
+        count,
+        componentMap,
+        initialValues,
+        formValues
+      })}
     </ColWidget>
   );
 };
 
 // 渲染组件
-export const componentRender = (
-  // 当前组件的数据
-  component: ComponentType,
-  // 递归的层级
-  count: number,
-  componentMap?: ComponentMapType,
-  initialValues?: AnyObject,
-  formValues?: AnyObject
-  // 自定义的组件列表
-) => {
+export const componentRender = (props: RenderItemPropsType) => {
+  const { component, count, componentMap, initialValues, formValues } = props;
   const JsonPanelComponent =
     Reflect.get(componentMap || {}, component.type) ||
     getComponent(component.type);
@@ -69,37 +89,25 @@ export const componentRender = (
       {component.children &&
         isBoolean(formValues?.[component.name]) &&
         formValues?.[component.name] &&
-        loopRender(
-          component.children,
-          count + 1,
+        loopRender({
+          componentList: component.children,
+          count: count + 1,
           componentMap,
           initialValues,
           formValues
-        )}
+        })}
     </Fragment>
   );
 };
 
 // 循环渲染页面
-export const loopRender = (
-  // 需要渲染的组件列表
-  components: ComponentType[],
-  // 递归的层级
-  count: number,
-  // 自定义的组件列表
-  componentMap?: ComponentMapType,
-  initialValues?: AnyObject,
-  formValues?: AnyObject
-): React.ReactNode => {
-  return components?.map((component: ComponentType) => {
-    if (component.type === 'RowWidget') return rowRender(component, count);
-    if (component.type === 'ColWidget') return colRender(component, count);
-    return componentRender(
-      component,
-      count,
-      componentMap,
-      initialValues,
-      formValues
-    );
+export const loopRender = (props: RenderPropsType): React.ReactNode => {
+  const { componentList } = props;
+  return componentList?.map((component: ComponentType) => {
+    if (component.type === 'RowWidget')
+      return rowRender({ component, ...props });
+    if (component.type === 'ColWidget')
+      return colRender({ component, ...props });
+    return componentRender({ component, ...props });
   });
 };

@@ -50,7 +50,7 @@ export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
   const onSubmit = () => {
     const onChangeValue = panelType === 'EditorPanel' ? panelJson : returnValue;
     // 校验结果
-    let result: boolean = true;
+    let result = true;
     // 若是配置面板，则进行数据校验，并提示
     if (panelType === 'SettingPanel') {
       // 检查校验规则里是否有报错信息
