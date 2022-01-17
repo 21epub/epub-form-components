@@ -5,13 +5,14 @@ import { Wrapper } from './Styled';
 
 export interface ButtonWidgetProps extends ButtonProps {
   buttonText?: string;
+  styled?: string;
 }
 
 const ButtonWidget: React.FC<ButtonWidgetProps> = (props) => {
-  const { buttonText = '按钮', ...rest } = props;
+  const { buttonText = '按钮', styled, ...rest } = props;
 
   return (
-    <Wrapper>
+    <Wrapper styled={styled}>
       <Button {...rest}>{buttonText}</Button>
     </Wrapper>
   );

@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import type { ColorResult, RGBColor, SketchPickerProps } from 'react-color';
 import { Button } from 'antd';
-import { SketchPicker } from 'react-color';
+import { ColorResult, SketchPicker } from 'react-color';
+import type { RGBColor, SketchPickerProps } from 'react-color';
 import {
+  Wrapper,
   Actions,
   Buttons,
   ColorCube,
@@ -20,14 +21,12 @@ const obj2rgb = ({ r, g, b, a }: RGBColor) => `rgba(${r},${g},${b},${a ?? 1})`;
 export interface FormColorPickerProps
   extends Omit<SketchPickerProps, 'onChange'> {
   value?: string;
+  styled?: string;
   onChange?: (color: string) => void;
 }
 
-const FormColorPicker: React.FC<FormColorPickerProps> = ({
-  value = '#000000',
-  onChange,
-  ...props
-}) => {
+const FormColorPicker: React.FC<FormColorPickerProps> = (props) => {
+  const { value = '#000000', styled, onChange, ...rest } = props;
   const [pickerVisible, setPickerVisible] = useState(false);
   const [currColor, setCurrColor] = useState(value);
   const [position, setPosition] = useState<{ x: number; y: number }>();
@@ -45,7 +44,8 @@ const FormColorPicker: React.FC<FormColorPickerProps> = ({
     return () => document.removeEventListener('mousedown', hidingPicker);
   }, []);
 
-  const onColorChange = ({ rgb }: ColorResult) => {
+  const onColorChange = (color: ColorResult) => {
+    const { rgb } = color;
     const value = obj2rgb(rgb);
     setCurrColor(value);
     onChange && onChange(value);
@@ -81,7 +81,7 @@ const FormColorPicker: React.FC<FormColorPickerProps> = ({
   };
 
   return (
-    <div>
+    <Wrapper styled={styled}>
       <ColorCubeContainer
         onClick={(e) => {
           setPickerVisible(!pickerVisible);
@@ -102,7 +102,7 @@ const FormColorPicker: React.FC<FormColorPickerProps> = ({
             }}
             color={value}
             width='250px'
-            onChange={onColorChange}
+            onChange={onColorChange as any}
             onChangeComplete={onColorChange}
             presetColors={[
               '#D0021B',
@@ -122,7 +122,7 @@ const FormColorPicker: React.FC<FormColorPickerProps> = ({
               '#FFFFFF',
               'transparent'
             ]}
-            {...props}
+            {...rest}
           />
           <Actions>
             <Buttons>
@@ -160,7 +160,7 @@ const FormColorPicker: React.FC<FormColorPickerProps> = ({
           </Actions>
         </ColorPickerContainer>
       )}
-    </div>
+    </Wrapper>
   );
 };
 

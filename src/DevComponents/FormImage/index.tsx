@@ -4,7 +4,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import type { UploadFile, UploadProps } from 'antd/lib/upload/interface';
 import { useToggle } from 'ahooks';
 import { Wrapper } from './Styled';
-import { checkUploadFileFormat } from '../utils';
+import { checkUploadFileFormat } from '../../FormComponents/utils';
 import fileApis from './fileApis';
 
 // 可上传图片类型

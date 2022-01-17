@@ -9,19 +9,20 @@ import locale from 'antd/lib/date-picker/locale/zh_CN';
 moment.locale('zh-cn');
 
 export type FormDatePickerProps = DatePickerProps & {
-  onChange: (dateString: string) => void;
+  styled?: string;
+  onChange?: (dateString: string) => void;
 };
 
 // 日期选择框
 const FormDatePicker: React.FC<FormDatePickerProps> = (props) => {
-  const { value, picker, onChange, ...rest } = props;
+  const { value, picker, styled, onChange, ...rest } = props;
 
   const onValueChange = (_momentValue: Moment | null, dateString: string) => {
-    onChange(dateString);
+    onChange && onChange(dateString);
   };
 
   return (
-    <Wrapper>
+    <Wrapper styled={styled}>
       <DatePicker
         locale={locale}
         picker={picker}

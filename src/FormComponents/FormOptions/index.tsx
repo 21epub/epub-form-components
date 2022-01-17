@@ -19,13 +19,14 @@ const defaultOptionsConfig: OptionsConfigType<'Radio'> = {
 };
 
 export interface FormOptionsProps {
-  value?: OptionsConfigType;
   optionsConfig: OptionsConfigType;
-  onChange: (optionsConfig: OptionsConfigType) => void;
+  value?: OptionsConfigType;
+  styled?: string;
+  onChange?: (optionsConfig: OptionsConfigType) => void;
 }
 
 const FormOptions: React.FC<FormOptionsProps> = (props) => {
-  const { value, onChange } = props;
+  const { value, styled, onChange } = props;
   const [optionsConfig, setOptionsConfig] = useState<OptionsConfigType>(
     value || props.optionsConfig || defaultOptionsConfig
   );
@@ -44,7 +45,7 @@ const FormOptions: React.FC<FormOptionsProps> = (props) => {
       }
     });
     setOptionsConfig({ ...newOptionsConfig, defaultValue });
-    onChange({ ...newOptionsConfig, defaultValue });
+    onChange && onChange({ ...newOptionsConfig, defaultValue });
   };
 
   // 添加选项
@@ -62,7 +63,7 @@ const FormOptions: React.FC<FormOptionsProps> = (props) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper styled={styled}>
       <OptionsContainer
         optionsConfig={optionsConfig}
         onOptionsConfigChange={onOptionsConfigChange}

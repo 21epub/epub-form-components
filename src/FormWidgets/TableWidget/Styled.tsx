@@ -1,5 +1,9 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
+export interface WrapperProps {
+  styled?: string;
+}
+
 export const GlobalStyle = createGlobalStyle`
   body {
     .TableModal {
@@ -14,8 +18,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<WrapperProps>`
   .AddButton {
     margin-bottom: 10px;
   }
+  ${(props) => props.styled};
 `;

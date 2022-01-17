@@ -3,12 +3,14 @@ import { Input } from 'antd';
 import type { InputProps } from 'antd/lib/input';
 import { Wrapper } from './Styled';
 
-export interface FormInputProps extends InputProps {}
+export interface FormInputProps extends InputProps {
+  styled?: string;
+}
 
 const FormInput: React.FC<FormInputProps> = (props) => {
-  const { ...rest } = props;
+  const { styled, ...rest } = props;
   return (
-    <Wrapper>
+    <Wrapper styled={styled}>
       <Input {...rest} />
     </Wrapper>
   );

@@ -1,4 +1,10 @@
 import styled from 'styled-components';
 import { Row } from 'antd';
 
-export const RowWrapper = styled(Row)``;
+export interface RowWrapperProps {
+  styled?: string;
+}
+
+export const RowWrapper = styled(Row)<RowWrapperProps>`
+  ${(props) => props.styled};
+`;

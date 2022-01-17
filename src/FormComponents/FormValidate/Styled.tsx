@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export interface WrapperProps {
+  styled?: string;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   display: flex;
   flex-direction: column;
   label {
@@ -9,4 +13,5 @@ export const Wrapper = styled.div`
     justify-content: flex-start;
     height: 30px;
   }
+  ${(props) => props.styled};
 `;

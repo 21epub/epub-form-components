@@ -5,12 +5,13 @@ import { Wrapper } from './Styled';
 
 export interface FormSwitchProps extends SwitchProps {
   value?: boolean;
+  styled?: string;
 }
 
 const FormSwitch: React.FC<FormSwitchProps> = (props) => {
-  const { value, checked, ...rest } = props;
+  const { value, checked, styled, ...rest } = props;
   return (
-    <Wrapper>
+    <Wrapper styled={styled}>
       <Switch checked={value || checked} {...rest} />
     </Wrapper>
   );

@@ -30,6 +30,8 @@ export interface TableWidgetProps {
   TableFCProps?: TableProps<RecordType>;
   // 内置弹出框组件参数
   ModalFCProps?: ModalProps;
+  // 自定义css样式
+  styled?: string;
   // 数据变更
   onChange?: (dataSource: RecordType[]) => void;
 }
@@ -46,6 +48,7 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
     ButtonFCProps = {},
     TableFCProps = {},
     ModalFCProps = {},
+    styled,
     onChange
   } = props;
   // 控制是否显示表格编辑面板
@@ -162,7 +165,7 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
   return (
     <Fragment>
       <GlobalStyle />
-      <Wrapper>
+      <Wrapper styled={styled}>
         <Button
           className='AddButton'
           type='primary'

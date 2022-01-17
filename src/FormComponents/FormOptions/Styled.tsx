@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export interface WrapperProps {
+  styled?: string;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   input {
     max-width: 100% !important;
   }
+  ${(props) => props.styled};
 `;
 
 export const OptionWrapper = styled.div`

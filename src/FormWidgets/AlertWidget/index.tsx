@@ -3,12 +3,14 @@ import { Alert } from 'antd';
 import type { AlertProps } from 'antd/lib/alert';
 import { Wrapper } from './Styled';
 
-export interface AlertWidgetProps extends AlertProps {}
+export interface AlertWidgetProps extends AlertProps {
+  styled?: string;
+}
 
 const AlertWidget: React.FC<AlertWidgetProps> = (props) => {
-  const { ...rest } = props;
+  const { styled, ...rest } = props;
   return (
-    <Wrapper>
+    <Wrapper styled={styled}>
       <Alert {...rest} />
     </Wrapper>
   );

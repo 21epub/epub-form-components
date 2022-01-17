@@ -25,6 +25,7 @@ import type {
   RowWidgetProps,
   TableWidgetProps
 } from '../../FormWidgets/';
+import React from 'react';
 
 // 所有的可渲染组件类型
 export type FormWidgetType =
@@ -123,6 +124,8 @@ export interface ComponentType extends FormItemProps {
   type: FormWidgetType | string;
   // 组件的参数集合，props里的内容会传到组件里
   props?: ComponentPropsType & FormWidgetPropsType[ComponentType['type']];
+  // 组件自定义样式
+  styled?: AnyObject;
   // 可嵌套的子组件
   children?: ComponentType[];
   // 自定义属性
@@ -189,4 +192,8 @@ export interface PanelBaseProps {
   componentMap?: ComponentMapType;
   monacoLanguage?: string;
   onChange?: (returnValue: any) => void;
+}
+
+export interface StyledType {
+  [key: string]: React.CSSProperties | StyledType;
 }

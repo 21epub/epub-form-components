@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export interface WrapperProps {
+  styled?: string;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   width: 100%;
   .ant-list {
     width: 100%;
@@ -17,4 +21,5 @@ export const Wrapper = styled.div`
       }
     }
   }
+  ${(props) => props.styled};
 `;

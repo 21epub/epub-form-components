@@ -20,6 +20,7 @@ export interface DebounceOptions {
 export interface FormMonacoEditorProps extends EditorProps {
   // 防抖延迟时间（毫秒）
   debounceOptions?: DebounceOptions;
+  styled?: string;
 }
 
 const FormMonacoEditor: React.FC<FormMonacoEditorProps> = (props) => {
@@ -28,6 +29,7 @@ const FormMonacoEditor: React.FC<FormMonacoEditorProps> = (props) => {
     value = '',
     defaultLanguage = 'javascript',
     theme = 'vs-dark',
+    styled,
     onChange,
     ...rest
   } = props;
@@ -41,7 +43,7 @@ const FormMonacoEditor: React.FC<FormMonacoEditorProps> = (props) => {
   const { run } = useDebounceFn(onChange || onEditorChange, debounceOptions);
 
   return (
-    <Wrapper className='FormMonacoEditor'>
+    <Wrapper className='FormMonacoEditor' styled={styled}>
       <MonacoEditor
         defaultLanguage={defaultLanguage}
         theme={theme}

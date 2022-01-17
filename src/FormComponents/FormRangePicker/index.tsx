@@ -8,20 +8,21 @@ import moment from 'moment';
 moment.locale('zh-cn');
 
 export type FormRangePickerProps = RangePickerProps & {
-  onChange: (formatString: [string, string]) => void;
+  styled?: string;
+  onChange?: (formatString: [string, string]) => void;
 };
 
 // 日期选择框
 const FormRangePicker: React.FC<FormRangePickerProps> = (props) => {
-  const { value, picker, onChange, ...rest } = props;
+  const { value, picker, styled, onChange, ...rest } = props;
   const { RangePicker } = DatePicker;
 
   const onValueChange = (_values: Any, formatString: [string, string]) => {
-    onChange(formatString);
+    onChange && onChange(formatString);
   };
 
   return (
-    <Wrapper>
+    <Wrapper styled={styled}>
       <RangePicker
         locale={locale}
         picker={picker}

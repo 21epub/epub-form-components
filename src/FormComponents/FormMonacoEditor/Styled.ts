@@ -1,3 +1,9 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div``;
+export interface WrapperProps {
+  styled?: string;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
+  ${(props) => props.styled};
+`;

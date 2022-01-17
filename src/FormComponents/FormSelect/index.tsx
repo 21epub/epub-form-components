@@ -7,11 +7,12 @@ import type { OptionsConfigType, OptionType } from '../../type';
 
 export interface FormSelectProps<T> extends SelectProps<T> {
   optionsConfig: OptionsConfigType<'Radio'>;
+  styled?: string;
   onChange?: (value: T) => void;
 }
 
 const FormSelect: React.FC<FormSelectProps<string>> = (props) => {
-  const { value, optionsConfig, onChange, ...rest } = props;
+  const { value, optionsConfig, styled, onChange, ...rest } = props;
   const defaultValue = optionsConfig?.defaultValue;
   const [propsValue, setPropsValue] = useState<string>(value || defaultValue);
 
@@ -27,7 +28,7 @@ const FormSelect: React.FC<FormSelectProps<string>> = (props) => {
   }, []);
 
   return (
-    <Wrapper>
+    <Wrapper styled={styled}>
       <Select
         value={String(propsValue) || undefined}
         onChange={onSelectChange}

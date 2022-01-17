@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+export interface WrapperProps {
+  styled?: string;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
+  ${(props) => props.styled};
+`;
+
 export const ColorCubeContainer = styled.div`
   padding: 4px;
   border: 1px solid #d4d4d4;

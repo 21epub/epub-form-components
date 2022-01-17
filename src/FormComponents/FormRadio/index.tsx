@@ -6,13 +6,14 @@ import { Wrapper } from './Styled';
 import type { OptionsConfigType, OptionType } from '../../type';
 
 export interface FormRadioProps extends RadioProps {
-  size?: 'large' | 'middle' | 'small';
   optionsConfig: OptionsConfigType<'Radio'>;
-  onChange: (value: RadioChangeEvent) => void;
+  size?: 'large' | 'middle' | 'small';
+  styled?: string;
+  onChange?: (value: RadioChangeEvent) => void;
 }
 
 const FormRadio: React.FC<FormRadioProps> = (props) => {
-  const { value, optionsConfig, size, onChange, ...rest } = props;
+  const { value, optionsConfig, size, styled, onChange, ...rest } = props;
   const listSize = size === 'middle' ? 'default' : size;
   const defaultValue = optionsConfig?.defaultValue || undefined;
   const [propsValue, setPropsValue] = useState(value || defaultValue);
@@ -29,7 +30,7 @@ const FormRadio: React.FC<FormRadioProps> = (props) => {
   }, []);
 
   return (
-    <Wrapper>
+    <Wrapper styled={styled}>
       <List bordered itemLayout='vertical' size={listSize}>
         <Radio.Group value={propsValue} onChange={onRadioChange} {...rest}>
           {optionsConfig?.options?.map((option: OptionType) => {

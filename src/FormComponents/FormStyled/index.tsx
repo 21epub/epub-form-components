@@ -25,18 +25,19 @@ export interface StyledValue {
 export interface FormStyledProps {
   value: StyledValue;
   styledList: StyledList[];
+  styled?: string;
   onChange?: (value: StyledValue) => void;
 }
 
 const FormStyled: React.FC<FormStyledProps> = (props) => {
-  const { value, styledList, onChange } = props;
+  const { value, styledList, styled, onChange } = props;
 
   const onStyledValueChange = (styledValue: StyledValue) => {
     onChange && onChange(Object.assign({}, value, styledValue));
   };
 
   return (
-    <Wrapper>
+    <Wrapper styled={styled}>
       {styledList.map((styled, index) => {
         const Styled = getStyled(styled.type);
         return (

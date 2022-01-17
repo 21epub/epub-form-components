@@ -3,12 +3,14 @@ import { Input } from 'antd';
 import type { TextAreaProps } from 'antd/lib/input';
 import { Wrapper } from './Styled';
 
-export interface FormTextAreaProps extends TextAreaProps {}
+export interface FormTextAreaProps extends TextAreaProps {
+  styled?: string;
+}
 
 const FormTextArea: React.FC<FormTextAreaProps> = (props) => {
-  const { ...rest } = props;
+  const { styled, ...rest } = props;
   return (
-    <Wrapper>
+    <Wrapper styled={styled}>
       <Input.TextArea autoSize={{ minRows: 4, maxRows: 4 }} {...rest} />
     </Wrapper>
   );
