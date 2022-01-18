@@ -1,5 +1,5 @@
 import { message } from 'antd';
-import { isEmpty, cloneDeep } from 'lodash';
+import { isEmpty, cloneDeep, isString } from 'lodash';
 import type {
   FieldErrorType,
   PanelConfigType,
@@ -78,4 +78,31 @@ export const validatePanelValue = (
     });
     return false;
   }
+};
+
+// 字符串类型的类json数据转成真正的json数据
+export const stringToJson = (str: any) => {
+  if (!isString(str)) return str;
+  try {
+    if (typeof JSON.parse(str) === 'object') {
+      return JSON.parse(str);
+    }
+  } catch (e) {
+    // console.log(e);
+  }
+  return str;
+};
+
+// json数据转成字符串
+export const jsonToString = (json: any) => {
+  if (isString(json)) return json;
+  try {
+    if (typeof JSON.stringify(json) === 'string') {
+      // 设置缩进为2个空格
+      return JSON.stringify(json, null, 2);
+    }
+  } catch (e) {
+    // console.log(e);
+  }
+  return json;
 };

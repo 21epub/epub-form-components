@@ -7,7 +7,7 @@ import { isEmpty, uniqueId } from 'lodash';
 import { Wrapper, GlobalStyle } from './Styled';
 import { ComponentsRender } from '../../FormJsonPanel/ComponentsRender/';
 import type { ComponentType, FieldErrorType } from '../../FormJsonPanel/type';
-import { validatePanelValue } from '../../FormJsonPanel/utils';
+import { validatePanelValue } from '../../FormJsonPanel/util';
 import type { RecordType } from './type';
 import ActionRender from './ActionRender';
 

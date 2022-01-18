@@ -40,7 +40,7 @@ const FormMonacoEditor: React.FC<FormMonacoEditorProps> = (props) => {
   };
 
   // 防抖操作
-  const { run } = useDebounceFn(onChange || onEditorChange, debounceOptions);
+  const { run } = useDebounceFn(onEditorChange, debounceOptions);
 
   return (
     <Wrapper className='FormMonacoEditor' styled={styled}>

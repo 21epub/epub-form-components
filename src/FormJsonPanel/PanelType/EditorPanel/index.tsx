@@ -3,8 +3,8 @@ import 'antd/dist/antd.css';
 import FormMonacoEditor from '../../../FormComponents/FormMonacoEditor';
 import type { PanelBaseProps, PanelConfigType } from '../../type';
 import SettingPanel from '../SettingPanel';
-import { toJson } from './util';
 import { Wrapper } from './Styled';
+import { stringToJson, jsonToString } from '../../util';
 
 export interface EditorPanelProps extends PanelBaseProps {
   onEditorChange: (panelData: string) => void;
@@ -30,8 +30,8 @@ const EditorPanel: React.FC<EditorPanelProps> = (props) => {
   };
 
   const onMonacoChange = (value?: string) => {
-    onEditorChange(toJson(value));
-    setEditorValue(toJson(value));
+    onEditorChange(value || '');
+    setEditorValue(value || '');
   };
 
   return (
@@ -39,12 +39,12 @@ const EditorPanel: React.FC<EditorPanelProps> = (props) => {
       <FormMonacoEditor
         height='100%'
         defaultLanguage={monacoLanguage}
-        value={JSON.stringify(editorValue, null, 2)}
+        value={jsonToString(editorValue)}
         onChange={onMonacoChange}
       />
       <SettingPanel
         panelData={initialValues}
-        panelConfig={editorValue}
+        panelConfig={stringToJson(editorValue)}
         componentMap={componentMap}
         onSettingChange={onValuesChange}
       />
