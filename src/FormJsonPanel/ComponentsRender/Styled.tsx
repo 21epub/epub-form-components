@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Form } from 'antd';
 
 export const Wrapper = styled.div`
   .ant-select,
@@ -8,6 +9,8 @@ export const Wrapper = styled.div`
   .ant-input-number {
     width: 250px;
   }
+
+  /* 多层级时，那条层级线 */
   .FormItemRender::before {
     position: absolute;
     top: -10px;
@@ -17,4 +20,12 @@ export const Wrapper = styled.div`
     border: 1px dashed #000;
     content: '';
   }
+`;
+
+export interface FormItemWrapperProps {
+  styled?: string;
+}
+
+export const FormItemWrapper = styled(Form.Item)<FormItemWrapperProps>`
+  ${(props) => props.styled};
 `;
