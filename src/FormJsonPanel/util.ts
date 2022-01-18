@@ -7,18 +7,47 @@ import type {
   PanelComponentsType
 } from './type';
 
+// 字符串类型的类json数据转成真正的json数据
+export const stringToJson = (str: any) => {
+  if (!isString(str)) return str;
+  try {
+    if (typeof JSON.parse(str) === 'object') {
+      return JSON.parse(str);
+    }
+  } catch (e) {
+    // console.log(e);
+  }
+  return str;
+};
+
+// json数据转成字符串
+export const jsonToString = (json: any) => {
+  if (isString(json)) return json;
+  try {
+    if (typeof JSON.stringify(json) === 'string') {
+      // 设置缩进为2个空格
+      return JSON.stringify(json, null, 2);
+    }
+  } catch (e) {
+    // console.log(e);
+  }
+  return json;
+};
+
 // 转换panelConfig的结构
 // 从结构数据集成，转换为结构数据分离
 export const integrateToSeparate = (
   panelConfig?: PanelConfigType | null,
   componentList?: ComponentType[] | null
 ) => {
-  const panelConfigValue = cloneDeep(panelConfig);
+  const panelConfigValue: PanelConfigType = cloneDeep(
+    stringToJson(panelConfig)
+  );
   const componentListValue = cloneDeep(componentList);
   // 面板框架结构
   const panelFrame: PanelConfigType<'separate'> = {
-    id: panelConfig?.id || '',
-    type: panelConfig?.type || '',
+    id: panelConfigValue?.id || '',
+    type: panelConfigValue?.type || '',
     tabs: []
   };
   // 面板组件列表
@@ -27,18 +56,15 @@ export const integrateToSeparate = (
   // 递归循环遍历json
   const loopComponents = (components: ComponentType[]) => {
     components.forEach((component) => {
-      // 若有子元素，则循环后，删除子元素
-      if (component.children) {
-        loopComponents(component.children);
-        // eslint-disable-next-line no-param-reassign
-        delete component.children;
+      // 若有子元素，则继续遍历
+      if (component.children) loopComponents(component.children);
+      // 将非布局组件添加到组件列表中
+      if (component.type !== 'RowWidget' && component.type !== 'ColWidget') {
+        panelComponents[component.name] = component;
       }
-      // 将组件添加到库中
-      panelComponents[component.id] = component;
     });
   };
-
-  if (panelConfigValue) {
+  if (panelConfigValue?.tabs) {
     panelConfigValue.tabs.forEach((tab) => loopComponents(tab.componentList));
   } else if (componentListValue) {
     loopComponents(componentListValue);
@@ -74,35 +100,10 @@ export const validatePanelValue = (
     Object.entries(errorField).forEach(([key, value]) => {
       const currComponent = integrateToSeparate(panelConfig, componentList)
         .panelComponents;
-      message.error(`${currComponent[key].label || key}:${value?.errors?.[0]}`);
+      message.error(
+        `${currComponent[key]?.label || key}:${value?.errors?.[0]}`
+      );
     });
     return false;
   }
-};
-
-// 字符串类型的类json数据转成真正的json数据
-export const stringToJson = (str: any) => {
-  if (!isString(str)) return str;
-  try {
-    if (typeof JSON.parse(str) === 'object') {
-      return JSON.parse(str);
-    }
-  } catch (e) {
-    // console.log(e);
-  }
-  return str;
-};
-
-// json数据转成字符串
-export const jsonToString = (json: any) => {
-  if (isString(json)) return json;
-  try {
-    if (typeof JSON.stringify(json) === 'string') {
-      // 设置缩进为2个空格
-      return JSON.stringify(json, null, 2);
-    }
-  } catch (e) {
-    // console.log(e);
-  }
-  return json;
 };

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { isBoolean } from 'lodash';
+import { isBoolean, uniqueId } from 'lodash';
 import type { ComponentMapType, ComponentType } from '../type';
 import { getComponent } from '../components';
 import { formatProps, styledToString } from './utils';
@@ -26,7 +26,7 @@ export const rowRender = (props: RenderItemPropsType) => {
   const RowWidget = getComponent('RowWidget');
   return (
     <RowWidget
-      key={component.name}
+      key={component.name + uniqueId()}
       {...component.props}
       styled={styledToString(component?.props?.styled)}
     >
@@ -48,7 +48,7 @@ export const colRender = (props: RenderItemPropsType) => {
   const ColWidget = getComponent('ColWidget');
   return (
     <ColWidget
-      key={component.name}
+      key={component.name + uniqueId()}
       {...component.props}
       styled={styledToString(component?.props?.styled)}
     >
@@ -70,9 +70,9 @@ export const componentRender = (props: RenderItemPropsType) => {
     Reflect.get(componentMap || {}, component.type) ||
     getComponent(component.type);
   return (
-    <Fragment key={component.id + component.name}>
+    <Fragment key={component.id + component.name + uniqueId()}>
       <FormItemWrapper
-        key={component.id + component.name}
+        key={component.id + component.name + uniqueId()}
         className={count ? 'FormItemRender' : ''}
         initialValue={initialValues?.[component.name]}
         style={{ position: 'relative', marginLeft: `${count * 50}px` }}
