@@ -10,7 +10,7 @@ import Border from '../../FormComponents/FormStyled/Border';
 import type { BorderProps } from '../../FormComponents/FormStyled/Border';
 
 export default {
-  title: 'FormComponents/FormStyled',
+  title: '表单组件/样式',
   component: FormStyled
 } as Meta;
 

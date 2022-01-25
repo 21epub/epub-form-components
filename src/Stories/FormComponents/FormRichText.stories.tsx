@@ -4,7 +4,7 @@ import FormRichText from '../../FormComponents/FormRichText';
 import type { FormRichTextProps } from '../../FormComponents/FormRichText';
 
 export default {
-  title: 'FormComponents/FormRichText',
+  title: '表单组件/富文本',
   component: FormRichText,
   argTypes: {
     size: {

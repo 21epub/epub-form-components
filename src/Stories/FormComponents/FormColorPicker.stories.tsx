@@ -4,7 +4,7 @@ import FormColorPicker from '../../FormComponents/FormColorPicker';
 import type { FormColorPickerProps } from '../../FormComponents/FormColorPicker';
 
 export default {
-  title: 'FormComponents/FormColorPicker',
+  title: '表单组件/颜色选择器',
   component: FormColorPicker,
   argTypes: {
     value: {

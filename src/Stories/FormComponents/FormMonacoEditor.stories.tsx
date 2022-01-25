@@ -4,7 +4,7 @@ import FormMonacoEditor from '../../FormComponents/FormMonacoEditor';
 import type { FormMonacoEditorProps } from '../../FormComponents/FormMonacoEditor';
 
 export default {
-  title: 'FormComponents/FormMonacoEditor',
+  title: '表单组件/摩纳哥代码编辑器',
   component: FormMonacoEditor
 } as Meta;
 

@@ -4,7 +4,7 @@ import FormSwitch from '../../FormComponents/FormSwitch';
 import type { FormSwitchProps } from '../../FormComponents/FormSwitch';
 
 export default {
-  title: 'FormComponents/FormSwitch',
+  title: '表单组件/开关',
   component: FormSwitch,
   argTypes: {
     size: {

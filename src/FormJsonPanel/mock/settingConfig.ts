@@ -91,6 +91,12 @@ export const jsonPanelSetting: PanelConfigType = {
           }
         },
         {
+          id: 'RangePicker',
+          label: '日期范围输入框',
+          name: 'RangePicker',
+          type: 'FormRangePicker'
+        },
+        {
           id: 'title',
           label: '活动标题',
           name: 'title',

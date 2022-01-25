@@ -4,7 +4,7 @@ import FormOptions from '../../FormComponents/FormOptions';
 import type { FormOptionsProps } from '../../FormComponents/FormOptions';
 
 export default {
-  title: 'FormComponents/FormOptions',
+  title: '表单组件/选项编辑',
   component: FormOptions
 } as Meta;
 

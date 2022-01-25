@@ -4,7 +4,7 @@ import TableWidget from '../../FormWidgets/TableWidget';
 import type { TableWidgetProps } from '../../FormWidgets/TableWidget';
 
 export default {
-  title: 'FormWidgets/Table',
+  title: '工具组件/表格',
   component: TableWidget
 } as Meta;
 

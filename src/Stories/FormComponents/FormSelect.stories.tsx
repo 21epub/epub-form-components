@@ -4,7 +4,7 @@ import FormSelect from '../../FormComponents/FormSelect';
 import type { FormSelectProps } from '../../FormComponents/FormSelect';
 
 export default {
-  title: 'FormComponents/FormSelect',
+  title: '表单组件/下拉框',
   component: FormSelect,
   argTypes: {
     size: {

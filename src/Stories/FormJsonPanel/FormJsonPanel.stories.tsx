@@ -14,7 +14,7 @@ import { jsonPanelSetting } from '../../FormJsonPanel/mock/settingConfig';
 // } from '@storybook/addon-docs/blocks';
 
 export default {
-  title: 'JsonPanel',
+  title: 'JSON编辑面板',
   component: JsonPanel
   // parameters: {
   //   docs: {

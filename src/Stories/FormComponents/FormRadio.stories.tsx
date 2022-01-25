@@ -4,7 +4,7 @@ import FormRadio from '../../FormComponents/FormRadio';
 import type { FormRadioProps } from '../../FormComponents/FormRadio';
 
 export default {
-  title: 'FormComponents/FormRadio',
+  title: '表单组件/单选项',
   component: FormRadio,
   argTypes: {
     size: {

@@ -14,7 +14,7 @@ import ReadOnly from '../../FormComponents/FormValidate/ReadOnly';
 import type { ReadOnlyProps } from '../../FormComponents/FormValidate/ReadOnly';
 
 export default {
-  title: 'FormComponents/FormValidate',
+  title: '表单组件/验证',
   component: FormValidate
 } as Meta;
 

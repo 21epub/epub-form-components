@@ -4,7 +4,7 @@ import FormCheckbox from '../../FormComponents/FormCheckbox';
 import type { FormCheckboxProps } from '../../FormComponents/FormCheckbox';
 
 export default {
-  title: 'FormComponents/FormCheckbox',
+  title: '表单组件/多选项',
   component: FormCheckbox,
   argTypes: {
     size: {

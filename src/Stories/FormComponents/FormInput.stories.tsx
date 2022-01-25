@@ -4,7 +4,7 @@ import FormInput from '../../FormComponents/FormInput';
 import type { FormInputProps } from '../../FormComponents/FormInput';
 
 export default {
-  title: 'FormComponents/FormInput',
+  title: '表单组件/文本输入框',
   component: FormInput,
   argTypes: {
     size: {

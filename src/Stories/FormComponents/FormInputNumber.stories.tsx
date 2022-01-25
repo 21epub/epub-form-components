@@ -4,7 +4,7 @@ import FormInputNumber from '../../FormComponents/FormInputNumber';
 import type { FormInputNumberProps } from '../../FormComponents/FormInputNumber';
 
 export default {
-  title: 'FormComponents/FormInputNumber',
+  title: '表单组件/数字输入框',
   component: FormInputNumber,
   argTypes: {
     size: {

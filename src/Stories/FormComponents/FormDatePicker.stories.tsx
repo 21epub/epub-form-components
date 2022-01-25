@@ -5,7 +5,7 @@ import FormDatePicker from '../../FormComponents/FormDatePicker';
 import type { FormDatePickerProps } from '../../FormComponents/FormDatePicker';
 
 export default {
-  title: 'FormComponents/FormDatePicker',
+  title: '表单组件/日期选择器',
   component: FormDatePicker,
   argTypes: {
     size: {

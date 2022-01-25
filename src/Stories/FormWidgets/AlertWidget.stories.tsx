@@ -4,7 +4,7 @@ import AlertWidget from '../../FormWidgets/AlertWidget';
 import type { AlertWidgetProps } from '../../FormWidgets/AlertWidget';
 
 export default {
-  title: 'FormWidgets/AlertWidget',
+  title: '工具组件/警告提示',
   component: AlertWidget
 } as Meta;
 
