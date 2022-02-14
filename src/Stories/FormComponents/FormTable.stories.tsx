@@ -1,14 +1,14 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import TableWidget from '../../FormWidgets/TableWidget';
-import type { TableWidgetProps } from '../../FormWidgets/TableWidget';
+import FormTable from '../../FormComponents/FormTable';
+import type { FormTableProps } from '../../FormComponents/FormTable';
 
 export default {
   title: '工具组件/表格',
-  component: TableWidget
+  component: FormTable,
 } as Meta;
 
-const Template: Story<TableWidgetProps> = (args) => <TableWidget {...args} />;
+const Template: Story<FormTableProps> = (args) => <FormTable {...args} />;
 
 export const Table = Template.bind({});
 
@@ -18,13 +18,13 @@ Table.args = {
       title: '序号',
       dataIndex: 'key',
       width: '100px',
-      align: 'center'
+      align: 'center',
     },
     {
       title: '贺词内容',
       dataIndex: 'congratulatory_message',
-      align: 'center'
-    }
+      align: 'center',
+    },
   ],
   componentList: [
     {
@@ -32,7 +32,7 @@ Table.args = {
       label: '贺词内容',
       name: 'message',
       type: 'FormTextArea',
-      rules: [{ required: true, message: '不能为空' }]
-    }
-  ]
+      rules: [{ required: true, message: '不能为空' }],
+    },
+  ],
 };

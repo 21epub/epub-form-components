@@ -35,7 +35,7 @@ export const rowRender = (props: RenderItemPropsType) => {
         count,
         componentMap,
         initialValues,
-        formValues
+        formValues,
       })}
     </RowWidget>
   );
@@ -57,7 +57,7 @@ export const colRender = (props: RenderItemPropsType) => {
         count,
         componentMap,
         initialValues,
-        formValues
+        formValues,
       })}
     </ColWidget>
   );
@@ -77,7 +77,7 @@ export const componentRender = (props: RenderItemPropsType) => {
         initialValue={initialValues?.[component.name]}
         style={{ position: 'relative', marginLeft: `${count * 50}px` }}
         {...component}
-        styled={styledToString(component?.props?.styled)}
+        styled={styledToString(component?.styled || {})}
       >
         <JsonPanelComponent
           slug={initialValues?.slug || initialValues?.id}
@@ -94,7 +94,7 @@ export const componentRender = (props: RenderItemPropsType) => {
           count: count + 1,
           componentMap,
           initialValues,
-          formValues
+          formValues,
         })}
     </Fragment>
   );
@@ -104,6 +104,7 @@ export const componentRender = (props: RenderItemPropsType) => {
 export const loopRender = (props: RenderPropsType): React.ReactNode => {
   const { componentList } = props;
   return componentList?.map((component: ComponentType) => {
+    if (component.hidden) return;
     if (component.type === 'RowWidget')
       return rowRender({ component, ...props });
     if (component.type === 'ColWidget')

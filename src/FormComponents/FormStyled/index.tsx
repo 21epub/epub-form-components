@@ -42,7 +42,7 @@ const FormStyled: React.FC<FormStyledProps> = (props) => {
         const Styled = getStyled(styled.type);
         return (
           <Styled
-            className='styledChild'
+            className="styledChild"
             key={index}
             label={styled.label}
             name={styled.name}

@@ -36,7 +36,7 @@ const Precision: React.FC<PrecisionProps> = (props) => {
         onChange={onNumberChange}
       />
       <span>位小数</span>
-      <Tooltip title='设置浮点数的位数'>
+      <Tooltip title="设置浮点数的位数">
         <QuestionCircleFilled style={{ marginLeft: '5px' }} />
       </Tooltip>
     </FlexBox>

@@ -8,9 +8,9 @@ export default {
   component: FormTextArea,
   argTypes: {
     size: {
-      control: { type: 'inline-radio', options: ['large', 'middle', 'small'] }
-    }
-  }
+      control: { type: 'inline-radio', options: ['large', 'middle', 'small'] },
+    },
+  },
 } as Meta;
 
 const Template: Story<FormTextAreaProps> = (args) => <FormTextArea {...args} />;
@@ -21,5 +21,5 @@ TextArea.args = {
   value: '这是文本域输入框',
   readOnly: false,
   size: 'middle',
-  placeholder: '请输入文本'
+  placeholder: '请输入文本',
 };

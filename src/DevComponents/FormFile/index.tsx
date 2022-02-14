@@ -66,7 +66,7 @@ const FormFile: React.FC<FileFieldProps> = (props) => {
             uid: file.uid,
             name: file.name,
             status: 'uploading',
-            type: 'TODO'
+            type: 'TODO',
           })
         );
 
@@ -79,7 +79,7 @@ const FormFile: React.FC<FileFieldProps> = (props) => {
               name: file.name,
               url: result.originUrl,
               thumbUrl: result.thumbnailUrl,
-              type: 'image'
+              type: 'image',
             })
           );
       } catch (e) {
@@ -109,7 +109,7 @@ const FormFile: React.FC<FileFieldProps> = (props) => {
           previewFile: '',
           removeFile: '',
           uploadError: '上传失败',
-          uploading: '上传中。。。'
+          uploading: '上传中。。。',
         }}
       >
         <Button icon={<UploadOutlined />} disabled={!validate?.editable}>

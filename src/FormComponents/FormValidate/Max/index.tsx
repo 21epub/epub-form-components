@@ -64,7 +64,7 @@ const Max: React.FC<MaxProps> = (props) => {
         onChange={onNumberChange}
       />
       <span>{setEndTip(widgetType)}</span>
-      <Tooltip title='设置最大'>
+      <Tooltip title="设置最大">
         <QuestionCircleFilled style={{ marginLeft: '5px' }} />
       </Tooltip>
     </FlexBox>

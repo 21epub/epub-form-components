@@ -31,7 +31,7 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = (props) => {
 
   return (
     <Wrapper styled={styled}>
-      <List bordered itemLayout='vertical' size={listSize}>
+      <List bordered itemLayout="vertical" size={listSize}>
         <Checkbox.Group value={propsValue} onChange={onRadioChange} {...rest}>
           {optionsConfig?.options?.map((option: OptionType) => {
             return (

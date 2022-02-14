@@ -54,7 +54,7 @@ const FormImage: React.FC<FormImageProps> = (props) => {
           JSON.stringify({
             uid: file.uid,
             name: file.name,
-            status: 'uploading'
+            status: 'uploading',
           })
         );
 
@@ -68,7 +68,7 @@ const FormImage: React.FC<FormImageProps> = (props) => {
                 name: file.name,
                 url: img.originUrl,
                 thumbUrl: img.thumbnailUrl,
-                type: 'image'
+                type: 'image',
               })
             );
         } else {
@@ -118,7 +118,7 @@ const FormImage: React.FC<FormImageProps> = (props) => {
       <Upload
         accept={(accept ?? []).join()}
         fileList={_image ? [_image] : []}
-        listType='picture'
+        listType="picture"
         customRequest={uploadImage}
         onRemove={handleRemove}
         onPreview={checkImgWidth}
@@ -127,7 +127,7 @@ const FormImage: React.FC<FormImageProps> = (props) => {
           previewFile: '',
           removeFile: '',
           uploadError: '上传失败',
-          uploading: '上传中。。。'
+          uploading: '上传中。。。',
         }}
         {...rest}
       >
@@ -136,7 +136,7 @@ const FormImage: React.FC<FormImageProps> = (props) => {
       <Modal
         visible={visible}
         title={_image?.name}
-        width='fit-content'
+        width="fit-content"
         footer={null}
         onCancel={() => {
           toggle(false);

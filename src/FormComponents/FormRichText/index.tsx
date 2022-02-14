@@ -31,9 +31,9 @@ const FormRichText: React.FC<FormRichTextProps> = (props) => {
   };
 
   return (
-    <Wrapper className='my-component' styled={styled}>
+    <Wrapper className="my-component" styled={styled}>
       <BraftEditor
-        language='zh'
+        language="zh"
         value={editorState}
         onChange={handleEditorChange}
         {...rest}

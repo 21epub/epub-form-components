@@ -5,7 +5,7 @@ import type { FormMonacoEditorProps } from '../../FormComponents/FormMonacoEdito
 
 export default {
   title: '表单组件/摩纳哥代码编辑器',
-  component: FormMonacoEditor
+  component: FormMonacoEditor,
 } as Meta;
 
 const Template: Story<FormMonacoEditorProps> = (args) => (
@@ -23,5 +23,5 @@ MonacoEditor.args = {
   debounceOptions: { wait: 300 },
   height: '500px',
   defaultLanguage: 'css',
-  onChange
+  onChange,
 };

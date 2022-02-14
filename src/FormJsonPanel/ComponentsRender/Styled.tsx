@@ -4,10 +4,10 @@ import { Form } from 'antd';
 export const Wrapper = styled.div`
   .ant-select,
   input {
-    max-width: 250px;
+    max-width: 300px;
   }
   .ant-input-number {
-    width: 250px;
+    width: 300px;
   }
 
   /* 多层级时，那条层级线 */

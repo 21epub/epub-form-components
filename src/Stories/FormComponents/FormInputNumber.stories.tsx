@@ -8,9 +8,9 @@ export default {
   component: FormInputNumber,
   argTypes: {
     size: {
-      control: { type: 'inline-radio', options: ['large', 'middle', 'small'] }
-    }
-  }
+      control: { type: 'inline-radio', options: ['large', 'middle', 'small'] },
+    },
+  },
 } as Meta;
 
 const Template: Story<FormInputNumberProps> = (args) => (
@@ -24,5 +24,5 @@ InputNumber.args = {
   readOnly: false,
   size: 'middle',
   step: 1,
-  placeholder: '请输入数字'
+  placeholder: '请输入数字',
 };

@@ -21,7 +21,7 @@ const Option: React.FC<OptionProps> = (props) => {
     option,
     onOptionChange,
     onCheckedChange,
-    onRemoveOption
+    onRemoveOption,
   } = props;
   const { id, checked, label } = option;
   const {
@@ -29,12 +29,12 @@ const Option: React.FC<OptionProps> = (props) => {
     listeners,
     setNodeRef,
     transform,
-    transition
+    transition,
   } = useSortable({ id: option.id });
 
   const style = {
     transform: CSS.Transform.toString(transform),
-    transition: transition ?? ''
+    transition: transition ?? '',
   };
 
   return (
@@ -45,7 +45,7 @@ const Option: React.FC<OptionProps> = (props) => {
           onOptionChange({
             ...option,
             label: event.target.value,
-            value: event.target.value
+            value: event.target.value,
           });
         }}
         prefix={
@@ -56,7 +56,7 @@ const Option: React.FC<OptionProps> = (props) => {
         }
         suffix={
           <Space>
-            <Tooltip placement='top' title='默认选中项' mouseEnterDelay={2}>
+            <Tooltip placement="top" title="默认选中项" mouseEnterDelay={2}>
               {type === 'Checkbox' ? (
                 <Checkbox
                   checked={checked}
@@ -66,7 +66,7 @@ const Option: React.FC<OptionProps> = (props) => {
                 <Radio checked={checked} onClick={() => onCheckedChange(id)} />
               )}
             </Tooltip>
-            <Tooltip placement='top' title='删除当前项' mouseEnterDelay={2}>
+            <Tooltip placement="top" title="删除当前项" mouseEnterDelay={2}>
               <CloseCircleOutlined
                 style={{ cursor: 'pointer', color: 'rgba(128,128,128.0.5)' }}
                 onClick={() => onRemoveOption(id)}

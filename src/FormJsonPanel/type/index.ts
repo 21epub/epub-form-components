@@ -15,17 +15,16 @@ import type {
   FormSelectProps,
   FormStyledProps,
   FormSwitchProps,
+  FormTableProps,
   FormTextAreaProps,
-  FormValidateProps
+  FormValidateProps,
 } from '../../FormComponents';
 import type {
   AlertWidgetProps,
   ButtonWidgetProps,
   ColWidgetProps,
   RowWidgetProps,
-  TableWidgetProps
 } from '../../FormWidgets/';
-import React from 'react';
 
 // 所有的可渲染组件类型
 export type FormWidgetType =
@@ -47,8 +46,7 @@ export type FormWidgetType =
   | 'AlertWidget'
   | 'ButtonWidget'
   | 'ColWidget'
-  | 'RowWidget'
-  | 'TableWidget';
+  | 'RowWidget';
 
 // 所有组件的props类型
 export interface FormWidgetPropsType {
@@ -65,13 +63,13 @@ export interface FormWidgetPropsType {
   FormSelect: FormSelectProps<'Radio'>;
   FormStyledWidget: FormStyledProps;
   FormSwitch: FormSwitchProps;
+  FormTable: FormTableProps;
   FormTextArea: FormTextAreaProps;
   FormValidateWidget: FormValidateProps;
   AlertWidget: AlertWidgetProps;
   ButtonWidget: ButtonWidgetProps;
   ColWidget: ColWidgetProps;
   RowWidget: RowWidgetProps;
-  TableWidget: TableWidgetProps;
   [type: string]: any;
 }
 
@@ -117,7 +115,7 @@ export interface ComponentPropsType {
 // 每个组件的类型
 export interface ComponentType extends FormItemProps {
   // 每个组件的唯一标识id
-  id: string;
+  id?: string;
   // 组件对应的name，单个表单中的区分组件的唯一标识，语义化,与接口对应属性字段相同
   name: string;
   // 组件的类型

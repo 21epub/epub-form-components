@@ -6,7 +6,7 @@ import { ComponentsRender } from '../../ComponentsRender';
 import type {
   PanelBaseProps,
   PanelTabsType,
-  PanelConfigType
+  PanelConfigType,
 } from '../../type';
 import { Wrapper } from './Styled';
 
@@ -40,8 +40,8 @@ const SettingPanel: FC<SettingPanelProps> = (props) => {
   };
 
   return (
-    <Wrapper className='SettingPanel'>
-      <Tabs tabPosition='left'>
+    <Wrapper className="SettingPanel">
+      <Tabs tabPosition="left">
         {TabPaneRender((panelConfig as PanelConfigType)?.tabs)}
       </Tabs>
     </Wrapper>

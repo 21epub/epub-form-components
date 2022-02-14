@@ -64,7 +64,7 @@ const Min: React.FC<MinProps> = (props) => {
         onChange={onNumberChange}
       />
       <span>{setEndTip(widgetType)}</span>
-      <Tooltip title='设置最小'>
+      <Tooltip title="设置最小">
         <QuestionCircleFilled style={{ marginLeft: '5px' }} />
       </Tooltip>
     </FlexBox>

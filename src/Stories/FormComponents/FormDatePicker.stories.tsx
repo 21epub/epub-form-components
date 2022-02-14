@@ -9,9 +9,9 @@ export default {
   component: FormDatePicker,
   argTypes: {
     size: {
-      control: { type: 'inline-radio', options: ['large', 'middle', 'small'] }
-    }
-  }
+      control: { type: 'inline-radio', options: ['large', 'middle', 'small'] },
+    },
+  },
 } as Meta;
 
 const Template: Story<FormDatePickerProps> = (args) => (
@@ -24,5 +24,5 @@ DatePicker.args = {
   size: 'middle',
   value: moment('2021-03-02 13:45', 'YYYY-MM-DD HH:mm'),
   picker: 'date',
-  placeholder: '请选择日期'
+  placeholder: '请选择日期',
 };

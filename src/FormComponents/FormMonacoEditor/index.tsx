@@ -6,8 +6,8 @@ import { Wrapper } from './Styled';
 
 loader.config({
   paths: {
-    vs: `https://unpkg.creatby.com/monaco-editor@0.28.1/min/vs`
-  }
+    vs: 'https://unpkg.creatby.com/monaco-editor@0.28.1/min/vs',
+  },
 });
 
 // 防抖配置类型
@@ -43,7 +43,7 @@ const FormMonacoEditor: React.FC<FormMonacoEditorProps> = (props) => {
   const { run } = useDebounceFn(onEditorChange, debounceOptions);
 
   return (
-    <Wrapper className='FormMonacoEditor' styled={styled}>
+    <Wrapper className="FormMonacoEditor" styled={styled}>
       <MonacoEditor
         defaultLanguage={defaultLanguage}
         theme={theme}

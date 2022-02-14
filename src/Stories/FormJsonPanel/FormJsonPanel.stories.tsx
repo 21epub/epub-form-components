@@ -15,7 +15,7 @@ import { jsonPanelSetting } from '../../FormJsonPanel/mock/settingConfig';
 
 export default {
   title: 'JSON编辑面板',
-  component: JsonPanel
+  component: JsonPanel,
   // parameters: {
   //   docs: {
   //     description: {
@@ -47,7 +47,7 @@ JsonPanelFC.args = {
   panelProps: {
     panelData: { need_user_info: true, name: '姓名' },
     panelConfig: jsonPanelSetting,
-    onChange
+    onChange,
   },
-  monacoLanguage: 'json'
+  monacoLanguage: 'json',
 };

@@ -5,20 +5,34 @@ import ButtonWidget from './ButtonWidget';
 import type { ButtonWidgetProps } from './ButtonWidget';
 import ColWidget from './ColWidget';
 import type { ColWidgetProps } from './ColWidget';
+import DividerWidget from './DividerWidget';
+import type { DividerWidgetProps } from './DividerWidget';
 import RowWidget from './RowWidget';
 import type { RowWidgetProps } from './RowWidget';
-import TableWidget from './TableWidget';
-import type { TableWidgetProps } from './TableWidget';
+import TextWidget from './TextWidget';
+import type { TextWidgetProps } from './TextWidget';
+import TitleWidget from './TitleWidget';
+import type { TitleWidgetProps } from './TitleWidget';
 
 // 逐个导出所有widget
-export { AlertWidget, ButtonWidget, ColWidget, RowWidget, TableWidget };
+export {
+  AlertWidget,
+  ButtonWidget,
+  ColWidget,
+  DividerWidget,
+  RowWidget,
+  TextWidget,
+  TitleWidget,
+};
 
 export type {
   AlertWidgetProps,
   ButtonWidgetProps,
   ColWidgetProps,
+  DividerWidgetProps,
   RowWidgetProps,
-  TableWidgetProps
+  TextWidgetProps,
+  TitleWidgetProps,
 };
 
 // 获取通用定制化组件
@@ -27,8 +41,10 @@ export const getWidget = (widgetType: string) => {
     AlertWidget,
     ButtonWidget,
     ColWidget,
+    DividerWidget,
     RowWidget,
-    TableWidget
+    TextWidget,
+    TitleWidget,
   };
 
   return Reflect.get(widgetMap, widgetType);

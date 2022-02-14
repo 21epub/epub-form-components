@@ -31,7 +31,7 @@ const Color: React.FC<ColorProps> = (props) => {
     '#8ED1FC',
     '#0693E3',
     '#9901EF',
-    '#989898'
+    '#989898',
   ];
 
   // onChange触发更新
@@ -70,14 +70,14 @@ const Color: React.FC<ColorProps> = (props) => {
     <FlexBox>
       <span>{label}:</span>
       <Swatch onClick={handleClick}>
-        <div className='swatch-color' style={{ background: color }} />
+        <div className="swatch-color" style={{ background: color }} />
       </Swatch>
       {displayColorPicker && (
         <Popover>
-          <div className='popover-cover' onClick={handleClose} />
+          <div className="popover-cover" onClick={handleClose} />
           <TwitterPicker
             colors={colors}
-            width='206px'
+            width="206px"
             color={color}
             onChangeComplete={handleChange}
           />

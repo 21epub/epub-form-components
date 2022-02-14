@@ -1,6 +1,8 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
 import { Button } from 'antd';
-import { ColorResult, SketchPicker } from 'react-color';
+import { SketchPicker } from 'react-color';
+import type { ColorResult } from 'react-color';
 import type { RGBColor, SketchPickerProps } from 'react-color';
 import {
   Wrapper,
@@ -9,7 +11,7 @@ import {
   ColorCube,
   ColorCubeContainer,
   ColorCubes,
-  ColorPickerContainer
+  ColorPickerContainer,
 } from './Styled';
 
 const obj2rgb = ({ r, g, b, a }: RGBColor) => `rgba(${r},${g},${b},${a ?? 1})`;
@@ -60,13 +62,11 @@ const FormColorPicker: React.FC<FormColorPickerProps> = (props) => {
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     // 鼠标点击位置坐标
-    const { clientX } = e;
-    const { clientY } = e;
+    const { clientX, clientY } = e;
     // 颜色选择弹框最终定位
     const clientPosition = { x: clientX, y: clientY };
     // 浏览器可视区域宽高
-    const { clientWidth } = document.documentElement;
-    const { clientHeight } = document.documentElement;
+    const { clientWidth, clientHeight } = document.documentElement;
 
     // 颜色选择弹框宽高为 328 346
     // 若点击处距离浏览器右边宽度不足以显示颜色弹框时。
@@ -80,86 +80,97 @@ const FormColorPicker: React.FC<FormColorPickerProps> = (props) => {
     setPosition(clientPosition);
   };
 
+  // 将颜色选择器，渲染在body上。防止被遮挡与fixed定位错误
+  const ColorPicker = () => {
+    return ReactDOM.createPortal(
+      <Fragment>
+        {pickerVisible && (
+          <ColorPickerContainer ref={ref} x={position?.x} y={position?.y}>
+            <SketchPicker
+              styles={{
+                default: {
+                  picker: { boxShadow: 'none' },
+                  color: { display: 'none' },
+                },
+              }}
+              color={value}
+              width="250px"
+              onChange={onColorChange as any}
+              onChangeComplete={onColorChange}
+              presetColors={[
+                '#D0021B',
+                '#F5A623',
+                '#F8E71C',
+                '#8B572A',
+                '#7ED321',
+                '#417505',
+                '#BD10E0',
+                '#9013FE',
+                '#4A90E2',
+                '#50E3C2',
+                '#B8E986',
+                '#000000',
+                '#4A4A4A',
+                '#9B9B9B',
+                '#FFFFFF',
+                'transparent',
+              ]}
+              {...rest}
+            />
+            <Actions>
+              <Buttons>
+                <Button
+                  size="small"
+                  type="primary"
+                  onClick={() => {
+                    onButtonClick(currColor);
+                    setPickerVisible(false);
+                  }}
+                >
+                  确定
+                </Button>
+                <Button
+                  size="small"
+                  onClick={() => {
+                    onButtonClick(initColor);
+                    setCurrColor(initColor);
+                  }}
+                >
+                  复位
+                </Button>
+              </Buttons>
+              <ColorCubes>
+                <div>新的</div>
+                <ColorCube width="48px" height="32px" color={currColor} />
+                <ColorCube
+                  width="48px"
+                  height="32px"
+                  onClick={() => onButtonClick(initColor)}
+                  color={initColor}
+                />
+                <div>之前</div>
+              </ColorCubes>
+            </Actions>
+          </ColorPickerContainer>
+        )}
+      </Fragment>,
+      document.body
+    );
+  };
+
   return (
     <Wrapper styled={styled}>
       <ColorCubeContainer
+        className="ColorCubeContainer"
         onClick={(e) => {
           setPickerVisible(!pickerVisible);
           setPositionValue(e);
           e.stopPropagation();
         }}
       >
-        <ColorCube color={value} />
+        <ColorCube className="ColorCube" color={value} />
       </ColorCubeContainer>
-      {pickerVisible && (
-        <ColorPickerContainer ref={ref} x={position?.x} y={position?.y}>
-          <SketchPicker
-            styles={{
-              default: {
-                picker: { boxShadow: 'none' },
-                color: { display: 'none' }
-              }
-            }}
-            color={value}
-            width='250px'
-            onChange={onColorChange as any}
-            onChangeComplete={onColorChange}
-            presetColors={[
-              '#D0021B',
-              '#F5A623',
-              '#F8E71C',
-              '#8B572A',
-              '#7ED321',
-              '#417505',
-              '#BD10E0',
-              '#9013FE',
-              '#4A90E2',
-              '#50E3C2',
-              '#B8E986',
-              '#000000',
-              '#4A4A4A',
-              '#9B9B9B',
-              '#FFFFFF',
-              'transparent'
-            ]}
-            {...rest}
-          />
-          <Actions>
-            <Buttons>
-              <Button
-                size='small'
-                type='primary'
-                onClick={() => {
-                  onButtonClick(currColor);
-                  setPickerVisible(false);
-                }}
-              >
-                确定
-              </Button>
-              <Button
-                size='small'
-                onClick={() => {
-                  onButtonClick(initColor);
-                  setCurrColor(initColor);
-                }}
-              >
-                复位
-              </Button>
-            </Buttons>
-            <ColorCubes>
-              <div>新的</div>
-              <ColorCube width='48px' height='32px' color={currColor} />
-              <ColorCube
-                width='48px'
-                height='32px'
-                onClick={() => onButtonClick(initColor)}
-                color={initColor}
-              />
-              <div>之前</div>
-            </ColorCubes>
-          </Actions>
-        </ColorPickerContainer>
-      )}
+      <ColorPicker />
     </Wrapper>
   );
 };

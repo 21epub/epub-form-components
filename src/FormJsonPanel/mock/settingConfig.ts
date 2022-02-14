@@ -20,11 +20,11 @@ export const jsonPanelSetting: PanelConfigType = {
                 color: '#666699',
                 '&': {
                   '.ant-alert-message': {
-                    'font-size': '12px'
-                  }
-                }
-              }
-            }
+                    'font-size': '12px',
+                  },
+                },
+              },
+            },
           },
           children: [
             {
@@ -32,7 +32,7 @@ export const jsonPanelSetting: PanelConfigType = {
               name: 'Col1',
               type: 'ColWidget',
               props: {
-                span: 8
+                span: 8,
               },
               children: [
                 {
@@ -42,17 +42,17 @@ export const jsonPanelSetting: PanelConfigType = {
                   props: {
                     message: '这里是一条警告提示信息',
                     type: 'warning',
-                    showIcon: true
-                  }
-                }
-              ]
+                    showIcon: true,
+                  },
+                },
+              ],
             },
             {
               id: 'Col',
               name: 'Col2',
               type: 'ColWidget',
               props: {
-                span: 8
+                span: 8,
               },
               children: [
                 {
@@ -62,8 +62,8 @@ export const jsonPanelSetting: PanelConfigType = {
                   props: {
                     message: '这里是一条警告提示信息',
                     type: 'warning',
-                    showIcon: true
-                  }
+                    showIcon: true,
+                  },
                 },
                 {
                   id: 'warning3',
@@ -72,12 +72,12 @@ export const jsonPanelSetting: PanelConfigType = {
                   props: {
                     message: '这里是一条警告提示信息',
                     type: 'warning',
-                    showIcon: true
-                  }
-                }
-              ]
-            }
-          ]
+                    showIcon: true,
+                  },
+                },
+              ],
+            },
+          ],
         },
         {
           id: 'warning',
@@ -87,14 +87,14 @@ export const jsonPanelSetting: PanelConfigType = {
           props: {
             message: '这里是一条警告提示信息',
             type: 'warning',
-            showIcon: true
-          }
+            showIcon: true,
+          },
         },
         {
           id: 'RangePicker',
           label: '日期范围输入框',
           name: 'RangePicker',
-          type: 'FormRangePicker'
+          type: 'FormRangePicker',
         },
         {
           id: 'title',
@@ -110,12 +110,12 @@ export const jsonPanelSetting: PanelConfigType = {
                 } else {
                   return Promise.resolve(new Error());
                 }
-              }
-            }
+              },
+            },
           ],
           props: {
-            placeholder: '请输入活动标题'
-          }
+            placeholder: '请输入活动标题',
+          },
         },
         {
           id: 'rules',
@@ -123,10 +123,10 @@ export const jsonPanelSetting: PanelConfigType = {
           name: 'rules',
           type: 'FormRichText',
           props: {
-            placeholder: '请输入活动规则'
-          }
-        }
-      ]
+            placeholder: '请输入活动规则',
+          },
+        },
+      ],
     },
     {
       id: 'ruleSetting',
@@ -147,17 +147,17 @@ export const jsonPanelSetting: PanelConfigType = {
                   label: '总计',
                   value: 'total',
                   checked: false,
-                  id: '0'
+                  id: '0',
                 },
                 {
                   label: '每天',
                   value: 'everyday',
                   checked: false,
-                  id: '1'
-                }
-              ]
-            }
-          }
+                  id: '1',
+                },
+              ],
+            },
+          },
         },
         {
           id: 'win_num_each_one',
@@ -179,19 +179,19 @@ export const jsonPanelSetting: PanelConfigType = {
                   label: '不限',
                   value: 'null',
                   checked: false,
-                  id: '5'
-                }
-              ]
-            }
-          }
+                  id: '5',
+                },
+              ],
+            },
+          },
         },
         {
           id: 'show_activity',
           label: '显示活动时间',
           name: 'show_activity',
-          type: 'FormSwitch'
-        }
-      ]
+          type: 'FormSwitch',
+        },
+      ],
     },
     {
       id: 'formSetting',
@@ -207,7 +207,7 @@ export const jsonPanelSetting: PanelConfigType = {
               id: 'name',
               label: '姓名',
               name: 'name',
-              type: 'FormInput'
+              type: 'FormInput',
             },
             {
               id: 'sex',
@@ -220,20 +220,20 @@ export const jsonPanelSetting: PanelConfigType = {
                   defaultValue: '0',
                   options: [
                     { label: '男', value: '0', checked: false, id: '0' },
-                    { label: '女', value: '1', checked: false, id: '1' }
-                  ]
-                }
-              }
+                    { label: '女', value: '1', checked: false, id: '1' },
+                  ],
+                },
+              },
             },
             {
               id: 'introduction',
               label: '个人简介',
               name: 'introduction',
-              type: 'FormTextArea'
-            }
-          ]
-        }
-      ]
+              type: 'FormTextArea',
+            },
+          ],
+        },
+      ],
     },
     {
       id: 'tableSetting',
@@ -250,13 +250,13 @@ export const jsonPanelSetting: PanelConfigType = {
                 title: '序号',
                 dataIndex: 'key',
                 width: '100px',
-                align: 'center'
+                align: 'center',
               },
               {
                 title: '贺词内容',
                 dataIndex: 'message',
-                align: 'center'
-              }
+                align: 'center',
+              },
             ],
             componentList: [
               {
@@ -264,12 +264,12 @@ export const jsonPanelSetting: PanelConfigType = {
                 label: '贺词内容',
                 name: 'message',
                 type: 'FormTextArea',
-                rules: [{ required: true, message: '不能为空' }]
-              }
-            ]
-          }
-        }
-      ]
-    }
-  ]
+                rules: [{ required: true, message: '不能为空' }],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  ],
 };

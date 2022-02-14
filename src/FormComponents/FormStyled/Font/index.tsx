@@ -46,20 +46,20 @@ const Font: React.FC<FontProps> = (props) => {
     <FlexBox>
       <span>{label}:</span>
       <Select
-        className='flexbox-select'
-        size='small'
+        className="flexbox-select"
+        size="small"
         value={fontSize}
         onChange={onSelectChange}
       >
         {children}
       </Select>
       <Button
-        className='flexbox-button'
+        className="flexbox-button"
         style={{
-          backgroundColor: fontWeight === 'bold' ? 'lightgray' : '#fff'
+          backgroundColor: fontWeight === 'bold' ? 'lightgray' : '#fff',
         }}
-        type='text'
-        size='small'
+        type="text"
+        size="small"
         onClick={onWeigthChange}
       >
         {fontWeight === 'bold' ? <b>B</b> : 'B'}

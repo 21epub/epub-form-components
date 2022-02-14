@@ -28,7 +28,7 @@ const FormDatePicker: React.FC<FormDatePickerProps> = (props) => {
         picker={picker}
         value={value ? moment(value, 'YYYY-MM-DD HH:mm') : null}
         showTime={{ format: 'HH:mm' }}
-        format='YYYY-MM-DD HH:mm'
+        format="YYYY-MM-DD HH:mm"
         onChange={onValueChange}
         {...rest}
       />

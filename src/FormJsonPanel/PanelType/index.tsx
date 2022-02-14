@@ -7,7 +7,7 @@ import type {
   PanelType,
   PanelBaseProps,
   FieldErrorType,
-  PanelConfigType
+  PanelConfigType,
 } from '../type';
 import PanelHeader from './components/PanelHeader';
 import PanelFooter from './components/PanelFooter';
@@ -39,11 +39,10 @@ export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
     onChange,
     panelData,
     panelConfig,
-    componentMap
+    componentMap,
   } = panelProps;
   let panelJson = '';
-  let returnValue: AnyObject = {};
-  let initialValues: AnyObject = panelData || {};
+  let returnValue: AnyObject = panelData || {};
   let formFieldsError: FieldErrorType;
 
   // 点击提交按钮时
@@ -87,7 +86,6 @@ export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
       formFieldsError = { ...formFieldsError, ...newFormFieldsError };
     });
     returnValue = { ...returnValue, ...changeValue };
-    initialValues = { ...initialValues, ...changeValue };
   };
 
   return (
@@ -111,7 +109,7 @@ export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
             />
           ) : (
             <SettingPanel
-              panelData={initialValues}
+              panelData={returnValue}
               panelConfig={stringToJson(panelConfig)}
               componentMap={componentMap}
               onSettingChange={onSettingChange}

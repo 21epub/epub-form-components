@@ -11,7 +11,7 @@ const FormTextArea: React.FC<FormTextAreaProps> = (props) => {
   const { styled, ...rest } = props;
   return (
     <Wrapper styled={styled}>
-      <Input.TextArea autoSize={{ minRows: 4, maxRows: 4 }} {...rest} />
+      <Input.TextArea {...rest} />
     </Wrapper>
   );
 };

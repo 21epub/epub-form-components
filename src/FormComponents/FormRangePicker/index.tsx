@@ -29,11 +29,11 @@ const FormRangePicker: React.FC<FormRangePickerProps> = (props) => {
         value={
           value?.[0] && [
             moment(value?.[0], 'YYYY-MM-DD HH:mm'),
-            moment(value?.[1], 'YYYY-MM-DD HH:mm')
+            moment(value?.[1], 'YYYY-MM-DD HH:mm'),
           ]
         }
         showTime={{ format: 'HH:mm' }}
-        format='YYYY-MM-DD HH:mm'
+        format="YYYY-MM-DD HH:mm"
         onChange={onValueChange}
         {...rest}
       />

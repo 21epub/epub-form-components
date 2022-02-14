@@ -1,0 +1,80 @@
+root: true
+
+env:
+  browser: true
+  node: true
+
+extends:
+  - "eslint:recommended"
+  - "plugin:yml/standard"
+  - "plugin:sonarjs/recommended"
+  - "plugin:@typescript-eslint/recommended"
+  - "plugin:react/recommended"
+  - "plugin:react-hooks/recommended"
+
+parser: "@typescript-eslint/parser"
+
+plugins:
+  - sonarjs
+  - react
+  - react-hooks
+  - "@typescript-eslint"
+
+rules:
+  eqeqeq:
+    - warn
+    - always
+    - null: ignore
+  no-return-await: warn
+  no-useless-concat: warn
+  object-shorthand: warn
+  prefer-destructuring: warn
+  quotes:
+    - warn
+    - single
+  require-await: warn
+  "sonarjs/prefer-immediate-return": off
+  "sonarjs/no-nested-template-literals": off
+  "sonarjs/no-duplicate-string": off
+  "sonarjs/no-small-switch": off
+  react/display-name: off
+  react/prop-types: off
+  react/self-closing-comp: warn
+  react-hooks/exhaustive-deps:
+    - warn
+    - additionalHooks: useRecoilCallback
+  "@typescript-eslint/ban-ts-comment": off
+  "@typescript-eslint/explicit-module-boundary-types": off
+  "@typescript-eslint/consistent-type-imports": off
+  "@typescript-eslint/no-empty-function": off
+  "@typescript-eslint/no-explicit-any": off
+  "@typescript-eslint/no-empty-interface":
+    - warn
+    - allowSingleExtends: true
+  "@typescript-eslint/no-this-alias": off
+  "@typescript-eslint/no-var-requires": off
+  "no-useless-escape": off
+
+overrides:
+  - files:
+      - "*.ts"
+      - "*.tsx"
+    rules:
+      no-undef: off
+  - files:
+      - "*.yml"
+      - "*.yaml"
+    parser: yaml-eslint-parser
+
+settings:
+  react:
+    version: detect
+
+globals:
+  epub360: true
+  interaction: true
+  interaction_view: true
+  DB: true
+  _g: true
+  promise: true
+  $: true

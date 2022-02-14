@@ -8,9 +8,9 @@ export default {
   component: FormCheckbox,
   argTypes: {
     size: {
-      control: { type: 'inline-radio', options: ['large', 'middle', 'small'] }
-    }
-  }
+      control: { type: 'inline-radio', options: ['large', 'middle', 'small'] },
+    },
+  },
 } as Meta;
 
 const Template: Story<FormCheckboxProps> = (args) => <FormCheckbox {...args} />;
@@ -25,7 +25,7 @@ Checkbox.args = {
     options: [
       { label: '大', value: 'large', checked: false, id: '0' },
       { label: '中', value: 'middle', checked: true, id: '1' },
-      { label: '小', value: 'small', checked: false, id: '2' }
-    ]
-  }
+      { label: '小', value: 'small', checked: false, id: '2' },
+    ],
+  },
 };

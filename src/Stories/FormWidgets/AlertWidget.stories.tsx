@@ -5,7 +5,7 @@ import type { AlertWidgetProps } from '../../FormWidgets/AlertWidget';
 
 export default {
   title: '工具组件/警告提示',
-  component: AlertWidget
+  component: AlertWidget,
 } as Meta;
 
 const Template: Story<AlertWidgetProps> = (args) => <AlertWidget {...args} />;
@@ -16,5 +16,5 @@ Alert.args = {
   message: '这是提示框',
   type: 'warning',
   closable: true,
-  showIcon: true
+  showIcon: true,
 };

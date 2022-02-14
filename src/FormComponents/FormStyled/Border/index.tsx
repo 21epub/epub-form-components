@@ -40,8 +40,8 @@ const Border: React.FC<BorderProps> = (props) => {
       { label: '实线边框', value: 'solid', checked: false, id: '0' },
       { label: '点线边框', value: 'dotted', checked: false, id: '1' },
       { label: '虚线边框', value: 'dashed', checked: true, id: '2' },
-      { label: '双层边框', value: 'double', checked: false, id: '3' }
-    ]
+      { label: '双层边框', value: 'double', checked: false, id: '3' },
+    ],
   };
 
   // 颜色改变时触发更新
@@ -51,7 +51,7 @@ const Border: React.FC<BorderProps> = (props) => {
   ) => {
     onChange({
       borderStyle: changeBorderStyle,
-      borderColor: changeBorderColor
+      borderColor: changeBorderColor,
     });
   };
 
@@ -90,20 +90,20 @@ const Border: React.FC<BorderProps> = (props) => {
     <FlexBox>
       <span>{label}:</span>
       <FormSelect
-        className='flexbox-select'
+        className="flexbox-select"
         optionsConfig={optionsConfig}
-        size='small'
+        size="small"
         value={borderStyle}
         onChange={onSelectChange}
       />
       <Swatch onClick={handleClick}>
-        <div className='swatch-color' style={{ background: borderColor }} />
+        <div className="swatch-color" style={{ background: borderColor }} />
       </Swatch>
       {displayColorPicker && (
         <Popover>
-          <div className='popover-cover' onClick={handleClose} />
+          <div className="popover-cover" onClick={handleClose} />
           <TwitterPicker
-            width='206px'
+            width="206px"
             color={borderColor}
             onChangeComplete={handleChange}
           />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form } from 'antd';
-import type { FormInstance } from 'antd';
+import type { FormInstance, FormProps } from 'antd';
 import type { ComponentMapType, ComponentType } from '../type';
 import { Wrapper } from './Styled';
 import { loopRender } from './render';
@@ -9,6 +9,7 @@ interface ComponentsRenderProps {
   initialValues?: AnyObject;
   componentList: ComponentType[];
   componentMap?: ComponentMapType;
+  formProps?: FormProps;
   onValuesChange: (
     changedValues: AnyObject,
     values: AnyObject,
@@ -22,7 +23,8 @@ export const ComponentsRender: React.FC<ComponentsRenderProps> = (props) => {
     initialValues = {},
     componentList,
     componentMap = {},
-    onValuesChange
+    formProps,
+    onValuesChange,
   } = props;
   const [form] = Form.useForm();
   const [formValues, setFormValues] = useState<AnyObject>(initialValues);
@@ -40,13 +42,18 @@ export const ComponentsRender: React.FC<ComponentsRenderProps> = (props) => {
 
   return (
     <Wrapper>
-      <Form form={form} layout='vertical' onValuesChange={onFormValuesChange}>
+      <Form
+        form={form}
+        layout="vertical"
+        onValuesChange={onFormValuesChange}
+        {...formProps}
+      >
         {loopRender({
           componentList,
           count: 0,
           componentMap,
           initialValues,
-          formValues
+          formValues,
         })}
       </Form>
     </Wrapper>

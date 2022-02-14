@@ -5,13 +5,13 @@ import type { TableProps, ColumnsType } from 'antd/lib/table';
 import type { ModalProps } from 'antd/lib/modal';
 import { isEmpty, uniqueId } from 'lodash';
 import { Wrapper, GlobalStyle } from './Styled';
-import { ComponentsRender } from '../../FormJsonPanel/ComponentsRender/';
+import { ComponentsRender } from '../../FormJsonPanel/ComponentsRender';
 import type { ComponentType, FieldErrorType } from '../../FormJsonPanel/type';
 import { validatePanelValue } from '../../FormJsonPanel/util';
 import type { RecordType } from './type';
 import ActionRender from './ActionRender';
 
-export interface TableWidgetProps {
+export interface FormTableProps {
   // 表格每行的数据列表
   value?: RecordType[];
   // 按钮文案
@@ -37,7 +37,7 @@ export interface TableWidgetProps {
 }
 
 // 数据表格
-const TableWidget: React.FC<TableWidgetProps> = (props) => {
+const FormTable: React.FC<FormTableProps> = (props) => {
   const {
     value = [],
     buttonText = '添加',
@@ -49,7 +49,7 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
     TableFCProps = {},
     ModalFCProps = {},
     styled,
-    onChange
+    onChange,
   } = props;
   // 控制是否显示表格编辑面板
   const [visibleModal, setVisibleModal] = useState(false);
@@ -60,7 +60,7 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
   // 弹出框的类型：新增或编辑
   const [tableModalType, setTableModalType] = useState<'add' | 'editor'>('add');
   // 保存表单修改后的数据
-  let changesValues: RecordType = {};
+  let changesValues: RecordType = modalValues;
   // 校验报错信息
   let formFieldsError: FieldErrorType;
 
@@ -167,8 +167,8 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
       <GlobalStyle />
       <Wrapper styled={styled}>
         <Button
-          className='AddButton'
-          type='primary'
+          className="AddButton"
+          type="primary"
           onClick={() => onOpenModal('add')}
           {...ButtonFCProps}
         >
@@ -181,10 +181,10 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
           {...TableFCProps}
         />
         <Modal
-          className='TableModal'
-          title='表格配置'
-          okText='确定'
-          cancelText='取消'
+          className="TableModal"
+          title="表格配置"
+          okText="确定"
+          cancelText="取消"
           zIndex={1040}
           visible={visibleModal}
           onOk={onModalSubmit}
@@ -204,4 +204,4 @@ const TableWidget: React.FC<TableWidgetProps> = (props) => {
   );
 };
 
-export default TableWidget;
+export default FormTable;

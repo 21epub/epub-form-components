@@ -7,7 +7,7 @@ export const getStyled = (StyledType: string) => {
   const styledMap = {
     Border,
     Color,
-    Font
+    Font,
   };
 
   return Reflect.get(styledMap, StyledType) || Color;

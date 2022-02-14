@@ -11,7 +11,7 @@ import type { BorderProps } from '../../FormComponents/FormStyled/Border';
 
 export default {
   title: '表单组件/样式',
-  component: FormStyled
+  component: FormStyled,
 } as Meta;
 
 const Template: Story<FormStyledProps> = (args) => <FormStyled {...args} />;
@@ -24,28 +24,28 @@ Styled.args = {
     fontWeight: 'normal',
     backgroundColor: 'red',
     borderStyle: 'solid',
-    color: 'green'
+    color: 'green',
   },
   styledList: [
     {
       label: '字号',
       type: 'Font',
       name: 'font',
-      defaultValue: { fontSize: '14px', fontWeight: 'bold' }
+      defaultValue: { fontSize: '14px', fontWeight: 'bold' },
     },
     {
       label: '颜色',
       type: 'Color',
       name: 'color',
-      defaultValue: '#A83E39'
+      defaultValue: '#A83E39',
     },
     {
       label: '边框',
       type: 'Border',
       name: 'border',
-      defaultValue: { borderStyle: 'solid', borderColor: '#d9d9d9' }
-    }
-  ]
+      defaultValue: { borderStyle: 'solid', borderColor: '#d9d9d9' },
+    },
+  ],
 };
 
 // 字体组件
@@ -55,8 +55,8 @@ FontWidget.args = {
   label: '字体',
   defaultValue: {
     fontSize: '14px',
-    fontWeight: 'normal'
-  }
+    fontWeight: 'normal',
+  },
 };
 
 // 边框组件
@@ -66,8 +66,8 @@ BorderWidget.args = {
   label: '边框',
   defaultValue: {
     borderStyle: 'solid',
-    borderColor: '#d9d9d9'
-  }
+    borderColor: '#d9d9d9',
+  },
 };
 
 // 颜色组件
@@ -76,5 +76,5 @@ export const ColorWidget = ColorTemplate.bind({});
 ColorWidget.args = {
   label: '颜色',
   name: 'color',
-  defaultValue: '#66ccff'
+  defaultValue: '#66ccff',
 };

@@ -8,9 +8,9 @@ export default {
   component: FormInput,
   argTypes: {
     size: {
-      control: { type: 'inline-radio', options: ['large', 'middle', 'small'] }
-    }
-  }
+      control: { type: 'inline-radio', options: ['large', 'middle', 'small'] },
+    },
+  },
 } as Meta;
 
 const Template: Story<FormInputProps> = (args) => <FormInput {...args} />;
@@ -18,5 +18,5 @@ const Template: Story<FormInputProps> = (args) => <FormInput {...args} />;
 export const Input = Template.bind({});
 
 Input.args = {
-  placeholder: '请输入文本'
+  placeholder: '请输入文本',
 };

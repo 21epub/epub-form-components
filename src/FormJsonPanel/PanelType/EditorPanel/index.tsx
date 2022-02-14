@@ -17,16 +17,16 @@ const EditorPanel: React.FC<EditorPanelProps> = (props) => {
     panelConfig,
     monacoLanguage = 'json',
     componentMap,
-    onEditorChange
+    onEditorChange,
   } = props;
   const [editorValue, setEditorValue] = useState<PanelConfigType | string>(
     panelConfig || ''
   );
-  let initialValues: AnyObject = panelData || {};
+  let returnValues: AnyObject = panelData || {};
 
   // 每次组件改变时，格式化数据
   const onValuesChange = (changedValues: AnyObject) => {
-    initialValues = { ...initialValues, ...changedValues };
+    returnValues = { ...returnValues, ...changedValues };
   };
 
   const onMonacoChange = (value?: string) => {
@@ -37,13 +37,13 @@ const EditorPanel: React.FC<EditorPanelProps> = (props) => {
   return (
     <Wrapper>
       <FormMonacoEditor
-        height='100%'
+        height="100%"
         defaultLanguage={monacoLanguage}
         value={jsonToString(editorValue)}
         onChange={onMonacoChange}
       />
       <SettingPanel
-        panelData={initialValues}
+        panelData={returnValues}
         panelConfig={stringToJson(editorValue)}
         componentMap={componentMap}
         onSettingChange={onValuesChange}

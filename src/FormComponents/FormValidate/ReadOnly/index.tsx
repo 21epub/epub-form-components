@@ -21,7 +21,7 @@ const ReadOnly: React.FC<ReadOnlyProps> = (props) => {
     <FlexBox>
       <Checkbox checked={validateValue?.readOnly} onChange={onCheckedChange} />
       <span>只读</span>
-      <Tooltip title='设为只读后，用户只能查看，不能编辑'>
+      <Tooltip title="设为只读后，用户只能查看，不能编辑">
         <QuestionCircleFilled style={{ marginLeft: '5px' }} />
       </Tooltip>
     </FlexBox>

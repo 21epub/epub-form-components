@@ -4,7 +4,7 @@ import type {
   FieldErrorType,
   PanelConfigType,
   ComponentType,
-  PanelComponentsType
+  PanelComponentsType,
 } from './type';
 
 // 字符串类型的类json数据转成真正的json数据
@@ -48,7 +48,7 @@ export const integrateToSeparate = (
   const panelFrame: PanelConfigType<'separate'> = {
     id: panelConfigValue?.id || '',
     type: panelConfigValue?.type || '',
-    tabs: []
+    tabs: [],
   };
   // 面板组件列表
   const panelComponents: PanelComponentsType = {};
@@ -73,7 +73,7 @@ export const integrateToSeparate = (
   // TODO 暂时只做了分离数据，后续再完善分离结构
   return {
     panelFrame,
-    panelComponents
+    panelComponents,
   };
 };
 
