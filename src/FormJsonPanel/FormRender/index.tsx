@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import { Form } from 'antd';
 import type { FormInstance, FormProps } from 'antd';
-import type { ComponentMapType, ComponentType } from '../type';
+import type {
+  ComponentMapType,
+  ComponentType,
+  ComponentStructure,
+} from '../type';
+import { separateToIntegrate } from '../util';
 import { Wrapper } from './Styled';
 import { loopRender } from './render';
 
-interface ComponentsRenderProps {
+interface FormRenderProps {
   initialValues?: AnyObject;
+  // 表单结构,布局
+  componentStructure?: ComponentStructure[];
+  // 表单组件列表
   componentList: ComponentType[];
   componentMap?: ComponentMapType;
   formProps?: FormProps;
@@ -18,9 +26,10 @@ interface ComponentsRenderProps {
 }
 
 // 渲染组件
-export const ComponentsRender: React.FC<ComponentsRenderProps> = (props) => {
+export const FormRender: React.FC<FormRenderProps> = (props) => {
   const {
     initialValues = {},
+    componentStructure,
     componentList,
     componentMap = {},
     formProps,
@@ -28,6 +37,10 @@ export const ComponentsRender: React.FC<ComponentsRenderProps> = (props) => {
   } = props;
   const [form] = Form.useForm();
   const [formValues, setFormValues] = useState<AnyObject>(initialValues);
+  const newComponentList = separateToIntegrate(
+    componentList,
+    componentStructure
+  );
 
   const onFormValuesChange = (changedValues: AnyObject, values: AnyObject) => {
     // 获取当前改变字段的name值
@@ -49,7 +62,7 @@ export const ComponentsRender: React.FC<ComponentsRenderProps> = (props) => {
         {...formProps}
       >
         {loopRender({
-          componentList,
+          componentList: newComponentList,
           count: 0,
           componentMap,
           initialValues,

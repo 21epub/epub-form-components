@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import React from 'react';
 import { Tabs } from 'antd';
 import type { FormInstance } from 'antd';
-import { ComponentsRender } from '../../ComponentsRender';
+import { FormRender } from '../../FormRender';
 import type {
   PanelBaseProps,
   PanelTabsType,
@@ -28,7 +28,7 @@ const SettingPanel: FC<SettingPanelProps> = (props) => {
     return tabsList?.map((tabs) => {
       return (
         <TabPane key={tabs.id} tab={tabs.tabsName}>
-          <ComponentsRender
+          <FormRender
             initialValues={panelData}
             componentList={tabs.componentList}
             onValuesChange={onSettingChange}

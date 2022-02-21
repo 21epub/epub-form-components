@@ -1,4 +1,4 @@
 export * from './PanelType';
-export * from './ComponentsRender';
+export * from './FormRender';
 export * from './type';
 export * from './util';

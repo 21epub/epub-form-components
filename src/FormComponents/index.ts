@@ -24,16 +24,12 @@ import FormSelect from './FormSelect';
 import type { FormSelectProps } from './FormSelect';
 import FormSingleCheckbox from './FormSingleCheckbox';
 import type { FormSingleCheckboxProps } from './FormSingleCheckbox';
-import FormStyled from './FormStyled';
-import type { FormStyledProps } from './FormStyled';
 import FormSwitch from './FormSwitch';
 import type { FormSwitchProps } from './FormSwitch';
 import FormTable from '../FormComponents/FormTable';
 import type { FormTableProps } from '../FormComponents/FormTable';
 import FormTextArea from './FormTextArea';
 import type { FormTextAreaProps } from './FormTextArea';
-import FormValidate from './FormValidate';
-import type { FormValidateProps } from './FormValidate';
 export * from './utils';
 
 export {
@@ -49,11 +45,9 @@ export {
   FormRichText,
   FormSelect,
   FormSingleCheckbox,
-  FormStyled,
   FormSwitch,
   FormTable,
   FormTextArea,
-  FormValidate,
 };
 
 export type {
@@ -69,11 +63,9 @@ export type {
   FormRichTextProps,
   FormSelectProps,
   FormSingleCheckboxProps,
-  FormStyledProps,
   FormSwitchProps,
   FormTableProps,
   FormTextAreaProps,
-  FormValidateProps,
 };
 
 // 通过组件类型选择组件
@@ -92,11 +84,9 @@ export const getFormComponent = (componentType: string) => {
     FormRichText,
     FormSelect,
     FormSingleCheckbox,
-    FormStyled,
     FormSwitch,
     FormTable,
     FormTextArea,
-    FormValidate,
   };
 
   // 导出对应的组价，没有则默认导出输入框组件

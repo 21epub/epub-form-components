@@ -1,9 +1,11 @@
+/* eslint-disable sonarjs/no-identical-functions */
 import { message } from 'antd';
 import { isEmpty, cloneDeep, isString } from 'lodash';
 import type {
   FieldErrorType,
   PanelConfigType,
   ComponentType,
+  ComponentStructure,
   PanelComponentsType,
 } from './type';
 
@@ -35,7 +37,7 @@ export const jsonToString = (json: any) => {
 };
 
 // 转换panelConfig的结构
-// 从结构数据集成，转换为结构数据分离
+// 集成->分离
 export const integrateToSeparate = (
   panelConfig?: PanelConfigType | null,
   componentList?: ComponentType[] | null
@@ -64,6 +66,7 @@ export const integrateToSeparate = (
       }
     });
   };
+
   if (panelConfigValue?.tabs) {
     panelConfigValue.tabs.forEach((tab) => loopComponents(tab.componentList));
   } else if (componentListValue) {
@@ -75,6 +78,36 @@ export const integrateToSeparate = (
     panelFrame,
     panelComponents,
   };
+};
+
+// 分离 -> 集成
+export const separateToIntegrate = (
+  componentList: ComponentType[],
+  componentStructure?: ComponentStructure[]
+) => {
+  // 若没有单独写布局，则直接返回组件列表
+  if (!componentStructure) return componentList || [];
+
+  // 递归循环遍历json
+  const loopComponents = (
+    components: ComponentStructure[]
+  ): ComponentType[] => {
+    const treeData = components.map((component) => {
+      // 若有子元素，则继续遍历
+      if (component.children) {
+        return {
+          ...componentList.find((item) => item.name === component.name),
+          children: loopComponents(component.children),
+        };
+      } else {
+        return componentList.find((item) => item.name === component.name);
+      }
+    });
+    return treeData as ComponentType[];
+  };
+
+  const data = loopComponents(componentStructure);
+  return data;
 };
 
 // 整理字段验证结果，并返回验证提示

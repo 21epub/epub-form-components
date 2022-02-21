@@ -1,33 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Radio, List } from 'antd';
 import type { RadioProps, RadioChangeEvent } from 'antd/lib/radio';
 import { uniqueId } from 'lodash';
 import { Wrapper } from './Styled';
 import type { OptionsConfigType, OptionType } from '../../type';
 
-export interface FormRadioProps extends RadioProps {
+export interface FormRadioProps extends Omit<RadioProps, 'onChange'> {
   optionsConfig: OptionsConfigType<'Radio'>;
   size?: 'large' | 'middle' | 'small';
   styled?: string;
-  onChange?: (value: RadioChangeEvent) => void;
+  onChange?: (value: string) => void;
 }
 
 const FormRadio: React.FC<FormRadioProps> = (props) => {
   const { value, optionsConfig, size, styled, onChange, ...rest } = props;
   const listSize = size === 'middle' ? 'default' : size;
-  const defaultValue = optionsConfig?.defaultValue || undefined;
-  const [propsValue, setPropsValue] = useState(value || defaultValue);
+  const [propsValue, setPropsValue] = useState(value);
 
   const onRadioChange = (e: RadioChangeEvent) => {
     setPropsValue(e.target.value);
     onChange && onChange(e.target.value);
   };
-
-  useEffect(() => {
-    // 设置初始选中的值
-    onChange && onChange(propsValue);
-    // eslint-disable-next-line
-  }, []);
 
   return (
     <Wrapper styled={styled}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Checkbox, List } from 'antd';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import type { CheckboxValueType } from 'antd/lib/checkbox/Group';
@@ -15,19 +15,12 @@ export interface FormCheckboxProps extends CheckboxGroupProps {
 export const FormCheckbox: React.FC<FormCheckboxProps> = (props) => {
   const { value, optionsConfig, size, styled, onChange, ...rest } = props;
   const listSize = size === 'middle' ? 'default' : size;
-  const defaultValue = optionsConfig?.defaultValue || undefined;
-  const [propsValue, setPropsValue] = useState(value || defaultValue);
+  const [propsValue, setPropsValue] = useState(value);
 
-  const onRadioChange = (RadioChangeValue: CheckboxValueType[]) => {
-    setPropsValue(RadioChangeValue);
-    onChange && onChange(RadioChangeValue);
+  const onRadioChange = (radioChangeValue: CheckboxValueType[]) => {
+    setPropsValue(radioChangeValue);
+    onChange && onChange(radioChangeValue);
   };
-
-  useEffect(() => {
-    // 设置初始选中的值
-    onChange && onChange(propsValue);
-    // eslint-disable-next-line
-  }, []);
 
   return (
     <Wrapper styled={styled}>

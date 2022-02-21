@@ -5,7 +5,7 @@ import type { TableProps, ColumnsType } from 'antd/lib/table';
 import type { ModalProps } from 'antd/lib/modal';
 import { isEmpty, uniqueId } from 'lodash';
 import { Wrapper, GlobalStyle } from './Styled';
-import { ComponentsRender } from '../../FormJsonPanel/ComponentsRender';
+import { FormRender } from '../../FormJsonPanel/FormRender';
 import type { ComponentType, FieldErrorType } from '../../FormJsonPanel/type';
 import { validatePanelValue } from '../../FormJsonPanel/util';
 import type { RecordType } from './type';
@@ -192,7 +192,7 @@ const FormTable: React.FC<FormTableProps> = (props) => {
           destroyOnClose
           {...ModalFCProps}
         >
-          <ComponentsRender
+          <FormRender
             initialValues={modalValues}
             componentList={componentList || ([] as ComponentType[])}
             componentMap={componentMap || {}}

@@ -13,11 +13,9 @@ import type {
   FormRangePickerProps,
   FormRichTextProps,
   FormSelectProps,
-  FormStyledProps,
   FormSwitchProps,
   FormTableProps,
   FormTextAreaProps,
-  FormValidateProps,
 } from '../../FormComponents';
 import type {
   AlertWidgetProps,
@@ -60,12 +58,10 @@ export interface FormWidgetPropsType {
   FormRadio: FormRadioProps;
   FormRangePicker: FormRangePickerProps;
   FormRichText: FormRichTextProps;
-  FormSelect: FormSelectProps<'Radio'>;
-  FormStyledWidget: FormStyledProps;
+  FormSelect: FormSelectProps;
   FormSwitch: FormSwitchProps;
   FormTable: FormTableProps;
   FormTextArea: FormTextAreaProps;
-  FormValidateWidget: FormValidateProps;
   AlertWidget: AlertWidgetProps;
   ButtonWidget: ButtonWidgetProps;
   ColWidget: ColWidgetProps;
@@ -128,6 +124,15 @@ export interface ComponentType extends FormItemProps {
   children?: ComponentType[];
   // 自定义属性
   [key: string]: any;
+}
+
+export interface ComponentStructure {
+  // 每个组件的唯一标识id
+  id?: string;
+  // 组件对应的name，单个表单中的区分组件的唯一标识，语义化,与接口对应属性字段相同
+  name: string;
+  // 可嵌套的子组件
+  children?: ComponentStructure[];
 }
 
 export interface ComponentFrameType {

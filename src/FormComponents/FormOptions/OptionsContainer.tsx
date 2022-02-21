@@ -12,6 +12,7 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
+import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import type { OptionsConfigType, OptionType } from '../../type';
 import Option from './Option';
 import { sortOptions } from './utils';
@@ -82,6 +83,7 @@ const OptionsContainer: React.FC<OptionsContainerProps> = (props) => {
       sensors={sensors}
       collisionDetection={closestCenter}
       onDragEnd={handleDragEnd}
+      modifiers={[restrictToVerticalAxis]}
     >
       <SortableContext items={options} strategy={verticalListSortingStrategy}>
         {options.map((option) => (
