@@ -7,7 +7,7 @@ import { isEmpty, uniqueId } from 'lodash';
 import { Wrapper, GlobalStyle } from './Styled';
 import { FormRender } from '../../FormJsonPanel/FormRender';
 import type { ComponentType, FieldErrorType } from '../../FormJsonPanel/type';
-import { validatePanelValue } from '../../FormJsonPanel/util';
+import { validatePanelValue } from '../../FormJsonPanel/utils';
 import type { RecordType } from './type';
 import ActionRender from './ActionRender';
 
@@ -127,7 +127,7 @@ const FormTable: React.FC<FormTableProps> = (props) => {
   // 处理弹框返回值
   const onModalSubmit = () => {
     // 关闭弹出框之前，检查数据是否通过校验
-    if (!validatePanelValue(formFieldsError, null, componentList)) return;
+    if (!validatePanelValue(formFieldsError)) return;
     // 关闭弹出框
     setVisibleModal(false);
     // 若数据为空，则不做处理

@@ -22,7 +22,7 @@ import type {
   ButtonWidgetProps,
   ColWidgetProps,
   RowWidgetProps,
-} from '../../FormWidgets/';
+} from '../../FormWidgets';
 
 // 所有的可渲染组件类型
 export type FormWidgetType =
@@ -126,13 +126,13 @@ export interface ComponentType extends FormItemProps {
   [key: string]: any;
 }
 
-export interface ComponentStructure {
+export interface ComponentStructureType {
   // 每个组件的唯一标识id
   id?: string;
   // 组件对应的name，单个表单中的区分组件的唯一标识，语义化,与接口对应属性字段相同
   name: string;
   // 可嵌套的子组件
-  children?: ComponentStructure[];
+  children?: ComponentStructureType[];
 }
 
 export interface ComponentFrameType {
@@ -146,37 +146,26 @@ export interface PanelComponentsType {
   [key: string]: ComponentType;
 }
 
-// 面板数据结构类型
-export interface PanelConfigDataType {
-  // 结构与数据集中式
-  integrate: ComponentType[];
-  // 结构与数据分离式
-  separate: ComponentFrameType[];
-}
-
-// 数据结构可以选择的类型：集成，分离
-export type PanelConfigData = 'integrate' | 'separate';
-
 // 配置面板json子节点接口
-export interface PanelTabsType<T extends PanelConfigData = 'integrate'> {
+export interface PanelTabsType {
   // 唯一标识id
   id: string;
   // 配置面板左侧导航名称
   tabsName: string;
   // 下一级导航
-  childTabs?: PanelTabsType<T>[];
+  childTabs?: PanelTabsType[];
   // 当前导航页的组件
-  componentList: PanelConfigDataType[T];
+  componentList: ComponentType[];
 }
 
 // 配置面板Json数据结构
-export interface PanelConfigType<T extends PanelConfigData = 'integrate'> {
+export interface PanelConfigType {
   // 唯一标识id
   id: string;
   // 类型
   type: string;
   // 导航节点
-  tabs: PanelTabsType<T>[];
+  tabs: PanelTabsType[];
 }
 
 export type PanelType = 'EditorPanel' | 'SettingPanel';

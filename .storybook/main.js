@@ -21,29 +21,28 @@ module.exports = {
                 mode: 'local',
                 localIdentName: '[path][name]__[local]--[hash:base64:5]',
                 context: path.resolve(__dirname, 'src'),
-                hashPrefix: 'custom'
-              }
-            }
+                hashPrefix: 'custom',
+              },
+            },
           },
           {
             loader: 'less-loader',
             options: {
               lessOptions: {
-                javascriptEnabled: true
-              }
-            }
-          }
-        ]
+                javascriptEnabled: true,
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(eot|ttf|TTF|woff|woff2|svg|png|jpg|gif)$/i,
-        use: ['url-loader']
+        use: ['url-loader'],
       }
-    );
-    // Return the altered config
+    ); // Return the altered config
     return config;
   },
   features: {
-    postcss: false
-  }
+    postcss: false,
+  },
 };

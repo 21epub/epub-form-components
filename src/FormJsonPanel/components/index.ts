@@ -1,4 +1,4 @@
-import { getFormComponent } from '../../FormComponents/';
+import { getFormComponent } from '../../FormComponents';
 import { getWidget } from '../../FormWidgets';
 import ErrorAlertWidget from './ErrorAlertWidget';
 

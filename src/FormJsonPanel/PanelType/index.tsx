@@ -12,7 +12,7 @@ import type {
 import PanelHeader from './components/PanelHeader';
 import PanelFooter from './components/PanelFooter';
 import { Wrapper, GlobalStyle } from './Styled';
-import { validatePanelValue, stringToJson, jsonToString } from '../util';
+import { validatePanelValue, stringToJson, jsonToString } from '../utils';
 
 export interface PanelPropsType extends PanelBaseProps {
   onSmall?: () => void;

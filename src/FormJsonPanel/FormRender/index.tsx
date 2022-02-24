@@ -4,16 +4,16 @@ import type { FormInstance, FormProps } from 'antd';
 import type {
   ComponentMapType,
   ComponentType,
-  ComponentStructure,
+  ComponentStructureType,
 } from '../type';
-import { separateToIntegrate } from '../util';
+import { separateToIntegrate } from './utils';
 import { Wrapper } from './Styled';
 import { loopRender } from './render';
 
 interface FormRenderProps {
   initialValues?: AnyObject;
   // 表单结构,布局
-  componentStructure?: ComponentStructure[];
+  componentStructure?: ComponentStructureType[];
   // 表单组件列表
   componentList: ComponentType[];
   componentMap?: ComponentMapType;

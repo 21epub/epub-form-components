@@ -1,5 +1,9 @@
 import { isObject } from 'lodash';
-import type { StyledType } from '../type';
+import type {
+  StyledType,
+  ComponentType,
+  ComponentStructureType,
+} from '../type';
 
 // 循环遍历styled对象，转为string
 const loopStyled = (styledObj: StyledType): string => {
@@ -38,4 +42,71 @@ export const formatProps = (props: AnyObject) => {
     }
   });
   return newProps;
+};
+
+// 转换配置的数据结构
+// 集成->分离
+export const integrateToSeparate = (componentConfig: ComponentType[]) => {
+  const componentList: ComponentType[] = [];
+
+  // 递归循环遍历json
+  const loopComponents = (
+    components: ComponentType[]
+  ): ComponentStructureType[] => {
+    return components.map((component) => {
+      if (component.children) {
+        componentList.push({ ...component, children: undefined });
+        return {
+          name: component.name,
+          children: loopComponents(component.children),
+        };
+      } else {
+        componentList.push({ ...component });
+        return { name: component.name };
+      }
+    });
+  };
+
+  return {
+    componentStructure: loopComponents(componentConfig),
+    componentList,
+  };
+};
+
+// 分离 -> 集成
+export const separateToIntegrate = (
+  componentList: ComponentType[],
+  componentStructure?: ComponentStructureType[]
+) => {
+  // 若没有单独写布局，则直接返回组件列表
+  if (!componentStructure) return componentList || [];
+
+  // 递归循环遍历json
+  const loopComponents = (
+    components: ComponentStructureType[]
+  ): ComponentType[] => {
+    return components.map((component) =>
+      component.children
+        ? {
+            ...componentList.find((item) => item.name === component.name),
+            children: loopComponents(component.children),
+          }
+        : componentList.find((item) => item.name === component.name)
+    ) as ComponentType[];
+  };
+
+  return loopComponents(componentStructure);
+};
+
+// 获取组件里的默认值
+export const getDefaultValue = (componentsConfig: ComponentType[]) => {
+  const { componentList } = integrateToSeparate(componentsConfig);
+  const defaultValue: AnyObject = {};
+  componentList?.forEach((component) => {
+    if (component?.props?.optionsConfig) {
+      defaultValue[component.name] =
+        component.props?.optionsConfig?.defaultValue;
+    }
+  });
+  return defaultValue;
 };

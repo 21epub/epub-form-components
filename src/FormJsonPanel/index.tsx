@@ -1,4 +1,5 @@
 export * from './PanelType';
 export * from './FormRender';
+export * from './FormRender/utils';
 export * from './type';
-export * from './util';
+export * from './utils';

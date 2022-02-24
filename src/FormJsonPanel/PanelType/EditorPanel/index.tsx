@@ -4,7 +4,7 @@ import FormMonacoEditor from '../../../FormComponents/FormMonacoEditor';
 import type { PanelBaseProps, PanelConfigType } from '../../type';
 import SettingPanel from '../SettingPanel';
 import { Wrapper } from './Styled';
-import { stringToJson, jsonToString } from '../../util';
+import { stringToJson, jsonToString } from '../../utils';
 
 export interface EditorPanelProps extends PanelBaseProps {
   onEditorChange: (panelData: string) => void;
