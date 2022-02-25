@@ -28,6 +28,6 @@ const onChange = (value: string) => {
 };
 
 ColorPicker.args = {
-  value: '#000000',
+  value: '#66ccff',
   onChange,
 };

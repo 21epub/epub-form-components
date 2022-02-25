@@ -1,176 +1,24 @@
-import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react';
-import ReactDOM from 'react-dom';
-import { Button } from 'antd';
-import { SketchPicker } from 'react-color';
-import type { ColorResult } from 'react-color';
-import type { RGBColor, SketchPickerProps } from 'react-color';
-import {
-  Wrapper,
-  Actions,
-  Buttons,
-  ColorCube,
-  ColorCubeContainer,
-  ColorCubes,
-  ColorPickerContainer,
-} from './Styled';
-
-const obj2rgb = ({ r, g, b, a }: RGBColor) => `rgba(${r},${g},${b},${a ?? 1})`;
+import React from 'react';
+import { ColorPicker, ColorPickerProps } from '@21epub-ui/color-picker';
+import { Wrapper } from './Styled';
 
 /**
  * @param color 需要透明度时请传入 rgba 格式的颜色数值
  * @param onChange 颜色值修改时回调
  */
 export interface FormColorPickerProps
-  extends Omit<SketchPickerProps, 'onChange'> {
+  extends Omit<ColorPickerProps, 'onChange'> {
   value?: string;
   styled?: string;
   onChange?: (color: string) => void;
 }
 
 const FormColorPicker: React.FC<FormColorPickerProps> = (props) => {
-  const { value = '#000000', styled, onChange, ...rest } = props;
-  const [pickerVisible, setPickerVisible] = useState(false);
-  const [currColor, setCurrColor] = useState(value);
-  const [position, setPosition] = useState<{ x: number; y: number }>();
-  const ref = useRef<HTMLDivElement>(null);
-
-  // eslint-disable-next-line
-  const initColor = useMemo(() => value, [pickerVisible]);
-
-  useEffect(() => {
-    const hidingPicker = (e: MouseEvent) => {
-      if (ref.current?.contains(e.target as Node)) return;
-      setPickerVisible(false);
-    };
-    document.addEventListener('mousedown', hidingPicker);
-    return () => document.removeEventListener('mousedown', hidingPicker);
-  }, []);
-
-  const onColorChange = (color: ColorResult) => {
-    const { rgb } = color;
-    const value = obj2rgb(rgb);
-    setCurrColor(value);
-    onChange && onChange(value);
-  };
-
-  const onButtonClick = (value: string) => {
-    onChange && onChange(value);
-  };
-
-  // 配置定位的值，确保颜色弹框保持在浏览器内
-  const setPositionValue = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    // 鼠标点击位置坐标
-    const { clientX, clientY } = e;
-    // 颜色选择弹框最终定位
-    const clientPosition = { x: clientX, y: clientY };
-    // 浏览器可视区域宽高
-    const { clientWidth, clientHeight } = document.documentElement;
-
-    // 颜色选择弹框宽高为 328 346
-    // 若点击处距离浏览器右边宽度不足以显示颜色弹框时。
-    if (clientWidth - clientX < 328) {
-      clientPosition.x = clientWidth - 330;
-    }
-    // 若点击处距离浏览器下方高度不足以显示颜色弹框时
-    if (clientHeight - clientY < 348) {
-      clientPosition.y = clientHeight - 350;
-    }
-    setPosition(clientPosition);
-  };
-
-  // 将颜色选择器，渲染在body上。防止被遮挡与fixed定位错误
-  const ColorPicker = () => {
-    return ReactDOM.createPortal(
-      <Fragment>
-        {pickerVisible && (
-          <ColorPickerContainer ref={ref} x={position?.x} y={position?.y}>
-            <SketchPicker
-              styles={{
-                default: {
-                  picker: { boxShadow: 'none' },
-                  color: { display: 'none' },
-                },
-              }}
-              color={value}
-              width="250px"
-              onChange={onColorChange as any}
-              onChangeComplete={onColorChange}
-              presetColors={[
-                '#D0021B',
-                '#F5A623',
-                '#F8E71C',
-                '#8B572A',
-                '#7ED321',
-                '#417505',
-                '#BD10E0',
-                '#9013FE',
-                '#4A90E2',
-                '#50E3C2',
-                '#B8E986',
-                '#000000',
-                '#4A4A4A',
-                '#9B9B9B',
-                '#FFFFFF',
-                'transparent',
-              ]}
-              {...rest}
-            />
-            <Actions>
-              <Buttons>
-                <Button
-                  size="small"
-                  type="primary"
-                  onClick={() => {
-                    onButtonClick(currColor);
-                    setPickerVisible(false);
-                  }}
-                >
-                  确定
-                </Button>
-                <Button
-                  size="small"
-                  onClick={() => {
-                    onButtonClick(initColor);
-                    setCurrColor(initColor);
-                  }}
-                >
-                  复位
-                </Button>
-              </Buttons>
-              <ColorCubes>
-                <div>新的</div>
-                <ColorCube width="48px" height="32px" color={currColor} />
-                <ColorCube
-                  width="48px"
-                  height="32px"
-                  onClick={() => onButtonClick(initColor)}
-                  color={initColor}
-                />
-                <div>之前</div>
-              </ColorCubes>
-            </Actions>
-          </ColorPickerContainer>
-        )}
-      </Fragment>,
-      document.body
-    );
-  };
+  const { value, styled, ...rest } = props;
 
   return (
     <Wrapper styled={styled}>
-      <ColorCubeContainer
-        className="ColorCubeContainer"
-        onClick={(e) => {
-          setPickerVisible(!pickerVisible);
-          setPositionValue(e);
-          e.stopPropagation();
-        }}
-      >
-        <ColorCube className="ColorCube" color={value} />
-      </ColorCubeContainer>
-      <ColorPicker />
+      <ColorPicker color={value} {...rest} />
     </Wrapper>
   );
 };
