@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export interface WrapperProps {
+  styled?: string;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   height: 100%;
   position: relative;
-  min-height: 500px;
+  min-height: 400px;
   .FormMonacoEditor {
     position: absolute;
     left: 0;
@@ -16,4 +20,5 @@ export const Wrapper = styled.div`
     width: 50%;
     height: 100%;
   }
+  ${(props) => props.styled}
 `;

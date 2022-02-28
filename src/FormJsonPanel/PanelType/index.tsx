@@ -14,6 +14,8 @@ import PanelFooter from './components/PanelFooter';
 import { Wrapper, GlobalStyle } from './Styled';
 import { validatePanelValue, stringToJson, jsonToString } from '../utils';
 
+export { EditorPanel, SettingPanel };
+
 export interface PanelPropsType extends PanelBaseProps {
   onSmall?: () => void;
   onBig?: () => void;
@@ -39,6 +41,9 @@ export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
     onChange,
     panelData,
     panelConfig,
+    tabsProps,
+    settingPanelStyled,
+    editorPanelStyled,
     componentMap,
   } = panelProps;
   let panelJson = '';
@@ -101,6 +106,8 @@ export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
         <Layout.Content>
           {panelType === 'EditorPanel' ? (
             <EditorPanel
+              editorPanelStyled={editorPanelStyled}
+              tabsProps={tabsProps}
               panelData={panelData}
               panelConfig={jsonToString(panelConfig)}
               monacoLanguage={monacoLanguage}
@@ -109,6 +116,8 @@ export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
             />
           ) : (
             <SettingPanel
+              settingPanelStyled={settingPanelStyled}
+              tabsProps={tabsProps}
               panelData={returnValue}
               panelConfig={stringToJson(panelConfig)}
               componentMap={componentMap}

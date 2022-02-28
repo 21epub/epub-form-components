@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import React from 'react';
 import { Tabs } from 'antd';
-import type { FormInstance } from 'antd';
+import type { FormInstance, TabsProps } from 'antd';
 import { FormRender } from '../../FormRender';
 import type {
   PanelBaseProps,
@@ -9,8 +9,11 @@ import type {
   PanelConfigType,
 } from '../../type';
 import { Wrapper } from './Styled';
+import { styledToString } from '../../FormRender/utils';
 
 export interface SettingPanelProps extends PanelBaseProps {
+  tabsProps?: TabsProps;
+  settingPanelStyled?: AnyObject;
   onSettingChange: (
     changedValues: AnyObject,
     values: AnyObject,
@@ -20,7 +23,14 @@ export interface SettingPanelProps extends PanelBaseProps {
 
 // 渲染Tabs页
 const SettingPanel: FC<SettingPanelProps> = (props) => {
-  const { panelData, panelConfig, componentMap, onSettingChange } = props;
+  const {
+    settingPanelStyled = {},
+    tabsProps,
+    panelData,
+    panelConfig,
+    componentMap,
+    onSettingChange,
+  } = props;
   const { TabPane } = Tabs;
 
   // 渲染每个Tabs的面板
@@ -40,8 +50,11 @@ const SettingPanel: FC<SettingPanelProps> = (props) => {
   };
 
   return (
-    <Wrapper className="SettingPanel">
-      <Tabs tabPosition="left">
+    <Wrapper
+      className="SettingPanel"
+      styled={styledToString(settingPanelStyled)}
+    >
+      <Tabs tabPosition="left" {...tabsProps}>
         {TabPaneRender((panelConfig as PanelConfigType)?.tabs)}
       </Tabs>
     </Wrapper>

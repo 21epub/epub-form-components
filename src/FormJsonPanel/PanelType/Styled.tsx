@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 export const Wrapper = styled.div`
   height: 100%;
   width: 100%;
-  min-height: 600px;
+  min-height: 500px;
   background-color: rgb(255, 255, 255);
   position: relative;
   display: flex;

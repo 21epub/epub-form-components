@@ -1,5 +1,6 @@
 import React from 'react';
-import { ColorPicker, ColorPickerProps } from '@21epub-ui/color-picker';
+import { ColorPicker } from '@21epub-ui/color-picker';
+import type { ColorPickerProps } from '@21epub-ui/color-picker';
 import { Wrapper } from './Styled';
 
 /**
@@ -18,7 +19,11 @@ const FormColorPicker: React.FC<FormColorPickerProps> = (props) => {
 
   return (
     <Wrapper styled={styled}>
-      <ColorPicker color={value} {...rest} />
+      <ColorPicker
+        color={value}
+        styles={{ picker: { zIndex: 1050 } } as any}
+        {...rest}
+      />
     </Wrapper>
   );
 };

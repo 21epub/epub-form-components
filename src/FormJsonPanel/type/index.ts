@@ -1,4 +1,5 @@
 import type { FormItemProps } from 'antd/lib/form';
+import type { TabsProps } from 'antd';
 import type { FieldError } from 'rc-field-form/es/interface';
 import type { OptionsConfigType } from '../../type';
 import type {
@@ -179,10 +180,14 @@ export interface FieldErrorType {
 }
 
 export interface PanelBaseProps {
+  // tabs组件参数
+  tabsProps?: TabsProps;
   panelData?: AnyObject;
   panelConfig?: PanelConfigType | string;
   componentMap?: ComponentMapType;
   monacoLanguage?: string;
+  editorPanelStyled?: AnyObject;
+  settingPanelStyled?: AnyObject;
   onChange?: (returnValue: any) => void;
 }
 

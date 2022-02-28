@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export interface WrapperProps {
+  styled?: string;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   height: 100%;
-  min-height: 500px;
+  min-height: 400px;
   overflow: hidden;
   .ant-tabs {
     height: 100%;
@@ -15,4 +19,5 @@ export const Wrapper = styled.div`
       }
     }
   }
+  ${(props) => props.styled}
 `;

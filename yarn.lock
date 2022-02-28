@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@21epub-ui/color-picker@^0.1.0":
-  "integrity" "sha512-fuI88o954FygzGKUZpP511OwYafK/gCOzuvfG6sbc9mSHnrqe8io9uhnNXPUt/+pHVoq8Iik88LpmlnVKPf5Gg=="
-  "resolved" "https://registry.npmjs.org/@21epub-ui/color-picker/-/color-picker-0.1.0.tgz"
-  "version" "0.1.0"
+"@21epub-ui/color-picker@^0.2.0":
+  "integrity" "sha512-XInbDRVRQhZhngU7pYimvUuTWx38sgKh4LK3IibQbD/I0iQITXfussXzpIKsqyD5irX6iqDlpyejyOYgJqkpGQ=="
+  "resolved" "https://registry.npmjs.org/@21epub-ui/color-picker/-/color-picker-0.2.0.tgz"
+  "version" "0.2.0"
   dependencies:
     "@ant-design/colors" "^6.0.0"
     "antd" "^4.18.0"
