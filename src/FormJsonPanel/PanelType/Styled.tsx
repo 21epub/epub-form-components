@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 export const Wrapper = styled.div`
   height: 100%;
   width: 100%;
-  min-height: 500px;
+  min-height: 400px;
   background-color: rgb(255, 255, 255);
   position: relative;
   display: flex;
@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
       width: 100%;
       height: 100%;
       background: #fff;
-      min-height: 500px;
+      min-height: 300px;
       /* .ant-tabs-content-holder {
         padding-bottom: 20px;
       } */

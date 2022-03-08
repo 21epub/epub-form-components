@@ -40,8 +40,6 @@ const EditorPanel: React.FC<EditorPanelProps> = (props) => {
     setEditorValue(value || '');
   };
 
-  console.log(props);
-
   return (
     <Wrapper styled={styledToString(editorPanelStyled)}>
       <FormMonacoEditor

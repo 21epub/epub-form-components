@@ -7,7 +7,7 @@ export interface WrapperProps {
 export const Wrapper = styled.div<WrapperProps>`
   height: 100%;
   position: relative;
-  min-height: 400px;
+  min-height: 300px;
   .FormMonacoEditor {
     position: absolute;
     left: 0;

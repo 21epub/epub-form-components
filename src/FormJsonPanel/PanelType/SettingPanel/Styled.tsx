@@ -6,7 +6,7 @@ export interface WrapperProps {
 
 export const Wrapper = styled.div<WrapperProps>`
   height: 100%;
-  min-height: 400px;
+  min-height: 300px;
   overflow: hidden;
   .ant-tabs {
     height: 100%;
