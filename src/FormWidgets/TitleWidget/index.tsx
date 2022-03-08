@@ -8,14 +8,17 @@ export interface TitleWidgetProps extends TitleProps {
   styled?: string;
 }
 
-// 文本展示组件
+/**
+ * @name 标题展示
+ * @param styled 自定义样式 示例：styled：`{width:'100%'}`
+ * @param title 标题
+ * @link 其他参数详见 https://ant.design/components/typography-cn/#Typography.Title
+ */
 const TextWidget: React.FC<TitleWidgetProps> = (props) => {
-  const { title } = props;
-  const { Title } = Typography;
-  const { styled, ...rest } = props;
+  const { title, styled, ...rest } = props;
   return (
     <Wrapper styled={styled}>
-      <Title {...rest}>{title}</Title>
+      <Typography.Title {...rest}>{title}</Typography.Title>
     </Wrapper>
   );
 };

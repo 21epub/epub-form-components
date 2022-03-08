@@ -3,15 +3,25 @@ import BraftEditor from 'braft-editor';
 import type { BraftEditorProps, EditorState } from 'braft-editor';
 import 'braft-editor/dist/index.css';
 import { useDebounceFn } from 'ahooks';
+import type { DebounceOptions } from 'ahooks/lib/useDebounce/debounceOptions';
 import { Wrapper } from './Styled';
 
 export interface FormRichTextProps extends BraftEditorProps {
+  // 防抖配置
+  debounceOptions?: DebounceOptions;
   styled?: string;
 }
 
-// 富文本编辑器
+/**
+ * @name 富文本编辑器
+ * @param value 组件的值
+ * @param onChange 组件值修改的回调
+ * @param styled 自定义样式 示例：styled：`{width:'100%'}`
+ * @param debounceOptions 防抖配置 示例：{wait:100}
+ * @link 其他参数详见 https://braft.margox.cn/
+ */
 const FormRichText: React.FC<FormRichTextProps> = (props) => {
-  const { value, styled, onChange, ...rest } = props;
+  const { value, styled, onChange, debounceOptions, ...rest } = props;
   const [editorState, setEditorState] = useState<EditorState>(
     BraftEditor.createEditorState(value)
   );
@@ -19,7 +29,7 @@ const FormRichText: React.FC<FormRichTextProps> = (props) => {
   // 防抖处理，多次输入。最后一次结束后触发
   const { run: runChange } = useDebounceFn(
     (htmlContentValue) => onChange && onChange(htmlContentValue),
-    { wait: 500 }
+    debounceOptions
   );
 
   // 在编辑器修改数据时触发

@@ -31,7 +31,13 @@ export interface JsonPanelProps {
   monacoLanguage: string;
 }
 
-// 根据类型返回对应的面板
+/**
+ * @name JsonPanel
+ * @param styled 自定义样式 示例：styled：`{width:'100%'}`
+ * @param panelType 组件类型 "EditorPanel" | "SettingPanel"
+ * @param panelProps 对应面板配置
+ * @param monacoLanguage monaco编辑器默认语言
+ */
 export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
   const { panelType, panelProps, monacoLanguage } = props;
   const {

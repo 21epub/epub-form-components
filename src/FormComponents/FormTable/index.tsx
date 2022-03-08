@@ -36,7 +36,23 @@ export interface FormTableProps {
   onChange?: (dataSource: RecordType[]) => void;
 }
 
-// 数据表格
+/**
+ * @name 数据表格
+ * @param value 表格每行的数据列表
+ * @param onChange 组件值修改的回调
+ * @param styled 自定义样式 示例：styled：`{width:'100%'}`
+ * @param buttonText 按钮文案
+ * @param columns 表格字段
+ * @param componentList 弹出框表单组件列表
+ * @param componentMap 弹出框表单组件，自定义组件
+ * @param readonly 是否开启只读(不允许编辑与删除)
+ * @param ButtonFCProps 内置按钮组件参数
+ * @param TableFCProps 内置表格组件参数
+ * @param ModalFCProps 内置弹出框组件参数
+ * @link ButtonFCProps参数详见 https://ant.design/components/button-cn/
+ * @link TableFCProps参数详见 https://ant.design/components/table-cn/
+ * @link ModalFCProps参数详见 https://ant.design/components/modal-cn/
+ */
 const FormTable: React.FC<FormTableProps> = (props) => {
   const {
     value = [],

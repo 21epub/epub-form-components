@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormRichText from '../../FormComponents/FormRichText';
-import type { FormRichTextProps } from '../../FormComponents/FormRichText';
+import FormRichText from '..';
+import type { FormRichTextProps } from '..';
 
 export default {
   title: '表单组件/富文本',

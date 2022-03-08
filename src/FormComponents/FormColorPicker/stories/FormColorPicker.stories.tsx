@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormColorPicker from '../../FormComponents/FormColorPicker';
-import type { FormColorPickerProps } from '../../FormComponents/FormColorPicker';
+import FormColorPicker from '..';
+import type { FormColorPickerProps } from '..';
 
 export default {
   title: '表单组件/颜色选择器',

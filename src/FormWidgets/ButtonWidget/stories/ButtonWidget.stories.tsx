@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import ButtonWidget from '../../FormWidgets/ButtonWidget';
-import type { ButtonWidgetProps } from '../../FormWidgets/ButtonWidget';
+import ButtonWidget from '..';
+import type { ButtonWidgetProps } from '..';
 
 export default {
   title: '工具组件/按钮',

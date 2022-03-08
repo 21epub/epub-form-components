@@ -14,7 +14,19 @@ export interface EditorPanelProps extends PanelBaseProps {
   onEditorChange: (panelData: string) => void;
 }
 
-// 配置面板
+/**
+ * @name 编辑面板
+ * @param editorPanelStyled 自定义样式 示例：styled：`{width:'100%'}`
+ * @param monacoLanguage monaco编辑器默认值
+ * @param panelType 组件类型 "EditorPanel" | "SettingPanel"
+ * @param panelProps 对应面板配置
+ * @param panelData 面板组件默认数据
+ * @param panelConfig 面板的配置json
+ * @param componentMap 自定义组件映射列表
+ * @param onEditorChange 面板组件值改变时的回调
+ * @param tabsProps 自定义样式 示例：styled：`{width:'100%'}`
+ * @link tabsProps参数详见 https://ant.design/components/tabs-cn/#Tabs
+ */
 const EditorPanel: React.FC<EditorPanelProps> = (props) => {
   const {
     editorPanelStyled = {},

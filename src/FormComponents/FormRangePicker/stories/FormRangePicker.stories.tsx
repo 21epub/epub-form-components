@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
 import moment from 'moment';
-import FormRangePicker from '../../FormComponents/FormRangePicker';
-import type { FormRangePickerProps } from '../../FormComponents/FormRangePicker';
+import FormRangePicker from '..';
+import type { FormRangePickerProps } from '..';
 
 export default {
   title: '表单组件/日期范围',

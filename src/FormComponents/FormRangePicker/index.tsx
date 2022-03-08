@@ -12,7 +12,14 @@ export type FormRangePickerProps = RangePickerProps & {
   onChange?: (formatString: [string, string]) => void;
 };
 
-// 日期选择框
+/**
+ * @name 日期范围选择框
+ * @param value 组件的值
+ * @param onChange 组件值修改的回调
+ * @param styled 自定义样式 示例：styled：`{width:'100%'}`
+ * @param picker 选择器类型
+ * @link 其他参数详见 https://ant.design/components/date-picker-cn/
+ */
 const FormRangePicker: React.FC<FormRangePickerProps> = (props) => {
   const { value, picker, styled, onChange, ...rest } = props;
   const { RangePicker } = DatePicker;

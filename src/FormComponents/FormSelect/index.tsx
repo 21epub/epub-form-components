@@ -11,9 +11,19 @@ export interface FormSelectProps extends SelectProps<string> {
   onChange?: (value: string) => void;
 }
 
+/**
+ * @name 下拉框
+ * @param value 组件的值
+ * @param onChange 组件值修改的回调
+ * @param styled 自定义样式 示例：styled：`{width:'100%'}`
+ * @param optionsConfig 选项配置
+ * @link 其他参数详见 https://ant.design/components/select-cn/
+ */
 const FormSelect: React.FC<FormSelectProps> = (props) => {
   const { value, optionsConfig, styled, onChange, ...rest } = props;
-  const [propsValue, setPropsValue] = useState<string | undefined>(value);
+  const [propsValue, setPropsValue] = useState<string | undefined | null>(
+    value
+  );
 
   const onSelectChange = (changeValue: string) => {
     setPropsValue(changeValue);

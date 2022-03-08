@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import AlertWidget from '../../FormWidgets/AlertWidget';
-import type { AlertWidgetProps } from '../../FormWidgets/AlertWidget';
+import AlertWidget from '..';
+import type { AlertWidgetProps } from '..';
 
 export default {
   title: '工具组件/警告提示',

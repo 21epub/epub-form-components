@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormTable from '../../FormComponents/FormTable';
-import type { FormTableProps } from '../../FormComponents/FormTable';
+import FormTable from '..';
+import type { FormTableProps } from '..';
 
 export default {
-  title: '工具组件/表格',
+  title: '表单组件/表格',
   component: FormTable,
 } as Meta;
 

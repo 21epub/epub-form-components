@@ -7,13 +7,21 @@ export interface FormInputNumberProps extends InputNumberProps {
   styled?: string;
 }
 
-const FormInput: React.FC<FormInputNumberProps> = (props) => {
-  const { styled, ...rest } = props;
+/**
+ * @name 数字输入框
+ * @param value 组件的值
+ * @param onChange 组件值修改的回调
+ * @param styled 自定义样式 示例：styled：`{width:'100%'}`
+ * @link 其他参数详见 https://ant.design/components/input-number-cn/
+ */
+const FormInputNumber: React.FC<FormInputNumberProps> = (props) => {
+  const { value, styled, ...rest } = props;
   return (
     <Wrapper styled={styled}>
       <InputNumber
+        defaultValue={value}
         parser={(value?: string) =>
-          Number(String(value).replace(/[^0-9]/gi, ''))
+          Number(String(value).replace(/[^0-9,\.]/gi, ''))
         }
         {...rest}
       />
@@ -21,4 +29,4 @@ const FormInput: React.FC<FormInputNumberProps> = (props) => {
   );
 };
 
-export default FormInput;
+export default FormInputNumber;

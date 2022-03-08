@@ -8,10 +8,14 @@ export interface DividerWidgetProps extends DividerProps {
   styled?: string;
 }
 
-// 文本展示组件
+/**
+ * @name 文本展示组件
+ * @param styled 自定义样式 示例：styled：`{width:'100%'}`
+ * @param text 分割线中间文本
+ * @link 其他参数详见 https://ant.design/components/divider-cn/
+ */
 const DividerWidget: React.FC<DividerWidgetProps> = (props) => {
-  const { text } = props;
-  const { styled, ...rest } = props;
+  const { text, styled, ...rest } = props;
   return (
     <Wrapper styled={styled}>
       <Divider {...rest}>{text}</Divider>

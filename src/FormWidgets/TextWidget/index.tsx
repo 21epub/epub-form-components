@@ -8,14 +8,17 @@ export interface TextWidgetProps extends TextProps {
   styled?: string;
 }
 
-// 文本展示组件
+/**
+ * @name 文本展示组件
+ * @param styled 自定义样式 示例：styled：`{width:'100%'}`
+ * @param text 文本
+ * @link 其他参数详见 https://ant.design/components/typography-cn/#Typography.Text
+ */
 const TextWidget: React.FC<TextWidgetProps> = (props) => {
-  const { text } = props;
-  const { Text } = Typography;
-  const { styled, ...rest } = props;
+  const { text, styled, ...rest } = props;
   return (
     <Wrapper styled={styled}>
-      <Text {...rest}>{text}</Text>
+      <Typography.Text {...rest}>{text}</Typography.Text>
     </Wrapper>
   );
 };

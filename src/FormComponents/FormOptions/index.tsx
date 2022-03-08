@@ -6,6 +6,7 @@ import OptionsContainer from './OptionsContainer';
 import type { OptionType, OptionsConfigType } from '../../type';
 import { Wrapper } from './Styled';
 
+// 选项默认值
 const defaultOptionsConfig: OptionsConfigType<'Radio'> = {
   type: 'Radio',
   defaultValue: '1',
@@ -19,12 +20,19 @@ const defaultOptionsConfig: OptionsConfigType<'Radio'> = {
 };
 
 export interface FormOptionsProps {
-  optionsConfig: OptionsConfigType;
   value?: OptionsConfigType;
+  optionsConfig: OptionsConfigType;
   styled?: string;
   onChange?: (optionsConfig: OptionsConfigType) => void;
 }
 
+/**
+ * @name 选项配置
+ * @param value 组件的值
+ * @param onChange 组件值修改的回调
+ * @param styled 自定义样式 示例：styled：`{width:'100%'}`
+ * @param optionsConfig 选项配置
+ */
 const FormOptions: React.FC<FormOptionsProps> = (props) => {
   const { value, styled, onChange } = props;
   const [optionsConfig, setOptionsConfig] = useState<OptionsConfigType>(

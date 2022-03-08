@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormCheckbox from '../../FormComponents/FormCheckbox';
-import type { FormCheckboxProps } from '../../FormComponents/FormCheckbox';
+import FormCheckbox from '..';
+import type { FormCheckboxProps } from '..';
 
 export default {
   title: '表单组件/多选项',

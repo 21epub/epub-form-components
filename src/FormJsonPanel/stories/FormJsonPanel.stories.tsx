@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import { JsonPanel } from '../../FormJsonPanel';
-import type { JsonPanelProps } from '../../FormJsonPanel';
-import { jsonPanelSetting } from '../../FormJsonPanel/mock/settingConfig';
+import { JsonPanel } from '..';
+import type { JsonPanelProps } from '..';
+import { jsonPanelSetting } from '../mock/settingConfig';
 // import {
 //   Title,
 //   Subtitle,

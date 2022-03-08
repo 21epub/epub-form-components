@@ -12,6 +12,15 @@ export interface FormCheckboxProps extends CheckboxGroupProps {
   styled?: string;
 }
 
+/**
+ * @name 多选框
+ * @param value 组件的值
+ * @param onChange 组件值修改的回调
+ * @param styled 自定义样式 示例：styled：`{width:'100%'}`
+ * @param size 组件大小
+ * @param optionsConfig 组件选项配置
+ * @link 其他参数详见 https://ant.design/components/checkbox-cn/
+ */
 export const FormCheckbox: React.FC<FormCheckboxProps> = (props) => {
   const { value, optionsConfig, size, styled, onChange, ...rest } = props;
   const listSize = size === 'middle' ? 'default' : size;

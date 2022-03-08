@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormSwitch from '../../FormComponents/FormSwitch';
-import type { FormSwitchProps } from '../../FormComponents/FormSwitch';
+import FormSwitch from '..';
+import type { FormSwitchProps } from '..';
 
 export default {
   title: '表单组件/开关',

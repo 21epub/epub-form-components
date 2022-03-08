@@ -8,6 +8,12 @@ export interface ButtonWidgetProps extends ButtonProps {
   styled?: string;
 }
 
+/**
+ * @name 按钮
+ * @param styled 自定义样式 示例：styled：`{width:'100%'}`
+ * @param buttonText 按钮文本
+ * @link 其他参数详见 https://ant.design/components/button-cn/
+ */
 const ButtonWidget: React.FC<ButtonWidgetProps> = (props) => {
   const { buttonText = '按钮', styled, ...rest } = props;
 

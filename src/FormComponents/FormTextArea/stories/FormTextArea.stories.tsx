@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormTextArea from '../../FormComponents/FormTextArea';
-import type { FormTextAreaProps } from '../../FormComponents/FormTextArea';
+import FormTextArea from '..';
+import type { FormTextAreaProps } from '..';
 
 export default {
   title: '表单组件/文本域输入框',

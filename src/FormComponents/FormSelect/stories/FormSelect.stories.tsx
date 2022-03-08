@@ -1,11 +1,11 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormRadio from '../../FormComponents/FormRadio';
-import type { FormRadioProps } from '../../FormComponents/FormRadio';
+import FormSelect from '..';
+import type { FormSelectProps } from '..';
 
 export default {
-  title: '表单组件/单选项',
-  component: FormRadio,
+  title: '表单组件/下拉框',
+  component: FormSelect,
   argTypes: {
     size: {
       control: { type: 'inline-radio', options: ['large', 'middle', 'small'] },
@@ -13,11 +13,11 @@ export default {
   },
 } as Meta;
 
-const Template: Story<FormRadioProps> = (args) => <FormRadio {...args} />;
+const Template: Story<FormSelectProps> = (args) => <FormSelect {...args} />;
 
-export const Radio = Template.bind({});
+export const Select = Template.bind({});
 
-Radio.args = {
+Select.args = {
   size: 'middle',
   optionsConfig: {
     type: 'Radio',

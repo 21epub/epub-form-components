@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormMonacoEditor from '../../FormComponents/FormMonacoEditor';
-import type { FormMonacoEditorProps } from '../../FormComponents/FormMonacoEditor';
+import FormMonacoEditor from '..';
+import type { FormMonacoEditorProps } from '..';
 
 export default {
   title: '表单组件/摩纳哥代码编辑器',
