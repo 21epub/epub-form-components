@@ -34,6 +34,7 @@ const ActionRender = (
                   okText="确认"
                   cancelText="取消"
                   onConfirm={() => onDelete(record)}
+                  destroyTooltipOnHide={true}
                 >
                   <Button type="link" size="small">
                     删除

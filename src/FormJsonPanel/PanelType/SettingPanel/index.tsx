@@ -48,7 +48,7 @@ const SettingPanel: FC<SettingPanelProps> = (props) => {
   const TabPaneRender = (tabsList?: PanelTabsType[]) => {
     return tabsList?.map((tabs) => {
       return (
-        <TabPane key={tabs.id} tab={tabs.tabsName}>
+        <TabPane key={tabs.tabsName} tab={tabs.tabsName}>
           <FormRender
             initialValues={panelData}
             componentList={tabs.componentList}

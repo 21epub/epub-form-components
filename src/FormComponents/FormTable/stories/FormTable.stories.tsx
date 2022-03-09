@@ -22,7 +22,7 @@ Table.args = {
     },
     {
       title: '贺词内容',
-      dataIndex: 'congratulatory_message',
+      dataIndex: 'message',
       align: 'center',
     },
   ],

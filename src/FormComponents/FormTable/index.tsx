@@ -9,6 +9,7 @@ import { FormRender } from '../../FormJsonPanel/FormRender';
 import type { ComponentType, FieldErrorType } from '../../FormJsonPanel/type';
 import { validatePanelValue } from '../../FormJsonPanel/utils';
 import type { RecordType } from './type';
+import { addRules } from './utils';
 import ActionRender from './ActionRender';
 
 export interface FormTableProps {
@@ -132,18 +133,26 @@ const FormTable: React.FC<FormTableProps> = (props) => {
   //  打开编辑当前奖项面板
   const onEditor = (editorValue: RecordType) => {
     // 编辑奖品
-    dataSource.forEach((item: RecordType, index: number) => {
-      if (item.id === modalValues.id) {
-        dataSource[index] = editorValue;
-      }
-    });
-    update([...dataSource]);
+    const newDataSource = dataSource.map((item: RecordType) =>
+      item.id === modalValues.id ? editorValue : item
+    );
+    update([...newDataSource]);
   };
 
   // 处理弹框返回值
   const onModalSubmit = () => {
     // 关闭弹出框之前，检查数据是否通过校验
-    if (!validatePanelValue(formFieldsError)) return;
+    if (
+      !validatePanelValue(formFieldsError, {
+        tabs: [
+          {
+            componentList: componentList || [],
+          },
+        ],
+      })
+    ) {
+      return;
+    }
     // 关闭弹出框
     setVisibleModal(false);
     // 若数据为空，则不做处理
@@ -210,7 +219,7 @@ const FormTable: React.FC<FormTableProps> = (props) => {
         >
           <FormRender
             initialValues={modalValues}
-            componentList={componentList || ([] as ComponentType[])}
+            componentList={addRules(componentList) || ([] as ComponentType[])}
             componentMap={componentMap || {}}
             onValuesChange={onValuesChange}
           />

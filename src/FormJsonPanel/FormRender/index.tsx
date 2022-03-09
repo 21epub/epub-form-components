@@ -25,7 +25,16 @@ interface FormRenderProps {
   ) => void;
 }
 
-// 渲染组件
+/**
+ * @name 表单渲染
+ * @param initialValues 初始值
+ * @param componentStructure 表单的布局结构
+ * @param componentList 组件配置列表
+ * @param componentMap 自定义组件实例列表
+ * @param onValuesChange 表单值改变时的回调
+ * @param formProps 表单组件props
+ * @link formProps参数详见 https://ant.design/components/form-cn/#Form
+ */
 export const FormRender: React.FC<FormRenderProps> = (props) => {
   const {
     initialValues = {},

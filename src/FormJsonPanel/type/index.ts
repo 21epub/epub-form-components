@@ -150,9 +150,9 @@ export interface PanelComponentsType {
 // 配置面板json子节点接口
 export interface PanelTabsType {
   // 唯一标识id
-  id: string;
+  id?: string;
   // 配置面板左侧导航名称
-  tabsName: string;
+  tabsName?: string;
   // 下一级导航
   childTabs?: PanelTabsType[];
   // 当前导航页的组件
@@ -162,9 +162,9 @@ export interface PanelTabsType {
 // 配置面板Json数据结构
 export interface PanelConfigType {
   // 唯一标识id
-  id: string;
+  id?: string;
   // 类型
-  type: string;
+  type?: string;
   // 导航节点
   tabs: PanelTabsType[];
 }
