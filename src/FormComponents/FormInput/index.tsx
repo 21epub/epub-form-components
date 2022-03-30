@@ -3,8 +3,9 @@ import { Input } from 'antd';
 import type { InputProps } from 'antd/lib/input';
 import { Wrapper } from './Styled';
 
-export interface FormInputProps extends InputProps {
+export interface FormInputProps extends Omit<InputProps, 'onChange'> {
   styled?: string;
+  onChange?: (value: string) => void;
 }
 
 /**
@@ -15,10 +16,15 @@ export interface FormInputProps extends InputProps {
  * @link 其他参数详见 https://ant.design/components/input-cn/
  */
 const FormInput: React.FC<FormInputProps> = (props) => {
-  const { styled, ...rest } = props;
+  const { styled, onChange, ...rest } = props;
+
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange && onChange(e?.target?.value);
+  };
+
   return (
     <Wrapper styled={styled}>
-      <Input {...rest} />
+      <Input onChange={onInputChange} {...rest} />
     </Wrapper>
   );
 };

@@ -3,8 +3,9 @@ import { Input } from 'antd';
 import type { TextAreaProps } from 'antd/lib/input';
 import { Wrapper } from './Styled';
 
-export interface FormTextAreaProps extends TextAreaProps {
+export interface FormTextAreaProps extends Omit<TextAreaProps, 'onChange'> {
   styled?: string;
+  onChange?: (value: string) => void;
 }
 
 /**
@@ -15,10 +16,15 @@ export interface FormTextAreaProps extends TextAreaProps {
  * @link 其他参数详见 https://ant.design/components/input-cn/#Input.TextArea
  */
 const FormTextArea: React.FC<FormTextAreaProps> = (props) => {
-  const { styled, ...rest } = props;
+  const { styled, onChange, ...rest } = props;
+
+  const onTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    onChange && onChange(e?.target?.value);
+  };
+
   return (
     <Wrapper styled={styled}>
-      <Input.TextArea {...rest} />
+      <Input.TextArea onChange={onTextAreaChange} {...rest} />
     </Wrapper>
   );
 };

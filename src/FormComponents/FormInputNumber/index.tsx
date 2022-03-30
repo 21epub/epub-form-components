@@ -15,16 +15,10 @@ export interface FormInputNumberProps extends InputNumberProps {
  * @link 其他参数详见 https://ant.design/components/input-number-cn/
  */
 const FormInputNumber: React.FC<FormInputNumberProps> = (props) => {
-  const { value, styled, ...rest } = props;
+  const { styled, ...rest } = props;
   return (
     <Wrapper styled={styled}>
-      <InputNumber
-        defaultValue={value}
-        parser={(value?: string) =>
-          Number(String(value).replace(/[^0-9,\.]/gi, ''))
-        }
-        {...rest}
-      />
+      <InputNumber {...rest} />
     </Wrapper>
   );
 };

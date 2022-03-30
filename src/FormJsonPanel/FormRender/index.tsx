@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Form } from 'antd';
 import type { FormInstance, FormProps } from 'antd';
 import type {
@@ -51,6 +51,9 @@ export const FormRender: React.FC<FormRenderProps> = (props) => {
     componentStructure
   );
 
+  // 优化性能，数据未变化时，不重复渲染
+  const formValueMemo = useMemo(() => formValues, [formValues]);
+
   const onFormValuesChange = (changedValues: AnyObject, values: AnyObject) => {
     // 获取当前改变字段的name值
     const [name] = Object.keys(changedValues);
@@ -75,7 +78,7 @@ export const FormRender: React.FC<FormRenderProps> = (props) => {
           count: 0,
           componentMap,
           initialValues,
-          formValues,
+          formValues: formValueMemo,
         })}
       </Form>
     </Wrapper>

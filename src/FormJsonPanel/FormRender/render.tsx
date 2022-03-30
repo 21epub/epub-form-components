@@ -104,10 +104,10 @@ export const componentRender = (props: RenderItemPropsType) => {
 export const loopRender = (props: RenderPropsType): React.ReactNode => {
   const { componentList } = props;
   return componentList?.map((component: ComponentType) => {
-    if (component.hidden) return;
-    if (component.type === 'RowWidget')
+    if (component?.hidden) return;
+    if (component?.type === 'RowWidget')
       return rowRender({ component, ...props });
-    if (component.type === 'ColWidget')
+    if (component?.type === 'ColWidget')
       return colRender({ component, ...props });
     return componentRender({ component, ...props });
   });

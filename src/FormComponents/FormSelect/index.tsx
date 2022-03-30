@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Select } from 'antd';
 import type { SelectProps } from 'antd/lib/select';
 import { uniqueId } from 'lodash';
@@ -21,25 +21,19 @@ export interface FormSelectProps extends SelectProps<string> {
  */
 const FormSelect: React.FC<FormSelectProps> = (props) => {
   const { value, optionsConfig, styled, onChange, ...rest } = props;
-  const [propsValue, setPropsValue] = useState<string | undefined | null>(
-    value
-  );
 
   const onSelectChange = (changeValue: string) => {
-    setPropsValue(changeValue);
     onChange && onChange(String(changeValue));
   };
 
   return (
     <Wrapper styled={styled}>
-      <Select value={propsValue} onChange={onSelectChange} {...rest}>
-        {optionsConfig?.options?.map((option: OptionType) => {
-          return (
-            <Select.Option key={uniqueId()} value={option.value as string}>
-              {option.label}
-            </Select.Option>
-          );
-        })}
+      <Select value={value} onChange={onSelectChange} {...rest}>
+        {optionsConfig?.options?.map((option: OptionType) => (
+          <Select.Option key={uniqueId()} value={option.value as string}>
+            {option.label}
+          </Select.Option>
+        ))}
       </Select>
     </Wrapper>
   );
