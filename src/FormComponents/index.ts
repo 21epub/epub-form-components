@@ -30,6 +30,10 @@ import FormTable from './FormTable';
 import type { FormTableProps } from './FormTable';
 import FormTextArea from './FormTextArea';
 import type { FormTextAreaProps } from './FormTextArea';
+import FormPhone from './FormPhone';
+import type { FormPhoneProps } from './FormPhone';
+import FormEmail from './FormPhone';
+import type { FormEmailProps } from './FormEmail';
 export * from './utils';
 
 export {
@@ -66,6 +70,8 @@ export type {
   FormSwitchProps,
   FormTableProps,
   FormTextAreaProps,
+  FormPhoneProps,
+  FormEmailProps,
 };
 
 // 通过组件类型选择组件
@@ -87,6 +93,8 @@ export const getFormComponent = (componentType: string) => {
     FormSwitch,
     FormTable,
     FormTextArea,
+    FormPhone,
+    FormEmail,
   };
 
   // 导出对应的组价，没有则默认导出输入框组件
