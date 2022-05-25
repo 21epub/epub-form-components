@@ -1,4 +1,4 @@
-import type { FormItemProps } from 'antd/lib/form';
+import type { FormItemProps, Rule } from 'antd/lib/form';
 import type { TabsProps } from 'antd';
 import type { FieldError } from 'rc-field-form/es/interface';
 import type { OptionsConfigType } from '../../type';
@@ -42,6 +42,8 @@ export type FormWidgetType =
   | 'FormSwitch'
   | 'FormTextArea'
   | 'FormValidate'
+  | 'FormEmail'
+  | 'FormPhone'
   | 'AlertWidget'
   | 'ButtonWidget'
   | 'ColWidget'
@@ -170,6 +172,8 @@ export interface PanelConfigType {
 }
 
 export type PanelType = 'EditorPanel' | 'SettingPanel';
+
+export type RulesMap = Record<string, Rule[]>;
 
 export interface ComponentMapType {
   [type: string]: React.FC<any>;

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { isBoolean } from 'lodash';
-import type { ComponentMapType, ComponentType } from '../type';
+import type { ComponentMapType, ComponentType, RulesMap } from '../type';
 import { getComponent } from '../components';
 import { formatProps, styledToString } from './utils';
 import { FormItemWrapper } from './Styled';
@@ -12,6 +12,7 @@ export interface RenderPropsType {
   componentMap?: ComponentMapType;
   initialValues?: AnyObject;
   formValues?: AnyObject;
+  rulesMap?: RulesMap;
 }
 
 // 渲染单个组件参数
@@ -65,15 +66,25 @@ export const colRender = (props: RenderItemPropsType) => {
 
 // 渲染组件
 export const componentRender = (props: RenderItemPropsType) => {
-  const { component, count, componentMap, initialValues, formValues } = props;
+  const {
+    component,
+    count,
+    componentMap,
+    initialValues,
+    formValues,
+    rulesMap,
+  } = props;
+
   const JsonPanelComponent =
     Reflect.get(componentMap || {}, component.type) ||
     getComponent(component.type);
+
   return (
     <Fragment key={component.id + component.name}>
       <FormItemWrapper
         key={component.id + component.name}
         className={count ? 'FormItemRender' : ''}
+        rules={rulesMap ? rulesMap[component.type] : undefined}
         initialValue={initialValues?.[component.name]}
         style={{ position: 'relative', marginLeft: `${count * 50}px` }}
         {...component}
@@ -95,6 +106,7 @@ export const componentRender = (props: RenderItemPropsType) => {
           componentMap,
           initialValues,
           formValues,
+          rulesMap,
         })}
     </Fragment>
   );
