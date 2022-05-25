@@ -7,9 +7,10 @@ import type {
   ComponentStructureType,
   RulesMap,
 } from '../type';
-import { defaultRulesMap, separateToIntegrate } from './utils';
+import { separateToIntegrate } from './utils';
 import { Wrapper } from './Styled';
 import { loopRender } from './render';
+import { defaultRulesMap } from './rulesMap';
 
 interface FormRenderProps {
   initialValues?: AnyObject;
