@@ -28,7 +28,7 @@ const FormSelect: React.FC<FormSelectProps> = (props) => {
 
   return (
     <Wrapper styled={styled}>
-      <Select value={value} onChange={onSelectChange} {...rest}>
+      <Select value={value || undefined} onChange={onSelectChange} {...rest}>
         {optionsConfig?.options?.map((option: OptionType) => (
           <Select.Option key={uniqueId()} value={option.value as string}>
             {option.label}
