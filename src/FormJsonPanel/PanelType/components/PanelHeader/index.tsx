@@ -10,6 +10,7 @@ import type { PanelType } from '../../../type';
 import { Wrapper } from './Styled';
 
 export interface PanelHeaderProps {
+  panelTitle?: string;
   panelType?: PanelType;
   onSmall?: () => void;
   onBig?: () => void;
@@ -18,7 +19,7 @@ export interface PanelHeaderProps {
 
 // 面板头部
 const PanelHeader: React.FC<PanelHeaderProps> = (props) => {
-  const { panelType, onBig, onSmall, onClose } = props;
+  const { panelTitle, panelType, onBig, onSmall, onClose } = props;
   const { Header } = Layout;
   // 控制面板放大缩小显示的样式
   const [scale, setScale] = useState(true);
@@ -40,7 +41,11 @@ const PanelHeader: React.FC<PanelHeaderProps> = (props) => {
       <Header>
         <div>
           <SettingFilled style={{ margin: '0px 10px' }} />
-          {panelType === 'EditorPanel' ? '编辑面板' : '配置面板'}
+          {panelTitle
+            ? panelTitle
+            : panelType === 'EditorPanel'
+            ? '编辑面板'
+            : '配置面板'}
         </div>
         <div className="iconWidget">
           {scale ? (

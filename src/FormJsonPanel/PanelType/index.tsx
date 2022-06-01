@@ -28,7 +28,7 @@ export interface JsonPanelProps {
   // 面板参数
   panelProps: PanelPropsType;
   // monaco编辑器使用的语言
-  monacoLanguage: string;
+  monacoLanguage?: string;
 }
 
 /**
@@ -39,7 +39,7 @@ export interface JsonPanelProps {
  * @param monacoLanguage monaco编辑器默认语言
  */
 export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
-  const { panelType, panelProps, monacoLanguage } = props;
+  const { panelType, panelProps, monacoLanguage = 'json' } = props;
   const {
     onBig,
     onSmall,
@@ -51,6 +51,9 @@ export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
     settingPanelStyled,
     editorPanelStyled,
     componentMap,
+    panelTitle = '',
+    showCancel = true,
+    showSubmit = true,
   } = panelProps;
   let panelJson = '';
   let returnValue: AnyObject = panelData || {};
@@ -104,6 +107,7 @@ export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
       <GlobalStyle />
       <Layout>
         <PanelHeader
+          panelTitle={panelTitle}
           panelType={panelType}
           onBig={onBig}
           onSmall={onSmall}
@@ -131,7 +135,12 @@ export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
             />
           )}
         </Layout.Content>
-        <PanelFooter onSubmit={onSubmit} onClose={onClose} />
+        <PanelFooter
+          onSubmit={onSubmit}
+          onClose={onClose}
+          showCancel={showCancel}
+          showSubmit={showSubmit}
+        />
       </Layout>
     </Wrapper>
   );

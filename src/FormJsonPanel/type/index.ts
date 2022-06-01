@@ -192,6 +192,12 @@ export interface PanelBaseProps {
   monacoLanguage?: string;
   editorPanelStyled?: AnyObject;
   settingPanelStyled?: AnyObject;
+  // 面板名称
+  panelTitle?: string;
+  // 显示取消按钮
+  showCancel?: boolean;
+  // 显示确定按钮
+  showSubmit?: boolean;
   onChange?: (returnValue: any) => void;
 }
 
