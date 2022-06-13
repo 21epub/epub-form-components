@@ -26,6 +26,7 @@ yarn-error.log*
 .cache
 *.log
 .eslintcache
+.history
 
 # OS generated files
 .DS_Store

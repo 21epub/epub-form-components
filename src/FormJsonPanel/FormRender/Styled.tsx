@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { Form } from 'antd';
 
 export const Wrapper = styled.div`

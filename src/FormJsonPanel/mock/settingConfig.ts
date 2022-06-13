@@ -243,7 +243,7 @@ export const jsonPanelSetting: PanelConfigType = {
           id: 'CommonTable',
           label: '奖项列表',
           name: 'Table',
-          type: 'TableWidget',
+          type: 'FormTable',
           props: {
             columns: [
               {

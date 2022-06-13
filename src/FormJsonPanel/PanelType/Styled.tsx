@@ -1,12 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
-
-export const GlobalStyle = createGlobalStyle`
-  body {
-    .ant-message {
-      z-index:1050;
-    }
-  }
-`;
+import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
   height: 100%;

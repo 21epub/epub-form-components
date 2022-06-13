@@ -11,7 +11,8 @@ import type {
 } from '../type';
 import PanelHeader from './components/PanelHeader';
 import PanelFooter from './components/PanelFooter';
-import { Wrapper, GlobalStyle } from './Styled';
+import { Wrapper } from './Styled';
+import './index.less';
 import { validatePanelValue, stringToJson, jsonToString } from '../utils';
 
 export { EditorPanel, SettingPanel };
@@ -104,7 +105,6 @@ export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
 
   return (
     <Wrapper>
-      <GlobalStyle />
       <Layout>
         <PanelHeader
           panelTitle={panelTitle}

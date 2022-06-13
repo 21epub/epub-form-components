@@ -11,29 +11,7 @@ module.exports = {
     config.module.rules.push(
       {
         test: /\.(less)$/,
-        loaders: [
-          require.resolve('style-loader'),
-          {
-            loader: require.resolve('css-loader'),
-            options: {
-              importLoaders: 1,
-              modules: {
-                mode: 'local',
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
-                context: path.resolve(__dirname, 'src'),
-                hashPrefix: 'custom',
-              },
-            },
-          },
-          {
-            loader: 'less-loader',
-            options: {
-              lessOptions: {
-                javascriptEnabled: true,
-              },
-            },
-          },
-        ],
+        use: ['style-loader', 'css-loader', 'less-loader'],
       },
       {
         test: /\.(eot|ttf|TTF|woff|woff2|svg|png|jpg|gif)$/i,
@@ -44,5 +22,8 @@ module.exports = {
   },
   features: {
     postcss: false,
+  },
+  core: {
+    builder: 'webpack5',
   },
 };

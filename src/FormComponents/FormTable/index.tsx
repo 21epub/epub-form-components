@@ -4,7 +4,8 @@ import type { ButtonProps, FormInstance } from 'antd';
 import type { TableProps, ColumnsType } from 'antd/lib/table';
 import type { ModalProps } from 'antd/lib/modal';
 import { isEmpty, uniqueId } from 'lodash';
-import { Wrapper, GlobalStyle } from './Styled';
+import { Wrapper } from './Styled';
+import './index.less';
 import { FormRender } from '../../FormJsonPanel/FormRender';
 import type { ComponentType, FieldErrorType } from '../../FormJsonPanel/type';
 import { validatePanelValue } from '../../FormJsonPanel/utils';
@@ -189,7 +190,6 @@ const FormTable: React.FC<FormTableProps> = (props) => {
 
   return (
     <Fragment>
-      <GlobalStyle />
       <Wrapper styled={styled}>
         <Button
           className="AddButton"
