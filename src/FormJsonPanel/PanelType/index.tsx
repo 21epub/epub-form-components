@@ -12,8 +12,9 @@ import type {
 import PanelHeader from './components/PanelHeader';
 import PanelFooter from './components/PanelFooter';
 import { Wrapper } from './Styled';
-import './index.less';
 import { validatePanelValue, stringToJson, jsonToString } from '../utils';
+import { Global, css } from '@emotion/react';
+import { GlobalStyle } from './Styled';
 
 export { EditorPanel, SettingPanel };
 
@@ -105,6 +106,11 @@ export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
 
   return (
     <Wrapper>
+      <Global
+        styles={css`
+          ${GlobalStyle}
+        `}
+      />
       <Layout>
         <PanelHeader
           panelTitle={panelTitle}

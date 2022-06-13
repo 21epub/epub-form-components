@@ -5,13 +5,14 @@ import type { TableProps, ColumnsType } from 'antd/lib/table';
 import type { ModalProps } from 'antd/lib/modal';
 import { isEmpty, uniqueId } from 'lodash';
 import { Wrapper } from './Styled';
-import './index.less';
 import { FormRender } from '../../FormJsonPanel/FormRender';
 import type { ComponentType, FieldErrorType } from '../../FormJsonPanel/type';
 import { validatePanelValue } from '../../FormJsonPanel/utils';
 import type { RecordType } from './type';
 import { addRules } from './utils';
 import ActionRender from './ActionRender';
+import { Global, css } from '@emotion/react';
+import { GlobalStyle } from './Styled';
 
 export interface FormTableProps {
   // 表格每行的数据列表
@@ -190,6 +191,11 @@ const FormTable: React.FC<FormTableProps> = (props) => {
 
   return (
     <Fragment>
+      <Global
+        styles={css`
+          ${GlobalStyle}
+        `}
+      />
       <Wrapper styled={styled}>
         <Button
           className="AddButton"

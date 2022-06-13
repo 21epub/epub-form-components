@@ -26,3 +26,11 @@ export const Wrapper = styled.div`
     }
   }
 `;
+
+export const GlobalStyle = `
+  body {
+    .ant-message {
+      z-index: 1050;
+    }
+  }
+`;
