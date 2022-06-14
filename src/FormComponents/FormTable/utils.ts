@@ -21,7 +21,7 @@ export const addRules = (componentList?: ComponentType[]) => {
     componentList?.map((item) => {
       // 若rules里开启了必填，不能为空。则添加上不能为空格的规则
       const isRequired = !!item.rules?.find(
-        (rule) => (rule as RuleObject).required
+        (rule: RuleObject) => rule.required
       );
       return isRequired
         ? { ...item, rules: [...(item.rules || []), noSpaceRule] }

@@ -1,4 +1,4 @@
-import type { FormItemProps, Rule } from 'antd/lib/form';
+import type { Rule } from 'antd/lib/form';
 import type { TabsProps } from 'antd';
 import type { FieldError } from 'rc-field-form/es/interface';
 import type { OptionsConfigType } from '../../type';
@@ -112,7 +112,7 @@ export interface ComponentPropsType {
 }
 
 // 每个组件的类型
-export interface ComponentType extends FormItemProps {
+export interface ComponentType {
   // 每个组件的唯一标识id
   id?: string;
   // 组件对应的name，单个表单中的区分组件的唯一标识，语义化,与接口对应属性字段相同

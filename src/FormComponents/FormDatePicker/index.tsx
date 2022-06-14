@@ -21,7 +21,7 @@ export type FormDatePickerProps = DatePickerProps & {
  * @link 其他参数详见 https://ant.design/components/date-picker-cn/
  */
 const FormDatePicker: React.FC<FormDatePickerProps> = (props) => {
-  const { value, picker, styled, onChange, ...rest } = props;
+  const { value, picker, styled, onChange } = props;
 
   const onValueChange = (_momentValue: Moment | null, dateString: string) => {
     onChange && onChange(dateString);
@@ -36,7 +36,6 @@ const FormDatePicker: React.FC<FormDatePickerProps> = (props) => {
         showTime={{ format: 'HH:mm' }}
         format="YYYY-MM-DD HH:mm"
         onChange={onValueChange}
-        {...rest}
       />
     </Wrapper>
   );
