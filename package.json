@@ -1,6 +1,6 @@
 {
   "name": "@21epub/epub-form-components",
-  "version": "0.5.9",
+  "version": "0.5.10",
   "description": "epub-form-components",
   "author": "dxsixpc",
   "license": "MIT",
@@ -61,6 +61,7 @@
     "@dnd-kit/sortable": "^7.0.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@emotion/utils": "^1.1.0",
     "@monaco-editor/react": "^4.4.5",
     "@testing-library/dom": "^8.13.0",
     "ahooks": "^3.4.1",
