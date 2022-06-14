@@ -94,6 +94,7 @@ export const componentRender = (props: RenderItemPropsType) => {
           slug={initialValues?.slug || initialValues?.id}
           componentprops={component}
           {...formatProps(initialValues || {})}
+          {...component}
           {...component.props}
         />
       </FormItemWrapper>
