@@ -14,7 +14,7 @@ export interface TitleWidgetProps extends TitleProps {
  * @param title 标题
  * @link 其他参数详见 https://ant.design/components/typography-cn/#Typography.Title
  */
-const TextWidget: React.FC<TitleWidgetProps> = (props) => {
+const TitleWidget: React.FC<TitleWidgetProps> = (props) => {
   const { title, styled, ...rest } = props;
   return (
     <Wrapper styled={styled}>
@@ -23,4 +23,4 @@ const TextWidget: React.FC<TitleWidgetProps> = (props) => {
   );
 };
 
-export default TextWidget;
+export default TitleWidget;
