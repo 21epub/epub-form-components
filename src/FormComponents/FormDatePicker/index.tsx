@@ -22,6 +22,7 @@ export type FormDatePickerProps = DatePickerProps & {
  */
 const FormDatePicker: React.FC<FormDatePickerProps> = (props) => {
   const { value, picker, styled, onChange } = props;
+  const { ...rest } = props as any;
 
   const onValueChange = (_momentValue: Moment | null, dateString: string) => {
     onChange && onChange(dateString);
@@ -36,6 +37,7 @@ const FormDatePicker: React.FC<FormDatePickerProps> = (props) => {
         showTime={{ format: 'HH:mm' }}
         format="YYYY-MM-DD HH:mm"
         onChange={onValueChange}
+        {...rest}
       />
     </Wrapper>
   );
