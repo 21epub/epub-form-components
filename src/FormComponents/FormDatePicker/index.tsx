@@ -8,8 +8,9 @@ import 'moment/locale/zh-cn';
 import { Wrapper } from './Styled';
 moment.locale('zh-cn');
 
-export type FormDatePickerProps = DatePickerProps & {
+export type FormDatePickerProps = Omit<DatePickerProps, 'picker'> & {
   styled?: string;
+  picker?: 'date' | 'time' | 'week' | 'month' | 'quarter' | 'year' | undefined;
   onChange?: (dateString: string) => void;
 };
 
@@ -21,8 +22,7 @@ export type FormDatePickerProps = DatePickerProps & {
  * @link 其他参数详见 https://ant.design/components/date-picker-cn/
  */
 const FormDatePicker: React.FC<FormDatePickerProps> = (props) => {
-  const { value, picker, styled, onChange } = props;
-  const { ...rest } = props as any;
+  const { value, picker, styled, onChange, ...rest } = props;
 
   const onValueChange = (_momentValue: Moment | null, dateString: string) => {
     onChange && onChange(dateString);
