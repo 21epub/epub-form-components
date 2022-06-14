@@ -1,7 +1,12 @@
 import React, { useCallback, useRef } from 'react';
 import { Button, message, Modal, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import type { UploadFile, UploadProps } from 'antd/lib/upload/interface';
+import type {
+  RcFile,
+  UploadFile,
+  UploadProps,
+} from 'antd/lib/upload/interface';
+import type { UploadRequestOption } from 'rc-upload/lib/interface';
 import { useToggle } from 'ahooks';
 import { Wrapper } from './Styled';
 import { checkUploadFileFormat } from '../../FormComponents/utils';
@@ -22,7 +27,7 @@ export type FormImageProps = UploadProps & {
 const FormImage: React.FC<FormImageProps> = (props) => {
   const { value, placeholder, accept, onChange, ...rest } = props;
   const ref = useRef<string | null>(null);
-  const [visible, { toggle }] = useToggle(false);
+  const [visible, { set }] = useToggle(false);
 
   let _image: UploadFile | null = null;
   try {
@@ -32,8 +37,8 @@ const FormImage: React.FC<FormImageProps> = (props) => {
   }
 
   const uploadImage = useCallback(
-    async (options) => {
-      const { file } = options;
+    async (options: UploadRequestOption) => {
+      const file = options.file as RcFile;
       if (!checkUploadFileFormat(file.name, accept ?? [])) {
         message.error('图片格式不正确，请重新选择');
         return false;
@@ -102,9 +107,7 @@ const FormImage: React.FC<FormImageProps> = (props) => {
     })
       .catch()
       .then((_value) => {
-        if (_value) {
-          toggle(true);
-        }
+        if (_value) set(true);
       });
   };
 
@@ -139,7 +142,7 @@ const FormImage: React.FC<FormImageProps> = (props) => {
         width="fit-content"
         footer={null}
         onCancel={() => {
-          toggle(false);
+          set(false);
         }}
       >
         <img

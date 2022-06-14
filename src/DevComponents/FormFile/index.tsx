@@ -1,7 +1,8 @@
 import React, { useCallback, useRef } from 'react';
 import { Button, message, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import type { UploadFile } from 'antd/lib/upload/interface';
+import type { RcFile, UploadFile } from 'antd/lib/upload/interface';
+import type { UploadRequestOption } from 'rc-upload/lib/interface';
 import { Wrapper } from './Styled';
 import { checkUploadFileFormat } from '../../FormComponents/utils';
 import fileApis from './fileApis';
@@ -43,8 +44,8 @@ const FormFile: React.FC<FileFieldProps> = (props) => {
   }
 
   const uploadFile = useCallback(
-    async (options) => {
-      const { file } = options;
+    async (options: UploadRequestOption) => {
+      const file = options.file as RcFile;
       if (!checkUploadFileFormat(file.name, accept ?? [])) {
         message.error('文件格式不正确，请重新选择');
         return false;
