@@ -14,4 +14,5 @@ export const Title = Template.bind({});
 
 Title.args = {
   title: '这是标题',
+  useAntd: false,
 };
