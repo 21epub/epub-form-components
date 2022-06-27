@@ -20,7 +20,7 @@ const Template: Story<FormInputNumberProps> = (args) => (
 export const InputNumber = Template.bind({});
 
 InputNumber.args = {
-  value: 616,
+  defaultValue: 616,
   readOnly: false,
   size: 'middle',
   step: 1,

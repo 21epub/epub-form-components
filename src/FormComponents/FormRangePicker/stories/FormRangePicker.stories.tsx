@@ -22,6 +22,6 @@ export const RangePicker = Template.bind({});
 
 RangePicker.args = {
   size: 'middle',
-  value: [moment('2021-04-09 16:08:50'), moment('2021-04-30 16:08:50')],
+  defaultValue: [moment('2021-04-09 16:08:50'), moment('2021-04-30 16:08:50')],
   placeholder: ['开始日期', '结束日期'],
 };

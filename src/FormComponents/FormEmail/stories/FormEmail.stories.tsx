@@ -1,11 +1,11 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormPhone from '..';
-import type { FormPhoneProps } from '..';
+import FormEmail from '..';
+import type { FormEmailProps } from '..';
 
 export default {
   title: '表单组件/电话输入框',
-  component: FormPhone,
+  component: FormEmail,
   argTypes: {
     size: {
       control: { type: 'inline-radio', options: ['large', 'middle', 'small'] },
@@ -13,10 +13,10 @@ export default {
   },
 } as Meta;
 
-const Template: Story<FormPhoneProps> = (args) => <FormPhone {...args} />;
+const Template: Story<FormEmailProps> = (args) => <FormEmail {...args} />;
 
 export const Input = Template.bind({});
 
 Input.args = {
-  placeholder: '请输入电话',
+  placeholder: '请输入邮箱',
 };

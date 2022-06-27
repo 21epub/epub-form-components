@@ -18,7 +18,7 @@ const Template: Story<FormTextAreaProps> = (args) => <FormTextArea {...args} />;
 export const TextArea = Template.bind({});
 
 TextArea.args = {
-  value: '这是文本域输入框',
+  defaultValue: '这是文本域输入框',
   readOnly: false,
   size: 'middle',
   placeholder: '请输入文本',

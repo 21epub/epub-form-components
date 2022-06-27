@@ -22,7 +22,7 @@ export const DatePicker = Template.bind({});
 
 DatePicker.args = {
   size: 'middle',
-  value: moment('2021-03-02 13:45', 'YYYY-MM-DD HH:mm'),
+  defaultValue: moment('2021-03-02 13:45', 'YYYY-MM-DD HH:mm'),
   picker: 'date',
   placeholder: '请选择日期',
 };

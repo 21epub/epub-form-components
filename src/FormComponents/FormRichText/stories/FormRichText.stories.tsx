@@ -18,7 +18,7 @@ const Template: Story<FormRichTextProps> = (args) => <FormRichText {...args} />;
 export const RichText = Template.bind({});
 
 RichText.args = {
-  value: '这是富文本编辑器',
+  defaultValue: '这是富文本编辑器',
   readOnly: false,
   placeholder: '请编辑内容',
 };

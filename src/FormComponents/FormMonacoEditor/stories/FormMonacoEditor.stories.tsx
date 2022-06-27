@@ -22,6 +22,6 @@ const onChange = (value?: string, ev?: any) => {
 MonacoEditor.args = {
   debounceOptions: { wait: 300 },
   height: '500px',
-  defaultLanguage: 'css',
+  defaultLanguage: 'json',
   onChange,
 };
