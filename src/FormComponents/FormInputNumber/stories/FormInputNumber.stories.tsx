@@ -4,7 +4,7 @@ import FormInputNumber from '..';
 import type { FormInputNumberProps } from '..';
 
 export default {
-  title: '表单组件/数字输入框',
+  title: '表单组件/数字输入框（FormInputNumber）',
   component: FormInputNumber,
   argTypes: {
     size: {
@@ -17,9 +17,9 @@ const Template: Story<FormInputNumberProps> = (args) => (
   <FormInputNumber {...args} />
 );
 
-export const InputNumber = Template.bind({});
+export const 数字输入框 = Template.bind({});
 
-InputNumber.args = {
+数字输入框.args = {
   defaultValue: 616,
   readOnly: false,
   size: 'middle',

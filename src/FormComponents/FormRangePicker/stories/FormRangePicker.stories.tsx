@@ -5,7 +5,7 @@ import FormRangePicker from '..';
 import type { FormRangePickerProps } from '..';
 
 export default {
-  title: '表单组件/日期范围',
+  title: '表单组件/日期范围选择器（FormRangePicker）',
   component: FormRangePicker,
   argTypes: {
     size: {
@@ -18,9 +18,9 @@ const Template: Story<FormRangePickerProps> = (args) => (
   <FormRangePicker {...args} />
 );
 
-export const RangePicker = Template.bind({});
+export const 日期范围选择器 = Template.bind({});
 
-RangePicker.args = {
+日期范围选择器.args = {
   size: 'middle',
   defaultValue: [moment('2021-04-09 16:08:50'), moment('2021-04-30 16:08:50')],
   placeholder: ['开始日期', '结束日期'],

@@ -4,7 +4,7 @@ import FormColorPicker from '..';
 import type { FormColorPickerProps } from '..';
 
 export default {
-  title: '表单组件/颜色选择器',
+  title: '表单组件/颜色选择器（FormColorPicker）',
   component: FormColorPicker,
   argTypes: {
     value: {
@@ -21,13 +21,13 @@ const Template: Story<FormColorPickerProps> = (args) => (
   <FormColorPicker {...args} />
 );
 
-export const ColorPicker = Template.bind({});
+export const 颜色选择器 = Template.bind({});
 
 const onChange = (value: string) => {
   console.log(value);
 };
 
-ColorPicker.args = {
+颜色选择器.args = {
   value: '#66ccff',
   onChange,
 };

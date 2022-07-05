@@ -33,7 +33,7 @@ const FormDatePicker: React.FC<FormDatePickerProps> = (props) => {
       <DatePicker
         locale={locale}
         picker={picker}
-        value={value ? moment(value, 'YYYY-MM-DD HH:mm') : null}
+        defaultValue={value ? moment(value, 'YYYY-MM-DD HH:mm') : undefined}
         showTime={{ format: 'HH:mm' }}
         format="YYYY-MM-DD HH:mm"
         onChange={onValueChange}

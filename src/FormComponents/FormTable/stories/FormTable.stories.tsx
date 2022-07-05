@@ -4,15 +4,15 @@ import FormTable from '..';
 import type { FormTableProps } from '..';
 
 export default {
-  title: '表单组件/表格',
+  title: '表单组件/表格（FormTable）',
   component: FormTable,
 } as Meta;
 
 const Template: Story<FormTableProps> = (args) => <FormTable {...args} />;
 
-export const Table = Template.bind({});
+export const 表格 = Template.bind({});
 
-Table.args = {
+表格.args = {
   columns: [
     {
       title: '序号',
@@ -21,7 +21,7 @@ Table.args = {
       align: 'center',
     },
     {
-      title: '贺词内容',
+      title: '信息',
       dataIndex: 'message',
       align: 'center',
     },
@@ -29,7 +29,7 @@ Table.args = {
   componentList: [
     {
       id: 'message',
-      label: '贺词内容',
+      label: '信息',
       name: 'message',
       type: 'FormTextArea',
       rules: [{ required: true, message: '不能为空' }],

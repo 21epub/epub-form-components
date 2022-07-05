@@ -6,5 +6,8 @@ export interface WrapperProps {
 
 export const Wrapper = styled.div<WrapperProps>`
   width: 100%;
+  .ant-select {
+    width: 100%;
+  }
   ${(props) => props.styled};
 `;

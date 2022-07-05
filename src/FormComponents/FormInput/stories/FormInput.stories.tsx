@@ -4,7 +4,7 @@ import FormInput from '..';
 import type { FormInputProps } from '..';
 
 export default {
-  title: '表单组件/文本输入框',
+  title: '表单组件/文本输入框（FormInput）',
   component: FormInput,
   argTypes: {
     size: {
@@ -15,8 +15,8 @@ export default {
 
 const Template: Story<FormInputProps> = (args) => <FormInput {...args} />;
 
-export const Input = Template.bind({});
+export const 文本输入框 = Template.bind({});
 
-Input.args = {
+文本输入框.args = {
   placeholder: '请输入文本',
 };

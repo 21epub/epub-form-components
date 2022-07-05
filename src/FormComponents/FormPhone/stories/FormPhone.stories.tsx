@@ -4,7 +4,7 @@ import FormPhone from '..';
 import type { FormPhoneProps } from '..';
 
 export default {
-  title: '表单组件/电话输入框',
+  title: '表单组件/手机号输入框（FormPhone）',
   component: FormPhone,
   argTypes: {
     size: {
@@ -15,8 +15,8 @@ export default {
 
 const Template: Story<FormPhoneProps> = (args) => <FormPhone {...args} />;
 
-export const Input = Template.bind({});
+export const 手机号输入框 = Template.bind({});
 
-Input.args = {
-  placeholder: '请输入电话',
+手机号输入框.args = {
+  placeholder: '请输入手机号',
 };

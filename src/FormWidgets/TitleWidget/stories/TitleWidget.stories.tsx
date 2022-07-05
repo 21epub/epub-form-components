@@ -4,15 +4,15 @@ import TitleWidget from '..';
 import type { TitleWidgetProps } from '..';
 
 export default {
-  title: '工具组件/标题展示',
+  title: '工具组件/标题展示（TitleWidget）',
   component: TitleWidget,
 } as Meta;
 
 const Template: Story<TitleWidgetProps> = (args) => <TitleWidget {...args} />;
 
-export const Title = Template.bind({});
+export const 标题展示 = Template.bind({});
 
-Title.args = {
+标题展示.args = {
   title: '这是标题',
-  useAntd: false,
+  level: 1,
 };

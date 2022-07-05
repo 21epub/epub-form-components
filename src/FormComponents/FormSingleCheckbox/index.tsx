@@ -34,7 +34,7 @@ const FormSingleCheckbox: React.FC<FormSingleCheckboxProps> = (props) => {
   return (
     <SpaceWrapper styled={styled}>
       {prefixText}
-      <Checkbox checked={!!value} onChange={onCheckedChange} />
+      <Checkbox defaultChecked={!!value} onChange={onCheckedChange} />
       {suffixText}
     </SpaceWrapper>
   );

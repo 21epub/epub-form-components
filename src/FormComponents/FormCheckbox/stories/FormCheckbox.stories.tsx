@@ -4,7 +4,7 @@ import FormCheckbox from '..';
 import type { FormCheckboxProps } from '..';
 
 export default {
-  title: '表单组件/多选项',
+  title: '表单组件/多选项（FormCheckbox）',
   component: FormCheckbox,
   argTypes: {
     size: {
@@ -15,9 +15,9 @@ export default {
 
 const Template: Story<FormCheckboxProps> = (args) => <FormCheckbox {...args} />;
 
-export const Checkbox = Template.bind({});
+export const 多选项 = Template.bind({});
 
-Checkbox.args = {
+多选项.args = {
   size: 'middle',
   optionsConfig: {
     type: 'Checkbox',

@@ -4,7 +4,7 @@ import FormSelect from '..';
 import type { FormSelectProps } from '..';
 
 export default {
-  title: '表单组件/下拉框',
+  title: '表单组件/下拉框选择器（FormSelect）',
   component: FormSelect,
   argTypes: {
     size: {
@@ -15,9 +15,9 @@ export default {
 
 const Template: Story<FormSelectProps> = (args) => <FormSelect {...args} />;
 
-export const Select = Template.bind({});
+export const 下拉框选择器 = Template.bind({});
 
-Select.args = {
+下拉框选择器.args = {
   size: 'middle',
   optionsConfig: {
     type: 'Radio',

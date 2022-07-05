@@ -4,7 +4,7 @@ import ButtonWidget from '..';
 import type { ButtonWidgetProps } from '..';
 
 export default {
-  title: '工具组件/按钮',
+  title: '工具组件/按钮（ButtonWidget）',
   component: ButtonWidget,
   argTypes: {
     size: {
@@ -53,12 +53,12 @@ export default {
       table: { type: { summary: 'boolean' } },
       control: 'boolean',
     },
-    disabled: {
-      description: '按钮失效状态',
-      defaultValue: { summary: 'false' },
-      table: { type: { summary: 'boolean' } },
-      control: 'boolean',
-    },
+    // disabled: {
+    //   description: '按钮失效状态',
+    //   defaultValue: { summary: 'false' },
+    //   table: { type: { summary: 'boolean' } },
+    //   control: 'boolean',
+    // },
     loading: {
       description: '设置按钮载入状态',
       defaultValue: { summary: 'false' },
@@ -77,22 +77,22 @@ export default {
       table: { type: { summary: 'string' } },
       control: 'text',
     },
-    htmlType: {
-      description: '设置button原生的type值，可选值请参考 HTML 标准',
-      defaultValue: { summary: 'button' },
-      table: { type: { summary: 'string' } },
-      control: {
-        type: 'inline-radio',
-        options: ['button', 'reset', 'submit'],
-      },
-    },
+    // htmlType: {
+    //   description: '设置button原生的type值，可选值请参考 HTML 标准',
+    //   defaultValue: { summary: 'button' },
+    //   table: { type: { summary: 'string' } },
+    //   control: {
+    //     type: 'inline-radio',
+    //     options: ['button', 'reset', 'submit'],
+    //   },
+    // },
     shape: {
       description: '设置按钮形状',
       defaultValue: { summary: undefined },
       table: { type: { summary: ' circle | round' } },
       control: {
         type: 'inline-radio',
-        options: ['reset', 'circle', 'round'],
+        options: ['default', 'circle', 'round'],
       },
     },
   },
@@ -100,9 +100,9 @@ export default {
 
 const Template: Story<ButtonWidgetProps> = (args) => <ButtonWidget {...args} />;
 
-export const Button = Template.bind({});
+export const 按钮 = Template.bind({});
 
-Button.args = {
+按钮.args = {
   buttonText: '按钮',
   type: 'primary',
   size: 'middle',
@@ -114,4 +114,5 @@ Button.args = {
   href: '',
   htmlType: 'button',
   target: '',
+  shape: 'default',
 };

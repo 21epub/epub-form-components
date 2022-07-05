@@ -4,7 +4,7 @@ import FormMonacoEditor from '..';
 import type { FormMonacoEditorProps } from '..';
 
 export default {
-  title: '表单组件/摩纳哥代码编辑器',
+  title: '表单组件/摩纳哥代码编辑器（FormMonacoEditor）',
   component: FormMonacoEditor,
 } as Meta;
 
@@ -12,14 +12,14 @@ const Template: Story<FormMonacoEditorProps> = (args) => (
   <FormMonacoEditor {...args} />
 );
 
-export const MonacoEditor = Template.bind({});
+export const 摩纳哥代码编辑器 = Template.bind({});
 
 const onChange = (value?: string, ev?: any) => {
   console.log('change', value);
   console.log('changeEv', ev);
 };
 
-MonacoEditor.args = {
+摩纳哥代码编辑器.args = {
   debounceOptions: { wait: 300 },
   height: '500px',
   defaultLanguage: 'json',

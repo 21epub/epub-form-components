@@ -4,7 +4,7 @@ import FormSwitch from '..';
 import type { FormSwitchProps } from '..';
 
 export default {
-  title: '表单组件/开关',
+  title: '表单组件/开关（FormSwitch）',
   component: FormSwitch,
   argTypes: {
     size: {
@@ -15,8 +15,8 @@ export default {
 
 const Template: Story<FormSwitchProps> = (args) => <FormSwitch {...args} />;
 
-export const Switch = Template.bind({});
+export const 开关 = Template.bind({});
 
-Switch.args = {
+开关.args = {
   value: true,
 };

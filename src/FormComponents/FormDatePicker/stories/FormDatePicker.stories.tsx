@@ -5,7 +5,7 @@ import FormDatePicker from '..';
 import type { FormDatePickerProps } from '..';
 
 export default {
-  title: '表单组件/日期选择器',
+  title: '表单组件/日期选择器（FormDatePicker）',
   component: FormDatePicker,
   argTypes: {
     size: {
@@ -18,9 +18,9 @@ const Template: Story<FormDatePickerProps> = (args) => (
   <FormDatePicker {...args} />
 );
 
-export const DatePicker = Template.bind({});
+export const 日期选择器 = Template.bind({});
 
-DatePicker.args = {
+日期选择器.args = {
   size: 'middle',
   defaultValue: moment('2021-03-02 13:45', 'YYYY-MM-DD HH:mm'),
   picker: 'date',

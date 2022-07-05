@@ -4,7 +4,7 @@ import FormRadio from '..';
 import type { FormRadioProps } from '..';
 
 export default {
-  title: '表单组件/单选项',
+  title: '表单组件/单选项（FormRadio）',
   component: FormRadio,
   argTypes: {
     size: {
@@ -15,21 +15,15 @@ export default {
 
 const Template: Story<FormRadioProps> = (args) => <FormRadio {...args} />;
 
-export const Radio = Template.bind({});
+export const 单选项 = Template.bind({});
 
-Radio.args = {
+单选项.args = {
   size: 'middle',
   optionsConfig: {
     type: 'Radio',
     defaultValue: 'middle',
     options: [
-      {
-        label:
-          '大家好，这是表单名称长度测试显示阿斯利康黑咖喱看到过拉胯话大概行安徽两个卡就离开的发生的',
-        value: 'large',
-        checked: false,
-        id: '0',
-      },
+      { label: '大', value: 'large', checked: false, id: '0' },
       { label: '中', value: 'middle', checked: true, id: '1' },
       { label: '小', value: 'small', checked: false, id: '2' },
     ],

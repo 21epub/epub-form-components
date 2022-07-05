@@ -4,14 +4,14 @@ import TextWidget from '..';
 import type { TextWidgetProps } from '..';
 
 export default {
-  title: '工具组件/文本展示',
+  title: '工具组件/文本展示（TextWidget）',
   component: TextWidget,
 } as Meta;
 
 const Template: Story<TextWidgetProps> = (args) => <TextWidget {...args} />;
 
-export const Alert = Template.bind({});
+export const 文本展示 = Template.bind({});
 
-Alert.args = {
+文本展示.args = {
   text: '文本',
 };

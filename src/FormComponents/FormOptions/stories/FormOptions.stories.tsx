@@ -4,15 +4,15 @@ import FormOptions from '..';
 import type { FormOptionsProps } from '..';
 
 export default {
-  title: '表单组件/选项编辑',
+  title: '表单组件/选项编辑（FormOptions）',
   component: FormOptions,
 } as Meta;
 
 const Template: Story<FormOptionsProps> = (args) => <FormOptions {...args} />;
 
-export const Options = Template.bind({});
+export const 选项编辑 = Template.bind({});
 
-Options.args = {
+选项编辑.args = {
   optionsConfig: {
     type: 'Radio',
     defaultValue: ['middle'],

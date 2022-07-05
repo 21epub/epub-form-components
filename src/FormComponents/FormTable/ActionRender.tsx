@@ -35,6 +35,7 @@ const ActionRender = (
                   cancelText="取消"
                   onConfirm={() => onDelete(record)}
                   destroyTooltipOnHide={true}
+                  overlayStyle={{ display: 'flex' }}
                 >
                   <Button type="link" size="small">
                     删除

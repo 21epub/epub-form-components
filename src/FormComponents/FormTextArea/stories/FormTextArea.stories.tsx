@@ -4,7 +4,7 @@ import FormTextArea from '..';
 import type { FormTextAreaProps } from '..';
 
 export default {
-  title: '表单组件/文本域输入框',
+  title: '表单组件/文本域输入框（FormTextArea）',
   component: FormTextArea,
   argTypes: {
     size: {
@@ -15,9 +15,9 @@ export default {
 
 const Template: Story<FormTextAreaProps> = (args) => <FormTextArea {...args} />;
 
-export const TextArea = Template.bind({});
+export const 文本域输入框 = Template.bind({});
 
-TextArea.args = {
+文本域输入框.args = {
   defaultValue: '这是文本域输入框',
   readOnly: false,
   size: 'middle',

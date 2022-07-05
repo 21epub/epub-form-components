@@ -4,7 +4,7 @@ import DividerWidget from '..';
 import type { DividerWidgetProps } from '..';
 
 export default {
-  title: '工具组件/分割线',
+  title: '工具组件/分割线（DividerWidget）',
   component: DividerWidget,
 } as Meta;
 
@@ -12,8 +12,8 @@ const Template: Story<DividerWidgetProps> = (args) => (
   <DividerWidget {...args} />
 );
 
-export const Divider = Template.bind({});
+export const 分割线 = Template.bind({});
 
-Divider.args = {
+分割线.args = {
   text: '分割线',
 };

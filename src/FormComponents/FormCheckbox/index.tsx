@@ -32,7 +32,7 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = (props) => {
   return (
     <Wrapper styled={styled}>
       <List bordered itemLayout="vertical" size={listSize}>
-        <Checkbox.Group value={value} onChange={onRadioChange} {...rest}>
+        <Checkbox.Group defaultValue={value} onChange={onRadioChange} {...rest}>
           {optionsConfig?.options?.map((option: OptionType) => (
             <List.Item key={uniqueId()}>
               <Checkbox value={option.value}>{option.label}</Checkbox>

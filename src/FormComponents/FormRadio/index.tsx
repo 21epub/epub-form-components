@@ -32,7 +32,7 @@ const FormRadio: React.FC<FormRadioProps> = (props) => {
   return (
     <Wrapper styled={styled}>
       <List bordered itemLayout="vertical" size={listSize}>
-        <Radio.Group value={value} onChange={onRadioChange} {...rest}>
+        <Radio.Group defaultValue={value} onChange={onRadioChange} {...rest}>
           {optionsConfig?.options?.map((option: OptionType) => (
             <List.Item key={uniqueId()}>
               <Radio value={option.value}>{option.label}</Radio>

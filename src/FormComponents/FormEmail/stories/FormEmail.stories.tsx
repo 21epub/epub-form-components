@@ -4,7 +4,7 @@ import FormEmail from '..';
 import type { FormEmailProps } from '..';
 
 export default {
-  title: '表单组件/电话输入框',
+  title: '表单组件/邮箱输入框（FormEmail）',
   component: FormEmail,
   argTypes: {
     size: {
@@ -15,8 +15,8 @@ export default {
 
 const Template: Story<FormEmailProps> = (args) => <FormEmail {...args} />;
 
-export const Input = Template.bind({});
+export const 邮箱输入框 = Template.bind({});
 
-Input.args = {
+邮箱输入框.args = {
   placeholder: '请输入邮箱',
 };

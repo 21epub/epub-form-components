@@ -10,6 +10,7 @@ export const Wrapper = styled.div<WrapperProps>`
   display: flex;
   .ant-slider {
     width: ${(props) => (props.showInputNumber ? '60%' : '100%')};
+    margin-right: 10px;
   }
   .ant-input-number-group-wrapper {
     width: 40%;
