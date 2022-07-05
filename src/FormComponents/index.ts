@@ -24,6 +24,8 @@ import FormSelect from './FormSelect';
 import type { FormSelectProps } from './FormSelect';
 import FormSingleCheckbox from './FormSingleCheckbox';
 import type { FormSingleCheckboxProps } from './FormSingleCheckbox';
+import FormSlider from './FormSlider';
+import type { FormSliderProps } from './FormSlider';
 import FormSwitch from './FormSwitch';
 import type { FormSwitchProps } from './FormSwitch';
 import FormTable from './FormTable';
@@ -49,6 +51,7 @@ export {
   FormRichText,
   FormSelect,
   FormSingleCheckbox,
+  FormSlider,
   FormSwitch,
   FormTable,
   FormTextArea,
@@ -67,6 +70,7 @@ export type {
   FormRichTextProps,
   FormSelectProps,
   FormSingleCheckboxProps,
+  FormSliderProps,
   FormSwitchProps,
   FormTableProps,
   FormTextAreaProps,
@@ -90,6 +94,7 @@ export const getFormComponent = (componentType: string) => {
     FormRichText,
     FormSelect,
     FormSingleCheckbox,
+    FormSlider,
     FormSwitch,
     FormTable,
     FormTextArea,
