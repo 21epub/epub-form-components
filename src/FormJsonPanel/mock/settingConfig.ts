@@ -202,6 +202,9 @@ export const jsonPanelSetting: PanelConfigType = {
           label: '收集用户信息',
           name: 'need_user_info',
           type: 'FormSwitch',
+          props: {
+            checked: false,
+          },
           children: [
             {
               id: 'name',
