@@ -1,6 +1,6 @@
 {
   "name": "@21epub/epub-form-components",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "epub-form-components",
   "author": "dxsixpc",
   "license": "MIT",
@@ -21,7 +21,7 @@
     "typescript"
   ],
   "scripts": {
-    "clean": "rm dist/bundle.js",
+    "clean": "rm -r dist",
     "clean-build": "rm build/*",
     "start": "run-s storybook",
     "test": "jest --coverage",
@@ -37,7 +37,6 @@
     "release:alpha": "yarn run release -- --prerelease alpha",
     "commit": "lint-staged && npx git-cz",
     "prepublishOnly": "run-s lint test build",
-    "install-peers": "npm-install-peers",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy": "sh deploy.sh"
@@ -53,10 +52,6 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "peerDependencies": {
-    "react": ">=16.14.0",
-    "react-dom": ">=16.14.0"
   },
   "dependencies": {
     "@21epub-ui/color-picker": "^0.4.3",
@@ -74,12 +69,7 @@
     "lodash": "^4.17.20",
     "moment": "^2.29.4",
     "react": "^18.2.0",
-    "react-color": "^2.19.3",
-    "react-dom": "^18.2.0",
-    "react-is": "^18.2.0",
-    "react-use": "^17.4.0",
-    "stylelint-order": "^5.0.0",
-    "typescript": "^4.7.4"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
@@ -98,7 +88,6 @@
     "@types/jest": "^28.1.5",
     "@types/lodash": "^4.14.182",
     "@types/react": "^18.0.15",
-    "@types/react-color": "^3.0.6",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
@@ -126,7 +115,6 @@
     "less-loader": "^11.0.0",
     "lint-staged": "^13.0.3",
     "microbundle-crl": "^0.13.11",
-    "npm-install-peers": "^1.2.2",
     "npm-run-all": "4.1.5",
     "postcss-modules": "^4.3.1",
     "prettier": "^2.7.1",
@@ -141,6 +129,7 @@
     "stylelint-config-standard": "^26.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
     "ts-jest": "^28.0.6",
+    "typescript": "^4.7.4",
     "url-loader": "^4.1.1",
     "webpack": "^5.73.0"
   },
