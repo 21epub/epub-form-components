@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import DividerWidget from '../../src/FormWidgets/DividerWidget';
-import type { DividerWidgetProps } from '../../src/FormWidgets/DividerWidget';
+import DividerWidget from '../../src/LayoutWidgets/DividerWidget';
+import type { DividerWidgetProps } from '../../src/LayoutWidgets/DividerWidget';
 
 export default {
-  title: '工具组件/分割线（DividerWidget）',
+  title: '布局组件/分割线（DividerWidget）',
   component: DividerWidget,
 } as Meta;
 

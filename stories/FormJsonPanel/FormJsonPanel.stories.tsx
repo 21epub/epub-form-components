@@ -36,13 +36,13 @@ export default {
 
 const Template: Story<JsonPanelProps> = (args) => <JsonPanel {...args} />;
 
-export const JsonPanelFC = Template.bind({});
+export const Json面板 = Template.bind({});
 
 const onChange = (value: any) => {
   console.log(value);
 };
 
-JsonPanelFC.args = {
+Json面板.args = {
   panelType: 'EditorPanel',
   panelProps: {
     panelData: { need_user_info: true, name: '姓名' },

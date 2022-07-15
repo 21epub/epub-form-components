@@ -2,73 +2,51 @@ import type { Rule } from 'antd/lib/form';
 import type { TabsProps } from 'antd';
 import type { FieldError } from 'rc-field-form/es/interface';
 import type { OptionsConfigType } from '../../type';
-import type {
-  FormCheckboxProps,
-  FormColorPickerProps,
-  FormDatePickerProps,
-  FormInputProps,
-  FormInputNumberProps,
-  FormMonacoEditorProps,
-  FormOptionsProps,
-  FormRadioProps,
-  FormRangePickerProps,
-  FormRichTextProps,
-  FormSelectProps,
-  FormSwitchProps,
-  FormTableProps,
-  FormTextAreaProps,
-} from '../../FormComponents';
-import type {
-  AlertWidgetProps,
-  ButtonWidgetProps,
-  ColWidgetProps,
-  RowWidgetProps,
-} from '../../FormWidgets';
+import { componentsMap } from '../components';
 
-// 所有的可渲染组件类型
-export type FormWidgetType =
-  | 'FormCheckbox'
-  | 'FormColorPicker'
-  | 'FormDatePicker'
-  | 'FormInput'
-  | 'FormInputNumber'
-  | 'FormMonacoEditor'
-  | 'FormOptions'
-  | 'FormRadio'
-  | 'FormRangePicker'
-  | 'FormRichText'
-  | 'FormSelect'
-  | 'FormStyled'
-  | 'FormSwitch'
-  | 'FormTextArea'
-  | 'FormValidate'
-  | 'FormEmail'
-  | 'FormPhone'
-  | 'AlertWidget'
-  | 'ButtonWidget'
-  | 'ColWidget'
-  | 'RowWidget';
+// import type {
+//   FormCheckboxProps,
+//   FormColorPickerProps,
+//   FormDatePickerProps,
+//   FormInputProps,
+//   FormInputNumberProps,
+//   FormMonacoEditorProps,
+//   FormOptionsProps,
+//   FormRadioProps,
+//   FormRangePickerProps,
+//   FormRichTextProps,
+//   FormSelectProps,
+//   FormSwitchProps,
+//   FormTableProps,
+//   FormTextAreaProps,
+// } from '../../FormComponents';
+// import type {
+//   AlertWidgetProps,
+//   ButtonWidgetProps,
+//   ColWidgetProps,
+//   RowWidgetProps,
+// } from '../../FormWidgets';
 
 // 所有组件的props类型
 export interface FormWidgetPropsType {
-  FormCheckbox: FormCheckboxProps;
-  FormColorPicker: FormColorPickerProps;
-  FormDatePicker: FormDatePickerProps;
-  FormInput: FormInputProps;
-  FormInputNumber: FormInputNumberProps;
-  FormMonacoEditorWidget: FormMonacoEditorProps;
-  FormOptionsWidget: FormOptionsProps;
-  FormRadio: FormRadioProps;
-  FormRangePicker: FormRangePickerProps;
-  FormRichText: FormRichTextProps;
-  FormSelect: FormSelectProps;
-  FormSwitch: FormSwitchProps;
-  FormTable: FormTableProps;
-  FormTextArea: FormTextAreaProps;
-  AlertWidget: AlertWidgetProps;
-  ButtonWidget: ButtonWidgetProps;
-  ColWidget: ColWidgetProps;
-  RowWidget: RowWidgetProps;
+  // FormCheckbox: FormCheckboxProps;
+  // FormColorPicker: FormColorPickerProps;
+  // FormDatePicker: FormDatePickerProps;
+  // FormInput: FormInputProps;
+  // FormInputNumber: FormInputNumberProps;
+  // FormMonacoEditorWidget: FormMonacoEditorProps;
+  // FormOptionsWidget: FormOptionsProps;
+  // FormRadio: FormRadioProps;
+  // FormRangePicker: FormRangePickerProps;
+  // FormRichText: FormRichTextProps;
+  // FormSelect: FormSelectProps;
+  // FormSwitch: FormSwitchProps;
+  // FormTable: FormTableProps;
+  // FormTextArea: FormTextAreaProps;
+  // AlertWidget: AlertWidgetProps;
+  // ButtonWidget: ButtonWidgetProps;
+  // ColWidget: ColWidgetProps;
+  // RowWidget: RowWidgetProps;
   [type: string]: any;
 }
 
@@ -110,6 +88,9 @@ export interface ComponentPropsType {
   // 自定义属性
   [key: string]: any;
 }
+
+// 所有的可渲染组件类型
+export type FormWidgetType = keyof typeof componentsMap;
 
 // 每个组件的类型
 export interface ComponentType {
@@ -192,6 +173,8 @@ export interface PanelBaseProps {
   monacoLanguage?: string;
   editorPanelStyled?: AnyObject;
   settingPanelStyled?: AnyObject;
+  // 面板样式
+  panelStyled?: AnyObject;
   // 面板名称
   panelTitle?: string;
   // 显示取消按钮

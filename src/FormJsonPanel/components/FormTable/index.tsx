@@ -5,9 +5,9 @@ import type { TableProps, ColumnsType } from 'antd/lib/table';
 import type { ModalProps } from 'antd/lib/modal';
 import { isEmpty, uniqueId } from 'lodash';
 import { Wrapper } from './Styled';
-import { FormRender } from '../../FormJsonPanel/FormRender';
-import type { ComponentType, FieldErrorType } from '../../FormJsonPanel/type';
-import { validatePanelValue } from '../../FormJsonPanel/utils';
+import { FormRender } from '../../FormRender';
+import type { ComponentType, FieldErrorType } from '../../type';
+import { validatePanelValue } from '../../utils';
 import type { RecordType } from './type';
 import { addRules } from './utils';
 import ActionRender from './ActionRender';
@@ -38,6 +38,8 @@ export interface FormTableProps {
   // 数据变更
   onChange?: (dataSource: RecordType[]) => void;
 }
+
+// ** 表单组件较特殊，放入jsonPanel的组件中，避免循环依赖
 
 /**
  * @name 数据表格
