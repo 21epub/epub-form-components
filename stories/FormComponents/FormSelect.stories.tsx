@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormSelect from '../../src/FormComponents/FormSelect';
-import type { FormSelectProps } from '../../src/FormComponents/FormSelect';
+import { FormSelect } from '../../src/FormComponents';
+import type { FormSelectProps } from '../../src/FormComponents';
 
 export default {
-  title: '表单组件/下拉框选择器（FormSelect）',
+  title: '表单组件/FormSelect',
   component: FormSelect,
   argTypes: {
     size: {

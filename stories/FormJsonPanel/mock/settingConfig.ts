@@ -1,4 +1,4 @@
-import type { PanelConfigType } from '../index';
+import type { PanelConfigType } from '../../../src/FormJsonPanel/index';
 import type { RuleObject } from 'antd/lib/form';
 
 export const jsonPanelSetting: PanelConfigType = {

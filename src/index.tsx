@@ -7,5 +7,7 @@ export * from './FormJsonPanel';
 export * from './FormWidgets';
 // 布局组件
 export * from './LayoutWidgets';
+// 高级组件
+export * from './ProComponents';
 // type类型
 export * from './type';

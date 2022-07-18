@@ -43,9 +43,3 @@ export type { FormSwitchProps } from './FormSwitch';
 
 export { default as FormTextArea } from './FormTextArea';
 export type { FormTextAreaProps } from './FormTextArea';
-
-export { default as FormPhone } from './FormPhone';
-export type { FormPhoneProps } from './FormPhone';
-
-export { default as FormEmail } from './FormEmail';
-export type { FormEmailProps } from './FormEmail';

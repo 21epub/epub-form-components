@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import AlertWidget from '../../src/FormWidgets/AlertWidget';
-import type { AlertWidgetProps } from '../../src/FormWidgets/AlertWidget';
+import { AlertWidget } from '../../src/FormWidgets';
+import type { AlertWidgetProps } from '../../src/FormWidgets';
 
 export default {
-  title: '工具组件/警告提示（AlertWidget）',
+  title: '工具组件/AlertWidget',
   component: AlertWidget,
 } as Meta;
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormRadio from '../../src/FormComponents/FormRadio';
-import type { FormRadioProps } from '../../src/FormComponents/FormRadio';
+import { FormRadio } from '../../src/FormComponents';
+import type { FormRadioProps } from '../../src/FormComponents';
 
 export default {
-  title: '表单组件/单选项（FormRadio）',
+  title: '表单组件/FormRadio',
   component: FormRadio,
   argTypes: {
     size: {

@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import ButtonWidget from '../../src/FormWidgets/ButtonWidget';
-import type { ButtonWidgetProps } from '../../src/FormWidgets/ButtonWidget';
+import { ButtonWidget } from '../../src/FormWidgets';
+import type { ButtonWidgetProps } from '../../src/FormWidgets';
 
 export default {
-  title: '工具组件/按钮（ButtonWidget）',
+  title: '工具组件/ButtonWidget',
   component: ButtonWidget,
   argTypes: {
     size: {

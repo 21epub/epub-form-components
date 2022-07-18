@@ -1,11 +1,11 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
 import moment from 'moment';
-import FormDatePicker from '../../src/FormComponents/FormDatePicker';
-import type { FormDatePickerProps } from '../../src/FormComponents/FormDatePicker';
+import { FormDatePicker } from '../../src/FormComponents';
+import type { FormDatePickerProps } from '../../src/FormComponents';
 
 export default {
-  title: '表单组件/日期选择器（FormDatePicker）',
+  title: '表单组件/FormDatePicker',
   component: FormDatePicker,
   argTypes: {
     size: {

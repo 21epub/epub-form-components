@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormSlider from '../../src/FormComponents/FormSlider';
-import type { FormSliderProps } from '../../src/FormComponents/FormSlider';
+import { FormSlider } from '../../src/FormComponents';
+import type { FormSliderProps } from '../../src/FormComponents';
 
 export default {
-  title: '表单组件/滑动输入条（FormSlider）',
+  title: '表单组件/FormSlider',
   component: FormSlider,
 } as Meta;
 

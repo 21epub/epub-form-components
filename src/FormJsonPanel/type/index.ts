@@ -4,52 +4,6 @@ import type { FieldError } from 'rc-field-form/es/interface';
 import type { OptionsConfigType } from '../../type';
 import { componentsMap } from '../components';
 
-// import type {
-//   FormCheckboxProps,
-//   FormColorPickerProps,
-//   FormDatePickerProps,
-//   FormInputProps,
-//   FormInputNumberProps,
-//   FormMonacoEditorProps,
-//   FormOptionsProps,
-//   FormRadioProps,
-//   FormRangePickerProps,
-//   FormRichTextProps,
-//   FormSelectProps,
-//   FormSwitchProps,
-//   FormTableProps,
-//   FormTextAreaProps,
-// } from '../../FormComponents';
-// import type {
-//   AlertWidgetProps,
-//   ButtonWidgetProps,
-//   ColWidgetProps,
-//   RowWidgetProps,
-// } from '../../FormWidgets';
-
-// 所有组件的props类型
-export interface FormWidgetPropsType {
-  // FormCheckbox: FormCheckboxProps;
-  // FormColorPicker: FormColorPickerProps;
-  // FormDatePicker: FormDatePickerProps;
-  // FormInput: FormInputProps;
-  // FormInputNumber: FormInputNumberProps;
-  // FormMonacoEditorWidget: FormMonacoEditorProps;
-  // FormOptionsWidget: FormOptionsProps;
-  // FormRadio: FormRadioProps;
-  // FormRangePicker: FormRangePickerProps;
-  // FormRichText: FormRichTextProps;
-  // FormSelect: FormSelectProps;
-  // FormSwitch: FormSwitchProps;
-  // FormTable: FormTableProps;
-  // FormTextArea: FormTextAreaProps;
-  // AlertWidget: AlertWidgetProps;
-  // ButtonWidget: ButtonWidgetProps;
-  // ColWidget: ColWidgetProps;
-  // RowWidget: RowWidgetProps;
-  [type: string]: any;
-}
-
 // 可嵌套的条件表达式
 export interface Expression {
   // 且、或、非逻辑运算方式
@@ -89,9 +43,6 @@ export interface ComponentPropsType {
   [key: string]: any;
 }
 
-// 所有的可渲染组件类型
-export type FormWidgetType = keyof typeof componentsMap;
-
 // 每个组件的类型
 export interface ComponentType {
   // 每个组件的唯一标识id
@@ -99,9 +50,9 @@ export interface ComponentType {
   // 组件对应的name，单个表单中的区分组件的唯一标识，语义化,与接口对应属性字段相同
   name: string;
   // 组件的类型
-  type: FormWidgetType | string;
+  type: keyof typeof componentsMap | string;
   // 组件的参数集合，props里的内容会传到组件里
-  props?: ComponentPropsType & FormWidgetPropsType[ComponentType['type']];
+  props?: ComponentPropsType;
   // 组件自定义样式
   styled?: AnyObject;
   // 可嵌套的子组件

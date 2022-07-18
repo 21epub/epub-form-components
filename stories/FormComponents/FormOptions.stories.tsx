@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormOptions from '../../src/FormComponents/FormOptions';
-import type { FormOptionsProps } from '../../src/FormComponents/FormOptions';
+import { FormOptions } from '../../src/FormComponents';
+import type { FormOptionsProps } from '../../src/FormComponents';
 
 export default {
-  title: '表单组件/选项编辑（FormOptions）',
+  title: '表单组件/FormOptions',
   component: FormOptions,
 } as Meta;
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormSingleCheckbox from '../../src/FormComponents/FormSingleCheckbox';
-import type { FormSingleCheckboxProps } from '../../src/FormComponents/FormSingleCheckbox';
+import { FormSingleCheckbox } from '../../src/FormComponents';
+import type { FormSingleCheckboxProps } from '../../src/FormComponents';
 
 export default {
-  title: '表单组件/单个勾选框（FormSingleCheckbox）',
+  title: '表单组件/FormSingleCheckbox',
   component: FormSingleCheckbox,
 } as Meta;
 

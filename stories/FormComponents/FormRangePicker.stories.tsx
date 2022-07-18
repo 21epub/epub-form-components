@@ -1,11 +1,11 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
 import moment from 'moment';
-import FormRangePicker from '../../src/FormComponents/FormRangePicker';
-import type { FormRangePickerProps } from '../../src/FormComponents/FormRangePicker';
+import { FormRangePicker } from '../../src/FormComponents';
+import type { FormRangePickerProps } from '../../src/FormComponents';
 
 export default {
-  title: '表单组件/日期范围选择器（FormRangePicker）',
+  title: '表单组件/FormRangePicker',
   component: FormRangePicker,
   argTypes: {
     size: {

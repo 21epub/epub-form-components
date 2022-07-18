@@ -2,7 +2,7 @@ import React from 'react';
 import type { Story, Meta } from '@storybook/react';
 import { JsonPanel } from '../../src/FormJsonPanel';
 import type { JsonPanelProps } from '../../src/FormJsonPanel';
-import { jsonPanelSetting } from '../../src/FormJsonPanel/mock/settingConfig';
+import { jsonPanelSetting } from './mock/settingConfig';
 // import {
 //   Title,
 //   Subtitle,
@@ -14,7 +14,7 @@ import { jsonPanelSetting } from '../../src/FormJsonPanel/mock/settingConfig';
 // } from '@storybook/addon-docs/blocks';
 
 export default {
-  title: 'JSON编辑面板',
+  title: '面板/JsonPanel',
   component: JsonPanel,
   // parameters: {
   //   docs: {

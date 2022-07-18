@@ -3,17 +3,15 @@ import * as FormWidgets from '../../FormWidgets';
 import * as LayoutWidgets from '../../LayoutWidgets';
 import type { ComponentMapType } from '../type';
 import ErrorAlertWidget from './ErrorAlertWidget';
-import FormTable from './FormTable';
+
+export { default as ErrorAlertWidget } from './ErrorAlertWidget';
+export type { ErrorAlertWidgetProps } from './ErrorAlertWidget';
 
 // 组件库中的所有组件
 export const componentsMap = {
   ...FormComponents,
   ...FormWidgets,
   ...LayoutWidgets,
-};
-
-const panelComponentsMap = {
-  FormTable,
 };
 
 /**
@@ -27,9 +25,7 @@ export const getComponent = (
   componentMap?: ComponentMapType
 ) => {
   return (
-    Reflect.get(
-      { ...componentsMap, ...componentMap, ...panelComponentsMap },
-      componentType
-    ) || ErrorAlertWidget
+    Reflect.get({ ...componentsMap, ...componentMap }, componentType) ||
+    ErrorAlertWidget
   );
 };

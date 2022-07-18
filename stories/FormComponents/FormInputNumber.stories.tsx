@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormInputNumber from '../../src/FormComponents/FormInputNumber';
-import type { FormInputNumberProps } from '../../src/FormComponents/FormInputNumber';
+import { FormInputNumber } from '../../src/FormComponents';
+import type { FormInputNumberProps } from '../../src/FormComponents';
 
 export default {
-  title: '表单组件/数字输入框（FormInputNumber）',
+  title: '表单组件/FormInputNumber',
   component: FormInputNumber,
   argTypes: {
     size: {

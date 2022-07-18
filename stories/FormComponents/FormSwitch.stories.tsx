@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Story, Meta } from '@storybook/react';
-import FormSwitch from '../../src/FormComponents/FormSwitch';
-import type { FormSwitchProps } from '../../src/FormComponents/FormSwitch';
+import { FormSwitch } from '../../src/FormComponents';
+import type { FormSwitchProps } from '../../src/FormComponents';
 
 export default {
-  title: '表单组件/开关（FormSwitch）',
+  title: '表单组件/FormSwitch',
   component: FormSwitch,
   argTypes: {
     size: {
