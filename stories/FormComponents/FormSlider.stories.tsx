@@ -12,4 +12,11 @@ const Template: Story<FormSliderProps> = (args) => <FormSlider {...args} />;
 
 export const 滑动输入条 = Template.bind({});
 
-滑动输入条.args = {};
+滑动输入条.args = {
+  layout: 'vertical',
+  showInputNumber: true,
+  inputNumberProps: {
+    addonAfter: 'px',
+    size: 'small',
+  },
+};
