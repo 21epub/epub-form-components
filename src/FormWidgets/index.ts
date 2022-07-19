@@ -11,3 +11,6 @@ export type { TextWidgetProps } from './TextWidget';
 
 export { default as TitleWidget } from './TitleWidget';
 export type { TitleWidgetProps } from './TitleWidget';
+
+export { default as DividerWidget } from './DividerWidget';
+export type { DividerWidgetProps } from './DividerWidget';
