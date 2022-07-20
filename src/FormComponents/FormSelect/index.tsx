@@ -20,11 +20,11 @@ export interface FormSelectProps extends SelectProps<string> {
  * @link 其他参数详见 https://ant.design/components/select-cn/
  */
 const FormSelect: React.FC<FormSelectProps> = (props) => {
-  const { optionsConfig, styled, ...rest } = props;
+  const { value, optionsConfig, styled, ...rest } = props;
 
   return (
     <Wrapper styled={styled}>
-      <Select {...rest}>
+      <Select value={value || undefined} {...rest}>
         {optionsConfig?.options?.map((option: OptionType) => (
           <Select.Option key={uniqueId()} value={option.value as string}>
             {option.label}
