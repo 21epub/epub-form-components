@@ -5,12 +5,10 @@ import type {
   ComponentMapType,
   ComponentType,
   ComponentStructureType,
-  RulesMap,
 } from '../type';
 import { separateToIntegrate } from './utils';
 import { Wrapper } from './Styled';
 import { loopRender } from './render';
-import { defaultRulesMap } from './rulesMap';
 
 interface FormRenderProps {
   initialValues?: AnyObject;
@@ -20,7 +18,6 @@ interface FormRenderProps {
   componentList: ComponentType[];
   componentMap?: ComponentMapType;
   formProps?: FormProps;
-  rulesMap?: RulesMap;
   onValuesChange: (
     changedValues: AnyObject,
     values: AnyObject,
@@ -36,7 +33,6 @@ interface FormRenderProps {
  * @param componentMap 自定义组件实例列表
  * @param onValuesChange 表单值改变时的回调
  * @param formProps 表单组件props
- * @param rulesMap 表单校验规则对应列表
  * @link formProps参数详见 https://ant.design/components/form-cn/#Form
  */
 export const FormRender: React.FC<FormRenderProps> = (props) => {
@@ -46,7 +42,6 @@ export const FormRender: React.FC<FormRenderProps> = (props) => {
     componentList,
     componentMap = {},
     formProps,
-    rulesMap = defaultRulesMap,
     onValuesChange,
   } = props;
   const [form] = Form.useForm();
@@ -84,7 +79,6 @@ export const FormRender: React.FC<FormRenderProps> = (props) => {
           componentMap,
           initialValues,
           formValues: formValueMemo,
-          rulesMap,
         })}
       </Form>
     </Wrapper>
