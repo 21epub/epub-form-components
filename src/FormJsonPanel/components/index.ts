@@ -1,5 +1,6 @@
 import * as FormComponents from '../../FormComponents';
 import * as FormWidgets from '../../FormWidgets';
+import * as ProComponents from '../../ProComponents';
 import * as LayoutWidgets from '../../LayoutWidgets';
 import type { ComponentMapType } from '../type';
 import ErrorAlertWidget from './ErrorAlertWidget';
@@ -12,6 +13,7 @@ export const componentsMap = {
   ...FormComponents,
   ...FormWidgets,
   ...LayoutWidgets,
+  ...ProComponents,
 };
 
 /**
