@@ -1,4 +1,7 @@
 // * 导出通用表单类型组件。参数中至少包含value与onChange字段，可用于表单收集数据
+export { default as FormCascade } from './FormCascade';
+export type { FormCascadeProps } from './FormCascade';
+
 export { default as FormCheckbox } from './FormCheckbox';
 export type { FormCheckboxProps } from './FormCheckbox';
 
@@ -10,6 +13,9 @@ export type { FormDatePickerProps } from './FormDatePicker';
 
 export { default as FormInput } from './FormInput';
 export type { FormInputProps } from './FormInput';
+
+export { default as FormInputGroup } from './FormInputGroup';
+export type { FormInputGroupProps } from './FormInputGroup';
 
 export { default as FormInputNumber } from './FormInputNumber';
 export type { FormInputNumberProps } from './FormInputNumber';

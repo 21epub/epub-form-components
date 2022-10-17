@@ -7,7 +7,7 @@ import { OptionWrapper } from './Styled';
 import type { OptionType, OptionSelectType } from '../../type';
 
 export interface OptionProps {
-  type: OptionSelectType;
+  type?: OptionSelectType;
   option: OptionType;
   onOptionChange: (option: OptionType) => void;
   onCheckedChange: (id: OptionType['id']) => void;
@@ -16,8 +16,13 @@ export interface OptionProps {
 
 // 单个选项
 const Option: React.FC<OptionProps> = (props) => {
-  const { type, option, onOptionChange, onCheckedChange, onRemoveOption } =
-    props;
+  const {
+    type = 'Radio',
+    option,
+    onOptionChange,
+    onCheckedChange,
+    onRemoveOption,
+  } = props;
   const { id, checked, label } = option;
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: option.id });

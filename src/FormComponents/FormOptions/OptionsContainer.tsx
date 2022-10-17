@@ -64,13 +64,11 @@ const OptionsContainer: React.FC<OptionsContainerProps> = (props) => {
     const newOptions = optionsConfig?.options.map((option: OptionType) => ({
       ...option,
       checked:
-        optionsConfig.type === 'Radio'
-          ? option.id === id
-            ? !option.checked
-            : false
-          : option.id === id
+        option.id === id
           ? !option.checked
-          : option.checked,
+          : optionsConfig.type === 'Checkbox'
+          ? option.checked
+          : false,
     }));
     onOptionsConfigChange({
       ...optionsConfig,

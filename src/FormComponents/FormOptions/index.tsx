@@ -45,10 +45,10 @@ const FormOptions: React.FC<FormOptionsProps> = (props) => {
     let defaultValue: any = optionsConfig.type === 'Checkbox' ? [] : '';
     options.forEach((option: OptionType) => {
       if (option.checked) {
-        if (optionsConfig.type === 'Radio') {
-          defaultValue = option.value;
-        } else if (optionsConfig.type === 'Checkbox') {
+        if (optionsConfig.type === 'Checkbox') {
           defaultValue.push(option.value);
+        } else {
+          defaultValue = option.value;
         }
       }
     });

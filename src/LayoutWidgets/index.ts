@@ -8,3 +8,8 @@ export { default as RowWidget } from './RowCol/RowWidget';
 export type { RowWidgetProps } from './RowCol/RowWidget';
 export { default as ColWidget } from './RowCol/ColWidget';
 export type { ColWidgetProps } from './RowCol/ColWidget';
+
+export { default as TabsWidget } from './Tabs/TabsWidget';
+export type { TabsWidgetProps } from './Tabs/TabsWidget';
+export { default as TabPaneWidget } from './Tabs/TabPaneWidget';
+export type { TabPaneWidgetProps } from './Tabs/TabPaneWidget';

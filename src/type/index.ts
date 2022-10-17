@@ -9,7 +9,7 @@ export interface OptionType {
   // 选项的值
   value: any;
   // 是否被选中
-  checked: boolean;
+  checked?: boolean;
 }
 
 // 选项可以选择的类型：单选、多选
@@ -26,9 +26,9 @@ export interface OptionDefaultValueType {
 // 选项组件配置项
 export interface OptionsConfigType<T extends OptionSelectType = 'allType'> {
   // 选项的类型：单选、多选、判断
-  type: OptionSelectType;
+  type?: OptionSelectType;
   // 选项组件的默认值
-  defaultValue: OptionDefaultValueType[T];
+  defaultValue?: OptionDefaultValueType[T];
   // 选项组件的配选项配置
   options: OptionType[];
 }

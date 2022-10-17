@@ -45,9 +45,7 @@ export const layoutRender = (props: RenderItemPropsType) => {
 // 渲染组件
 export const componentRender = (props: RenderItemPropsType) => {
   const { component, count, componentMap, initialValues, formValues } = props;
-
-  const JsonPanelComponent = getComponent(component.type, componentMap);
-
+  const ComponentWidget = getComponent(component.type, componentMap);
   return (
     <Fragment key={component.id + component.name}>
       <FormItemWrapper
@@ -58,7 +56,7 @@ export const componentRender = (props: RenderItemPropsType) => {
         {...component}
         styled={styledToString(component?.styled || {})}
       >
-        <JsonPanelComponent
+        <ComponentWidget
           slug={initialValues?.slug || initialValues?.id}
           componentprops={component}
           {...formatProps(initialValues || {})}
@@ -83,7 +81,6 @@ export const componentRender = (props: RenderItemPropsType) => {
 export const loopRender = (props: RenderPropsType): React.ReactNode => {
   const { componentList } = props;
   return componentList?.map((component: ComponentType) => {
-    if (component?.hidden) return;
     if (Object.keys(LayoutWidgets).includes(component?.type)) {
       return layoutRender({ component, ...props });
     } else return componentRender({ component, ...props });
