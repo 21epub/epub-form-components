@@ -1,6 +1,6 @@
 {
   "name": "@21epub/epub-form-components",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "description": "epub-form-components",
   "author": "dxsixpc",
   "license": "MIT",
@@ -62,8 +62,8 @@
     "antd": ">=4.21.6",
     "lodash": ">=4.17.20",
     "moment": ">=2.29.4",
-    "react": ">=16.x",
-    "react-dom": ">=16.x"
+    "react": "16.x",
+    "react-dom": "16.x"
   },
   "dependencies": {
     "@21epub-ui/color-picker": "^0.4.3",
