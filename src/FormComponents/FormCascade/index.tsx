@@ -68,7 +68,7 @@ const FormCascade: React.FC<FormCascadeProps> = (props) => {
         <FormSelect
           key={index}
           value={valueArr?.[index]}
-          placeholder={placeholder?.[index] ?? '请选择。。。'}
+          placeholder={placeholder?.[index] ?? '请选择...'}
           optionsConfig={selectItem}
           onChange={(selectValue) => onSelectChange(selectValue, index)}
           style={{
@@ -81,7 +81,7 @@ const FormCascade: React.FC<FormCascadeProps> = (props) => {
       {showTextArea && (
         <FormTextArea
           defaultValue={valueArr?.[level]}
-          placeholder={placeholder?.[level] ?? '请输入。。。'}
+          placeholder={placeholder?.[level] ?? '请输入...'}
           onChange={(textAreaValue) => onSelectChange(textAreaValue, level)}
           {...textAreaOptions}
         />
