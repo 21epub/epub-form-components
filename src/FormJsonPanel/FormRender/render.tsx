@@ -24,15 +24,15 @@ export interface RenderItemPropsType extends RenderPropsType {
 export const layoutRender = (props: RenderItemPropsType) => {
   const { component, count, componentMap, initialValues, formValues } = props;
   if (!component?.children) return;
-  const LayoutWidget = getComponent(component.type);
+  const LayoutWidget = getComponent(component?.type);
   return (
     <LayoutWidget
-      key={component.name}
-      {...component.props}
+      key={component?.id + component?.name}
+      {...component?.props}
       styled={styledToString(component?.props?.styled)}
     >
       {loopRender({
-        componentList: component.children,
+        componentList: component?.children,
         count,
         componentMap,
         initialValues,
@@ -45,13 +45,13 @@ export const layoutRender = (props: RenderItemPropsType) => {
 // 渲染组件
 export const componentRender = (props: RenderItemPropsType) => {
   const { component, count, componentMap, initialValues, formValues } = props;
-  const ComponentWidget = getComponent(component.type, componentMap);
+  const ComponentWidget = getComponent(component?.type, componentMap);
   return (
-    <Fragment key={component.id + component.name}>
+    <Fragment key={component?.id + component?.name}>
       <FormItemWrapper
-        key={component.id + component.name}
+        key={component?.id + component?.name}
         className={count ? 'FormItemRender' : ''}
-        initialValue={initialValues?.[component.name]}
+        initialValue={initialValues?.[component?.name]}
         style={{ position: 'relative', marginLeft: `${count * 50}px` }}
         {...component}
         styled={styledToString(component?.styled || {})}
@@ -60,14 +60,14 @@ export const componentRender = (props: RenderItemPropsType) => {
           slug={initialValues?.slug || initialValues?.id}
           componentprops={component}
           {...formatProps(initialValues || {})}
-          {...component.props}
+          {...component?.props}
         />
       </FormItemWrapper>
-      {component.children &&
-        isBoolean(formValues?.[component.name]) &&
-        formValues?.[component.name] &&
+      {component?.children &&
+        isBoolean(formValues?.[component?.name]) &&
+        formValues?.[component?.name] &&
         loopRender({
-          componentList: component.children,
+          componentList: component?.children,
           count: count + 1,
           componentMap,
           initialValues,

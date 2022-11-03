@@ -1,6 +1,15 @@
 import { isEmpty } from 'lodash';
 import type { SelectListType, TreeDataType } from './type';
 
+// 初始化value数组，确保长度正确，方便后续更改数据；
+export const initValueArr = (value: string[], level: number) => {
+  let restArr = [];
+  if (level <= value.length) {
+    restArr = Array(level - value.length);
+  }
+  return [...value, ...restArr];
+};
+
 /**
  * @name  二维数组转为树形结构
  * @param arr 二维数组

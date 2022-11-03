@@ -23,9 +23,10 @@ export const componentsMap = {
  * @returns
  */
 export const getComponent = (
-  componentType: string,
+  componentType?: string,
   componentMap?: ComponentMapType
 ) => {
+  if (!componentType) return ErrorAlertWidget;
   return (
     Reflect.get({ ...componentsMap, ...componentMap }, componentType) ||
     ErrorAlertWidget

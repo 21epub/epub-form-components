@@ -5,7 +5,7 @@ import { Wrapper } from './Styled';
 import type { SelectListType } from './type';
 import FormSelect from '../FormSelect';
 import FormTextArea from '../FormTextArea';
-import { updateSelectList, arr2Tree } from './utils';
+import { updateSelectList, arr2Tree, initValueArr } from './utils';
 
 export interface FormCascadeProps
   extends Omit<SelectProps<string>, 'onChange' | 'value'> {
@@ -33,27 +33,38 @@ export interface FormCascadeProps
  */
 const FormCascade: React.FC<FormCascadeProps> = (props) => {
   const {
-    value,
+    value = [],
     cascadeData = [],
     level = 3,
     styled,
-    showTextArea = true,
+    showTextArea = false,
     textAreaOptions = {},
     placeholder = [],
     onChange,
   } = props;
   const treeData = arr2Tree(cascadeData);
   const [valueArr, setValueArr] = useState<string[]>(
-    value?.slice(0, level) || []
+    initValueArr(value, showTextArea ? level + 1 : level)
   );
+  const [textValue, setTextValue] = useState<string>(valueArr?.[level]);
   const [selectList, setSelectList] = useState<SelectListType[]>(
     updateSelectList(treeData, [], level)
   );
+  // 当用户完成级联的选择后，再允许用户填写详细地址
+  // const disabledFormTextArea = !(valueArr.length >= level);
 
   const onSelectChange = (selectValue: string, index: number) => {
-    const newValueArr = [...valueArr.slice(0, index), selectValue];
+    let newValueArr: string[] = valueArr;
+    if (showTextArea && index === level) {
+      valueArr[index] = selectValue;
+      newValueArr = valueArr;
+      setTextValue(selectValue);
+    } else {
+      newValueArr = [...valueArr.slice(0, index), selectValue];
+      newValueArr[level] = textValue;
+      setSelectList(updateSelectList(treeData, newValueArr, level));
+    }
     setValueArr(newValueArr);
-    setSelectList(updateSelectList(treeData, newValueArr, level));
     onChange?.(newValueArr);
   };
 
@@ -80,9 +91,10 @@ const FormCascade: React.FC<FormCascadeProps> = (props) => {
       ))}
       {showTextArea && (
         <FormTextArea
-          defaultValue={valueArr?.[level]}
+          defaultValue={textValue}
           placeholder={placeholder?.[level] ?? '请输入...'}
           onChange={(textAreaValue) => onSelectChange(textAreaValue, level)}
+          // disabled={disabledFormTextArea}
           {...textAreaOptions}
         />
       )}
