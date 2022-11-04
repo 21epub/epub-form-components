@@ -21,13 +21,13 @@ export interface RenderItemPropsType extends RenderPropsType {
 }
 
 // 渲染包含children的布局组件
-export const layoutRender = (props: RenderItemPropsType) => {
+export const layoutRender = (props: RenderItemPropsType, index: number) => {
   const { component, count, componentMap, initialValues, formValues } = props;
   if (!component?.children) return;
   const LayoutWidget = getComponent(component?.type);
   return (
     <LayoutWidget
-      key={component?.id + component?.name}
+      key={component?.id + component?.name + index}
       {...component?.props}
       styled={styledToString(component?.props?.styled)}
     >
@@ -80,9 +80,10 @@ export const componentRender = (props: RenderItemPropsType) => {
 // 循环渲染页面
 export const loopRender = (props: RenderPropsType): React.ReactNode => {
   const { componentList } = props;
-  return componentList?.map((component: ComponentType) => {
+  return componentList?.map((component: ComponentType, index: number) => {
     if (Object.keys(LayoutWidgets).includes(component?.type)) {
-      return layoutRender({ component, ...props });
-    } else return componentRender({ component, ...props });
+      return layoutRender({ component, ...props }, index);
+    }
+    return componentRender({ component, ...props });
   });
 };

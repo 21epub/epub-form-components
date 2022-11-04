@@ -12,7 +12,7 @@ import { Wrapper } from './Styled';
 import { styledToString } from '../../FormRender/utils';
 
 export interface SettingPanelProps extends PanelBaseProps {
-  tabsProps?: TabsProps;
+  tabsProps?: TabsProps & { key?: string | number };
   settingPanelStyled?: AnyObject;
   onSettingChange: (
     changedValues: AnyObject,
