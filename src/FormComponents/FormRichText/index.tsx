@@ -37,7 +37,7 @@ const FormRichText: React.FC<FormRichTextProps> = (props) => {
     setEditorState(editorStateValue);
     // 调用editorState.toHTML()来获取HTML格式的内容，保存html格式的数据
     const htmlContent = editorStateValue.toHTML();
-    runChange && runChange(htmlContent);
+    runChange?.(htmlContent);
   };
 
   return (

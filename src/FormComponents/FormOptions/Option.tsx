@@ -4,14 +4,15 @@ import { CloseCircleOutlined, MenuOutlined } from '@ant-design/icons';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { OptionWrapper } from './Styled';
-import type { OptionType, OptionSelectType } from '../../type';
+import type { OptionSelectType } from '../../type';
+import type { CurrOptionType } from './type';
 
 export interface OptionProps {
   type?: OptionSelectType;
-  option: OptionType;
-  onOptionChange: (option: OptionType) => void;
-  onCheckedChange: (id: OptionType['id']) => void;
-  onRemoveOption: (id: OptionType['id']) => void;
+  option: Omit<CurrOptionType, 'id'> & { id: string };
+  onOptionChange: (option: CurrOptionType) => void;
+  onCheckedChange: (id: CurrOptionType['id']) => void;
+  onRemoveOption: (id: CurrOptionType['id']) => void;
 }
 
 // 单个选项

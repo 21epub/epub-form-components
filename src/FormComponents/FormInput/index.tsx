@@ -18,13 +18,9 @@ export interface FormInputProps extends Omit<InputProps, 'onChange'> {
 const FormInput: React.FC<FormInputProps> = (props) => {
   const { styled, onChange, ...rest } = props;
 
-  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange && onChange(e?.target?.value);
-  };
-
   return (
     <Wrapper styled={styled}>
-      <Input onChange={onInputChange} {...rest} />
+      <Input onChange={(e) => onChange?.(e?.target?.value)} {...rest} />
     </Wrapper>
   );
 };

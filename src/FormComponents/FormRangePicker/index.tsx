@@ -25,7 +25,7 @@ const FormRangePicker: React.FC<FormRangePickerProps> = (props) => {
   const { RangePicker } = DatePicker;
 
   const onValueChange = (_values: Any, formatString: [string, string]) => {
-    onChange && onChange(formatString);
+    onChange?.(formatString);
   };
 
   return (

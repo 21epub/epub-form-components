@@ -7,7 +7,7 @@ import { Wrapper } from './Styled';
 export interface FormSliderProps extends Omit<SliderBaseProps, 'onChange'> {
   styled?: string;
   value: number;
-  onChange?: (value: number | [number, number] | string) => void;
+  onChange?: (value: number | string | null | [number, number]) => void;
   showInputNumber?: boolean;
   inputNumberProps?: InputNumberProps;
   layout?: 'horizontal' | 'vertical';
@@ -34,9 +34,11 @@ const FormSlider: React.FC<FormSliderProps> = (props) => {
   } = props;
   const [inputValue, setInputValue] = useState<number>(value || 0);
 
-  const onSliderChange = (newValue: number | [number, number] | string) => {
+  const onSliderChange = (
+    newValue: number | string | null | [number, number]
+  ) => {
     if (typeof newValue === 'number') setInputValue(newValue);
-    onChange && onChange(newValue);
+    onChange?.(newValue);
   };
 
   useEffect(() => {

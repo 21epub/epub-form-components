@@ -18,13 +18,12 @@ export interface FormTextAreaProps extends Omit<TextAreaProps, 'onChange'> {
 const FormTextArea: React.FC<FormTextAreaProps> = (props) => {
   const { styled, onChange, ...rest } = props;
 
-  const onTextAreaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    onChange && onChange(e?.target?.value);
-  };
-
   return (
     <Wrapper styled={styled}>
-      <Input.TextArea onChange={onTextAreaChange} {...rest} />
+      <Input.TextArea
+        onChange={(e) => onChange?.(e?.target?.value)}
+        {...rest}
+      />
     </Wrapper>
   );
 };

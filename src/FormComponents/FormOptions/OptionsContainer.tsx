@@ -13,20 +13,20 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
-import type { OptionsConfigType, OptionType } from '../../type';
+import type { CurrOptionType, CurrOptionsConfigType } from './type';
 import Option from './Option';
 import { sortOptions } from './utils';
 
 interface OptionsContainerProps {
-  optionsConfig: OptionsConfigType;
-  onOptionsConfigChange: (value: OptionsConfigType) => void;
+  optionsConfig: CurrOptionsConfigType;
+  onOptionsConfigChange: (value: CurrOptionsConfigType) => void;
 }
 
 // 选项容器
 const OptionsContainer: React.FC<OptionsContainerProps> = (props) => {
   const { optionsConfig, onOptionsConfigChange } = props;
   const sensors = useSensors(useSensor(PointerSensor), useSensor(TouchSensor));
-  const { type, options } = optionsConfig;
+  const { type, options } = optionsConfig || {};
 
   // 拖动结束
   const handleDragEnd = (event: DragEndEvent) => {
@@ -49,9 +49,9 @@ const OptionsContainer: React.FC<OptionsContainerProps> = (props) => {
   };
 
   // 更新选项
-  const onOptionChange = (option: OptionType) => {
+  const onOptionChange = (option: CurrOptionType) => {
     const newOptions = [...options];
-    const newOptionIndex = options.findIndex((item) => item.id === option.id);
+    const newOptionIndex = options?.findIndex((item) => item.id === option.id);
     if (newOptionIndex !== -1) newOptions[newOptionIndex] = option;
     onOptionsConfigChange({
       ...optionsConfig,
@@ -61,15 +61,17 @@ const OptionsContainer: React.FC<OptionsContainerProps> = (props) => {
 
   // 更新选项
   const onCheckedChange = (id: string) => {
-    const newOptions = optionsConfig?.options.map((option: OptionType) => ({
-      ...option,
-      checked:
-        option.id === id
-          ? !option.checked
-          : optionsConfig.type === 'Checkbox'
-          ? option.checked
-          : false,
-    }));
+    const newOptions = optionsConfig?.options?.map(
+      (option: CurrOptionType) => ({
+        ...option,
+        checked:
+          option.id === id
+            ? !option?.checked
+            : optionsConfig?.type === 'Checkbox'
+            ? option?.checked
+            : false,
+      })
+    );
     onOptionsConfigChange({
       ...optionsConfig,
       options: newOptions,
@@ -84,7 +86,7 @@ const OptionsContainer: React.FC<OptionsContainerProps> = (props) => {
       modifiers={[restrictToVerticalAxis]}
     >
       <SortableContext items={options} strategy={verticalListSortingStrategy}>
-        {options.map((option) => (
+        {options?.map((option) => (
           <Option
             key={option.id}
             type={type}

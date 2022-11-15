@@ -54,15 +54,16 @@ export const integrateToSeparate = (componentConfig: ComponentType[]) => {
     components: ComponentType[]
   ): ComponentStructureType[] => {
     return components.map((component) => {
-      if (component.children) {
+      const { name = '', label = '', children } = component || {};
+      if (children) {
         componentList.push({ ...component, children: undefined });
         return {
-          name: component.name,
-          children: loopComponents(component.children),
+          name: name || label,
+          children: loopComponents(children),
         };
       } else {
         componentList.push({ ...component });
-        return { name: component.name };
+        return { name: name || label };
       }
     });
   };
@@ -103,8 +104,9 @@ export const getDefaultValue = (componentsConfig: ComponentType[]) => {
   const { componentList } = integrateToSeparate(componentsConfig);
   const defaultValue: AnyObject = {};
   componentList?.forEach((component) => {
+    const { name = '', label = '' } = component;
     if (component?.props?.optionsConfig) {
-      defaultValue[component.name] =
+      defaultValue[name || label] =
         component.props?.optionsConfig?.defaultValue;
     }
   });

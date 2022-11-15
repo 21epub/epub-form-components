@@ -1,6 +1,6 @@
 import React from 'react';
 import { Radio, List } from 'antd';
-import type { RadioProps, RadioChangeEvent } from 'antd/lib/radio';
+import type { RadioProps } from 'antd/lib/radio';
 import { uniqueId } from 'lodash';
 import { Wrapper } from './Styled';
 import type { OptionsConfigType, OptionType } from '../../type';
@@ -25,14 +25,10 @@ const FormRadio: React.FC<FormRadioProps> = (props) => {
   const { optionsConfig, size, styled, onChange, ...rest } = props;
   const listSize = size === 'middle' ? 'default' : size;
 
-  const onRadioChange = (e: RadioChangeEvent) => {
-    onChange && onChange(e?.target?.value);
-  };
-
   return (
     <Wrapper styled={styled}>
       <List bordered itemLayout="vertical" size={listSize}>
-        <Radio.Group onChange={onRadioChange} {...rest}>
+        <Radio.Group onChange={(e) => onChange?.(e?.target?.value)} {...rest}>
           {optionsConfig?.options?.map((option: OptionType) => (
             <List.Item key={uniqueId()}>
               <Radio value={option.value}>{option.label}</Radio>

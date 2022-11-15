@@ -1,9 +1,9 @@
 import type { CheckboxValueType } from 'antd/lib/checkbox/Group';
 
-// 每个选项配置项
+// 选项配置类型
 export interface OptionType {
   // 选项的id
-  id: string;
+  id?: string;
   // 选项显示的标题
   label: string;
   // 选项的值

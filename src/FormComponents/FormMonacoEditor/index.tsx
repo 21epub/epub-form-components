@@ -41,7 +41,7 @@ const FormMonacoEditor: React.FC<FormMonacoEditorProps> = (props) => {
 
   // onChange封装
   const onEditorChange: OnChange = (editorValue, ev) => {
-    if (onChange) onChange(editorValue, ev);
+    onChange?.(editorValue, ev);
   };
 
   // 防抖操作

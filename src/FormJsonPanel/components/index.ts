@@ -2,7 +2,7 @@ import * as FormComponents from '../../FormComponents';
 import * as FormWidgets from '../../FormWidgets';
 import * as ProComponents from '../../ProComponents';
 import * as LayoutWidgets from '../../LayoutWidgets';
-import type { ComponentMapType } from '../type';
+import type { ComponentMapType, ComponentType } from '../type';
 import ErrorAlertWidget from './ErrorAlertWidget';
 
 export { default as ErrorAlertWidget } from './ErrorAlertWidget';
@@ -23,7 +23,7 @@ export const componentsMap = {
  * @returns
  */
 export const getComponent = (
-  componentType?: string,
+  componentType?: ComponentType['type'],
   componentMap?: ComponentMapType
 ) => {
   if (!componentType) return ErrorAlertWidget;

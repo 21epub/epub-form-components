@@ -23,16 +23,17 @@ export interface RenderItemPropsType extends RenderPropsType {
 // 渲染包含children的布局组件
 export const layoutRender = (props: RenderItemPropsType, index: number) => {
   const { component, count, componentMap, initialValues, formValues } = props;
-  if (!component?.children) return;
-  const LayoutWidget = getComponent(component?.type);
+  const { id = '', name = '', type, children, hidden } = component || {};
+  if (!children || hidden) return;
+  const LayoutWidget = getComponent(type);
   return (
     <LayoutWidget
-      key={component?.id + component?.name + index}
+      key={id + name + index}
       {...component?.props}
       styled={styledToString(component?.props?.styled)}
     >
       {loopRender({
-        componentList: component?.children,
+        componentList: children,
         count,
         componentMap,
         initialValues,
@@ -45,16 +46,25 @@ export const layoutRender = (props: RenderItemPropsType, index: number) => {
 // 渲染组件
 export const componentRender = (props: RenderItemPropsType) => {
   const { component, count, componentMap, initialValues, formValues } = props;
-  const ComponentWidget = getComponent(component?.type, componentMap);
+  const {
+    id = '',
+    name = '',
+    label = '',
+    type,
+    children,
+    styled,
+  } = component || {};
+  const ComponentWidget = getComponent(type, componentMap);
   return (
-    <Fragment key={component?.id + component?.name}>
+    <Fragment key={id + name}>
       <FormItemWrapper
-        key={component?.id + component?.name}
+        key={id + name}
         className={count ? 'FormItemRender' : ''}
-        initialValue={initialValues?.[component?.name]}
+        initialValue={initialValues?.[name]}
         style={{ position: 'relative', marginLeft: `${count * 50}px` }}
+        name={name || id + type + label}
         {...component}
-        styled={styledToString(component?.styled || {})}
+        styled={styledToString(styled || {})}
       >
         <ComponentWidget
           slug={initialValues?.slug || initialValues?.id}
@@ -63,11 +73,11 @@ export const componentRender = (props: RenderItemPropsType) => {
           {...component?.props}
         />
       </FormItemWrapper>
-      {component?.children &&
-        isBoolean(formValues?.[component?.name]) &&
-        formValues?.[component?.name] &&
+      {children &&
+        isBoolean(formValues?.[name]) &&
+        formValues?.[name] &&
         loopRender({
-          componentList: component?.children,
+          componentList: children,
           count: count + 1,
           componentMap,
           initialValues,

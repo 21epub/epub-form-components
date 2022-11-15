@@ -25,7 +25,7 @@ const FormDatePicker: React.FC<FormDatePickerProps> = (props) => {
   const { value, picker, styled, onChange, ...rest } = props;
 
   const onValueChange = (_momentValue: Moment | null, dateString: string) => {
-    onChange && onChange(dateString);
+    onChange?.(dateString);
   };
 
   return (
