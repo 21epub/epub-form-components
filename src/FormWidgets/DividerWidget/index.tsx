@@ -9,7 +9,7 @@ export interface DividerWidgetProps extends DividerProps {
 }
 
 /**
- * @name 文本展示组件
+ * @name 分隔线
  * @param styled 自定义样式 示例：styled：`{width:'100%'}`
  * @param text 分割线中间文本
  * @link 其他参数详见 https://ant.design/components/divider-cn/

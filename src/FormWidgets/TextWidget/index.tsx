@@ -10,7 +10,7 @@ export interface TextWidgetProps extends TextProps {
 }
 
 /**
- * @name 文本展示组件
+ * @name 文本展示
  * @param styled 自定义样式 示例：styled：`{width:'100%'}`
  * @param text 文本
  * @link 其他参数详见 https://ant.design/components/typography-cn/#Typography.Text

@@ -44,7 +44,7 @@ export const layoutRender = (props: RenderItemPropsType, index: number) => {
 };
 
 // 渲染组件
-export const componentRender = (props: RenderItemPropsType) => {
+export const componentRender = (props: RenderItemPropsType, index: number) => {
   const { component, count, componentMap, initialValues, formValues } = props;
   const {
     id = '',
@@ -56,9 +56,9 @@ export const componentRender = (props: RenderItemPropsType) => {
   } = component || {};
   const ComponentWidget = getComponent(type, componentMap);
   return (
-    <Fragment key={id + name}>
+    <Fragment key={id + name + index}>
       <FormItemWrapper
-        key={id + name}
+        key={id + name + index}
         className={count ? 'FormItemRender' : ''}
         initialValue={initialValues?.[name]}
         style={{ position: 'relative', marginLeft: `${count * 50}px` }}
@@ -94,6 +94,6 @@ export const loopRender = (props: RenderPropsType): React.ReactNode => {
     if (Object.keys(LayoutWidgets).includes(component?.type)) {
       return layoutRender({ component, ...props }, index);
     }
-    return componentRender({ component, ...props });
+    return componentRender({ component, ...props }, index);
   });
 };
