@@ -1,10 +1,12 @@
 import React from 'react';
 import { DatePicker } from 'antd';
 import type { RangePickerProps } from 'antd/lib/date-picker';
+import type { RangeValue } from 'rc-picker/lib/interface';
 import { Wrapper } from './Styled';
 import 'moment/locale/zh-cn';
 import locale from 'antd/lib/date-picker/locale/zh_CN';
 import moment from 'moment';
+import type { MomentFormatSpecification, Moment } from 'moment';
 moment.locale('zh-cn');
 
 export type FormRangePickerProps = RangePickerProps & {
@@ -21,8 +23,20 @@ export type FormRangePickerProps = RangePickerProps & {
  * @link 其他参数详见 https://ant.design/components/date-picker-cn/
  */
 const FormRangePicker: React.FC<FormRangePickerProps> = (props) => {
-  const { value, picker, styled, onChange, ...rest } = props;
-  const { RangePicker } = DatePicker;
+  const {
+    value,
+    picker,
+    styled,
+    onChange,
+    format = 'YYYY-MM-DD HH:mm',
+    ...rest
+  } = props;
+
+  const momentFormat = format as MomentFormatSpecification;
+
+  const newValue: RangeValue<Moment> | undefined = value?.[0]
+    ? [moment(value?.[0], momentFormat), moment(value?.[1], momentFormat)]
+    : undefined;
 
   const onValueChange = (_values: Any, formatString: [string, string]) => {
     onChange?.(formatString);
@@ -30,17 +44,12 @@ const FormRangePicker: React.FC<FormRangePickerProps> = (props) => {
 
   return (
     <Wrapper styled={styled}>
-      <RangePicker
+      <DatePicker.RangePicker
         locale={locale}
         picker={picker}
-        value={
-          value?.[0] && [
-            moment(value?.[0], 'YYYY-MM-DD HH:mm'),
-            moment(value?.[1], 'YYYY-MM-DD HH:mm'),
-          ]
-        }
+        value={newValue}
+        format={format}
         showTime={{ format: 'HH:mm' }}
-        format="YYYY-MM-DD HH:mm"
         onChange={onValueChange}
         {...rest}
       />
