@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import type { SelectProps } from 'antd/lib/select';
-import type { TextAreaProps } from 'antd/lib/input';
 import { Wrapper } from './Styled';
 import type { SelectListType } from './type';
 import FormSelect from '../FormSelect';
+import type { FormSelectProps } from '../FormSelect';
 import FormTextArea from '../FormTextArea';
+import type { FormTextAreaProps } from '../FormTextArea';
 import { updateSelectList, arr2Tree, initValueArr } from './utils';
 
 export interface FormCascadeProps
@@ -13,7 +14,8 @@ export interface FormCascadeProps
   cascadeData: string[][];
   styled?: string;
   level?: number;
-  textAreaOptions?: Omit<TextAreaProps, 'onChange'>;
+  FormSelectOptions?: Omit<FormSelectProps, 'onChange' | 'optionsConfig'>;
+  FormTextAreaOptions?: Omit<FormTextAreaProps, 'onChange'>;
   showTextArea?: boolean;
   placeholder?: string[];
   onChange?: (value: string[]) => void;
@@ -27,7 +29,8 @@ export interface FormCascadeProps
  * @param level 级联层级
  * @param placeholder 级联输入框占位符
  * @param showTextArea 显示自定义文本框
- * @param textAreaOptions 自定义文本框的配置项
+ * @param FormSelectOptions 自定义下拉框的配置项
+ * @param FormTextAreaOptions 自定义文本框的配置项
  * @param cascadeData 外部输入的级联选项数据
  * @link 其他参数详见 https://ant.design/components/select-cn/
  */
@@ -38,10 +41,12 @@ const FormCascade: React.FC<FormCascadeProps> = (props) => {
     level = 3,
     styled,
     showTextArea = false,
-    textAreaOptions = {},
+    FormSelectOptions = {},
+    FormTextAreaOptions = {},
     placeholder = [],
     onChange,
   } = props;
+
   const treeData = arr2Tree(cascadeData);
   const [valueArr, setValueArr] = useState<string[]>(
     initValueArr(value, showTextArea ? level + 1 : level)
@@ -87,6 +92,7 @@ const FormCascade: React.FC<FormCascadeProps> = (props) => {
               index === selectList.length - 1 && !showTextArea ? 0 : 20
             }px`,
           }}
+          {...FormSelectOptions}
         />
       ))}
       {showTextArea && (
@@ -95,7 +101,7 @@ const FormCascade: React.FC<FormCascadeProps> = (props) => {
           placeholder={placeholder?.[level] ?? '请输入...'}
           onChange={(textAreaValue) => onSelectChange(textAreaValue, level)}
           // disabled={disabledFormTextArea}
-          {...textAreaOptions}
+          {...FormTextAreaOptions}
         />
       )}
     </Wrapper>
