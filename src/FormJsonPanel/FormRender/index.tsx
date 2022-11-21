@@ -58,8 +58,9 @@ export const FormRender: React.FC<FormRenderProps> = (props) => {
     // 获取当前改变字段的name值
     const [name] = Object.keys(changedValues);
     // 判断改变的字段，有没有包含children。
-    const isHaveChildren = !!componentList.find((item) => item.name === name)
-      ?.children;
+    const isHaveChildren = Boolean(
+      componentList.find((item) => item.name === name)?.children
+    );
     // 若有children，则表示此字段的值可能会用于判断渲染children
     if (isHaveChildren) setFormValues(values);
     onValuesChange(changedValues, values, form);

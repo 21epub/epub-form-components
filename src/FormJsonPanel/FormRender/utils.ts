@@ -61,10 +61,9 @@ export const integrateToSeparate = (componentConfig: ComponentType[]) => {
           name: name || label,
           children: loopComponents(children),
         };
-      } else {
-        componentList.push({ ...component });
-        return { name: name || label };
       }
+      componentList.push({ ...component });
+      return { name: name || label };
     });
   };
 

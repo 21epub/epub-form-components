@@ -47,11 +47,12 @@ const SettingPanel: FC<SettingPanelProps> = (props) => {
   // 渲染每个Tabs的面板
   const TabPaneRender = (tabsList?: PanelTabsType[]) => {
     return tabsList?.map((tabs) => {
+      const { tabsName, componentList } = tabs || {};
       return (
-        <TabPane key={tabs.tabsName} tab={tabs.tabsName}>
+        <TabPane key={tabsName} tab={tabsName}>
           <FormRender
             initialValues={panelData}
-            componentList={tabs.componentList}
+            componentList={componentList}
             onValuesChange={onSettingChange}
             componentMap={componentMap}
           />
