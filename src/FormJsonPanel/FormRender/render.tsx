@@ -46,14 +46,7 @@ export const layoutRender = (props: RenderItemPropsType, index: number) => {
 // 渲染组件
 export const componentRender = (props: RenderItemPropsType, index: number) => {
   const { component, count, componentMap, initialValues, formValues } = props;
-  const {
-    id = '',
-    name = '',
-    label = '',
-    type,
-    children,
-    styled,
-  } = component || {};
+  const { id = '', name = '', type, children, styled } = component || {};
   const ComponentWidget = getComponent(type, componentMap);
   return (
     <Fragment key={id + name + index}>
@@ -62,7 +55,7 @@ export const componentRender = (props: RenderItemPropsType, index: number) => {
         className={count ? 'FormItemRender' : ''}
         initialValue={initialValues?.[name]}
         style={{ position: 'relative', marginLeft: `${count * 50}px` }}
-        name={name || id + type + label}
+        name={name || id + type}
         {...component}
         styled={styledToString(styled || {})}
       >

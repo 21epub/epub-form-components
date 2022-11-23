@@ -1,4 +1,4 @@
-import type { TabsProps } from 'antd';
+import type { TabsProps, FormItemProps } from 'antd';
 import type { FieldError } from 'rc-field-form/es/interface';
 import type { OptionsConfigType } from '../../type';
 import type { componentsMap } from '../components';
@@ -43,13 +43,11 @@ export interface ComponentPropsType {
 }
 
 // 每个组件的类型
-export interface ComponentType {
+export interface ComponentType extends FormItemProps {
   // 每个组件的唯一标识id
   id?: string;
   // 组件对应的name，单个表单中的区分组件的唯一标识
   name?: string;
-  // 标题
-  label?: string;
   // 组件的类型
   type: keyof typeof componentsMap;
   // 组件的参数集合，props里的内容会传到组件里
