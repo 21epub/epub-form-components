@@ -1,3 +1,4 @@
+import type React from 'react';
 import * as FormComponents from '../../FormComponents';
 import * as FormWidgets from '../../FormWidgets';
 import * as ProComponents from '../../ProComponents';
@@ -25,7 +26,7 @@ export const componentsMap = {
 export const getComponent = (
   componentType?: ComponentType['type'],
   componentMap?: ComponentMapType
-) => {
+): React.FC<any> => {
   if (!componentType) return ErrorAlertWidget;
   return (
     Reflect.get({ ...componentsMap, ...componentMap }, componentType) ||

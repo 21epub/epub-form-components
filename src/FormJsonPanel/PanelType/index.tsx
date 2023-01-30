@@ -78,8 +78,8 @@ export const JsonPanel: React.FC<JsonPanelProps> = (props) => {
     }
     // 若是编辑面板，或配置面板校验结果通过，则返回数据
     if (panelType === 'EditorPanel' || result) {
-      onChange && onChange(onChangeValue);
-      onClose && onClose();
+      onChange?.(onChangeValue);
+      onClose?.();
     }
   };
 

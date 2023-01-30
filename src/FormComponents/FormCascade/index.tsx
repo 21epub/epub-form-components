@@ -17,7 +17,7 @@ export interface FormCascadeProps
   FormSelectOptions?: Omit<FormSelectProps, 'onChange' | 'optionsConfig'>;
   FormTextAreaOptions?: Omit<FormTextAreaProps, 'onChange'>;
   showTextArea?: boolean;
-  placeholder?: string[];
+  placeholders?: string[];
   onChange?: (value: string[]) => void;
 }
 
@@ -43,7 +43,7 @@ const FormCascade: React.FC<FormCascadeProps> = (props) => {
     showTextArea = false,
     FormSelectOptions = {},
     FormTextAreaOptions = {},
-    placeholder = [],
+    placeholders = [],
     onChange,
   } = props;
 
@@ -84,7 +84,7 @@ const FormCascade: React.FC<FormCascadeProps> = (props) => {
         <FormSelect
           key={index}
           value={valueArr?.[index]}
-          placeholder={placeholder?.[index] ?? '请选择...'}
+          placeholder={placeholders?.[index] ?? '请选择...'}
           optionsConfig={selectItem}
           onChange={(selectValue) => onSelectChange(selectValue, index)}
           style={{
@@ -98,7 +98,7 @@ const FormCascade: React.FC<FormCascadeProps> = (props) => {
       {showTextArea && (
         <FormTextArea
           defaultValue={textValue}
-          placeholder={placeholder?.[level] ?? '请输入...'}
+          placeholder={placeholders?.[level] ?? '请输入...'}
           onChange={(textAreaValue) => onSelectChange(textAreaValue, level)}
           // disabled={disabledFormTextArea}
           {...FormTextAreaOptions}
