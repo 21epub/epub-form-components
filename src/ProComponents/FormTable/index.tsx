@@ -96,7 +96,7 @@ const FormTable: React.FC<FormTableProps> = (props) => {
       if (!item.id) dataSourceValue[index].id = uniqueId() + index;
     });
     setDataSource(dataSourceValue);
-    onChange && onChange(dataSourceValue);
+    onChange?.(dataSourceValue);
     return dataSourceValue;
   };
 
@@ -219,7 +219,7 @@ const FormTable: React.FC<FormTableProps> = (props) => {
           okText="确定"
           cancelText="取消"
           zIndex={1040}
-          visible={visibleModal}
+          open={visibleModal}
           onOk={onModalSubmit}
           onCancel={() => setVisibleModal(false)}
           destroyOnClose
